@@ -15,8 +15,6 @@ from app.routers.incidents import router as incidents_router
 from app.routers.alerts import router as alerts_router
 from app.routers.cameras import router as cameras_router
 
-
-
 def create_app() -> FastAPI:
     app = FastAPI(
         title="Sentinel AI Backend",
@@ -27,9 +25,22 @@ def create_app() -> FastAPI:
     # Estado global para streams activos
     app.state.active_streams = {}
 
+    # --- CONFIGURACIÓN DE CORS SOLUCIONADA ---
+    # Aquí definimos explícitamente quiénes pueden conectarse
+    origenes_permitidos = [
+        "https://fronted-proyecto-tesis.vercel.app",  # Tu frontend en Vercel
+        "http://localhost:5173",                      # Por si pruebas localmente con Vite
+        "http://localhost:3000",                      # Por si pruebas localmente
+        "http://127.0.0.1:5173"
+    ]
+    
+    # Mantenemos también los que ya tenías en tu config por si acaso
+    if isinstance(settings.CORS_ORIGINS, list):
+        origenes_permitidos.extend(settings.CORS_ORIGINS)
+
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=settings.CORS_ORIGINS,
+        allow_origins=origenes_permitidos, # Inyectamos la lista aquí
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
@@ -53,6 +64,5 @@ def create_app() -> FastAPI:
         return {"status": "ok", "name": "Sentinel AI Backend"}
 
     return app
-
 
 app = create_app()
