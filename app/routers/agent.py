@@ -14,17 +14,19 @@ from app.core.database import get_db
 router = APIRouter(prefix="/agent", tags=["Agent YOLO"])
 
 
+# 📥 Modelo de entrada desde Docker YOLO
 class AgentDetectionIn(BaseModel):
     camera_id: str
     camera_name: str
-    type: str
+    type: str  # arma_fuego / arma_blanca
     confidence: float
     timestamp: Optional[str] = None
     source: str = "docker-local-agent"
     image_base64: Optional[str] = None
 
 
-def validate_agent_token(authorization: str | None):
+# 🔐 Validación de token del agente
+def validate_agent_token(authorization: Optional[str]):
     expected_token = os.getenv("AGENT_TOKEN", "SentinelLocalAgent2026_MPSM")
 
     if not authorization:
@@ -34,16 +36,18 @@ def validate_agent_token(authorization: str | None):
         raise HTTPException(status_code=401, detail="Token inválido")
 
 
+# 🚨 Endpoint principal
 @router.post("/detections")
 async def receive_detection(
     payload: AgentDetectionIn,
-    authorization: str | None = Header(default=None),
+    authorization: Optional[str] = Header(default=None),
     db: AsyncIOMotorDatabase = Depends(get_db),
 ):
     validate_agent_token(authorization)
 
     evidence_url = None
 
+    # 📸 Guardar imagen si viene en base64
     if payload.image_base64:
         os.makedirs("static/evidences", exist_ok=True)
 
@@ -57,6 +61,7 @@ async def receive_detection(
 
         evidence_url = f"/static/evidences/{filename}"
 
+    # 🧾 Crear incidente
     incident_doc = {
         "camera_id": payload.camera_id,
         "camera_name": payload.camera_name,
@@ -70,6 +75,7 @@ async def receive_detection(
 
     result = await db["incidents"].insert_one(incident_doc)
 
+    # 🔔 Crear alerta
     alert_doc = {
         "title": "Arma detectada",
         "message": f"Se detectó {payload.type} en {payload.camera_name}",
