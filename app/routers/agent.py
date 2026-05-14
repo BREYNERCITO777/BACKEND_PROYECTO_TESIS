@@ -1,5 +1,7 @@
+from __future__ import annotations
+
 import os
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional
 
 from fastapi import APIRouter, Depends, Header, HTTPException
@@ -7,6 +9,7 @@ from motor.motor_asyncio import AsyncIOMotorDatabase
 from pydantic import BaseModel
 
 from app.core.database import get_db
+from app.core.ws_manager import ws_manager
 
 
 router = APIRouter(prefix="/agent", tags=["Agent YOLO"])
@@ -28,7 +31,7 @@ def validate_agent_token(authorization: Optional[str]):
     if not authorization:
         raise HTTPException(status_code=401, detail="Falta token")
 
-    if authorization != f"Bearer {expected_token}":
+    if authorization != "Bearer {}".format(expected_token):
         raise HTTPException(status_code=401, detail="Token inválido")
 
 
@@ -40,10 +43,8 @@ async def receive_detection(
 ):
     validate_agent_token(authorization)
 
-    created_at = datetime.utcnow()
+    created_at = datetime.now(timezone.utc).isoformat()
 
-    # Guardamos la imagen DIRECTAMENTE en MongoDB
-    # Ya no dependemos de archivos /static/evidences
     image_base64 = payload.image_base64
 
     incident_doc = {
@@ -54,31 +55,32 @@ async def receive_detection(
         "confidence": payload.confidence,
         "source": payload.source,
         "status": "new",
+        "timestamp": payload.timestamp,
         "created_at": created_at,
-
-        # Campos de evidencia
         "evidence_url": None,
         "image_base64": image_base64,
         "evidence_type": "base64" if image_base64 else None,
     }
 
-    result = await db["incidents"].insert_one(incident_doc)
+    incident_result = await db["incidents"].insert_one(incident_doc)
 
     alert_doc = {
+        "type": payload.type,
         "title": "Arma detectada",
-        "message": f"Se detectó {payload.type} en {payload.camera_name}",
+        "message": "Se detectó {} en {}".format(
+            payload.type,
+            payload.camera_name,
+        ),
         "severity": "high",
         "weapon_type": payload.type,
-        "type": payload.type,
         "confidence": payload.confidence,
         "camera_id": payload.camera_id,
         "camera_name": payload.camera_name,
-        "incident_id": str(result.inserted_id),
+        "incident_id": str(incident_result.inserted_id),
         "source": payload.source,
         "read": False,
+        "timestamp": payload.timestamp,
         "created_at": created_at,
-
-        # Campos de evidencia
         "evidence_url": None,
         "image_base64": image_base64,
         "evidence_type": "base64" if image_base64 else None,
@@ -86,11 +88,39 @@ async def receive_detection(
 
     alert_result = await db["alerts"].insert_one(alert_doc)
 
+    alert_payload = {
+        "_id": str(alert_result.inserted_id),
+        "type": alert_doc.get("type"),
+        "title": alert_doc.get("title"),
+        "message": alert_doc.get("message"),
+        "severity": alert_doc.get("severity"),
+        "weapon_type": alert_doc.get("weapon_type"),
+        "confidence": alert_doc.get("confidence"),
+        "camera_id": alert_doc.get("camera_id"),
+        "camera_name": alert_doc.get("camera_name"),
+        "incident_id": alert_doc.get("incident_id"),
+        "source": alert_doc.get("source"),
+        "read": alert_doc.get("read", False),
+        "timestamp": alert_doc.get("timestamp"),
+        "created_at": alert_doc.get("created_at"),
+        "evidence_url": alert_doc.get("evidence_url"),
+        "image_base64": alert_doc.get("image_base64"),
+        "evidence_type": alert_doc.get("evidence_type"),
+    }
+
+    await ws_manager.broadcast(
+        {
+            "event": "new_alert",
+            "data": alert_payload,
+        }
+    )
+
     return {
         "ok": True,
         "message": "Detección recibida correctamente",
-        "incident_id": str(result.inserted_id),
+        "incident_id": str(incident_result.inserted_id),
         "alert_id": str(alert_result.inserted_id),
         "evidence_url": None,
         "image_base64_saved": True if image_base64 else False,
+        "websocket_broadcast": True,
     }
