@@ -26,21 +26,14 @@ def _serialize(doc: Dict[str, Any]) -> Dict[str, Any]:
         "weapon_type": doc.get("weapon_type"),
         "confidence": doc.get("confidence"),
         "evidence_url": doc.get("evidence_url"),
-
-        # Evidencia en Base64 guardada en MongoDB
         "image_base64": doc.get("image_base64"),
         "evidence_type": doc.get("evidence_type"),
-
-        # Datos de cámara / agente
         "camera_id": doc.get("camera_id"),
         "camera_name": doc.get("camera_name"),
         "incident_id": doc.get("incident_id"),
         "source": doc.get("source"),
-
-        # Fechas
         "timestamp": doc.get("timestamp"),
         "created_at": doc.get("created_at"),
-
         "read": doc.get("read", False),
     }
 
@@ -77,17 +70,12 @@ class AlertRepository:
             "weapon_type": weapon_type,
             "confidence": confidence,
             "evidence_url": evidence_url,
-
-            # Evidencia Base64
             "image_base64": image_base64,
             "evidence_type": evidence_type,
-
-            # Datos extra
             "camera_id": camera_id,
             "camera_name": camera_name,
             "incident_id": incident_id,
             "source": source,
-
             "timestamp": now,
             "created_at": now,
             "read": read,
@@ -101,17 +89,17 @@ class AlertRepository:
     async def list(
         self,
         db: AsyncIOMotorDatabase,
-        limit: int = 50
+        limit: int = 50,
     ) -> List[Dict[str, Any]]:
         cursor = self.col(db).find({}).sort("created_at", -1).limit(limit)
         docs = await cursor.to_list(length=limit)
 
-        return [_serialize(d) for d in docs]
+        return [_serialize(doc) for doc in docs]
 
     async def get(
         self,
         db: AsyncIOMotorDatabase,
-        alert_id: str
+        alert_id: str,
     ) -> Optional[Dict[str, Any]]:
         doc = await self.col(db).find_one({"_id": _oid(alert_id)})
 
@@ -121,11 +109,11 @@ class AlertRepository:
         self,
         db: AsyncIOMotorDatabase,
         alert_id: str,
-        read: bool = True
+        read: bool = True,
     ) -> Optional[Dict[str, Any]]:
         await self.col(db).update_one(
             {"_id": _oid(alert_id)},
-            {"$set": {"read": read}}
+            {"$set": {"read": read}},
         )
 
         return await self.get(db, alert_id)
@@ -133,7 +121,7 @@ class AlertRepository:
     async def delete(
         self,
         db: AsyncIOMotorDatabase,
-        alert_id: str
+        alert_id: str,
     ) -> bool:
         res = await self.col(db).delete_one({"_id": _oid(alert_id)})
 
@@ -141,7 +129,7 @@ class AlertRepository:
 
     async def delete_all(
         self,
-        db: AsyncIOMotorDatabase
+        db: AsyncIOMotorDatabase,
     ) -> int:
         res = await self.col(db).delete_many({})
 
