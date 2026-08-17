@@ -40,6 +40,7 @@ class IncidentRepository:
         timestamp: str | None = None,
         image_base64: str | None = None,
         evidence_type: str | None = None,
+        camera_registered: bool | None = None,
     ) -> Dict[str, Any]:
         now = datetime.now(timezone.utc).isoformat()
         doc = {
@@ -50,6 +51,9 @@ class IncidentRepository:
             "evidence_url": evidence_url,
             "camera_id": camera_id,
             "camera_name": camera_name,
+            # None = no aplica (origen distinto al agente); False = el agente
+            # reportó una cámara que no existe en la colección de cámaras.
+            "camera_registered": camera_registered,
             "source": source,
             "status": status,
             "image_base64": image_base64,

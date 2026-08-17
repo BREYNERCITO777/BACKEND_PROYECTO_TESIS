@@ -35,6 +35,15 @@ class Settings(BaseSettings):
     # (ver app/core/lifecycle.py). Nunca hardcodear un token de respaldo aquí.
     AGENT_TOKEN: str = ""
 
+    # Segundos mínimos entre dos detecciones aceptadas de la misma cámara.
+    # Evita que un agente detectando a N fps genere N incidentes por segundo.
+    # 0 desactiva el control.
+    AGENT_COOLDOWN_SECONDS: float = 5.0
+
+    # Tamaño máximo de la evidencia base64 que acepta el agente. Mongo rechaza
+    # documentos de más de 16 MB, así que el límite debe quedar por debajo.
+    AGENT_MAX_EVIDENCE_MB: float = 4.0
+
     # CORS (en .env usar CSV: http://localhost:3000,http://127.0.0.1:3000)
     CORS_ORIGINS: List[str] = Field(default_factory=lambda: ["http://localhost:3000"])
 
