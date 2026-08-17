@@ -6,8 +6,8 @@ from motor.motor_asyncio import AsyncIOMotorDatabase
 from passlib.context import CryptContext
 
 from app.core.database import get_db
-from app.core.config import settings
 from app.core.security import create_access_token, get_current_user
+from app.repositories.user_repository import UserRepository
 
 router = APIRouter(prefix="/auth", tags=["Auth"])
 
@@ -53,7 +53,7 @@ async def login(
     # OAuth2PasswordRequestForm usa: username, password (aunque sea email)
     email = (form.username or "").strip().lower()
 
-    user = await db[settings.USERS_COL].find_one({"email": email})
+    user = await UserRepository(db).get_by_email(email)
     if not user:
         raise HTTPException(status_code=401, detail="Credenciales inválidas")
 

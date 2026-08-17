@@ -7,8 +7,6 @@ import time
 from datetime import datetime
 from typing import Any, Dict, Optional
 
-from bson import ObjectId
-from bson.errors import InvalidId
 from fastapi import APIRouter, Depends, Header, HTTPException
 from motor.motor_asyncio import AsyncIOMotorDatabase
 from pydantic import BaseModel, Field, field_validator
@@ -17,6 +15,7 @@ from app.core.config import settings
 from app.core.database import get_db
 from app.core.ws_manager import ws_manager
 from app.repositories.alert_repository import alert_repo
+from app.repositories.camera_repository import CameraRepository
 from app.repositories.incident_repository import IncidentRepository
 from app.repositories.settings_repository import settings_repo
 
@@ -113,16 +112,13 @@ async def _buscar_camara(
     identifica cámaras. Como respaldo se intenta por nombre, porque el agente
     local puede estar usando un identificador propio (ej. "cam-001").
     """
-    col = db[settings.CAMERAS_COL]
+    repo = CameraRepository(db)
 
-    try:
-        doc = await col.find_one({"_id": ObjectId(camera_id)})
-        if doc:
-            return doc
-    except (InvalidId, TypeError):
-        pass
+    doc = await repo.get(camera_id)
+    if doc:
+        return doc
 
-    return await col.find_one({"name": camera_name})
+    return await repo.get_by_name(camera_name)
 
 
 @router.post("/detections")

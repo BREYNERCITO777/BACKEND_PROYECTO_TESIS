@@ -2,15 +2,14 @@ from __future__ import annotations
 
 from typing import Literal, Optional
 
-from bson import ObjectId
 from fastapi import APIRouter, Depends, HTTPException, status
 from motor.motor_asyncio import AsyncIOMotorDatabase
 from passlib.context import CryptContext
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, ConfigDict, EmailStr, Field
 
-from app.core.config import settings
 from app.core.database import get_db
 from app.core.security import require_roles
+from app.repositories.user_repository import UserRepository
 
 router = APIRouter(prefix="/users", tags=["Users"])
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -28,8 +27,14 @@ class UserCreate(BaseModel):
 
 
 class UserOut(BaseModel):
-    _id: str
-    id: str  # ✅ compat
+    # ⚠️ Un campo llamado "_id" NO funciona en Pydantic v2: los nombres que
+    # empiezan con guion bajo se tratan como atributos privados y se descartan
+    # en silencio. Por eso se declara con otro nombre y alias "_id", que
+    # FastAPI usa al serializar (response_model_by_alias=True por defecto).
+    model_config = ConfigDict(populate_by_name=True)
+
+    mongo_id: str = Field(alias="_id")   # ✅ el frontend lee "_id"
+    id: str                              # ✅ compat
     name: str
     email: EmailStr
     role: Literal["admin", "operator"]
@@ -76,7 +81,7 @@ async def list_users(
     _user=Depends(require_roles("admin")),
 ):
     limit = max(1, min(int(limit), 2000))
-    docs = await db[settings.USERS_COL].find({}).sort("email", 1).to_list(length=limit)
+    docs = await UserRepository(db).list(limit=limit)
     return [_to_user_out(u) for u in docs]
 
 
@@ -86,21 +91,18 @@ async def create_user(
     db: AsyncIOMotorDatabase = Depends(get_db),
     _user=Depends(require_roles("admin")),
 ):
-    email = payload.email.lower().strip()
-    exists = await db[settings.USERS_COL].find_one({"email": email})
-    if exists:
+    repo = UserRepository(db)
+
+    if await repo.email_exists(payload.email):
         raise HTTPException(status_code=409, detail="Ese email ya existe")
 
-    doc = {
-        "name": payload.name.strip(),
-        "email": email,
-        "password_hash": pwd_context.hash(payload.password),
-        "role": payload.role,
-        "estado": int(payload.estado),
-        "created_at": __import__("datetime").datetime.utcnow().isoformat(),
-    }
-    res = await db[settings.USERS_COL].insert_one(doc)
-    doc["_id"] = res.inserted_id
+    doc = await repo.create(
+        email=payload.email,
+        password_hash=pwd_context.hash(payload.password),
+        role=payload.role,
+        name=payload.name,
+        estado=int(payload.estado),
+    )
     return _to_user_out(doc)
 
 
@@ -111,20 +113,13 @@ async def set_role(
     db: AsyncIOMotorDatabase = Depends(get_db),
     current_user=Depends(require_roles("admin")),
 ):
-    try:
-        oid = ObjectId(user_id)
-    except Exception:
-        raise HTTPException(status_code=400, detail="user_id inválido")
-
     me_id = _str_id(current_user.get("_id", ""))
     if me_id and me_id == user_id and role != "admin":
         raise HTTPException(status_code=400, detail="No puedes quitarte el rol admin a ti mismo")
 
-    res = await db[settings.USERS_COL].update_one({"_id": oid}, {"$set": {"role": role}})
-    if res.matched_count == 0:
+    u = await UserRepository(db).update(user_id, {"role": role})
+    if not u:
         raise HTTPException(status_code=404, detail="Usuario no encontrado")
-
-    u = await db[settings.USERS_COL].find_one({"_id": oid})
     return _to_user_out(u)
 
 
@@ -135,12 +130,9 @@ async def update_user(
     db: AsyncIOMotorDatabase = Depends(get_db),
     current_user=Depends(require_roles("admin")),
 ):
-    try:
-        oid = ObjectId(user_id)
-    except Exception:
-        raise HTTPException(status_code=400, detail="user_id inválido")
+    repo = UserRepository(db)
 
-    existing = await db[settings.USERS_COL].find_one({"_id": oid})
+    existing = await repo.get_by_id(user_id)
     if not existing:
         raise HTTPException(status_code=404, detail="Usuario no encontrado")
 
@@ -148,15 +140,12 @@ async def update_user(
     update_doc: dict = {}
 
     if payload.name is not None:
-        update_doc["name"] = payload.name.strip()
+        update_doc["name"] = payload.name
 
     if payload.email is not None:
-        new_email = payload.email.lower().strip()
-        if new_email != (existing.get("email") or "").lower():
-            exists = await db[settings.USERS_COL].find_one({"email": new_email})
-            if exists and str(exists.get("_id")) != user_id:
-                raise HTTPException(status_code=409, detail="Ese email ya existe")
-        update_doc["email"] = new_email
+        if await repo.email_exists(payload.email, excluir_id=user_id):
+            raise HTTPException(status_code=409, detail="Ese email ya existe")
+        update_doc["email"] = payload.email
 
     if payload.password is not None:
         update_doc["password_hash"] = pwd_context.hash(payload.password)
@@ -174,8 +163,9 @@ async def update_user(
     if not update_doc:
         return _to_user_out(existing)
 
-    await db[settings.USERS_COL].update_one({"_id": oid}, {"$set": update_doc})
-    u = await db[settings.USERS_COL].find_one({"_id": oid})
+    u = await repo.update(user_id, update_doc)
+    if not u:
+        raise HTTPException(status_code=404, detail="Usuario no encontrado")
     return _to_user_out(u)
 
 
@@ -186,20 +176,13 @@ async def set_estado(
     db: AsyncIOMotorDatabase = Depends(get_db),
     current_user=Depends(require_roles("admin")),
 ):
-    try:
-        oid = ObjectId(user_id)
-    except Exception:
-        raise HTTPException(status_code=400, detail="user_id inválido")
-
     me_id = _str_id(current_user.get("_id", ""))
     if me_id and me_id == user_id and int(payload.estado) == 0:
         raise HTTPException(status_code=400, detail="No puedes desactivarte a ti mismo")
 
-    res = await db[settings.USERS_COL].update_one({"_id": oid}, {"$set": {"estado": int(payload.estado)}})
-    if res.matched_count == 0:
+    u = await UserRepository(db).update(user_id, {"estado": int(payload.estado)})
+    if not u:
         raise HTTPException(status_code=404, detail="Usuario no encontrado")
-
-    u = await db[settings.USERS_COL].find_one({"_id": oid})
     return _to_user_out(u)
 
 
@@ -213,13 +196,8 @@ async def delete_user(
     if me_id and me_id == user_id:
         raise HTTPException(status_code=400, detail="No puedes eliminar tu propio usuario")
 
-    try:
-        oid = ObjectId(user_id)
-    except Exception:
-        raise HTTPException(status_code=400, detail="user_id inválido")
-
-    res = await db[settings.USERS_COL].delete_one({"_id": oid})
-    if res.deleted_count != 1:
+    ok = await UserRepository(db).delete(user_id)
+    if not ok:
         raise HTTPException(status_code=404, detail="Usuario no encontrado")
 
     return {"deleted": True, "user_id": user_id}

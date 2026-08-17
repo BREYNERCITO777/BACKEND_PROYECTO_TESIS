@@ -69,6 +69,14 @@ class CameraRepository:
             # id mal formado
             return None
 
+    async def get_by_name(self, name: str) -> Optional[Dict[str, Any]]:
+        """
+        Busca por nombre exacto. Lo usa el agente local, que puede identificar
+        la cámara con un id propio en vez del ObjectId de Mongo.
+        """
+        d = await self.col.find_one({"name": (name or "").strip()})
+        return _serialize(d) if d else None
+
     async def update(self, camera_id: str, patch: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         try:
             # ✅ normaliza campos si vienen

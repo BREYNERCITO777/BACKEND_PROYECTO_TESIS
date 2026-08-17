@@ -17,6 +17,8 @@ from app.core.security import decode_token
 
 from app.repositories.incident_repository import IncidentRepository
 from app.repositories.alert_repository import alert_repo
+from app.repositories.camera_repository import CameraRepository
+from app.repositories.user_repository import UserRepository
 from app.services.detection_service import DetectionService
 from app.services.evidence_service import save_evidence
 
@@ -72,16 +74,15 @@ async def _get_user_from_token(token: str, db: AsyncIOMotorDatabase) -> Dict[str
         raise HTTPException(status_code=401, detail="Token sin 'sub'")
 
     try:
-        oid = ObjectId(user_id)
+        ObjectId(user_id)
     except Exception:
         raise HTTPException(status_code=401, detail="Token sub inválido")
 
-    user = await db[settings.USERS_COL].find_one({"_id": oid})
+    # get_by_id ya devuelve _id como string y sin password_hash.
+    user = await UserRepository(db).get_by_id(user_id)
     if not user:
         raise HTTPException(status_code=401, detail="Usuario no existe")
 
-    user["_id"] = str(user["_id"])
-    user.pop("password_hash", None)
     return user
 
 
@@ -192,11 +193,11 @@ async def _resolve_camera_source(camera_id: str, db: AsyncIOMotorDatabase) -> in
         return 0
 
     try:
-        oid = ObjectId(camera_id)
+        ObjectId(camera_id)
     except Exception:
         raise HTTPException(status_code=400, detail="camera_id inválido")
 
-    cam = await db[settings.CAMERAS_COL].find_one({"_id": oid})
+    cam = await CameraRepository(db).get(camera_id)
     if not cam:
         raise HTTPException(status_code=404, detail="Cámara no encontrada")
 
