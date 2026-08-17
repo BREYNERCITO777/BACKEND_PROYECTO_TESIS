@@ -59,6 +59,7 @@ class AlertRepository:
         camera_name: Optional[str] = None,
         incident_id: Optional[str] = None,
         source: Optional[str] = None,
+        timestamp: Optional[str] = None,
     ) -> Dict[str, Any]:
         now = datetime.now(timezone.utc).isoformat()
 
@@ -76,7 +77,9 @@ class AlertRepository:
             "camera_name": camera_name,
             "incident_id": incident_id,
             "source": source,
-            "timestamp": now,
+            # timestamp = momento de la detección (lo envía el agente);
+            # created_at = momento en que el backend persistió la alerta.
+            "timestamp": timestamp or now,
             "created_at": now,
             "read": read,
         }

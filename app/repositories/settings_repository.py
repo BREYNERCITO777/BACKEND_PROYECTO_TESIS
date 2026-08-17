@@ -22,7 +22,9 @@ class SettingsRepository:
         return {
             "confidence_threshold": 0.75,     # 75%
             "auto_alert": True,
-            "email_notifications": True,
+            # NO IMPLEMENTADO: no existe envío de correo en el backend.
+            # Por defecto en False para no prometer una función inexistente.
+            "email_notifications": False,
             "sound_alerts": False,
             "save_evidence": True,
             "max_fps": 30,

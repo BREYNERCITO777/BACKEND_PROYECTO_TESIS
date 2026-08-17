@@ -34,13 +34,28 @@ class IncidentRepository:
         confidence: float,
         evidence_url: str | None = None,
         camera_id: str | None = None,
+        camera_name: str | None = None,
+        source: str | None = None,
+        status: str = "new",
+        timestamp: str | None = None,
+        image_base64: str | None = None,
+        evidence_type: str | None = None,
     ) -> Dict[str, Any]:
+        now = datetime.now(timezone.utc).isoformat()
         doc = {
             "weapon_type": weapon_type,
+            # Alias legado: el frontend lee "type" en algunas vistas.
+            "type": weapon_type,
             "confidence": float(confidence),
             "evidence_url": evidence_url,
             "camera_id": camera_id,
-            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "camera_name": camera_name,
+            "source": source,
+            "status": status,
+            "image_base64": image_base64,
+            "evidence_type": evidence_type,
+            "timestamp": timestamp or now,
+            "created_at": now,
         }
         res = await self.col.insert_one(doc)
         doc["_id"] = res.inserted_id

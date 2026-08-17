@@ -11,6 +11,14 @@ from app.repositories.incident_repository import IncidentRepository
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    # Falla temprano y ruidosamente: sin AGENT_TOKEN el endpoint /agent/detections
+    # quedaría sin una credencial válida con la cual comparar.
+    if not settings.AGENT_TOKEN.strip():
+        raise RuntimeError(
+            "AGENT_TOKEN no está configurado. Defínelo en el archivo .env "
+            "(o como variable de entorno) antes de iniciar el backend."
+        )
+
     connect_db()
 
     if mongo.db is not None:

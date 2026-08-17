@@ -30,6 +30,11 @@ class Settings(BaseSettings):
     JWT_ALG: str = "HS256"
     JWT_EXPIRE_MIN: int = 60 * 24  # 24h
 
+    # Token compartido con el agente YOLO local (POST /agent/detections).
+    # Sin valor por defecto a propósito: si falta en el .env la app NO arranca
+    # (ver app/core/lifecycle.py). Nunca hardcodear un token de respaldo aquí.
+    AGENT_TOKEN: str = ""
+
     # CORS (en .env usar CSV: http://localhost:3000,http://127.0.0.1:3000)
     CORS_ORIGINS: List[str] = Field(default_factory=lambda: ["http://localhost:3000"])
 
