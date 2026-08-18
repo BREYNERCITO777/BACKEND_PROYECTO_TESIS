@@ -10,7 +10,11 @@ class Settings(BaseSettings):
 
     # YOLO
     MODEL_PATH: str = "app/models/best.pt"
-    CONF_TH: float = 0.5
+
+    # Respaldo del umbral de confianza: solo se usa si el documento de
+    # configuracion aun no existe en Mongo. El valor real vive en /settings.
+    # Alineado con CONFIDENCE_MIN del agente local (0.65).
+    CONF_TH: float = 0.65
 
     # Mongo
     MONGO_URL: str = "mongodb://localhost:27017"

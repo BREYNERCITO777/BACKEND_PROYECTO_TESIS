@@ -20,7 +20,10 @@ class SettingsRepository:
     @staticmethod
     def _default_doc() -> Dict[str, Any]:
         return {
-            "confidence_threshold": 0.75,     # 75%
+            # Debe coincidir con CONFIDENCE_MIN del agente local (0.65). Si el
+            # backend filtrara mas alto, descartaria detecciones que el agente
+            # si considera validas y que antes quedaban registradas.
+            "confidence_threshold": 0.65,
             "auto_alert": True,
             # NO IMPLEMENTADO: no existe envío de correo en el backend.
             # Por defecto en False para no prometer una función inexistente.
