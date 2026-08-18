@@ -18,6 +18,7 @@ from app.core.security import decode_token
 from app.repositories.incident_repository import IncidentRepository
 from app.repositories.alert_repository import alert_repo
 from app.repositories.camera_repository import CameraRepository
+from app.repositories.settings_repository import settings_repo
 from app.repositories.user_repository import UserRepository
 from app.services.detection_service import DetectionService
 from app.services.evidence_service import save_evidence
@@ -28,7 +29,19 @@ service = DetectionService()
 # ==========================================
 # CONFIGURACIÓN: Nivel de Confianza Mínimo
 # ==========================================
-MIN_CONFIDENCE = 0.70
+# El umbral NO se escribe aquí: sale de /settings, el mismo valor que aplica el
+# endpoint del agente. Así el control del panel es la única fuente de verdad
+# para la sensibilidad del sistema.
+#
+# Cada cuántos segundos un stream en curso vuelve a leer el umbral. Sin esto
+# habría que reiniciar la transmisión para que un cambio del panel surtiera
+# efecto; con esto, se aplica solo en menos de medio minuto.
+REFRESCO_UMBRAL_SEG = 30.0
+
+
+async def _umbral_actual(db: AsyncIOMotorDatabase) -> float:
+    config = await settings_repo.get_or_create(db)
+    return float(config.get("confidence_threshold", settings.CONF_TH))
 
 
 def _severity_from_conf(conf: float) -> str:
@@ -125,7 +138,9 @@ async def detectar(
 
         image_bytes = await file.read()
         frame, raw_detections, infer_ms = service.detect(model, image_bytes)
-        detections = [d for d in raw_detections if d.get("confidence", 0.0) >= MIN_CONFIDENCE]
+
+        umbral = await _umbral_actual(db)
+        detections = [d for d in raw_detections if d.get("confidence", 0.0) >= umbral]
 
         if not detections:
             return {
@@ -133,6 +148,8 @@ async def detectar(
                 "latency_infer_ms": infer_ms,
                 "latency_e2e_ms": round((time.time() - t0) * 1000, 2),
                 "evidence_url": None,
+                "umbral_aplicado": umbral,
+                "detecciones_descartadas": len(raw_detections),
             }
 
         evidence_url = save_evidence(frame, detections)
@@ -168,6 +185,8 @@ async def detectar(
             "latency_e2e_ms": round((time.time() - t0) * 1000, 2),
             "evidence_url": evidence_url,
             "incident_id": str(incident["_id"]),
+            "umbral_aplicado": umbral,
+            "detecciones_descartadas": len(raw_detections) - len(detections),
         }
 
     except HTTPException:
@@ -242,6 +261,11 @@ async def generar_frames(
     last_alert_time = 0.0
     COOLDOWN_SECONDS = 5.0
 
+    # Umbral vigente, releido periodicamente para que un cambio en el panel
+    # afecte a una transmision ya en curso sin tener que reiniciarla.
+    umbral = await _umbral_actual(db)
+    ultimo_refresco = time.time()
+
     # FPS stream
     fps_target = float(os.getenv("STREAM_FPS", "12"))
     fps_target = max(2.0, min(30.0, fps_target))
@@ -277,9 +301,13 @@ async def generar_frames(
                 continue
             image_bytes = buffer.tobytes()
 
+            if time.time() - ultimo_refresco > REFRESCO_UMBRAL_SEG:
+                umbral = await _umbral_actual(db)
+                ultimo_refresco = time.time()
+
             # infer -> thread
             _, raw_detections, _infer_ms = await asyncio.to_thread(service.detect, model, image_bytes)
-            detections = [d for d in raw_detections if d.get("confidence", 0.0) >= MIN_CONFIDENCE]
+            detections = [d for d in raw_detections if d.get("confidence", 0.0) >= umbral]
 
             frame_draw = frame.copy()
 
