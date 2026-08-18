@@ -34,6 +34,11 @@ class Settings(BaseSettings):
     JWT_ALG: str = "HS256"
     JWT_EXPIRE_MIN: int = 60 * 24  # 24h
 
+    # Clave con la que se cifran las URL RTSP de las cámaras antes de
+    # guardarlas en Mongo, porque llevan usuario y contraseña. Si se deja
+    # vacía se usa JWT_SECRET, para no obligar a configurar otra variable.
+    RTSP_SECRET_KEY: str = ""
+
     # Token compartido con el agente YOLO local (POST /agent/detections).
     # Sin valor por defecto a propósito: si falta en el .env la app NO arranca
     # (ver app/core/lifecycle.py). Nunca hardcodear un token de respaldo aquí.

@@ -6,6 +6,7 @@ from ultralytics import YOLO
 
 from app.core.database import mongo, connect_db, close_db
 from app.core.config import settings
+from app.repositories.camera_repository import CameraRepository
 from app.repositories.incident_repository import IncidentRepository
 
 
@@ -23,7 +24,15 @@ async def lifespan(app: FastAPI):
 
     if mongo.db is not None:
         await mongo.db[settings.USERS_COL].create_index("email", unique=True)
-        await mongo.db[settings.CAMERAS_COL].create_index("rtsp_url", unique=True)
+
+        # Las URL RTSP se guardan cifradas: primero se migran las que quedaran
+        # en texto plano y despues se crean los indices, porque el indice unico
+        # va sobre la huella, que esa migracion es la que rellena.
+        camaras = CameraRepository(mongo.db)
+        migradas = await camaras.cifrar_existentes()
+        if migradas:
+            print(f"Cifradas {migradas} URL RTSP que estaban en texto plano", flush=True)
+        await camaras.ensure_indexes()
 
         # índices de incidentes
         await IncidentRepository(mongo.db).ensure_indexes()

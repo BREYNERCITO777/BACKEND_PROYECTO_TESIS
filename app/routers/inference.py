@@ -23,19 +23,27 @@ from app.repositories.user_repository import UserRepository
 from app.services.detection_service import DetectionService
 from app.services.evidence_service import save_evidence
 
+# Opciones de FFmpeg para RTSP. Deben definirse antes de crear cualquier
+# VideoCapture, y son la diferencia entre un backend estable y uno que se cuelga:
+#   - rtsp_transport;tcp  -> por defecto FFmpeg negocia UDP, que con cámaras IP
+#     pierde paquetes y deja lecturas a medias.
+#   - timeout / stimeout  -> sin un límite, abrir o leer de una cámara que deja
+#     de responder espera indefinidamente dentro de OpenCV, que no libera el GIL
+#     mientras tanto, y el proceso entero deja de atender peticiones.
+os.environ.setdefault(
+    "OPENCV_FFMPEG_CAPTURE_OPTIONS",
+    "rtsp_transport;tcp|timeout;5000000|stimeout;5000000",
+)
+
 router = APIRouter(prefix="/inference", tags=["Inference"])
 service = DetectionService()
 
 # ==========================================
 # CONFIGURACIÓN: Nivel de Confianza Mínimo
 # ==========================================
-# El umbral NO se escribe aquí: sale de /settings, el mismo valor que aplica el
-# endpoint del agente. Así el control del panel es la única fuente de verdad
-# para la sensibilidad del sistema.
-#
-# Cada cuántos segundos un stream en curso vuelve a leer el umbral. Sin esto
-# habría que reiniciar la transmisión para que un cambio del panel surtiera
-# efecto; con esto, se aplica solo en menos de medio minuto.
+# No se escribe aquí: sale de /settings, el mismo valor que aplica el endpoint
+# del agente, para que el panel sea la única fuente de la sensibilidad.
+# Un stream en curso lo relee cada tantos segundos.
 REFRESCO_UMBRAL_SEG = 30.0
 
 
@@ -216,13 +224,19 @@ async def _resolve_camera_source(camera_id: str, db: AsyncIOMotorDatabase) -> in
     except Exception:
         raise HTTPException(status_code=400, detail="camera_id inválido")
 
-    cam = await CameraRepository(db).get(camera_id)
-    if not cam:
+    repo = CameraRepository(db)
+
+    if not await repo.get(camera_id):
         raise HTTPException(status_code=404, detail="Cámara no encontrada")
 
-    rtsp = cam.get("rtsp_url")
+    # La URL se guarda cifrada; rtsp_real() es el único punto que la descifra.
+    rtsp = await repo.rtsp_real(camera_id)
     if not rtsp:
-        raise HTTPException(status_code=400, detail="La cámara no tiene rtsp_url")
+        raise HTTPException(
+            status_code=400,
+            detail="La cámara no tiene una URL RTSP utilizable. Si cambió "
+                   "RTSP_SECRET_KEY, vuelve a guardar la URL de la cámara.",
+        )
 
     if isinstance(rtsp, str) and rtsp.isdigit():
         return int(rtsp)
@@ -261,8 +275,8 @@ async def generar_frames(
     last_alert_time = 0.0
     COOLDOWN_SECONDS = 5.0
 
-    # Umbral vigente, releido periodicamente para que un cambio en el panel
-    # afecte a una transmision ya en curso sin tener que reiniciarla.
+    # Umbral vigente, releído periódicamente para que un cambio en el panel
+    # afecte a una transmisión en curso sin tener que reiniciarla.
     umbral = await _umbral_actual(db)
     ultimo_refresco = time.time()
 
