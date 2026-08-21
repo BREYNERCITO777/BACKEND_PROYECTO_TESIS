@@ -21,7 +21,7 @@ from app.repositories.camera_repository import CameraRepository
 from app.repositories.settings_repository import settings_repo
 from app.repositories.user_repository import UserRepository
 from app.services.detection_service import DetectionService
-from app.services.evidence_service import save_evidence
+from app.services.evidence_service import preparar_evidencia
 
 # Opciones de FFmpeg para RTSP. Deben definirse antes de crear cualquier
 # VideoCapture, y son la diferencia entre un backend estable y uno que se cuelga:
@@ -160,7 +160,12 @@ async def detectar(
                 "detecciones_descartadas": len(raw_detections),
             }
 
-        evidence_url = save_evidence(frame, detections)
+        # Se guardan las dos copias: el archivo sirve las imagenes por HTTP,
+        # pero desaparece en cada redespliegue del contenedor. La copia en
+        # base64 viaja dentro del incidente y vive en Mongo, que es la unica
+        # que persiste. Antes solo se guardaba el archivo, y por eso quedaban
+        # incidentes apuntando a evidencias inexistentes.
+        evidence_url, evidence_b64 = preparar_evidencia(frame, detections)
 
         top = max(detections, key=lambda d: d["confidence"])
         weapon_type = top["class_name"]
@@ -173,6 +178,8 @@ async def detectar(
             confidence=confidence,
             evidence_url=evidence_url,
             camera_id=None,
+            image_base64=evidence_b64,
+            evidence_type="base64" if evidence_b64 else None,
         )
 
         await alert_repo.create(
@@ -185,6 +192,11 @@ async def detectar(
             evidence_url=evidence_url,
             camera_id=None,
             read=False,
+            image_base64=evidence_b64,
+            evidence_type="base64" if evidence_b64 else None,
+            # Sin esto la alerta quedaba huerfana: no habia forma de saber a
+            # que incidente correspondia. El endpoint del agente si lo enlazaba.
+            incident_id=str(incident["_id"]),
         )
 
         return {
@@ -361,15 +373,20 @@ async def generar_frames(
                     confidence = float(top["confidence"])
                     severity = _severity_from_conf(confidence)
 
-                    # guardar evidencia (foto)
-                    evidence_url = await asyncio.to_thread(save_evidence, frame_draw, detections)
+                    # Igual que en la deteccion por foto: el archivo se pierde
+                    # al redesplegar, la copia en base64 es la que persiste.
+                    evidence_url, evidence_b64 = await asyncio.to_thread(
+                        preparar_evidencia, frame_draw, detections
+                    )
 
                     incident_repo = IncidentRepository(db)
-                    await incident_repo.create(
+                    incidente = await incident_repo.create(
                         weapon_type=weapon_type,
                         confidence=confidence,
                         evidence_url=evidence_url,
                         camera_id=camera_id,
+                        image_base64=evidence_b64,
+                        evidence_type="base64" if evidence_b64 else None,
                     )
 
                     await alert_repo.create(
@@ -382,6 +399,9 @@ async def generar_frames(
                         evidence_url=evidence_url,
                         camera_id=camera_id,
                         read=False,
+                        image_base64=evidence_b64,
+                        evidence_type="base64" if evidence_b64 else None,
+                        incident_id=incidente["_id"],
                     )
 
                     last_alert_time = current_time
