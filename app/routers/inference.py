@@ -4,7 +4,8 @@ import os
 import time
 import asyncio
 import cv2
-from typing import Optional, Any, Dict
+from collections import deque
+from typing import Optional, Any, Deque, Dict, List
 
 from fastapi import APIRouter, UploadFile, File, HTTPException, Request, Depends, Query
 from fastapi.responses import StreamingResponse
@@ -50,6 +51,27 @@ REFRESCO_UMBRAL_SEG = 30.0
 async def _umbral_actual(db: AsyncIOMotorDatabase) -> float:
     config = await settings_repo.get_or_create(db)
     return float(config.get("confidence_threshold", settings.CONF_TH))
+
+
+async def _inferir_cada_n(db: AsyncIOMotorDatabase, camera_id: str) -> int:
+    """Cada cuántos fotogramas se ejecuta el modelo en esta cámara.
+
+    Manda el valor de la cámara; si no lo tiene, el general de /settings. Se lee
+    una vez al abrir la transmisión: cambiarlo afecta a la siguiente, no a la
+    que ya está en curso.
+    """
+    try:
+        camara = await CameraRepository(db).get(camera_id)
+        if camara and camara.get("infer_every_n_frames"):
+            return max(1, int(camara["infer_every_n_frames"]))
+    except Exception:
+        pass
+
+    try:
+        config = await settings_repo.get_or_create(db)
+        return max(1, int(config.get("infer_every_n_frames", 1)))
+    except Exception:
+        return 1
 
 
 def _severity_from_conf(conf: float) -> str:
@@ -287,6 +309,23 @@ async def generar_frames(
     last_alert_time = 0.0
     COOLDOWN_SECONDS = 5.0
 
+    # Confirmación temporal: no se registra un incidente por una sola
+    # inferencia, sino cuando la misma clase aparece en al menos
+    # CONFIRMAR_DE de las últimas CONFIRMAR_EN.
+    #
+    # Un arma real permanece en escena durante segundos, así que sale en varias
+    # inferencias seguidas. Un pliegue de tela, un reflejo o un objeto a
+    # contraluz aparece en una y desaparece en la siguiente. Filtrar por
+    # persistencia elimina ese ruido sin subir el umbral, que es lo que haría
+    # perder detecciones legítimas de confianza media.
+    #
+    # Con la cámara tapada, el sistema llegó a registrar 908 incidentes en un
+    # día por este camino, todos falsos y todos de una sola inferencia.
+    CONFIRMAR_DE = int(os.getenv("STREAM_CONFIRMAR_DE", "3"))
+    CONFIRMAR_EN = int(os.getenv("STREAM_CONFIRMAR_EN", "5"))
+    CONFIRMAR_DE = max(1, min(CONFIRMAR_DE, CONFIRMAR_EN))
+    historial: Deque[Optional[str]] = deque(maxlen=CONFIRMAR_EN)
+
     # Umbral vigente, releído periódicamente para que un cambio en el panel
     # afecte a una transmisión en curso sin tener que reiniciarla.
     umbral = await _umbral_actual(db)
@@ -297,6 +336,23 @@ async def generar_frames(
     fps_target = max(2.0, min(30.0, fps_target))
     frame_interval = 1.0 / fps_target
     next_frame_time = time.time()
+
+    # Cada cuantos fotogramas se ejecuta el modelo.
+    #
+    # El campo existia en la camara, en la API y en el panel, pero solo lo leia
+    # el modulo de simulacion: el video real inferia en TODOS los fotogramas.
+    # El operador podia cambiarlo y no pasaba nada.
+    #
+    # Separar las dos frecuencias importa porque el anti-avalancha ya limita a
+    # un incidente cada COOLDOWN_SECONDS: a 12 fps se ejecutaban 60 inferencias
+    # por cada ventana de 5 s de las que, como mucho, una llegaba a incidente.
+    # Las otras 59 se descartaban por diseno. Ahora el operador ve video fluido
+    # y la GPU trabaja solo lo necesario.
+    inferir_cada = await _inferir_cada_n(db, camera_id)
+    n_frame = 0
+    # Las cajas del ultimo analisis se siguen dibujando en los fotogramas
+    # intermedios; si no, el recuadro parpadearia.
+    detections: List[Dict[str, Any]] = []
 
     active_streams = getattr(request.app.state, "active_streams", {})
     active_streams[camera_id] = True
@@ -331,9 +387,24 @@ async def generar_frames(
                 umbral = await _umbral_actual(db)
                 ultimo_refresco = time.time()
 
-            # infer -> thread
-            _, raw_detections, _infer_ms = await asyncio.to_thread(service.detect, model, image_bytes)
-            detections = [d for d in raw_detections if d.get("confidence", 0.0) >= umbral]
+            # infer -> thread, solo en uno de cada N fotogramas
+            n_frame += 1
+            if n_frame % inferir_cada == 0:
+                _, raw_detections, _infer_ms = await asyncio.to_thread(
+                    service.detect, model, image_bytes
+                )
+                detections = [
+                    d for d in raw_detections if d.get("confidence", 0.0) >= umbral
+                ]
+
+                # El historial se alimenta solo cuando el modelo ha corrido de
+                # verdad: si contara tambien los fotogramas intermedios, la
+                # ventana medirla tiempo en vez de inferencias.
+                if detections:
+                    mejor = max(detections, key=lambda d: d["confidence"])
+                    historial.append(mejor["class_name"])
+                else:
+                    historial.append(None)
 
             frame_draw = frame.copy()
 
@@ -367,8 +438,14 @@ async def generar_frames(
                         )
 
                 current_time = time.time()
-                if (current_time - last_alert_time) > COOLDOWN_SECONDS:
-                    top = max(detections, key=lambda d: d["confidence"])
+                top = max(detections, key=lambda d: d["confidence"])
+
+                # Solo se registra si la misma clase persiste en la ventana.
+                # Se dibuja igualmente en pantalla: el operador ve lo que el
+                # modelo cree ver, aunque no llegue a convertirse en incidente.
+                confirmada = historial.count(top["class_name"]) >= CONFIRMAR_DE
+
+                if confirmada and (current_time - last_alert_time) > COOLDOWN_SECONDS:
                     weapon_type = top["class_name"]
                     confidence = float(top["confidence"])
                     severity = _severity_from_conf(confidence)

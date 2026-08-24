@@ -36,8 +36,10 @@ def create_app() -> FastAPI:
         "http://127.0.0.1:5173",
     ]
 
-    if isinstance(settings.CORS_ORIGINS, list):
-        origenes_permitidos.extend(settings.CORS_ORIGINS)
+    # Las que se añadan por configuración, sin repetir las de arriba.
+    for origen in settings.cors_origins:
+        if origen not in origenes_permitidos:
+            origenes_permitidos.append(origen)
 
     app.add_middleware(
         CORSMiddleware,

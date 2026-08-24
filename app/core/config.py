@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from typing import List
-from pydantic import Field, field_validator
 from pydantic_settings import BaseSettings
 
 
@@ -53,37 +52,45 @@ class Settings(BaseSettings):
     # documentos de más de 16 MB, así que el límite debe quedar por debajo.
     AGENT_MAX_EVIDENCE_MB: float = 4.0
 
-    # CORS (en .env usar CSV: http://localhost:3000,http://127.0.0.1:3000)
-    CORS_ORIGINS: List[str] = Field(default_factory=lambda: ["http://localhost:3000"])
+    # Desde qué direcciones puede llamar el navegador. En el .env se escriben
+    # separadas por comas:
+    #
+    #     CORS_ORIGINS=http://localhost:5173,http://192.168.10.20:5173
+    #
+    # Se declara como TEXTO a propósito, no como List[str]. Con una lista,
+    # pydantic-settings intenta interpretar la variable como JSON *antes* de
+    # que corra ningún validador, y el formato separado por comas —el que
+    # documentamos— aborta el arranque con "error parsing value for field
+    # CORS_ORIGINS". El backend no llegaba ni a levantar.
+    #
+    # Para leer la lista ya resuelta, usar la propiedad cors_origins.
+    CORS_ORIGINS: str = "http://localhost:3000"
 
-    @field_validator("CORS_ORIGINS", mode="before")
-    @classmethod
-    def parse_cors_origins(cls, v):
-        if v is None:
+    @property
+    def cors_origins(self) -> List[str]:
+        """Las direcciones permitidas, ya separadas.
+
+        Acepta el formato separado por comas y también una lista JSON, porque
+        algunos paneles de despliegue escriben la variable de esa forma.
+        """
+        texto = (self.CORS_ORIGINS or "").strip()
+        if not texto:
             return ["http://localhost:3000"]
 
-        if isinstance(v, list):
-            return v
+        if texto.startswith("[") and texto.endswith("]"):
+            try:
+                import json
 
-        if isinstance(v, str):
-            s = v.strip()
-            if not s:
-                return ["http://localhost:3000"]
+                valores = json.loads(texto)
+                if isinstance(valores, list):
+                    limpias = [str(x).strip() for x in valores if str(x).strip()]
+                    if limpias:
+                        return limpias
+            except Exception:
+                pass
 
-            # JSON string: ["a","b"]
-            if s.startswith("[") and s.endswith("]"):
-                try:
-                    import json
-                    parsed = json.loads(s)
-                    if isinstance(parsed, list):
-                        return [str(x).strip() for x in parsed if str(x).strip()]
-                except Exception:
-                    pass
-
-            # CSV
-            return [x.strip() for x in s.split(",") if x.strip()]
-
-        return ["http://localhost:3000"]
+        limpias = [x.strip() for x in texto.split(",") if x.strip()]
+        return limpias or ["http://localhost:3000"]
 
     class Config:
         env_file = ".env"
