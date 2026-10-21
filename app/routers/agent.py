@@ -2,9 +2,10 @@ from __future__ import annotations
 
 import base64
 import binascii
+import logging
 import re
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any, Dict, Optional
 
 from fastapi import APIRouter, Depends, Header, HTTPException
@@ -21,6 +22,18 @@ from app.repositories.settings_repository import settings_repo
 
 
 router = APIRouter(prefix="/agent", tags=["Agent YOLO"])
+
+# Logger dedicado para la latencia end-to-end (Reviewer 1, punto 3). Se separa
+# del logger raiz para poder filtrar/agregar estas lineas sin ruido de uvicorn.
+# Nivel y handler propios: el root logger por defecto esta en WARNING y se
+# perderian estas lineas si solo se hiciera logger.info(...).
+latency_logger = logging.getLogger("sentinel.latency")
+latency_logger.setLevel(logging.INFO)
+if not latency_logger.handlers:
+    _handler = logging.StreamHandler()
+    _handler.setFormatter(logging.Formatter("%(asctime)s %(message)s"))
+    latency_logger.addHandler(_handler)
+    latency_logger.propagate = False
 
 
 # Marca de tiempo de la última detección aceptada, por cámara.
@@ -42,6 +55,10 @@ class AgentDetectionIn(BaseModel):
     timestamp: Optional[str] = None
     source: str = Field(default="docker-local-agent", max_length=100)
     image_base64: Optional[str] = None
+    # Desglose de latencia medido en el agente (Reviewer 1, punto 3).
+    # Opcionales para no romper agentes antiguos que todavia no los envian.
+    inferencia_ms: Optional[float] = None
+    preproc_ms: Optional[float] = None
 
     @field_validator("timestamp")
     @classmethod
@@ -128,6 +145,11 @@ async def receive_detection(
     db: AsyncIOMotorDatabase = Depends(get_db),
 ):
     validate_agent_token(authorization)
+
+    # t_recepcion: inicio de la medición de latencia del lado del backend
+    # (persistencia + WebSocket). No mide red ni inferencia: eso ocurre antes,
+    # en el agente, y se reporta en payload.timestamp.
+    t_recepcion = time.monotonic()
 
     # ------------------------------------------------------------------
     # 1) Umbral de confianza: sale de /settings, no de una constante.
@@ -218,6 +240,33 @@ async def receive_detection(
         }
     )
 
+    latencia_backend_ms = (time.monotonic() - t_recepcion) * 1000
+
+    # Latencia de red + captura + inferencia en el agente, aproximada por
+    # diferencia de reloj de pared. Requiere que ambos equipos tengan la hora
+    # sincronizada (NTP); se reporta por separado de latencia_backend_ms,
+    # que no depende de eso.
+    latencia_agente_a_backend_ms = None
+    if payload.timestamp:
+        try:
+            crudo = payload.timestamp
+            normalizado = crudo[:-1] + "+00:00" if crudo.endswith("Z") else crudo
+            t_envio = datetime.fromisoformat(normalizado)
+            latencia_agente_a_backend_ms = (
+                datetime.now(timezone.utc) - t_envio
+            ).total_seconds() * 1000
+        except ValueError:
+            pass
+
+    latency_logger.info(
+        "camera_id=%s inferencia_ms=%s preproc_ms=%s backend_ms=%.1f agente_a_backend_ms=%s",
+        payload.camera_id,
+        payload.inferencia_ms if payload.inferencia_ms is not None else "NA",
+        payload.preproc_ms if payload.preproc_ms is not None else "NA",
+        latencia_backend_ms,
+        f"{latencia_agente_a_backend_ms:.1f}" if latencia_agente_a_backend_ms is not None else "NA",
+    )
+
     return {
         "ok": True,
         "ignorada": False,
@@ -229,4 +278,10 @@ async def receive_detection(
         "evidence_url": None,
         "image_base64_saved": True if image_base64 else False,
         "websocket_broadcast": True,
+        "latencia_backend_ms": round(latencia_backend_ms, 1),
+        "latencia_agente_a_backend_ms": (
+            round(latencia_agente_a_backend_ms, 1)
+            if latencia_agente_a_backend_ms is not None
+            else None
+        ),
     }
