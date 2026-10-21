@@ -128,17 +128,54 @@ el texto (es el mismo tipo de confusión que señaló el Reviewer 4 en el punto 
 - **Falso negativo típico:** cuchillo borroso (persona de fondo fuera de foco) y
   parcialmente oculto por una mano en primer plano — se pierde por desenfoque +
   oclusión simultáneos.
-- **Falso positivo revelador:** una de las imágenes de **bate de béisbol**
-  (clase excluida a propósito porque no existe en el sistema de 2 clases) se
-  confunde con `arma_blanca`. Tiene una explicación concreta: el entrenamiento
-  nunca le enseñó "esto es un bate, no es arma" — simplemente se quitó la etiqueta,
-  así que el modelo nunca vio ese objeto como negativo explícito. Es una limitación
-  real que conviene declarar en el manuscrito, no ocultar: el sistema puede
-  confundir objetos alargados sostenidos de forma similar a un arma blanca
-  (palos, bates, herramientas) con una clase real.
+- **Falso positivo con bate de béisbol** (clase excluida del sistema de 2 clases),
+  confundido con `arma_blanca` a umbral 0.25. **Corrección posterior:** una versión
+  anterior de este documento decía que el entrenamiento "nunca vio un bate como
+  negativo". Era falso: 955 imágenes de solo-bate entraron al entrenamiento de v4
+  como fondo (etiqueta vacía), más 205 en validación. Medido sobre las 212 imágenes
+  de test que solo contienen un bate (`medir_bates.py`):
+
+  | Umbral | Imágenes con falso positivo |
+  |---|---|
+  | 0.25 (evaluación) | 20/212 (9.4%) |
+  | **0.65 (producción)** | **1/212 (0.5%)** |
+
+  Al umbral real de operación el problema es marginal. Se reporta como observación
+  menor, no como limitación principal, y no justifica reentrenar.
 
 Script: `dataset_externo_zenodo/evaluar_completo.py`. Evidencia versionada en
 `docs/evidencia_externa/` (matriz de confusión, 2 casos de fallo, métricas en JSON).
+
+### Hallazgo — duplicados dentro del propio dataset Zenodo
+
+El revisor pide descartar duplicados. Se compararon las imágenes del test externo contra
+todos los conjuntos de entrenamiento (`duplicados_phash.py` + `verificar_duplicados.py`):
+
+1. dHash de 64 bits: 474 candidatos. **Demasiado permisivo**: a distancia 2 ya empareja
+   cuchillos distintos fotografiados con la misma composición (producto en diagonal sobre
+   fondo blanco). Se revisaron pares a ojo.
+2. Verificación fina (diferencia media de grises a 64×64): distribución bimodal clara —
+   190 pares con diferencia < 2, casi nada entre 2 y 6, luego crece. Corte en < 4.
+
+| Origen del duplicado | Imágenes de test |
+|---|---|
+| train de Zenodo | 160 |
+| val de Zenodo | 34 |
+| Dataset propio (Kaggle/DatasetNinja) | **0** |
+| **Total** | **194 de 1 248 (15.5%)** |
+
+El propio dataset de Zenodo tiene copias de la misma foto (p. ej. un machete de catálogo
+en dos resoluciones) en sus particiones de train y de test.
+
+**Consecuencias:**
+- **v3 (0.329) es una cifra limpia**: nunca vio Zenodo y no hay duplicados con el dataset
+  propio.
+- **v4 (0.878) y YOLOv5s están inflados**: entrenaron con train/val de Zenodo, así que
+  ya vieron esas 194 imágenes.
+- Se armó el subconjunto **sin duplicados** (`armar_sin_duplicados.py`): 1 054 imágenes
+  (se excluyen además 24 archivos `.JPG` en mayúscula que no pasaron por la
+  verificación). **Todas las cifras finales del manuscrito deben salir de ese
+  subconjunto.** La evaluación de la cola nocturna ya lo usa como medida principal.
 
 **Nota metodológica para el manuscrito:** v4 ya no es una evaluación "100%
 independiente del pipeline" en el sentido de que el dataset externo fue usado
@@ -256,18 +293,79 @@ el sistema como listo para 16 cámaras sin esta evidencia.
 Script: `dataset_externo_zenodo/prueba_carga.sh`. Datos crudos en
 `dataset_externo_zenodo/resultados_carga/`.
 
+#### Segunda ronda: versiones fijadas, hilos limitados y GPU
+
+La tabla anterior se midió con el agente sin versiones fijas (ultralytics 8.4.183,
+torch 2.14 — cada build instalaba lo último). Se fijaron las versiones del agente
+(`requirements.txt`: ultralytics 8.3.40, torch 2.8.0+cu128, opencv-python 5.0.0, numpy
+2.0.2, Python 3.10) y se repitió todo. Laptop: 6 núcleos físicos / 12 lógicos, RTX 2070
+8 GB, Docker Desktop con VM de 7.6 GB de RAM. Inferencia P50/P95 por frame, descartando
+el primer frame de cada cámara:
+
+| Modo | Cámaras | FPS/cámara | Inferencia P50 | Inferencia P95 | CPU total | RAM/cámara |
+|---|---|---|---|---|---|---|
+| CPU | 1 | 3.85 | 101 ms | 147 ms | 286% | 477 MiB |
+| CPU | 4 | 0.61 | 2.23 s | 2.64 s | 1173% | 485 MiB |
+| CPU | 8 | 0.19 | 5.87 s | 6.85 s | 1221% | 478 MiB |
+| CPU | 16 | 0.08 | 12.9 s | 15.2 s | 1174% | 395 MiB |
+| CPU, hilos limitados | 4 | 0.59 | 2.29 s | 2.54 s | 1156% | 475 MiB |
+| CPU, hilos limitados | 16 | 0.09 | 12.6 s | 14.2 s | 1171% | 408 MiB |
+| **GPU** | 1 | 4.85 | **40 ms** | 45 ms | 18% | 995 MiB |
+| **GPU** | 4 | 5.14 | **27 ms** | 166 ms | 61% | 986 MiB |
+| **GPU** | 8 | 5.27 | **33 ms** | 80 ms | 137% | 814 MiB |
+| GPU | 16 | — | — | — | — | — |
+
+- **Con GPU el sistema escala a 8 cámaras** al máximo de diseño (~5 FPS/cámara) con
+  P95 < 170 ms y la CPU casi libre.
+- **16 cámaras con GPU fallaron por memoria, no por cómputo**: cada cámara es un proceso
+  propio con su contexto CUDA y su copia del modelo (~0.8-1 GB de RAM c/u); 16 superan
+  los 7.6 GB de la VM de Docker y el sistema mató contenedores (código 137). Es un límite
+  de la arquitectura un-proceso-por-cámara. Solución propuesta: un solo proceso que
+  atienda varias cámaras con el modelo compartido (y procesamiento por lotes).
+- **Limitar hilos no ayudó.** Se verificó que el límite sí se aplica a torch (1 hilo vs.
+  6 por defecto), pero OpenCV mantiene su propio pool de 12 hilos, y la laptop tiene solo
+  6 núcleos físicos.
+- **Solo CPU: 1 cámara en tiempo real** en esta laptop. Queda pendiente repetirlo en el
+  servidor del autor con más núcleos (mismo script, modo `cpu` / `hilos` / `gpu`).
+- **Frame skipping por diseño:** el bucle del agente tiene `time.sleep(0.2)` en cada
+  iteración y el buffer RTSP en 1 frame, así que procesa como máximo ~5 FPS por cámara y
+  descarta el resto de frames de la cámara. No estaba documentado; el reviewer pide
+  explícitamente la estrategia de frame skipping.
+
 ### 6. Robustez en condiciones adversas — ✅ Resuelto
 
 **Falsos positivos reales (commit `cb691a2`):** motos confundidas con arma de fuego
 al 70-77 % de confianza sostenida en video real de calle → corregido a 0/60 falsos
 positivos con el ajuste fino (v3).
 
-**Baja luz, cámara real, de noche (hoy, misma cámara de la calle):** se conectó el
-agente contra la cámara RTSP real durante la noche. 1621 frames procesados, **0 falsos
-positivos** sobre motos, carros y personas reales pasando frente a cámara — el fix de
-v3/v4 aguanta también de noche. Latencia nocturna: P50 = 92.0 ms, P95 = 218.5 ms (el
-P95 sube vs. de día por jitter de red real del RTSP, visible en los `bad cseq` del
-log — no por el modelo). **No se versiona la captura real** (siguiendo la misma
+**Baja luz, cámara real, de noche (misma cámara de la calle):** en dos sesiones
+nocturnas, **3082 frames procesados, 0 falsos positivos** sobre motos, carros y
+personas reales — el fix de v3/v4 aguanta también de noche.
+
+Latencia nocturna medida limpia (agente solo, configuración de producción):
+**P50 = 97.6 ms, P95 = 131.4 ms**. *Corrección:* una versión anterior de este
+documento reportaba P95 = 218.5 ms y lo atribuía al jitter de red. Las dos cosas
+estaban mal: ese P95 es solo de inferencia (no incluye la lectura del stream), y
+la causa real fue que en ese momento corrían en la misma máquina la generación y
+evaluación de las degradaciones, compitiendo por la CPU. Medición descartada.
+
+**Red / RTSP (cámara real, de noche, 4 configuraciones × 2 min, `prueba_red.sh`):**
+
+| Configuración | Lectura P50 | Lectura P95 | Inferencia P50 | Inferencia P95 | FPS |
+|---|---|---|---|---|---|
+| UDP, stream principal 1080p (producción) | 3.1 ms | 6.7 ms | 97.6 ms | 131.4 ms | 3.54 |
+| TCP, stream principal | 2.7 ms | 4.7 ms | 98.0 ms | 126.0 ms | 3.60 |
+| UDP, substream | 1.4 ms | 1.8 ms | 111.8 ms | 141.4 ms | 3.38 |
+| TCP, substream | 1.1 ms | 1.8 ms | 113.7 ms | 152.1 ms | 3.35 |
+
+- **La red no es el cuello de botella**: obtener un frame cuesta ≤7 ms en P95 frente
+  a ~100-150 ms de inferencia. No se recomienda ningún cambio de transporte.
+- **El substream no conviene**: lee más rápido pero infiere más lento — es 4:3 y al
+  reescalarlo a 640 px deja más píxeles que el 16:9 del principal — y degradaría la
+  evidencia enviada al operador.
+- No se pudo confirmar que la opción TCP (`OPENCV_FFMPEG_CAPTURE_OPTIONS`) se aplicara
+  efectivamente: aparecen 4 avisos `bad cseq`, que no deberían existir sobre TCP. No
+  altera la conclusión. **No se versiona la captura real** (siguiendo la misma
 política del proyecto: "las evidencias no se versionan, son fotogramas reales de la
 vía pública con personas identificables" — ver README); queda solo en disco local
 (`dataset_externo_zenodo/noche_captura.jpg`) para consulta, nunca en GitHub.
@@ -302,16 +400,64 @@ proponer como trabajo futuro incorporar ejemplos con blur/oclusión al entrenami
 
 ## PRIORIDAD 2 — ALTA
 
-### 7. Origen, versiones y licencias de datos — ⚠️ Parcial
+### 7. Origen, versiones y licencias de datos — ⚠️ Parcial (falta confirmar enlaces)
 `metodologia_particion.md` documenta tamaños, particiones y distribución de clases,
-pero no incluye enlaces/licencias exactas de Kaggle/DatasetNinja ni verificación
-explícita de duplicados entre fuentes (solo se verificó que no hay solapamiento entre
-train/val del propio proyecto).
+pero no incluye enlaces/licencias exactas de Kaggle/DatasetNinja.
 
-### 8. Anotación y augmentations — ⚠️ Parcial
+**Distribución por fuente reconstruida** (`distribucion_fuentes.sh`, sobre
+`dataset_80_20` completo, agrupando por prefijo del nombre de archivo; todos los
+archivos tienen el sufijo `.rf.` de export de Roboflow):
+
+| Prefijo | arma_fuego | arma_blanca | fondo | Origen probable (por confirmar) |
+|---|---|---|---|---|
+| `armas` | 8 939 | 4 | — | Dataset de pistolas U. de Granada (Olmos et al.), archivos "armas (N)" |
+| `pistol` | 6 814 | — | — | Dataset "Pistols" (Kaggle/DatasetNinja) |
+| `knife` | — | 4 699 | — | Dataset de cuchillos |
+| fechas `2022101x` | — | 1 346 | — | Cuchillos, fotos fechadas |
+| `CAR`, `CA`, `test` | 2 055 | — | — | Sin identificar |
+| `KravMaga…`, `DefenseKnife…`, etc. | — | ~950 | — | Frames de videos de defensa personal |
+| `open`, `opencv`, `DSC`, `pisau`, ~600 nombres aleatorios | — | ~1 750 | — | Varias fuentes de cuchillos ("pisau" = cuchillo en indonesio) |
+| `Robbery`, `Arrest` | 44 | — | — | Frames de **UCF-Crime** |
+| `fondo`, `1…` | — | — | 2 091 | Fondos generados + capturas de la calle real |
+
+El total de `arma_fuego` (17 852) cuadra exactamente con `metodologia_particion.md`.
+
+**Pendiente del autor:**
+- Enlaces exactos y licencias de cada dataset descargado (solo se pueden inferir por
+  los nombres; no hay registro de descarga en el disco).
+- **UCF-Crime** tiene licencia restringida a investigación: verificar si sus frames
+  pueden redistribuirse o si hay que excluirlos de la declaración de disponibilidad
+  (afecta el punto 17).
+- Los 4 objetos `arma_blanca` dentro del prefijo `armas` (pistolas) son candidatos a
+  etiquetas erróneas — sirven como ejemplo de anotación ambigua que pide el punto 8.
+
+### 8. Anotación y augmentations — ⚠️ Parcial (hallazgo: fuga train/val por aumentos)
 Las reglas de generación de fondos están documentadas (recorte de regiones sin cajas,
 descarte por baja varianza). Falta documentar parámetros de Roboflow/augmentation del
 dataset original y concordancia entre anotadores (si existiera más de uno).
+
+**Hallazgo — copias aumentadas de Roboflow repartidas entre train y val.** Roboflow
+exporta varias versiones aumentadas de cada foto original con el mismo nombre base y
+distinto sufijo `.rf.<hash>`. El dataset se re-partió después al azar por archivo, no
+por foto original:
+
+| | Imágenes | Fotos originales únicas |
+|---|---|---|
+| train | 21 534 | 12 834 |
+| val | 5 386 | 4 702 |
+| **originales con copias en train Y en val** | | **3 056 (65% de los de val)** |
+
+Copias por original en train: 7 117 con 1, 2 869 con 2, 2 747 con 3, 101 con 4-6.
+
+`metodologia_particion.md` afirma que "se verificó la ausencia de solapamiento entre
+subconjuntos", pero la verificación fue por nombre exacto de archivo, que difiere entre
+copias. **Consecuencia:** todas las métricas de validación interna (0.957 de v2, 0.944
+de v4) están infladas y no deben citarse como evidencia de generalización — es la
+explicación más probable de la brecha con el test externo. Las cifras externas (Zenodo)
+no se ven afectadas por esto.
+
+**Corrección recomendada para futuros entrenamientos:** partir por foto original
+(agrupando por el nombre antes de `.rf.`), no por archivo.
 
 ### 9. README reproducible — ✅ Resuelto
 `repo-github/README.md` ya cubre instalación, Docker, variables de entorno, arquitectura
@@ -384,15 +530,17 @@ backend.
 
 ## Resumen de prioridad inmediata
 
-1. ~~Decisión urgente sobre #2~~ **Resuelto**: v4 desplegado, mAP50 externo real
-   0.878 (antes 0.329), sin regresiones.
+1. ~~Decisión urgente sobre #2~~ **Resuelto**: v4 desplegado, sin regresiones. Su
+   mAP50 externo de 0.878 está **inflado** por 194 duplicados dentro de Zenodo; la
+   cifra válida sale de la re-evaluación sobre las 1 054 imágenes sin duplicados
+   (en curso en la cola nocturna).
 2. ~~#3 (YOLOv5)~~ **Resuelto**: YOLOv8s (v4) y YOLOv5s quedan muy cerca en mAP50
    (0.878 vs 0.864); YOLOv5s gana en recall y velocidad. Sigue v4 en producción.
 3. ~~#4 y #5~~ **Resueltos**: latencia real medida contra la cámara de la calle
-   (P50 87.6ms, P95 118.1ms, CPU) y carga 1/4/8/16 streams simulados. Resultado
-   importante: **el sistema no escala bien pasado 1-2 cámaras en CPU** (P95 de
-   85s con 16 streams) — hay que declararlo como limitación real en el
-   manuscrito, con GPU en el agente o escalado horizontal como trabajo futuro.
+   (P50 87.6ms, P95 118.1ms, CPU) y carga 1/4/8/16 streams simulados. Resultado:
+   **solo CPU soporta 1 cámara en tiempo real; con GPU, 8 cámaras a ~5 FPS c/u
+   (P95 < 170 ms)**. 16 cámaras fallan por memoria (un proceso por cámara), no por
+   cómputo — se propone un proceso multicámara con modelo compartido.
 4. **#13-18** dependen de tener el manuscrito a mano.
 5. **#11** (retención de datos) es una decisión institucional, no de código — conviene
    consultarlo con el asesor o la municipalidad antes del 30 de octubre.
