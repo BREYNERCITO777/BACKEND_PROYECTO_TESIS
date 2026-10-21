@@ -196,17 +196,65 @@ Se añadió medición real con `time.monotonic()` en las cuatro etapas:
 - `app/scripts/calcular_latencia.py`: agrega un log del backend en P50/P95 por
   etapa.
 
-**Falta:** dejarlo corriendo contra la cámara real (o un video) el tiempo
-suficiente para tener una muestra, y volcar la tabla de resultados. No se
-pudo ejecutar aquí porque el agente necesita la cámara RTSP de la
-municipalidad, fuera de este entorno.
+**Resuelto hoy.** Se conectó el agente real contra la cámara RTSP de la
+municipalidad (misma red local, credenciales en `.env` del agente), con
+detecciones apuntando a un backend de prueba local (no a producción). Se agregó
+además `LATENCIA_FRAME` — faltaba medir la latencia de **cada** frame, no solo
+los que disparan alerta (en la cámara real no hubo armas visibles durante la
+prueba, así que sin ese log no habría datos).
 
-### 5. Carga con múltiples cámaras — ❌ Pendiente
-No hay ningún test de carga con 4/8/16 streams. El agente actual está pensado para una
-cámara (`CAMERA_ID` único por contenedor); habría que levantar varias instancias y
-medir CPU/RAM/FPS reales con `docker stats`, apoyándose en la instrumentación del punto
-4 (cada instancia ya reporta su propia latencia). Requiere definir con qué video de
-prueba simular las 4/8/16 fuentes si no hay esa cantidad de cámaras reales disponibles.
+**Latencia de inferencia por frame, cámara real, CPU (sin GPU — así corre en
+producción, junto a las cámaras), 664 frames / ~3.25 min:**
+
+| Percentil | Latencia |
+|---|---|
+| P50 | 87.6 ms |
+| P95 | 118.1 ms |
+| P99 | 154.3 ms |
+| Media | 93.2 ms |
+
+Throughput efectivo ~3.4 FPS. Un solo outlier (1534 ms) correspondiente al
+primer frame (carga del modelo en memoria) — no representativo del régimen
+estable, conviene excluirlo o reportarlo aparte como "warmup". Sin
+reconexiones ni frames perdidos en todo el período.
+
+Hardware: RTSP vía red local de la municipalidad, agente en contenedor Docker
+(`sentinel-agent:local`, Python 3.10, Ultralytics 8.3.40), CPU del host
+(sin GPU asignada al contenedor — representa fielmente el despliegue real).
+
+### 5. Carga con múltiples cámaras — ✅ Resuelto (resultado preocupante, declarar como limitación)
+
+Se simularon 1, 4, 8 y 16 cámaras con contenedores `sentinel-agent:local` independientes
+alimentados por un video sintético (no la cámara RTSP real, para no arriesgar saturar el
+único stream físico disponible — ver nota de #4), apuntando a un backend de prueba
+local. CPU: host con 12 núcleos, sin GPU asignada a los contenedores (igual que el
+despliegue real del agente).
+
+| Flujos | FPS/stream | Inferencia P50 | Inferencia P95 | RAM/contenedor |
+|---|---|---|---|---|
+| 1 | 3.59 | 91.7 ms | 123.0 ms | 521 MiB |
+| 4 | 0.86 | 1.42 s | 1.78 s | 535 MiB |
+| 8 | 0.29 | 4.11 s | 4.96 s | 535 MiB |
+| 16 | 0.15 | 8.26 s | **85.1 s** | 387 MiB |
+
+**Conclusión honesta — hay que declararla como limitación en el manuscrito, no
+suavizarla:** el despliegue actual (CPU, un contenedor por cámara, sin GPU en el
+agente) **no escala más allá de 1-2 cámaras simultáneas** en un host de 12 núcleos.
+Desde 4 streams la latencia ya es inaceptable para alertas en tiempo real (>1s), y en
+16 streams el P95 llega a 85 segundos — inviable operativamente. A los 16 streams
+además se observó alta varianza entre instancias: una cámara quedó fuertemente
+desfavorecida por el scheduler del SO (1 solo frame procesado en toda la ventana de
+prueba, con esa inferencia tardando 19s por inanición de CPU), mientras otras
+procesaron 13-15 frames.
+
+**Esto no es un fallo del experimento, es el resultado real.** El sistema necesitaría
+GPU en el agente o un agente por cada 1-2 cámaras como mucho (horizontal, no vertical)
+para cumplir con cargas de 4+ cámaras en tiempo real. Vale la pena proponerlo
+explícitamente como trabajo futuro en la respuesta al reviewer, en vez de presentar
+el sistema como listo para 16 cámaras sin esta evidencia.
+
+Script: `dataset_externo_zenodo/prueba_carga.sh`. Datos crudos en
+`dataset_externo_zenodo/resultados_carga/`.
 
 ### 6. Robustez en condiciones adversas — ⚠️ Parcial
 Ya existe un experimento real y bien documentado (commit `cb691a2`): motos confundidas
@@ -306,8 +354,14 @@ backend.
    0.878 (antes 0.329), sin regresiones.
 2. ~~#3 (YOLOv5)~~ **Resuelto**: YOLOv8s (v4) y YOLOv5s quedan muy cerca en mAP50
    (0.878 vs 0.864); YOLOv5s gana en recall y velocidad. Sigue v4 en producción.
-3. **#5** (carga 4/8/16 cámaras) y **#4** (correr la instrumentación de latencia con
-   cámara/video real) son lo siguiente — técnicamente directos con la GPU disponible.
+3. ~~#4 y #5~~ **Resueltos**: latencia real medida contra la cámara de la calle
+   (P50 87.6ms, P95 118.1ms, CPU) y carga 1/4/8/16 streams simulados. Resultado
+   importante: **el sistema no escala bien pasado 1-2 cámaras en CPU** (P95 de
+   85s con 16 streams) — hay que declararlo como limitación real en el
+   manuscrito, con GPU en el agente o escalado horizontal como trabajo futuro.
 4. **#13-18** dependen de tener el manuscrito a mano.
 5. **#11** (retención de datos) es una decisión institucional, no de código — conviene
    consultarlo con el asesor o la municipalidad antes del 30 de octubre.
+6. **Prioridad 1 (crítica) ya está completa**: #1, #2, #3, #4, #5 y #6 (parcial)
+   tienen evidencia real. Solo falta #6 ampliarlo con más condiciones adversas
+   (baja luz, motion blur, compresión — ninguna evaluada todavía) si hay tiempo.
