@@ -1,0 +1,2 @@
+# Los .sh corren dentro de contenedores Linux: con CRLF fallan.
+*.sh text eol=lf
