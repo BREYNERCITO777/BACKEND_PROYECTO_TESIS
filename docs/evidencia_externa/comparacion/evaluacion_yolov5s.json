@@ -1,0 +1,46 @@
+{
+  "yolov5s_coco": {
+    "test_completo_con_duplicados": {
+      "precision": 0.8518,
+      "recall": 0.8164,
+      "mAP50": 0.8682,
+      "mAP50_95": 0.5112
+    },
+    "limpio": {
+      "precision": 0.8299,
+      "recall": 0.7923,
+      "mAP50": 0.8379,
+      "mAP50_95": 0.4613
+    },
+    "compresion": {
+      "precision": 0.7574,
+      "recall": 0.6928,
+      "mAP50": 0.7383,
+      "mAP50_95": 0.3893
+    },
+    "blur": {
+      "precision": 0.5432,
+      "recall": 0.375,
+      "mAP50": 0.3999,
+      "mAP50_95": 0.188
+    },
+    "oclusion": {
+      "precision": 0.3903,
+      "recall": 0.2875,
+      "mAP50": 0.2378,
+      "mAP50_95": 0.0517
+    },
+    "desenfoque": {
+      "precision": 0.716,
+      "recall": 0.5601,
+      "mAP50": 0.6184,
+      "mAP50_95": 0.3071
+    },
+    "baja_luz": {
+      "precision": 0.6862,
+      "recall": 0.5438,
+      "mAP50": 0.5813,
+      "mAP50_95": 0.2837
+    }
+  }
+}

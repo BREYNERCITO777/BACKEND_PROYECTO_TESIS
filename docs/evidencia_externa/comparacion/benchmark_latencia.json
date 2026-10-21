@@ -1,0 +1,55 @@
+{
+  "yolov5s_coco": {
+    "cuda:0": {
+      "P50_ms": 17.7,
+      "P95_ms": 32.1,
+      "media_ms": 19.0
+    },
+    "cpu": {
+      "P50_ms": 98.4,
+      "P95_ms": 135.8,
+      "media_ms": 102.6
+    }
+  },
+  "yolov8n_coco": {
+    "cuda:0": {
+      "P50_ms": 13.6,
+      "P95_ms": 31.9,
+      "media_ms": 15.3
+    },
+    "cpu": {
+      "P50_ms": 53.7,
+      "P95_ms": 74.8,
+      "media_ms": 56.7
+    }
+  },
+  "yolov8s_coco": {
+    "cuda:0": {
+      "P50_ms": 16.4,
+      "P95_ms": 32.8,
+      "media_ms": 18.7
+    },
+    "cpu": {
+      "P50_ms": 128.7,
+      "P95_ms": 179.0,
+      "media_ms": 137.9
+    }
+  },
+  "v4_produccion": {
+    "cuda:0": {
+      "P50_ms": 14.3,
+      "P95_ms": 25.7,
+      "media_ms": 15.5
+    },
+    "cpu": {
+      "P50_ms": 130.5,
+      "P95_ms": 182.5,
+      "media_ms": 138.5
+    }
+  },
+  "_entorno": {
+    "torch": "2.8.0+cu128",
+    "gpu": "NVIDIA GeForce RTX 2070",
+    "hilos_cpu_torch": 8
+  }
+}

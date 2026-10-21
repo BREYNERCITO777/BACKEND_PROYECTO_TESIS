@@ -190,7 +190,57 @@ de esa fuente, nunca usado en el ajuste fino".
 Belonging to the YOLO and Vision Transformer Architectures in Dangerous Items
 Detection. *Electronics*, 14(17), 3540. https://doi.org/10.3390/electronics14173540
 
-### 3. Comparar YOLOv8 contra otro detector — ✅ Resuelto
+### 3. Comparar YOLOv8 contra otro detector — ✅ Resuelto (comparación justa, versión final)
+
+**Esta subsección reemplaza a la tabla de más abajo**, que comparaba v4 (ajuste fino desde
+v3) con YOLOv5s (desde COCO) — inicializaciones distintas — y sobre un test con 194
+duplicados. Ahora YOLOv8n, YOLOv8s y YOLOv5s parten todos de pesos COCO, con el mismo
+dataset combinado, 20 épocas, batch 16, imgsz 640, semilla 0; evaluados con el mismo
+protocolo (conf 0.001, IoU NMS 0.5) sobre las **1 054 imágenes del test externo sin
+duplicados**. El manuscrito dice YOLOv8n; desde v2 el modelo desplegado es YOLOv8s.
+
+| Modelo | Inicialización | Precision | Recall | mAP50 | mAP50-95 | GPU P50 / P95 | CPU P50 / P95 |
+|---|---|---|---|---|---|---|---|
+| YOLOv8n | COCO | 0.830 | 0.714 | 0.795 | 0.460 | 13.6 / 31.9 ms | **53.7 / 74.8 ms** |
+| YOLOv5s | COCO | 0.830 | **0.792** | 0.838 | 0.461 | 17.7 / 32.1 ms | 98.4 / 135.8 ms |
+| YOLOv8s | COCO | **0.885** | 0.755 | **0.854** | 0.516 | 16.4 / 32.8 ms | 128.7 / 179.0 ms |
+| v4 (producción, YOLOv8s) | ajuste fino de v3 | 0.854 | 0.778 | 0.847 | **0.531** | 14.3 / 25.7 ms | 130.5 / 182.5 ms |
+| v3 (anterior) | — | 0.558 | 0.315 | 0.334 | 0.162 | — | — |
+
+Latencia (`benchmark_latencia.py`): una imagen por vez, de punta a punta
+(preprocesamiento + inferencia + NMS), 200 imágenes tras 20 de calentamiento, RTX 2070 y
+CPU de la misma laptop (torch 6 hilos).
+
+**Lectura para responder al revisor:**
+- **YOLOv8n no es el más preciso**: 4 puntos de mAP50 debajo de YOLOv5s y 6 debajo de
+  YOLOv8s.
+- **YOLOv8n es ~2× más rápido en CPU** (54 ms vs. 98-130 ms). En GPU todos están entre
+  14 y 18 ms y la ventaja desaparece.
+- Por lo tanto la afirmación del manuscrito solo se sostiene para despliegue **sin
+  GPU**. Con GPU (necesaria igual para más de 1 cámara, ver #5), YOLOv8s es la mejor
+  opción. El manuscrito debe decir YOLOv8s y justificarlo con esta tabla.
+- v4 (desde v3) y YOLOv8s (desde COCO) empatan en el test limpio; el ajuste fino desde
+  v3 no aportó precisión.
+
+Robustez de los mismos modelos (mAP50, test sin duplicados; ver #6):
+
+| Modelo | Limpio | Compresión | Blur | Oclusión | Desenfoque | Baja luz |
+|---|---|---|---|---|---|---|
+| v3 | 0.334 | 0.314 | 0.171 | 0.059 | 0.222 | 0.240 |
+| YOLOv8n | 0.795 | 0.729 | 0.451 | 0.187 | 0.603 | 0.575 |
+| YOLOv5s | 0.838 | 0.738 | 0.400 | 0.238 | 0.618 | 0.581 |
+| YOLOv8s | 0.854 | 0.789 | 0.473 | 0.205 | 0.641 | **0.658** |
+| v4 | 0.847 | 0.777 | 0.468 | 0.207 | 0.633 | **0.497** |
+
+YOLOv8s desde COCO supera a v4 por 16 puntos en baja luz con la misma precisión en
+limpio: partir de v3 parece haberle restado robustez. Candidato a producción, pero
+**antes debe pasar las pruebas de regresión** (motos, lienzos vacíos, cámara real).
+
+Evaluación: `cola_noche/evaluar_todo.py` y `cola_noche/evaluar_yolov5.py`; resultados en
+`salida_noche/evaluacion_parcial_sin_v5.json`, `evaluacion_yolov5s.json` y
+`benchmark_latencia.json`.
+
+#### Versión anterior de esta comparación (reemplazada)
 Se entrenó YOLOv5s (paquete oficial `yolov5`, no `yolov5u` que en realidad es
 arquitectura YOLOv8) desde pesos COCO preentrenados, mismo dataset combinado y mismo
 protocolo que v4 (20 épocas, batch 16, imgsz 640, mismo RTX 2070). Evaluados ambos en
@@ -369,6 +419,12 @@ evaluación de las degradaciones, compitiendo por la CPU. Medición descartada.
 política del proyecto: "las evidencias no se versionan, son fotogramas reales de la
 vía pública con personas identificables" — ver README); queda solo en disco local
 (`dataset_externo_zenodo/noche_captura.jpg`) para consulta, nunca en GitHub.
+
+> **Reemplazada:** la tabla siguiente se midió sobre el test con 194 duplicados y con
+> conf=0.25. Las cifras válidas, sin duplicados y para todos los modelos (más
+> desenfoque y baja luz), están en el punto 3. Sin duplicados las degradaciones pegan
+> más fuerte (blur de v4: 0.468 en vez de 0.583): las fotos duplicadas el modelo las
+> reconocía aun degradadas.
 
 **Motion blur, compresión y oclusión (dataset externo, v4, conf=0.25):**
 
