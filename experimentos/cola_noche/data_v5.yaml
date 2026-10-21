@@ -1,0 +1,10 @@
+path: /
+train:
+  - /data/dataset_80_20/train/images
+  - /zenodo/images/train
+  - /aug/images/train
+val:
+  - /data/dataset_80_20/val/images
+  - /zenodo/images/val
+nc: 2
+names: ['arma_fuego', 'arma_blanca']

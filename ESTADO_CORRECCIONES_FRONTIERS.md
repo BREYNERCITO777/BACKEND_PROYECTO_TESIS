@@ -460,9 +460,19 @@ no se ven afectadas por esto.
 (agrupando por el nombre antes de `.rf.`), no por archivo.
 
 ### 9. README reproducible — ✅ Resuelto
-`repo-github/README.md` ya cubre instalación, Docker, variables de entorno, arquitectura
-y decisiones de diseño. Falta: seeds de entrenamiento explícitas, tags Docker versionados,
-demo en video/RTSP de ejemplo.
+`README.md` cubre instalación, Docker, variables de entorno, arquitectura y decisiones
+de diseño. Se agregó `experimentos/` con todos los scripts que producen las cifras de
+este documento y un `experimentos/README.md` con versiones exactas, semillas, montajes
+de Docker y el orden de ejecución.
+
+**Versiones fijadas.** Ni el backend ni el agente fijaban torch: el agente, al
+reconstruirse, había instalado ultralytics 8.4.183 y torch 2.14 (CUDA 13, incompatible
+con el driver de la laptop), distinto del backend. Se fijaron en ambos
+`requirements.txt` las versiones con que se midió todo: ultralytics 8.3.40, torch 2.8.0,
+torchvision 0.23.0, numpy 2.0.2.
+
+**Pendiente:** el agente (`sentinel_agent.py`, `requirements.txt`) sigue sin repositorio
+(ver nota al final); y falta una demo mínima con video de ejemplo.
 
 ### 10. Código, pruebas y automatización — ✅ Resuelto
 Ya existían `tests/test_autenticacion.py`, `tests/test_agente.py`,
