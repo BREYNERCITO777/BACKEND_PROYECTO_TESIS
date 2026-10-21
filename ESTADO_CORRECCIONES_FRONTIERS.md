@@ -231,10 +231,27 @@ Robustez de los mismos modelos (mAP50, test sin duplicados; ver #6):
 | YOLOv5s | 0.838 | 0.738 | 0.400 | 0.238 | 0.618 | 0.581 |
 | YOLOv8s | 0.854 | 0.789 | 0.473 | 0.205 | 0.641 | **0.658** |
 | v4 | 0.847 | 0.777 | 0.468 | 0.207 | 0.633 | **0.497** |
+| **v5 (v4 + aumentos)** | **0.859** | **0.811** | **0.674** | **0.505** | **0.748** | 0.553 |
 
 YOLOv8s desde COCO supera a v4 por 16 puntos en baja luz con la misma precisión en
-limpio: partir de v3 parece haberle restado robustez. Candidato a producción, pero
-**antes debe pasar las pruebas de regresión** (motos, lienzos vacíos, cámara real).
+limpio: partir de v3 parece haberle restado robustez.
+
+**v5** (`cola_noche/entrenar_v5.py`): ajuste fino de v4 por 20 épocas agregando 8 240
+copias del conjunto de entrenamiento con motion blur y oclusión aleatorios
+(`generar_aumentos.py`). Se cayó por memoria en la época 5 (otro contenedor ocupaba
+4.4 GB de la VM) y se **retomó desde la época 4** con `resume=True`. En limpio:
+P=0.863, R=0.795, mAP50-95=0.545; recall arma_fuego 0.833, arma_blanca 0.757.
+
+- Blur (+21 pts) y oclusión (+30 pts) mejoran mucho, pero **en parte es circular**: v5
+  entrenó con esos mismos tipos de degradación (con parámetros aleatorios, distintos de
+  los fijos de la evaluación).
+- **Desenfoque, que ningún modelo vio al entrenar: +11.5 pts.** La mejora generaliza.
+- Baja luz: +5.6 pts sobre v4, pero YOLOv8s-COCO sigue siendo el mejor ahí (0.658).
+- Sin pérdida en limpio (0.859 vs. 0.847).
+
+**v5 es el mejor candidato a producción, pendiente de las pruebas de regresión**
+(lienzos vacíos, mototaxi, bates a umbral 0.65, cámara real de día y de noche).
+SHA256 `1aec8d3c…`.
 
 Evaluación: `cola_noche/evaluar_todo.py` y `cola_noche/evaluar_yolov5.py`; resultados en
 `salida_noche/evaluacion_parcial_sin_v5.json`, `evaluacion_yolov5s.json` y

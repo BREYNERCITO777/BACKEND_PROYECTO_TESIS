@@ -1,0 +1,362 @@
+{
+  "v3_anterior": {
+    "test_completo_con_duplicados": {
+      "precision": 0.5387,
+      "recall": 0.3159,
+      "mAP50": 0.3286,
+      "mAP50_95": 0.1599,
+      "recall_por_clase": {
+        "arma_fuego": 0.3855,
+        "arma_blanca": 0.2462
+      }
+    },
+    "limpio": {
+      "precision": 0.5583,
+      "recall": 0.3147,
+      "mAP50": 0.3344,
+      "mAP50_95": 0.1616,
+      "recall_por_clase": {
+        "arma_fuego": 0.3868,
+        "arma_blanca": 0.2427
+      }
+    },
+    "compresion": {
+      "precision": 0.4956,
+      "recall": 0.3373,
+      "mAP50": 0.3139,
+      "mAP50_95": 0.1502,
+      "recall_por_clase": {
+        "arma_fuego": 0.3465,
+        "arma_blanca": 0.3281
+      }
+    },
+    "blur": {
+      "precision": 0.4063,
+      "recall": 0.1869,
+      "mAP50": 0.1712,
+      "mAP50_95": 0.0876,
+      "recall_por_clase": {
+        "arma_fuego": 0.2547,
+        "arma_blanca": 0.1191
+      }
+    },
+    "oclusion": {
+      "precision": 0.1846,
+      "recall": 0.1028,
+      "mAP50": 0.0591,
+      "mAP50_95": 0.0112,
+      "recall_por_clase": {
+        "arma_fuego": 0.1203,
+        "arma_blanca": 0.0854
+      }
+    },
+    "desenfoque": {
+      "precision": 0.4861,
+      "recall": 0.226,
+      "mAP50": 0.2219,
+      "mAP50_95": 0.1119,
+      "recall_por_clase": {
+        "arma_fuego": 0.3726,
+        "arma_blanca": 0.0794
+      }
+    },
+    "baja_luz": {
+      "precision": 0.4206,
+      "recall": 0.2707,
+      "mAP50": 0.24,
+      "mAP50_95": 0.1148,
+      "recall_por_clase": {
+        "arma_fuego": 0.2336,
+        "arma_blanca": 0.3079
+      }
+    }
+  },
+  "v4_produccion": {
+    "test_completo_con_duplicados": {
+      "precision": 0.89,
+      "recall": 0.7996,
+      "mAP50": 0.8785,
+      "mAP50_95": 0.584,
+      "recall_por_clase": {
+        "arma_fuego": 0.8303,
+        "arma_blanca": 0.7689
+      }
+    },
+    "limpio": {
+      "precision": 0.8538,
+      "recall": 0.7785,
+      "mAP50": 0.8474,
+      "mAP50_95": 0.5313,
+      "recall_por_clase": {
+        "arma_fuego": 0.8042,
+        "arma_blanca": 0.7528
+      }
+    },
+    "compresion": {
+      "precision": 0.8587,
+      "recall": 0.6789,
+      "mAP50": 0.7774,
+      "mAP50_95": 0.4611,
+      "recall_por_clase": {
+        "arma_fuego": 0.7209,
+        "arma_blanca": 0.6368
+      }
+    },
+    "blur": {
+      "precision": 0.6211,
+      "recall": 0.4206,
+      "mAP50": 0.4679,
+      "mAP50_95": 0.251,
+      "recall_por_clase": {
+        "arma_fuego": 0.4363,
+        "arma_blanca": 0.4049
+      }
+    },
+    "oclusion": {
+      "precision": 0.3315,
+      "recall": 0.3054,
+      "mAP50": 0.2072,
+      "mAP50_95": 0.0502,
+      "recall_por_clase": {
+        "arma_fuego": 0.3703,
+        "arma_blanca": 0.2404
+      }
+    },
+    "desenfoque": {
+      "precision": 0.7379,
+      "recall": 0.5639,
+      "mAP50": 0.6333,
+      "mAP50_95": 0.3659,
+      "recall_por_clase": {
+        "arma_fuego": 0.6321,
+        "arma_blanca": 0.4957
+      }
+    },
+    "baja_luz": {
+      "precision": 0.6136,
+      "recall": 0.4718,
+      "mAP50": 0.4968,
+      "mAP50_95": 0.2745,
+      "recall_por_clase": {
+        "arma_fuego": 0.4672,
+        "arma_blanca": 0.4764
+      }
+    }
+  },
+  "yolov8n_coco": {
+    "test_completo_con_duplicados": {
+      "precision": 0.8578,
+      "recall": 0.7454,
+      "mAP50": 0.8305,
+      "mAP50_95": 0.5042,
+      "recall_por_clase": {
+        "arma_fuego": 0.7824,
+        "arma_blanca": 0.7083
+      }
+    },
+    "limpio": {
+      "precision": 0.8298,
+      "recall": 0.7139,
+      "mAP50": 0.7953,
+      "mAP50_95": 0.4596,
+      "recall_por_clase": {
+        "arma_fuego": 0.75,
+        "arma_blanca": 0.6779
+      }
+    },
+    "compresion": {
+      "precision": 0.7909,
+      "recall": 0.6645,
+      "mAP50": 0.7286,
+      "mAP50_95": 0.4202,
+      "recall_por_clase": {
+        "arma_fuego": 0.6863,
+        "arma_blanca": 0.6427
+      }
+    },
+    "blur": {
+      "precision": 0.6487,
+      "recall": 0.3902,
+      "mAP50": 0.4507,
+      "mAP50_95": 0.237,
+      "recall_por_clase": {
+        "arma_fuego": 0.4028,
+        "arma_blanca": 0.3775
+      }
+    },
+    "oclusion": {
+      "precision": 0.3279,
+      "recall": 0.2604,
+      "mAP50": 0.187,
+      "mAP50_95": 0.0439,
+      "recall_por_clase": {
+        "arma_fuego": 0.3231,
+        "arma_blanca": 0.1978
+      }
+    },
+    "desenfoque": {
+      "precision": 0.766,
+      "recall": 0.5123,
+      "mAP50": 0.6033,
+      "mAP50_95": 0.3293,
+      "recall_por_clase": {
+        "arma_fuego": 0.6179,
+        "arma_blanca": 0.4067
+      }
+    },
+    "baja_luz": {
+      "precision": 0.7146,
+      "recall": 0.5001,
+      "mAP50": 0.5746,
+      "mAP50_95": 0.3067,
+      "recall_por_clase": {
+        "arma_fuego": 0.5283,
+        "arma_blanca": 0.4719
+      }
+    }
+  },
+  "yolov8s_coco": {
+    "test_completo_con_duplicados": {
+      "precision": 0.9084,
+      "recall": 0.7833,
+      "mAP50": 0.8828,
+      "mAP50_95": 0.5643,
+      "recall_por_clase": {
+        "arma_fuego": 0.8034,
+        "arma_blanca": 0.7633
+      }
+    },
+    "limpio": {
+      "precision": 0.8854,
+      "recall": 0.7553,
+      "mAP50": 0.854,
+      "mAP50_95": 0.5161,
+      "recall_por_clase": {
+        "arma_fuego": 0.7736,
+        "arma_blanca": 0.7371
+      }
+    },
+    "compresion": {
+      "precision": 0.8388,
+      "recall": 0.7024,
+      "mAP50": 0.7887,
+      "mAP50_95": 0.459,
+      "recall_por_clase": {
+        "arma_fuego": 0.7193,
+        "arma_blanca": 0.6854
+      }
+    },
+    "blur": {
+      "precision": 0.6887,
+      "recall": 0.4122,
+      "mAP50": 0.4732,
+      "mAP50_95": 0.2556,
+      "recall_por_clase": {
+        "arma_fuego": 0.4198,
+        "arma_blanca": 0.4045
+      }
+    },
+    "oclusion": {
+      "precision": 0.347,
+      "recall": 0.301,
+      "mAP50": 0.2053,
+      "mAP50_95": 0.0549,
+      "recall_por_clase": {
+        "arma_fuego": 0.3656,
+        "arma_blanca": 0.2363
+      }
+    },
+    "desenfoque": {
+      "precision": 0.7432,
+      "recall": 0.5636,
+      "mAP50": 0.6412,
+      "mAP50_95": 0.3615,
+      "recall_por_clase": {
+        "arma_fuego": 0.6557,
+        "arma_blanca": 0.4715
+      }
+    },
+    "baja_luz": {
+      "precision": 0.7456,
+      "recall": 0.589,
+      "mAP50": 0.6584,
+      "mAP50_95": 0.362,
+      "recall_por_clase": {
+        "arma_fuego": 0.614,
+        "arma_blanca": 0.564
+      }
+    }
+  },
+  "v5_aumentado": {
+    "test_completo_con_duplicados": {
+      "precision": 0.8809,
+      "recall": 0.8281,
+      "mAP50": 0.8875,
+      "mAP50_95": 0.601,
+      "recall_por_clase": {
+        "arma_fuego": 0.8626,
+        "arma_blanca": 0.7936
+      }
+    },
+    "limpio": {
+      "precision": 0.8631,
+      "recall": 0.7949,
+      "mAP50": 0.8592,
+      "mAP50_95": 0.5449,
+      "recall_por_clase": {
+        "arma_fuego": 0.8325,
+        "arma_blanca": 0.7573
+      }
+    },
+    "compresion": {
+      "precision": 0.8426,
+      "recall": 0.7216,
+      "mAP50": 0.8108,
+      "mAP50_95": 0.4829,
+      "recall_por_clase": {
+        "arma_fuego": 0.7637,
+        "arma_blanca": 0.6795
+      }
+    },
+    "blur": {
+      "precision": 0.748,
+      "recall": 0.6139,
+      "mAP50": 0.6744,
+      "mAP50_95": 0.3783,
+      "recall_por_clase": {
+        "arma_fuego": 0.6722,
+        "arma_blanca": 0.5557
+      }
+    },
+    "oclusion": {
+      "precision": 0.5779,
+      "recall": 0.5245,
+      "mAP50": 0.505,
+      "mAP50_95": 0.2789,
+      "recall_por_clase": {
+        "arma_fuego": 0.6085,
+        "arma_blanca": 0.4404
+      }
+    },
+    "desenfoque": {
+      "precision": 0.8108,
+      "recall": 0.6596,
+      "mAP50": 0.748,
+      "mAP50_95": 0.4427,
+      "recall_por_clase": {
+        "arma_fuego": 0.7107,
+        "arma_blanca": 0.6086
+      }
+    },
+    "baja_luz": {
+      "precision": 0.7425,
+      "recall": 0.4629,
+      "mAP50": 0.5527,
+      "mAP50_95": 0.3052,
+      "recall_por_clase": {
+        "arma_fuego": 0.4764,
+        "arma_blanca": 0.4494
+      }
+    }
+  }
+}
