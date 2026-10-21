@@ -1,0 +1,55 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    services:
+      mongo:
+        image: mongo:7
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd "mongosh --eval 'db.runCommand({ ping: 1 })' --quiet"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      MONGO_URL: mongodb://localhost:27017
+      MONGO_DB: sistema_armas
+      JWT_SECRET: ci-test-secret-not-for-prod
+      AGENT_TOKEN: TokenDePruebaLocal_2026
+      API_BASE: http://localhost:8000
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+
+      - name: Instalar dependencias
+        run: |
+          pip install --no-cache-dir -r requirements.txt
+          pip install pytest httpx pymongo "passlib[bcrypt]" "bcrypt==4.0.1"
+
+      - name: Arrancar el backend
+        run: |
+          nohup uvicorn app.main:app --host 0.0.0.0 --port 8000 > backend.log 2>&1 &
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:8000/docs > /dev/null && break
+            sleep 1
+          done
+          curl -sf http://localhost:8000/docs > /dev/null || (cat backend.log && exit 1)
+
+      - name: Correr pruebas
+        run: pytest tests/ -v
+
+      - name: Mostrar logs del backend si algo falla
+        if: failure()
+        run: cat backend.log || true
