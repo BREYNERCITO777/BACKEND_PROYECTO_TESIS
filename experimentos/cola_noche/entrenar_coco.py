@@ -16,6 +16,7 @@ YOLO(pesos).train(
     batch=16,
     patience=8,
     seed=0,
+    workers=4,
     project="/salida",
     name=nombre,
     exist_ok=True,

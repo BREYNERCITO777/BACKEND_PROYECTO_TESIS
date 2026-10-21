@@ -43,7 +43,7 @@ for nombre_m, ruta in MODELOS.items():
     resultados[nombre_m] = {}
     for nombre_c, yaml in CONJUNTOS.items():
         met = m.val(data=yaml, split="test", conf=0.001, iou=0.5,
-                    plots=False, verbose=False, batch=16)
+                    plots=False, verbose=False, batch=16, workers=4)
         resultados[nombre_m][nombre_c] = {
             "precision": round(float(met.box.mp), 4),
             "recall": round(float(met.box.mr), 4),

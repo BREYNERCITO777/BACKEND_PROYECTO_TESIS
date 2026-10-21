@@ -13,6 +13,7 @@ YOLO("/modelo/best.pt").train(
     close_mosaic=8,
     patience=8,
     seed=0,
+    workers=4,
     project="/salida",
     name="modelo_v5",
     exist_ok=True,
