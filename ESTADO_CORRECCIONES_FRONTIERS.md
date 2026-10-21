@@ -101,6 +101,45 @@ positivo en la foto de la mototaxi que v3 ya había corregido.
 **v4 desplegado** en `app/models/best.pt`, `sentinel-agent/best.pt` e imagen
 `tesis-backend:local`, hash `c7267b86...`, verificado en los tres sitios.
 
+### Ampliación — precision/recall por clase, matriz de confusión y fallos representativos
+
+El texto literal del Reviewer 1 (punto 1, confirmado por el usuario con el comentario
+original de Frontiers, no solo el resumen del plan) pide explícitamente *"per‑class
+precision/recall, confusion matrices, and representative failure cases"* — no solo
+mAP. Se completó:
+
+**Precision/recall por clase (test externo, v4, conf=0.25):**
+
+| Clase | Precision | Recall | mAP50 |
+|---|---|---|---|
+| arma_fuego | 0.904 | 0.830 | 0.896 |
+| arma_blanca | 0.876 | 0.769 | 0.855 |
+
+**Matriz de confusión:** generada en
+`dataset_externo_zenodo/eval_dataset/val_completo/confusion_matrix_normalized.png`.
+La diagonal confirma el recall por clase (0.85 / 0.80). **Ojo con la columna
+"background"**: no significa "61% de los fondos fallan" — es el reparto de falsos
+positivos entre clases, normalizado de una forma que hay que explicar con cuidado en
+el texto (es el mismo tipo de confusión que señaló el Reviewer 4 en el punto 12).
+
+**Casos de fallo representativos** (`dataset_externo_zenodo/eval_dataset/fallos/`,
+6 falsos negativos + 6 falsos positivos guardados con la caja dibujada):
+
+- **Falso negativo típico:** cuchillo borroso (persona de fondo fuera de foco) y
+  parcialmente oculto por una mano en primer plano — se pierde por desenfoque +
+  oclusión simultáneos.
+- **Falso positivo revelador:** una de las imágenes de **bate de béisbol**
+  (clase excluida a propósito porque no existe en el sistema de 2 clases) se
+  confunde con `arma_blanca`. Tiene una explicación concreta: el entrenamiento
+  nunca le enseñó "esto es un bate, no es arma" — simplemente se quitó la etiqueta,
+  así que el modelo nunca vio ese objeto como negativo explícito. Es una limitación
+  real que conviene declarar en el manuscrito, no ocultar: el sistema puede
+  confundir objetos alargados sostenidos de forma similar a un arma blanca
+  (palos, bates, herramientas) con una clase real.
+
+Script: `dataset_externo_zenodo/evaluar_completo.py`. Evidencia versionada en
+`docs/evidencia_externa/` (matriz de confusión, 2 casos de fallo, métricas en JSON).
+
 **Nota metodológica para el manuscrito:** v4 ya no es una evaluación "100%
 independiente del pipeline" en el sentido de que el dataset externo fue usado
 parcialmente para entrenar — pero el split de prueba usado para medir (`test`)
