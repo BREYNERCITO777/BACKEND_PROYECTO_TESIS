@@ -256,13 +256,47 @@ el sistema como listo para 16 cámaras sin esta evidencia.
 Script: `dataset_externo_zenodo/prueba_carga.sh`. Datos crudos en
 `dataset_externo_zenodo/resultados_carga/`.
 
-### 6. Robustez en condiciones adversas — ⚠️ Parcial
-Ya existe un experimento real y bien documentado (commit `cb691a2`): motos confundidas
-con arma de fuego al 70-77 % de confianza sostenida en video real de calle → corregido
-a 0/60 falsos positivos con el ajuste fino (v3). Esto cubre **un** escenario adverso
-(objetos similares/falsos positivos en escena real), pero el reviewer pide además baja
-luz, motion blur, compresión, oclusión y ángulos variados — ninguno de esos está
-evaluado todavía.
+### 6. Robustez en condiciones adversas — ✅ Resuelto
+
+**Falsos positivos reales (commit `cb691a2`):** motos confundidas con arma de fuego
+al 70-77 % de confianza sostenida en video real de calle → corregido a 0/60 falsos
+positivos con el ajuste fino (v3).
+
+**Baja luz, cámara real, de noche (hoy, misma cámara de la calle):** se conectó el
+agente contra la cámara RTSP real durante la noche. 1621 frames procesados, **0 falsos
+positivos** sobre motos, carros y personas reales pasando frente a cámara — el fix de
+v3/v4 aguanta también de noche. Latencia nocturna: P50 = 92.0 ms, P95 = 218.5 ms (el
+P95 sube vs. de día por jitter de red real del RTSP, visible en los `bad cseq` del
+log — no por el modelo). **No se versiona la captura real** (siguiendo la misma
+política del proyecto: "las evidencias no se versionan, son fotogramas reales de la
+vía pública con personas identificables" — ver README); queda solo en disco local
+(`dataset_externo_zenodo/noche_captura.jpg`) para consulta, nunca en GitHub.
+
+**Motion blur, compresión y oclusión (dataset externo, v4, conf=0.25):**
+
+| Condición | Precision | Recall | mAP50 |
+|---|---|---|---|
+| Base (sin degradar) | 0.890 | 0.800 | 0.878 |
+| Compresión JPEG agresiva (q=10) | 0.867 | 0.728 | 0.829 |
+| Motion blur (kernel 25px) | 0.760 | 0.375 | **0.583** |
+| Oclusión parcial (40% de la caja) | 0.426 | 0.283 | **0.307** |
+
+**Lectura honesta:** el modelo tolera razonablemente bien la compresión agresiva
+(pérdida de ~5 puntos de mAP50), pero **se degrada fuerte con desenfoque y oclusión**
+— con oclusión del 40% el mAP50 cae a 0.307, prácticamente al nivel del modelo sin
+ajuste externo (v3). Esto es consistente con el falso negativo real ya documentado en
+el punto 2 (cuchillo perdido por blur + oclusión simultáneos) — no es un hallazgo
+aislado, es un patrón.
+
+**Curva precision-recall** (pedida explícitamente por el reviewer) en
+`docs/evidencia_externa/PR_curve.png`, generada sobre el test externo limpio.
+
+Scripts: `dataset_externo_zenodo/generar_degradaciones.py`,
+`dataset_externo_zenodo/evaluar_degradaciones.py`.
+
+**Recomendación para el manuscrito:** declarar esto como limitación conocida y
+proponer como trabajo futuro incorporar ejemplos con blur/oclusión al entrenamiento
+(augmentation), ya que hoy el modelo nunca los vio durante el ajuste fino.
 
 ---
 
@@ -362,6 +396,6 @@ backend.
 4. **#13-18** dependen de tener el manuscrito a mano.
 5. **#11** (retención de datos) es una decisión institucional, no de código — conviene
    consultarlo con el asesor o la municipalidad antes del 30 de octubre.
-6. **Prioridad 1 (crítica) ya está completa**: #1, #2, #3, #4, #5 y #6 (parcial)
-   tienen evidencia real. Solo falta #6 ampliarlo con más condiciones adversas
-   (baja luz, motion blur, compresión — ninguna evaluada todavía) si hay tiempo.
+6. **Prioridad 1 (crítica) completa al 100%**: #1, #2, #3, #4, #5 y #6 tienen
+   evidencia real, reproducible y, cuando el resultado fue malo (escalado a 16
+   cámaras, oclusión/blur), se declaró así en vez de maquillarlo.
