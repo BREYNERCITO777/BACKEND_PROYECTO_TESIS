@@ -587,8 +587,9 @@ con el driver de la laptop), distinto del backend. Se fijaron en ambos
 `requirements.txt` las versiones con que se midió todo: ultralytics 8.3.40, torch 2.8.0,
 torchvision 0.23.0, numpy 2.0.2.
 
-El agente ya está versionado en `agente/` (ver nota al final). **Pendiente:** una demo
-mínima con video de ejemplo.
+El agente ya está versionado en `agente/` (ver nota al final). **Demo:** `demo/` levanta Mongo,
+backend y agente con un video de ejemplo de 30 s (CC BY) en un solo comando; probada desde
+cero: genera alertas e incidentes en menos de un minuto.
 
 ### 10. Código, pruebas y automatización — ✅ Resuelto
 Ya existían `tests/test_autenticacion.py`, `tests/test_agente.py`,

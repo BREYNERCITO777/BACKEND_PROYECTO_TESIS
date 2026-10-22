@@ -187,6 +187,7 @@ app/
   routers/       endpoints HTTP y WebSocket
   services/      detección, evidencia, retención, gestión de cámaras
 agente/          agente YOLO que corre junto a las cámaras (ver agente/Dockerfile)
+demo/            demo de punta a punta con un video de ejemplo (ver demo/README.md)
 experimentos/    scripts que producen las cifras de la revisión de Frontiers
 tests/           pruebas contra el sistema real
 ```

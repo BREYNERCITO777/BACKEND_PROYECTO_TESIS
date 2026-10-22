@@ -1,0 +1,41 @@
+# Demo de punta a punta: MongoDB + backend + agente leyendo un video de ejemplo.
+#   docker compose -f demo/docker-compose.yml up --build
+# Credenciales solo para la demo; nunca usarlas en un despliegue real.
+services:
+  mongo:
+    image: mongo:7
+
+  backend:
+    build:
+      context: ..
+    environment:
+      MONGO_URL: mongodb://mongo:27017
+      MONGO_DB: sentinel_demo
+      AGENT_TOKEN: token-solo-para-la-demo
+      JWT_SECRET: secreto-solo-para-la-demo
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongo
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/docs')"]
+      interval: 5s
+      retries: 30
+
+  agente:
+    build:
+      context: ..
+      dockerfile: agente/Dockerfile
+    environment:
+      RTSP_URL: /video/video_demo.mp4
+      CAMERA_ID: demo
+      CAMERA_NAME: Video de demostracion
+      BACKEND_URL: http://backend:8000/api/v1/agent/detections
+      AGENT_TOKEN: token-solo-para-la-demo
+      CONFIDENCE_MIN: "0.65"
+      ALERT_COOLDOWN: "5"
+    volumes:
+      - ./video_demo.mp4:/video/video_demo.mp4:ro
+    depends_on:
+      backend:
+        condition: service_healthy
