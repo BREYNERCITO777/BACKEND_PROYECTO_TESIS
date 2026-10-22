@@ -48,6 +48,7 @@ scripts ya lo exportan).
 | 6 | `duplicados_phash.py` → `verificar_duplicados.py` → `armar_sin_duplicados.py` | Duplicados entre test externo y entrenamiento; subconjunto limpio de 1 054 imágenes |
 | 7 | `cola_noche/cola.sh` | YOLOv8n y YOLOv8s desde COCO, v5 con aumentos de blur/oclusión, y evaluación final de todos los modelos sobre el test sin duplicados |
 | 8 | `construir_video.py`, `prueba_carga.sh`, `analizar_carga.sh` | Carga con 1/4/8/16 cámaras simuladas en modo cpu, hilos y gpu |
+| 8b | `prueba_carga_multi.sh`, `analizar_carga.sh` | Agente multicámara: 1/4/8/16 cámaras en un solo proceso, cpu y gpu. El backend de prueba debe usar `MONGO_DB=sentinel_pruebas` (no la base de desarrollo) |
 | 9 | `prueba_red.sh`, `analizar_red.sh` | Latencia de lectura RTSP: UDP/TCP × stream principal/substream (requiere la cámara real y el `.env` del agente) |
 | — | `distribucion_fuentes.sh` | Distribución de clases por fuente del dataset propio |
 

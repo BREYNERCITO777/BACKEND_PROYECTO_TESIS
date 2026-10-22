@@ -3,7 +3,10 @@ import time
 import os
 import re
 import sys
+import json
 import base64
+import threading
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 
 import requests
@@ -13,14 +16,10 @@ from ultralytics import YOLO
 # CONFIGURACIÓN DESDE DOCKER
 # =========================
 
-RTSP_URL = os.getenv("RTSP_URL")
 MODEL_PATH = os.getenv("MODEL_PATH", "best.pt")
 
 BACKEND_URL = os.getenv("BACKEND_URL")
 AGENT_TOKEN = os.getenv("AGENT_TOKEN")
-
-CAMERA_ID = os.getenv("CAMERA_ID", "cam_21")
-CAMERA_NAME = os.getenv("CAMERA_NAME", "Frontis MPSM - IPC")
 
 CONFIDENCE_MIN = float(os.getenv("CONFIDENCE_MIN", "0.60"))
 ALERT_COOLDOWN = int(os.getenv("ALERT_COOLDOWN", "30"))
@@ -32,6 +31,11 @@ EVIDENCE_WIDTH = int(os.getenv("EVIDENCE_WIDTH", "960"))
 EVIDENCE_HEIGHT = int(os.getenv("EVIDENCE_HEIGHT", "540"))
 JPEG_QUALITY = int(os.getenv("JPEG_QUALITY", "85"))
 
+# Cada camara se analiza como maximo una vez por este intervalo (~5 FPS); los
+# frames intermedios se descartan. Es la estrategia de frame skipping.
+INTERVALO_ANALISIS = 0.2
+
+
 def ocultar_credenciales(url):
     """
     Reemplaza usuario:clave de una URL por ***, para no volcar la contrasena
@@ -42,12 +46,45 @@ def ocultar_credenciales(url):
     return re.sub(r"://[^/@]+@", "://***:***@", url)
 
 
-# Falla temprano: sin estas tres variables el agente no puede operar y es
+def leer_camaras():
+    """
+    Devuelve la lista de camaras a vigilar.
+
+    Varias camaras: CAMARAS con una lista JSON de objetos {id, nombre,
+    rtsp_url}. Una sola: RTSP_URL, CAMERA_ID y CAMERA_NAME, como siempre; asi
+    un .env de una camara sigue funcionando sin cambios.
+    """
+    texto = os.getenv("CAMARAS", "").strip()
+    if texto:
+        try:
+            camaras = json.loads(texto)
+        except ValueError as e:
+            sys.exit(f"CAMARAS no es JSON valido: {e}")
+        for c in camaras:
+            if not all(c.get(k) for k in ("id", "nombre", "rtsp_url")):
+                sys.exit("Cada camara de CAMARAS necesita id, nombre y rtsp_url")
+        if len({c["id"] for c in camaras}) != len(camaras):
+            sys.exit("CAMARAS tiene ids repetidos")
+        return camaras
+
+    rtsp = os.getenv("RTSP_URL")
+    if not rtsp:
+        return []
+    return [{
+        "id": os.getenv("CAMERA_ID", "cam_21"),
+        "nombre": os.getenv("CAMERA_NAME", "Frontis MPSM - IPC"),
+        "rtsp_url": rtsp,
+    }]
+
+
+CAMARAS = leer_camaras()
+
+# Falla temprano: sin camaras, backend o token el agente no puede operar y es
 # preferible que no arranque a que quede en un bucle de errores.
 _faltantes = [
     nombre
     for nombre, valor in (
-        ("RTSP_URL", RTSP_URL),
+        ("RTSP_URL o CAMARAS", CAMARAS),
         ("BACKEND_URL", BACKEND_URL),
         ("AGENT_TOKEN", AGENT_TOKEN),
     )
@@ -63,31 +100,81 @@ if _faltantes:
     sys.exit(1)
 
 print("Iniciando Sentinel AI Local Agent", flush=True)
-print("RTSP:", ocultar_credenciales(RTSP_URL), flush=True)
 print("Modelo:", MODEL_PATH, flush=True)
 print("Backend:", BACKEND_URL, flush=True)
-print("Camara:", CAMERA_ID, "-", CAMERA_NAME, flush=True)
+for c in CAMARAS:
+    print("Camara:", c["id"], "-", c["nombre"], "|", ocultar_credenciales(c["rtsp_url"]), flush=True)
 print("Confianza minima:", CONFIDENCE_MIN, "| Cooldown:", ALERT_COOLDOWN, "s", flush=True)
 
 print("Cargando modelo YOLO...", flush=True)
 model = YOLO(MODEL_PATH)
 print("Modelo YOLO cargado", flush=True)
 
-last_alert_time = 0
 
+class Camara(threading.Thread):
+    """
+    Lee una camara en su propio hilo y conserva solo el frame mas reciente.
 
-def connect_camera():
-    print("Conectando al RTSP...", flush=True)
+    Leer de forma continua vacia el buffer RTSP: el bucle principal analiza
+    siempre lo ultimo que vio la camara, no un frame atrasado. Un archivo de
+    video (pruebas de carga) se lee a su propio FPS, para que se comporte como
+    una camara y no se consuma de golpe.
+    """
 
-    cap = cv2.VideoCapture(RTSP_URL, cv2.CAP_FFMPEG)
-    cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
+    def __init__(self, cid, nombre, url):
+        super().__init__(daemon=True, name=f"camara-{cid}")
+        self.id, self.nombre, self.url = cid, nombre, url
+        self.es_archivo = "://" not in url
+        self._lock = threading.Lock()
+        self._frame = None
+        self._lectura_ms = 0.0
+        self._numero = 0
 
-    if not cap.isOpened():
-        print("No se pudo conectar al RTSP", flush=True)
-        return None
+    def ultimo(self):
+        """(numero, frame, lectura_ms) del frame mas reciente; numero 0 = ninguno."""
+        with self._lock:
+            return self._numero, self._frame, self._lectura_ms
 
-    print("Camara conectada correctamente", flush=True)
-    return cap
+    def _conectar(self):
+        print(f"[{self.id}] Conectando...", flush=True)
+        cap = cv2.VideoCapture(self.url, cv2.CAP_FFMPEG)
+        cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
+        if not cap.isOpened():
+            print(f"[{self.id}] No se pudo conectar", flush=True)
+            return None
+        print(f"[{self.id}] Camara conectada correctamente", flush=True)
+        return cap
+
+    def run(self):
+        cap, fallos = None, 0
+        while True:
+            if cap is None:
+                cap = self._conectar()
+                if cap is None:
+                    time.sleep(5)
+                    continue
+                fps = cap.get(cv2.CAP_PROP_FPS) or 25
+                pausa = 1.0 / fps if self.es_archivo else 0.0
+
+            t = time.monotonic()
+            ok, frame = cap.read()
+            lectura_ms = (time.monotonic() - t) * 1000
+
+            if not ok or frame is None:
+                fallos += 1
+                if fallos >= 5:
+                    print(f"[{self.id}] Stream inestable. Reconectando...", flush=True)
+                    cap.release()
+                    cap, fallos = None, 0
+                    time.sleep(3)
+                continue
+
+            fallos = 0
+            with self._lock:
+                self._frame, self._lectura_ms = frame, lectura_ms
+                self._numero += 1
+            if pausa:
+                time.sleep(pausa)
 
 
 def enhance_for_evidence(frame):
@@ -169,10 +256,8 @@ def draw_box(frame, label, confidence, xyxy):
     return frame
 
 
-def send_alert(frame_with_boxes, label, confidence, t_captura=None, inferencia_ms=None):
-    # t_captura: time.monotonic() tomado justo tras leer el frame de la
-    # camara. Con el se mide cuanto tarda dibujar evidencia + codificar JPEG +
-    # red, por separado de la inferencia (que ya llega medida en inferencia_ms).
+def send_alert(camara, frame_with_boxes, label, confidence, inferencia_ms=None):
+    # Corre en el pool de envios: una alerta lenta no frena a las demas camaras.
     t_inicio_envio = time.monotonic()
 
     # Mejorar visualmente la evidencia
@@ -196,8 +281,8 @@ def send_alert(frame_with_boxes, label, confidence, t_captura=None, inferencia_m
     preproc_ms = (time.monotonic() - t_inicio_envio) * 1000
 
     payload = {
-        "camera_id": CAMERA_ID,
-        "camera_name": CAMERA_NAME,
+        "camera_id": camara.id,
+        "camera_name": camara.nombre,
         "type": label,
         # El backend exige la confianza como probabilidad (0.0 a 1.0),
         # no como porcentaje.
@@ -236,7 +321,7 @@ def send_alert(frame_with_boxes, label, confidence, t_captura=None, inferencia_m
         print(
             "LATENCIA cam={} inferencia_ms={} preproc_ms={:.1f} red_ms={:.1f} "
             "total_agente_ms={:.1f}".format(
-                CAMERA_ID,
+                camara.id,
                 round(inferencia_ms, 1) if inferencia_ms is not None else "NA",
                 preproc_ms,
                 red_ms,
@@ -278,126 +363,83 @@ def send_alert(frame_with_boxes, label, confidence, t_captura=None, inferencia_m
             )
             return
 
-        print("ALERTA ENVIADA - incidente", cuerpo.get("incident_id"), flush=True)
+        print(f"[{camara.id}] ALERTA ENVIADA - incidente", cuerpo.get("incident_id"), flush=True)
 
         if cuerpo.get("camera_registered") is False:
             print(
                 "AVISO: la camara '{}' no esta registrada en el sistema. "
                 "Registrala con el nombre exacto '{}' para vincularla.".format(
-                    CAMERA_ID, CAMERA_NAME
+                    camara.id, camara.nombre
                 ),
                 flush=True,
             )
 
     except Exception as e:
-        print("Error enviando alerta:", str(e), flush=True)
+        print(f"[{camara.id}] Error enviando alerta:", str(e), flush=True)
 
 
-cap = connect_camera()
-failed_frames = 0
+def detecciones_validas(resultado):
+    salida = []
+    for box in resultado.boxes:
+        label = model.names[int(box.cls[0])]
+        conf = float(box.conf[0])
+        if label in TARGET_CLASSES and conf >= CONFIDENCE_MIN:
+            salida.append({"label": label, "confidence": conf, "xyxy": box.xyxy[0]})
+    return salida
+
+
+camaras = [Camara(c["id"], c["nombre"], c["rtsp_url"]) for c in CAMARAS]
+for cam in camaras:
+    cam.start()
+
+envios = ThreadPoolExecutor(max_workers=4, thread_name_prefix="envio")
+ultimo_analizado = {cam.id: 0 for cam in camaras}
+ultima_alerta = {cam.id: 0.0 for cam in camaras}
 
 while True:
-    if cap is None:
-        time.sleep(5)
-        cap = connect_camera()
-        continue
+    t_ciclo = time.monotonic()
 
-    t_lectura = time.monotonic()
-    ret, frame = cap.read()
-    lectura_ms = (time.monotonic() - t_lectura) * 1000
+    # Un lote con el frame nuevo de cada camara que tenga uno: el modelo se
+    # carga una sola vez y procesa todas las camaras juntas, en vez de un
+    # proceso con su propia copia del modelo por camara.
+    lote = []
+    for cam in camaras:
+        numero, frame, lectura_ms = cam.ultimo()
+        if numero and numero != ultimo_analizado[cam.id]:
+            ultimo_analizado[cam.id] = numero
+            lote.append((cam, frame, lectura_ms))
 
-    if not ret or frame is None:
-        failed_frames += 1
-        print(f"Error leyendo frame ({failed_frames})", flush=True)
+    if lote:
+        t_inferencia = time.monotonic()
+        resultados = model([frame for _, frame, _ in lote], verbose=False)
+        inferencia_ms = (time.monotonic() - t_inferencia) * 1000
 
-        if failed_frames >= 5:
-            print("Stream inestable. Reconectando RTSP...", flush=True)
-
-            try:
-                cap.release()
-            except Exception:
-                pass
-
-            cap = None
-            failed_frames = 0
-            time.sleep(3)
-
-        continue
-
-    failed_frames = 0
-
-    t_captura = time.monotonic()
-    results = model(frame, verbose=False)
-    inferencia_ms = (time.monotonic() - t_captura) * 1000
-
-    # Latencia de inferencia de CADA frame, no solo de los que generan alerta
-    # (Reviewer 1, punto 3: "per-frame inference latency"). La ruta de alerta
-    # mide ademas preproc_ms y red_ms, pero esta linea es la unica forma de
-    # tener P50/P95 de inferencia representativos del flujo real de video.
-    # lectura_ms: espera + decodificacion del frame RTSP; es donde aparece el
-    # jitter de red, que inferencia_ms no captura.
-    print(
-        f"LATENCIA_FRAME cam={CAMERA_ID} lectura_ms={lectura_ms:.1f} "
-        f"inferencia_ms={inferencia_ms:.1f}",
-        flush=True,
-    )
-
-    detections_to_send = []
-
-    for r in results:
-        for box in r.boxes:
-            cls = int(box.cls[0])
-            conf = float(box.conf[0])
-            label = model.names[cls]
-
-            if label not in TARGET_CLASSES:
-                continue
-
-            if conf < CONFIDENCE_MIN:
-                continue
-
-            print(f"Detectado: {label} ({conf:.2f})", flush=True)
-
-            detections_to_send.append({
-                "label": label,
-                "confidence": conf,
-                "xyxy": box.xyxy[0],
-            })
-
-    if detections_to_send:
-        current_time = time.time()
-
-        if current_time - last_alert_time >= ALERT_COOLDOWN:
-            # Escoger detección con mayor confianza
-            best_detection = max(
-                detections_to_send,
-                key=lambda d: d["confidence"]
-            )
-
-            annotated_frame = frame.copy()
-
-            # Dibujar todas las detecciones válidas en el frame
-            for det in detections_to_send:
-                annotated_frame = draw_box(
-                    annotated_frame,
-                    det["label"],
-                    det["confidence"],
-                    det["xyxy"]
-                )
-
+        for (cam, frame, lectura_ms), resultado in zip(lote, resultados):
+            # Latencia de CADA frame, no solo de los que generan alerta
+            # (Reviewer 1, punto 3). inferencia_ms es la del lote completo:
+            # es lo que espero este frame. lectura_ms = decodificar el frame.
             print(
-                f"DETECCION: {best_detection['label']} ({best_detection['confidence']:.2f})",
-                flush=True
+                f"LATENCIA_FRAME cam={cam.id} lectura_ms={lectura_ms:.1f} "
+                f"inferencia_ms={inferencia_ms:.1f} lote={len(lote)}",
+                flush=True,
             )
 
-            send_alert(
-                annotated_frame,
-                best_detection["label"],
-                best_detection["confidence"],
-                t_captura=t_captura,
-                inferencia_ms=inferencia_ms,
-            )
+            detecciones = detecciones_validas(resultado)
+            if not detecciones:
+                continue
+            for d in detecciones:
+                print(f"[{cam.id}] Detectado: {d['label']} ({d['confidence']:.2f})", flush=True)
 
-            last_alert_time = current_time
+            ahora = time.time()
+            if ahora - ultima_alerta[cam.id] < ALERT_COOLDOWN:
+                continue
+            ultima_alerta[cam.id] = ahora
 
-    time.sleep(0.2)
+            mejor = max(detecciones, key=lambda d: d["confidence"])
+            anotado = frame.copy()
+            for d in detecciones:
+                anotado = draw_box(anotado, d["label"], d["confidence"], d["xyxy"])
+            print(f"[{cam.id}] DETECCION: {mejor['label']} ({mejor['confidence']:.2f})", flush=True)
+            envios.submit(send_alert, cam, anotado, mejor["label"], mejor["confidence"], inferencia_ms)
+
+    time.sleep(max(0.0, INTERVALO_ANALISIS - (time.monotonic() - t_ciclo)))

@@ -13,7 +13,7 @@ pct() {
 
 printf "%-6s %4s %7s %8s %9s %9s %9s %9s %9s %8s\n" \
   modo N frames fps/cam inf_P50 inf_P95 lect_P50 lect_P95 cpu_tot ram_MiB
-for modo in cpu hilos gpu; do
+for modo in cpu hilos gpu multicpu multigpu; do
   for N in 1 4 8 16; do
     log="$R/latencia_${modo}_${N}.txt"
     [ -f "$log" ] || continue

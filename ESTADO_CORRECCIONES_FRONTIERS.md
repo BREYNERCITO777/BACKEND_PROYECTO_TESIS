@@ -336,7 +336,40 @@ Hardware: RTSP vía red local de la municipalidad, agente en contenedor Docker
 (`sentinel-agent:local`, Python 3.10, Ultralytics 8.3.40), CPU del host
 (sin GPU asignada al contenedor — representa fielmente el despliegue real).
 
-### 5. Carga con múltiples cámaras — ✅ Resuelto (resultado preocupante, declarar como limitación)
+### 5. Carga con múltiples cámaras — ✅ Resuelto: 16 cámaras con el agente multicámara
+
+**Versión final (reemplaza las conclusiones de las tablas de más abajo).** La
+limitación encontrada —un contenedor por cámara, cada uno con su propia copia del
+modelo— se resolvió con un rediseño del agente (`agente/sentinel_agent.py`): **un solo
+proceso** atiende todas las cámaras de `CAMARAS`; un hilo por cámara lee el video y
+conserva solo el frame más reciente (además vacía el búfer RTSP, así se analiza lo
+último), y el modelo, cargado una vez, infiere los frames nuevos de todas en un lote. Las
+alertas se envían en paralelo y la espera entre alertas es por cámara. Con una sola
+cámara (`RTSP_URL`) funciona como antes. Prueba: `prueba_carga_multi.sh`, mismo video y
+hardware que las tablas de abajo.
+
+| Cámaras | Modo | FPS/cámara | Inferencia P50 / P95 | CPU total | RAM total |
+|---|---|---|---|---|---|
+| 1 | GPU | 5.81 | 40 / 43 ms | 21% | 1.0 GB |
+| 4 | GPU | 5.92 | 83 / 102 ms | 52% | 1.1 GB |
+| 8 | GPU | 5.88 | 97 / 115 ms | 65% | 1.3 GB |
+| **16** | **GPU** | **5.86** | **121 / 154 ms** | **97%** | **1.5 GB** |
+| 1 | CPU | 5.93 | 114 / 135 ms | 430% | 0.5 GB |
+| 4 | CPU | 3.20 | 373 / 417 ms | 779% | 0.8 GB |
+| 8 | CPU | 1.55 | 766 / 822 ms | 739% | 1.0 GB |
+| 16 | CPU | 0.75 | 1.54 / 1.66 s | 742% | 1.5 GB |
+
+La inferencia reportada es la del lote completo (lo que espera cada frame).
+
+- **Con GPU, 16 cámaras a ~5.9 FPS cada una**, P95 de 154 ms y 1.5 GB de RAM en total
+  (antes 16 no cabían en memoria; 8 ocupaban 6.5 GB). Durante la prueba de 16 cámaras se
+  enviaron 266 alertas al backend sin errores.
+- **Solo CPU mejora entre 5× y 9×** frente a un proceso por cámara (4 cámaras: 0.61 →
+  3.2 FPS, 2.2 s → 0.37 s); el límite práctico en CPU es ~4 cámaras.
+- Con una cámara, incluso en CPU sube de 3.9 a 5.9 FPS: leer el video en su propio hilo
+  separa la decodificación de la inferencia.
+
+#### Primera ronda (arquitectura anterior, un contenedor por cámara)
 
 Se simularon 1, 4, 8 y 16 cámaras con contenedores `sentinel-agent:local` independientes
 alimentados por un video sintético (no la cámara RTSP real, para no arriesgar saturar el
