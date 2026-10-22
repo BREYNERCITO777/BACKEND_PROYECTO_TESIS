@@ -1,0 +1,87 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+  #lienzo { width: 1500px; height: 985px; }
+  .pasos { position: absolute; left: 34px; top: 806px; width: 1432px; border: 1.5px solid #cbd2d9; border-radius: 10px; padding: 12px 16px; }
+  .pasos h4 { font-size: 16px; color: #1d4f9c; margin-bottom: 8px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px 22px; }
+  .grid div { display: flex; font-size: 13.5px; line-height: 1.35; }
+</style></head>
+<body><div id="lienzo">
+  <h1>Sentinel AI: Weapon Detection with Immediate Alerts</h1>
+  <div class="sub">Architecture diagram (C4 container level)</div>
+
+  <div class="etq" style="left:255px;top:112px;color:#1d4f9c">PRESENTATION LAYER</div>
+  <div class="etq" style="left:665px;top:112px;color:#23703c">APPLICATION LAYER</div>
+  <div class="etq" style="left:1115px;top:112px;color:#5a35a8">PERSISTENCE LAYER</div>
+
+  <div id="op" class="caja gris f-gris" style="left:34px;top:180px;width:150px;height:170px;text-align:center">
+    <h3>Operator</h3><p>Surveillance center staff</p><hr><p>Reviews each alert and decides on any action</p>
+  </div>
+
+  <div id="fe" class="caja azul f-azul" style="left:250px;top:140px;width:290px;height:250px">
+    <h3>Operator dashboard</h3><div class="tec">React 18 + TypeScript + Tailwind CSS · Vercel</div><hr>
+    <ul><li>Live alert window with evidence image</li><li>Cameras, incidents, evidence, alerts</li>
+    <li>Users and detection settings (admin)</li><li>JWT session, Admin / Operator roles</li></ul>
+  </div>
+
+  <div id="be" class="caja verde f-verde" style="left:640px;top:140px;width:350px;height:250px">
+    <h3>API backend</h3><div class="tec">FastAPI (Python 3.9) · Docker on Render</div><hr>
+    <ul><li>28 REST endpoints + 1 WebSocket channel</li>
+    <li>Receives agent detections: confidence threshold (0.65) and cooldown of 5 s per camera</li>
+    <li>Creates incident + alert, stores evidence</li>
+    <li>Broadcasts alerts over WebSocket</li>
+    <li>Evidence retention policy (configurable days)</li></ul>
+  </div>
+
+  <div id="db" class="caja morado f-morado" style="left:1090px;top:140px;width:376px;height:250px">
+    <h3>Database</h3><div class="tec">MongoDB Atlas</div><hr>
+    <p>Collections: users, cameras, incidents, alerts, settings</p><hr>
+    <p>Incident record: camera, time, weapon class, confidence, evidence image (deleted after the retention period)</p>
+  </div>
+
+  <div class="zona" style="left:600px;top:540px;width:866px;height:240px">
+    <div class="titulo" style="left:290px">MUNICIPAL NETWORK (ON PREMISES)</div>
+    <div style="position:absolute;right:16px;bottom:8px;font-size:13px;color:#52606d;font-style:italic">Video never leaves this network</div>
+  </div>
+
+  <div id="ag" class="caja naranja f-naranja" style="left:625px;top:568px;width:470px;height:192px">
+    <h3>Detection agent</h3><div class="tec">Python 3.10 · OpenCV · Ultralytics · YOLOv8s (v5) · Docker, CPU or GPU</div><hr>
+    <ul><li>One process serves all cameras: a capture thread per camera keeps the latest frame</li>
+    <li>Shared model, batched inference, up to 5 analyzed frames/s per camera</li>
+    <li>Sends only detections and one evidence image</li></ul>
+  </div>
+
+  <div id="cam" class="caja rojo f-rojo" style="left:1190px;top:575px;width:250px;height:150px">
+    <h3>IP cameras</h3><div class="tec">RTSP streams</div><hr><p>Municipal video surveillance cameras (1 to 16 per agent tested)</p>
+  </div>
+
+  <div class="nota" style="left:188px;top:240px;width:58px">HTTPS</div>
+  <div class="nota" style="left:546px;top:176px;width:90px">REST<br>JSON + JWT</div>
+  <div class="nota" style="left:546px;top:334px;width:90px">WebSocket<br>new alert</div>
+  <div class="nota" style="left:996px;top:226px;width:90px">Motor<br>(async)</div>
+  <div class="nota" style="left:812px;top:440px;width:290px;text-align:left">HTTPS POST /api/v1/agent/detections<br>(agent token): class, confidence, image</div>
+  <div class="nota" style="left:1110px;top:624px;width:70px">RTSP</div>
+
+  <div class="pasos">
+    <h4>Alert flow</h4>
+    <div class="grid">
+      <div><span class="paso b-rojo">1</span>The agent reads each RTSP stream in its own thread and keeps only the latest frame.</div>
+      <div><span class="paso b-naranja">2</span>YOLOv8s analyzes the new frames of all cameras in one batch; detections above the threshold are sent.</div>
+      <div><span class="paso b-verde">3</span>The backend checks the token, threshold and cooldown, then stores the incident and the alert.</div>
+      <div><span class="paso b-morado">4</span>MongoDB keeps incidents, alerts, cameras, users and settings.</div>
+      <div><span class="paso b-verde">5</span>The alert is broadcast to every connected dashboard over WebSocket.</div>
+      <div><span class="paso b-azul">6</span>The operator sees the evidence image and decides; the system never acts on its own.</div>
+    </div>
+  </div>
+</div>
+<script src="base.js"></script>
+<script>
+  flecha("op", "e", "fe", "w:0.5");
+  flecha("fe", "e:0.3", "be", "w:0.3");
+  flecha("be", "w:0.75", "fe", "e:0.75", { punteada: true, color: "#2563c4" });
+  flecha("be", "e:0.5", "db", "w:0.5", { doble: true });
+  flecha("cam", "w", "ag", "e:0.427");
+  flecha("ag", "n:0.372", "be", "s:0.457", { color: "#b35f0d" });
+  ajustarLienzo();
+</script></body></html>

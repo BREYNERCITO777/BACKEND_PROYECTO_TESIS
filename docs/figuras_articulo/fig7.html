@@ -1,0 +1,70 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+  #lienzo { width: 1500px; height: 860px; }
+  .cont { border: 1.5px solid; border-radius: 8px; padding: 7px 10px; background: #fff; margin-top: 8px; font-size: 13px; line-height: 1.35; }
+  .cont b { font-size: 14px; }
+  .cont code { font-family: Consolas, monospace; font-size: 12.3px; }
+</style></head>
+<body><div id="lienzo">
+  <h1>Sentinel AI: Deployment</h1>
+  <div class="sub">Docker containers in the cloud and on the municipal premises</div>
+
+  <div class="zona" style="left:290px;top:112px;width:1176px;height:295px"><div class="titulo">CLOUD</div></div>
+
+  <div id="op" class="caja azul f-azul" style="left:34px;top:180px;width:215px;height:180px">
+    <h3>Operator browser</h3><div class="tec">Surveillance center</div><hr><p>Loads the dashboard and keeps a WebSocket open for alerts</p>
+  </div>
+
+  <div id="vc" class="caja azul f-azul" style="left:315px;top:175px;width:270px;height:205px">
+    <h3>Vercel</h3><div class="tec">Static hosting</div>
+    <div class="cont azul"><b>Operator dashboard</b><br>React build (HTML, JS, CSS); every route served by index.html</div>
+  </div>
+
+  <div id="rd" class="caja verde f-verde" style="left:640px;top:175px;width:480px;height:205px">
+    <h3>Render</h3><div class="tec">Docker host</div>
+    <div class="cont verde"><b>Container</b> <code>sentinel-backend:1.0.0</code><br>FastAPI on Uvicorn, Python 3.9, port 8000 · model <code>best.pt</code> (v5) · evidence images in <code>/static</code></div>
+    <div class="cont gris" style="font-size:12.5px">Secrets as environment variables: AGENT_TOKEN, JWT secret, MONGO_URL, Fernet key</div>
+  </div>
+
+  <div id="db" class="caja morado f-morado" style="left:1175px;top:175px;width:270px;height:205px">
+    <h3>MongoDB Atlas</h3><div class="tec">Managed database</div><hr>
+    <p>Users, cameras, incidents, alerts and settings; connection over TLS</p>
+  </div>
+
+  <div class="zona" style="left:290px;top:520px;width:880px;height:300px;border-color:#e07b1a">
+    <div class="titulo" style="color:#b35f0d;left:470px">ON PREMISES · MUNICIPAL NETWORK, TARAPOTO</div>
+  </div>
+
+  <div id="ag" class="caja naranja f-naranja" style="left:315px;top:560px;width:520px;height:235px">
+    <h3>Docker host next to the cameras</h3><div class="tec">CPU, or NVIDIA GPU for more than about four cameras</div>
+    <div class="cont naranja"><b>Container</b> <code>sentinel-agent:1.0.0</code> (<code>agente/docker-compose.yml</code>, restart: always)<br>Python 3.10, OpenCV, Ultralytics · same <code>best.pt</code> as the backend (SHA-256 checked)</div>
+    <div class="cont gris" style="font-size:12.5px"><code>.env</code> (not versioned): camera list and RTSP credentials, backend URL, agent token, threshold 0.65</div>
+  </div>
+
+  <div id="cam" class="caja rojo f-rojo" style="left:910px;top:585px;width:235px;height:185px">
+    <h3>IP cameras</h3><div class="tec">RTSP on the local network</div><hr><p>The video stays on this network; only detection events go out</p>
+  </div>
+
+  <div id="gh" class="caja gris f-gris" style="left:1200px;top:520px;width:266px;height:300px">
+    <h3>Source code</h3><div class="tec">GitHub, MIT license</div><hr>
+    <p><b>Backend repository</b>: API, agent, model, experiments, end-to-end demo (git tag v1.0.0-revision)</p>
+    <p style="margin-top:6px"><b>Dashboard repository</b>: React application</p>
+    <p style="margin-top:6px">Vercel and Render build from these repositories; the agent image is built on site with docker compose</p>
+  </div>
+
+  <div class="nota" style="left:252px;top:272px;width:60px">HTTPS</div>
+  <div class="nota" style="left:600px;top:128px;width:250px">REST (HTTPS) and WebSocket (WSS)</div>
+  <div class="nota" style="left:1122px;top:252px;width:52px">TLS</div>
+  <div class="nota" style="left:756px;top:440px;width:300px;text-align:left">HTTPS POST /api/v1/agent/detections<br>outbound only: no inbound port is opened</div>
+  <div class="nota" style="left:840px;top:652px;width:64px">RTSP</div>
+</div>
+<script src="base.js"></script>
+<script>
+  flecha("op", "e:0.66", "vc", "w:0.6039");
+  flecha("op", "n:0.5", "rd", "n:0.5", { puntos: [[141, 150], [880, 150]], doble: true, color: "#2563c4" });
+  flecha("rd", "e:0.5", "db", "w:0.5", { doble: true });
+  flecha("ag", "n:0.827", "rd", "s:0.219", { color: "#b35f0d" });
+  flecha("cam", "w", "ag", "e:0.5");
+  ajustarLienzo();
+</script></body></html>

@@ -1,0 +1,32 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #fff; font-family: "Segoe UI", Arial, sans-serif; color: #1f2933; }
+#lienzo { position: relative; padding: 28px 34px 30px; }
+h1 { font-size: 34px; font-weight: 700; text-align: center; letter-spacing: -0.3px; }
+.sub { text-align: center; font-size: 18px; color: #52606d; margin: 4px 0 22px; }
+
+.caja { position: absolute; border: 2px solid; border-radius: 10px; padding: 12px 14px; background: #fff; }
+.caja h3 { font-size: 18px; font-weight: 700; margin-bottom: 2px; }
+.caja .tec { font-size: 13.5px; color: #52606d; margin-bottom: 6px; }
+.caja p, .caja li { font-size: 13.5px; line-height: 1.38; }
+.caja ul { padding-left: 17px; }
+.caja hr { border: 0; border-top: 1px solid currentColor; opacity: .35; margin: 7px 0; }
+.etq { position: absolute; font-size: 14px; font-weight: 700; letter-spacing: .3px; }
+.zona { position: absolute; border: 2px dashed #9aa5b1; border-radius: 14px; }
+.zona .titulo { position: absolute; top: -12px; left: 18px; background: #fff; padding: 0 8px;
+                font-size: 15px; font-weight: 700; color: #52606d; }
+.nota { position: absolute; font-size: 12.5px; color: #3e4c59; background: #fff; padding: 1px 4px;
+        text-align: center; line-height: 1.3; }
+.paso { display: inline-flex; width: 22px; height: 22px; border-radius: 50%; color: #fff; font-size: 13px;
+        font-weight: 700; align-items: center; justify-content: center; margin-right: 6px; flex: none; }
+
+/* Colores por capa */
+.azul    { border-color: #2563c4; } .azul h3    { color: #1d4f9c; } .f-azul    { background: #eef4fc; }
+.verde   { border-color: #2f8f4e; } .verde h3   { color: #23703c; } .f-verde   { background: #edf7f0; }
+.naranja { border-color: #e07b1a; } .naranja h3 { color: #b35f0d; } .f-naranja { background: #fdf3e8; }
+.morado  { border-color: #7048c4; } .morado h3  { color: #5a35a8; } .f-morado  { background: #f3effb; }
+.rojo    { border-color: #c8393b; } .rojo h3    { color: #a12a2c; } .f-rojo    { background: #fcefef; }
+.gris    { border-color: #7b8794; } .gris h3    { color: #3e4c59; } .f-gris    { background: #f5f7fa; }
+.b-azul { background: #2563c4; } .b-verde { background: #2f8f4e; } .b-naranja { background: #e07b1a; }
+.b-morado { background: #7048c4; } .b-rojo { background: #c8393b; }
+
+svg#flechas { position: absolute; left: 0; top: 0; pointer-events: none; overflow: visible; }

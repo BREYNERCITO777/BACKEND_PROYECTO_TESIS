@@ -1,0 +1,61 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+  #lienzo { width: 1500px; height: 820px; }
+  .etapa { position: absolute; top: 100px; border: 2px solid; border-radius: 12px; padding: 34px 14px 14px; }
+  .etapa .cab { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); color: #fff; font-weight: 700;
+                font-size: 15px; padding: 4px 16px; border-radius: 6px; white-space: nowrap; }
+  .paso-c { border: 1.5px solid; border-radius: 8px; padding: 8px 11px; margin-bottom: 11px; background: #fff; }
+  .paso-c b { font-size: 14.5px; display: block; margin-bottom: 2px; }
+  .paso-c span { font-size: 13px; line-height: 1.35; display: block; color: #3e4c59; }
+  .paso-c b .num { display: inline; font-size: 14.5px; color: inherit; margin-right: 5px; }
+  .comun { font-size: 13px; color: #23703c; text-align: center; margin: -4px 0 12px; line-height: 1.35; }
+</style></head>
+<body><div id="lienzo">
+  <h1>Sentinel AI: Data Preparation, Training and Evaluation of the Detector</h1>
+  <div class="sub" style="margin-bottom:0">Sequence of models in Table 2; all results on the deduplicated external test set</div>
+
+  <div id="e1" class="etapa azul f-azul" style="left:34px;width:450px;height:552px;top:135px">
+    <div class="cab b-azul">1. DATA PREPARATION</div>
+    <div class="paso-c azul"><b><span class="num">1.1</span>Public weapon datasets</b><span>Kaggle and DatasetNinja, exported with Roboflow at 640 × 640: 17,852 firearm and 9,361 bladed-weapon boxes</span></div>
+    <div class="paso-c azul"><b><span class="num">1.2</span>Images without weapons (2,091)</b><span>Weapon-free crops and 404 frames from the deployment camera (empty labels)</span></div>
+    <div class="paso-c azul"><b><span class="num">1.3</span>Two classes, YOLO format</b><span>firearm (arma_fuego) and bladed weapon (arma_blanca)</span></div>
+    <div class="paso-c azul"><b><span class="num">1.4</span>80/20 split: 21,534 / 5,386 images</b><span>Internal validation only monitors training: augmented copies of the same photograph fall on both sides</span></div>
+    <div class="paso-c azul" style="margin-bottom:0"><b><span class="num">1.5</span>External data: Dangerous Items (CC BY 4.0)</b><span>Training and validation splits (7,206 images) added to training; test split held out, 194 duplicates removed → 1,054 test images</span></div>
+  </div>
+
+  <div id="e2" class="etapa verde f-verde" style="left:540px;width:400px;height:552px;top:135px">
+    <div class="cab b-verde">2. TRAINING (YOLOv8s)</div>
+    <div class="comun">Transfer learning on an NVIDIA RTX 2070 · 640 px · batch 16 · seed 0 · Ultralytics 8.3.40</div>
+    <div id="v2" class="paso-c verde"><b>v2 · from COCO weights · 60 epochs</b><span>Own corpus (steps 1.1–1.4)</span></div>
+    <div id="v3" class="paso-c verde" style="margin-top:22px"><b>v3 · fine-tuned from v2 · 20 epochs</b><span>+ 404 frames from the deployment camera: removes false alarms on parked motorcycles</span></div>
+    <div id="v4" class="paso-c verde" style="margin-top:22px"><b>v4 · fine-tuned from v3 · 20 epochs</b><span>+ Dangerous Items training and validation splits: generalization to external images</span></div>
+    <div id="v5" class="paso-c verde" style="margin-top:22px;border-width:2.5px"><b>v5 · fine-tuned from v4 · 20 epochs · deployed</b><span>+ 8,240 copies with motion blur and occlusion: robustness</span></div>
+    <div class="paso-c gris f-gris" style="margin-top:30px;border-style:dashed"><b>Comparison models (step 3.4)</b><span>YOLOv8n, YOLOv8s and YOLOv5s from COCO weights, and Faster R-CNN (ResNet-50 FPN), each trained for 20 epochs on the same data</span></div>
+  </div>
+
+  <div id="e3" class="etapa morado f-morado" style="left:996px;width:470px;height:552px;top:135px">
+    <div class="cab b-morado">3. EVALUATION AND EXPORT</div>
+    <div class="paso-c morado"><b><span class="num">3.1</span>Deduplicated external test (1,054 images)</b><span>Precision, recall, mAP@0.5 and mAP@0.5:0.95, overall and per class</span></div>
+    <div class="paso-c morado"><b><span class="num">3.2</span>Confusion matrix and precision-recall curves</b><span>Image-level alert and false-alarm rates per threshold</span></div>
+    <div class="paso-c morado"><b><span class="num">3.3</span>Robustness</b><span>Compression, motion blur, occlusion, defocus, low light and simulated camera viewpoints</span></div>
+    <div class="paso-c morado"><b><span class="num">3.4</span>Controlled comparison</b><span>YOLOv8n, YOLOv8s, YOLOv5s and Faster R-CNN with the same data, epochs and hardware</span></div>
+    <div class="paso-c morado"><b><span class="num">3.5</span>Regression tests</b><span>Blank images, parked motorcycles and baseball bats; real day and night footage</span></div>
+    <div class="paso-c morado" style="margin-bottom:0"><b><span class="num">3.6</span>Export best.pt (PyTorch)</b><span>Same weights in the backend and the agent, verified by SHA-256</span></div>
+  </div>
+
+  <div id="sal" class="caja naranja f-naranja" style="left:540px;top:712px;width:926px;height:80px;display:flex;align-items:center;gap:18px">
+    <div><h3>Deployed model: v5 (YOLOv8s)</h3>
+    <p>External test: precision 0.863, recall 0.795, mAP@0.5 0.859 · runs in the on-premises detection agent with a confidence threshold of 0.65</p></div>
+  </div>
+</div>
+<script src="base.js"></script>
+<script>
+  flecha("e1", "e:0.5", "e2", "w:0.5", { grosor: 3 });
+  flecha("e2", "e:0.5", "e3", "w:0.5", { grosor: 3 });
+  flecha("v2", "s", "v3", "n", { color: "#2f8f4e" });
+  flecha("v3", "s", "v4", "n", { color: "#2f8f4e" });
+  flecha("v4", "s", "v5", "n", { color: "#2f8f4e" });
+  flecha("e3", "s:0.5", "sal", "n:0.746", { color: "#b35f0d", grosor: 2.6 });
+  ajustarLienzo();
+</script></body></html>

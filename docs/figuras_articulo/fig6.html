@@ -1,0 +1,79 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+  #lienzo { width: 1500px; height: 885px; }
+  .barra { border: 1.5px solid; border-radius: 8px; padding: 7px 10px; background: #fff; margin-bottom: 9px; font-size: 13px; line-height: 1.35; }
+  .barra b { font-size: 14.5px; }
+  .mods { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .m { border: 1.5px solid #e07b1a; border-radius: 7px; padding: 6px 8px; background: #fff; font-size: 12.5px; line-height: 1.3; }
+  .m b { font-size: 13.5px; display: block; }
+  .m code, .barra code { font-family: Consolas, monospace; font-size: 12px; color: #52606d; }
+  .adm { border-style: dashed; }
+  .pila li { margin-bottom: 3px; }
+</style></head>
+<body><div id="lienzo">
+  <h1>Sentinel AI: Operator Dashboard</h1>
+  <div class="sub">React single-page application: real-time alerts, cameras, incidents and evidence</div>
+
+  <div id="auth" class="caja morado f-morado" style="left:290px;top:105px;width:860px;height:80px">
+    <h3>AuthProvider <span style="font-weight:400;font-size:14px;color:#52606d">(context/auth-context)</span></h3>
+    <p>Login, token check with GET /auth/me on page load, role (Admin / Operator) and allowed modules · <code>useAuth()</code></p>
+  </div>
+  <div id="rt" class="caja gris f-gris" style="left:290px;top:212px;width:860px;height:62px">
+    <h3>App routes <span style="font-weight:400;font-size:14px;color:#52606d">(React Router 7, one URL per module)</span></h3>
+  </div>
+
+  <div id="pub" class="caja verde f-verde" style="left:34px;top:315px;width:220px;height:150px">
+    <h3>Public route</h3><hr>
+    <div class="barra verde"><b>Login</b> <code>/login</code><br>Returns to the page the user tried to open</div>
+  </div>
+
+  <div id="pro" class="caja naranja f-naranja" style="left:290px;top:315px;width:860px;height:340px">
+    <h3>Protected routes (session required)</h3>
+    <div id="alp" class="barra morado" style="margin-top:8px"><b>AlertsProvider</b> (app/providers/alerts-context): loads the alert history, listens to the WebSocket, counts unread alerts and opens the <b>incoming-alert window</b> with the evidence image · <code>useAlerts()</code></div>
+    <div class="barra gris"><b>Layout:</b> AdminSidebar (modules by role, unread badge) · Topbar (alert bell, user menu, logout)</div>
+    <div class="mods">
+      <div class="m"><b>Dashboard</b><code>/dashboard</code><br>Summary of cameras, incidents and alerts</div>
+      <div class="m"><b>Cameras</b><code>/cameras</code><br>Status, RTSP settings, start / stop</div>
+      <div class="m"><b>Incidents</b><code>/incidents</code><br>Filtered table, evidence detail, download</div>
+      <div class="m"><b>Evidence</b><code>/evidence</code><br>Gallery of evidence images</div>
+      <div class="m"><b>Alerts</b><code>/alerts</code><br>All / unread / read; mark as read</div>
+      <div class="m adm"><b>Settings · admin</b><code>/settings</code><br>Confidence threshold and detection options</div>
+      <div class="m adm"><b>Users · admin</b><code>/users</code><br>Accounts, roles, activation</div>
+      <div class="m" style="border-color:#9aa5b1;color:#52606d;display:flex;align-items:center">Dashed border: Admin role only</div>
+    </div>
+  </div>
+
+  <div id="http" class="caja rojo f-rojo" style="left:290px;top:700px;width:470px;height:140px">
+    <h3>HTTP client</h3><div class="tec">api/http.ts (axios) · api/base.ts</div><hr>
+    <p>Adds the JWT to every request; API address taken from REACT_APP_API_BASE or derived from the browser location. Services: alerts, cameras, incidents, users, settings</p>
+  </div>
+  <div id="ws" class="caja rojo f-rojo" style="left:790px;top:700px;width:360px;height:140px">
+    <h3>WebSocket client</h3><div class="tec">websocket/alerts.ts · native browser WebSocket</div><hr>
+    <p>Connects to /api/v1/ws/alerts and passes each <i>new_alert</i> event to AlertsProvider</p>
+  </div>
+
+  <div class="nota" style="left:1060px;top:846px;width:100px">REST + JWT</div>
+  <div id="be" class="caja verde f-verde" style="left:1200px;top:700px;width:266px;height:140px">
+    <h3>FastAPI backend</h3><div class="tec">/api/v1</div><hr><p>REST endpoints (JSON + JWT) and WebSocket /ws/alerts</p>
+  </div>
+
+  <div class="caja gris f-gris pila" style="left:1200px;top:105px;width:266px;height:550px">
+    <h3>Technology</h3><hr>
+    <ul><li>React 18 + TypeScript</li><li>Tailwind CSS, shadcn/ui (Radix)</li><li>React Router 7</li><li>axios (REST)</li>
+    <li>Native WebSocket (no socket.io)</li><li>sonner (notifications)</li><li>recharts (dashboard charts)</li></ul><hr>
+    <h3 style="font-size:16px">Deployment</h3><p>Static build on Vercel; every route is served by index.html (vercel.json)</p><hr>
+    <h3 style="font-size:16px">Human in the loop</h3><p>The incoming-alert window shows the evidence; the operator decides and marks the alert as read</p>
+  </div>
+</div>
+<script src="base.js"></script>
+<script>
+  flecha("auth", "s:0.5", "rt", "n:0.5");
+  flecha("rt", "w:0.5", "pub", "n:0.5", { puntos: [[144, 243]] });
+  flecha("rt", "s:0.5", "pro", "n:0.5");
+  flecha("pro", "s:0.21", "http", "n:0.385");
+  flecha("ws", "n:0.4", "pro", "s:0.749", { punteada: true, color: "#7048c4" });
+  flecha("http", "s:0.8", "be", "s:0.5", { puntos: [[666, 868], [1333, 868]] });
+  flecha("be", "w:0.68", "ws", "e:0.68", { punteada: true, color: "#7048c4" });
+  ajustarLienzo();
+</script></body></html>
