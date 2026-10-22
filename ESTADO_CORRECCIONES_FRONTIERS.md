@@ -510,7 +510,39 @@ Scripts: `dataset_externo_zenodo/generar_degradaciones.py`,
 
 **Recomendación para el manuscrito:** declarar esto como limitación conocida y
 proponer como trabajo futuro incorporar ejemplos con blur/oclusión al entrenamiento
-(augmentation), ya que hoy el modelo nunca los vio durante el ajuste fino.
+(augmentation), ya que hoy el modelo nunca los vio durante el ajuste fino. *(Hecho
+después: es v5, ver punto 3.)*
+
+#### Puntos de operación a nivel de imagen (v5, test externo sin duplicados)
+
+El revisor pide "operating points for different use cases". La métrica por cajas cuenta
+como error un arma detectada con la caja desplazada; en operación lo que importa es si
+la imagen dispara alerta. Para cada umbral (`puntos_operacion.py`), sobre 768 imágenes
+con arma y 286 sin arma:
+
+| Umbral | Imágenes con arma que alertan | Falsas alarmas en imágenes sin arma | Uso sugerido |
+|---|---|---|---|
+| 0.25 | 89.6% | 8.0% | — |
+| 0.40 | 84.8% | 4.9% | — |
+| 0.50 | 81.5% | 3.2% | Alta seguridad: prioriza no perder armas |
+| 0.60 | 75.3% | 1.75% | — |
+| **0.65 (producción)** | **70.4%** | **1.05%** | Equilibrio |
+| 0.70 | 64.8% | 0% | Mínimo ruido |
+| 0.80 | 44.8% | 0% | — |
+
+Al umbral de producción, por clase: arma de fuego 74.4%, arma blanca 67.5% (v4: 71.9% y
+64.1%, falsa alarma 0.35%).
+
+- Es por **frame aislado**: en video un arma visible varios segundos tiene ~5
+  oportunidades por segundo, así que la tasa por evento debe ser mayor (no medible con
+  fotos sueltas; queda como trabajo futuro con video anotado).
+- Las imágenes sin arma de este test son difíciles a propósito (incluyen personas con
+  bates). En la calle real, al umbral 0.65, hubo 0 falsas alarmas en ~4 800 frames.
+- Se mantiene 0.65 en producción. El umbral se cambia en vivo desde el panel; esta tabla
+  es la guía para elegirlo según el contexto.
+- Mirando los casos uno por uno, de los 6 primeros falsos positivos del test, 5 eran el
+  arma correcta con la caja desplazada respecto de la anotación y solo 1 un error real
+  (un bate). Evidencia y casos clasificados en `docs/evidencia_externa/v5/`.
 
 ---
 

@@ -1,0 +1,11 @@
+{
+  "umbral": 0.65,
+  "imagenes_con_arma": 768,
+  "tasa_alerta_con_arma": 0.7044,
+  "imagenes_sin_arma": 286,
+  "tasa_falsa_alarma_sin_arma": 0.0105,
+  "tasa_alerta_por_clase": {
+    "arma_fuego": 0.7442,
+    "arma_blanca": 0.6747
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "con_arma": 768,
+  "sin_arma": 286,
+  "puntos": [
+    {
+      "umbral": 0.25,
+      "alerta_con_arma": 0.8958,
+      "falsa_alarma_sin_arma": 0.0804
+    },
+    {
+      "umbral": 0.3,
+      "alerta_con_arma": 0.8828,
+      "falsa_alarma_sin_arma": 0.0664
+    },
+    {
+      "umbral": 0.35,
+      "alerta_con_arma": 0.8672,
+      "falsa_alarma_sin_arma": 0.0559
+    },
+    {
+      "umbral": 0.4,
+      "alerta_con_arma": 0.8477,
+      "falsa_alarma_sin_arma": 0.049
+    },
+    {
+      "umbral": 0.45,
+      "alerta_con_arma": 0.8385,
+      "falsa_alarma_sin_arma": 0.035
+    },
+    {
+      "umbral": 0.5,
+      "alerta_con_arma": 0.8151,
+      "falsa_alarma_sin_arma": 0.0315
+    },
+    {
+      "umbral": 0.55,
+      "alerta_con_arma": 0.7917,
+      "falsa_alarma_sin_arma": 0.028
+    },
+    {
+      "umbral": 0.6,
+      "alerta_con_arma": 0.7526,
+      "falsa_alarma_sin_arma": 0.0175
+    },
+    {
+      "umbral": 0.65,
+      "alerta_con_arma": 0.7044,
+      "falsa_alarma_sin_arma": 0.0105
+    },
+    {
+      "umbral": 0.7,
+      "alerta_con_arma": 0.6484,
+      "falsa_alarma_sin_arma": 0.0
+    },
+    {
+      "umbral": 0.75,
+      "alerta_con_arma": 0.5716,
+      "falsa_alarma_sin_arma": 0.0
+    },
+    {
+      "umbral": 0.8,
+      "alerta_con_arma": 0.4479,
+      "falsa_alarma_sin_arma": 0.0
+    }
+  ]
+}
