@@ -1,0 +1,6 @@
+# Credenciales reales: RTSP de la municipalidad y token del agente.
+# Nunca debe versionarse. La plantilla publicable es .env.example.
+.env
+
+__pycache__/
+*.pyc

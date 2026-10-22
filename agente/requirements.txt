@@ -1,0 +1,6 @@
+ultralytics==8.3.40
+torch==2.8.0
+torchvision==0.23.0
+opencv-python==5.0.0.93
+requests==2.32.5
+numpy==2.0.2

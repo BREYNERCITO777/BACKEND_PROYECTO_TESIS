@@ -8,7 +8,7 @@ el orden en que hay que correrlos. Cada script dice en su cabecera qué mide y p
 | | Versión |
 |---|---|
 | Imagen de cómputo | `tesis-backend:local`, construida con el `Dockerfile` de este repo (Python 3.9, ultralytics 8.3.40, torch 2.8.0+cu128, opencv-python-headless 4.10.0.84) |
-| Imagen del agente | `sentinel-agent:local` (Python 3.10, ultralytics 8.3.40, torch 2.8.0+cu128, opencv-python 5.0.0, numpy 2.0.2) |
+| Imagen del agente | `sentinel-agent:local` (Python 3.10, ultralytics 8.3.40, torch 2.8.0+cu128, opencv-python 5.0.0.93, numpy 2.0.2) |
 | YOLOv5 | paquete `yolov5` 7.0.14 instalado sobre `tesis-backend:local` |
 | Semilla | 0 en todos los entrenamientos (ultralytics `seed=0, deterministic=True`; yolov5 `--seed 0` por defecto) |
 | Hardware de referencia | Laptop, CPU 6 núcleos / 12 hilos, NVIDIA RTX 2070 8 GB (driver con CUDA 12.5), Docker Desktop con VM de 7.6 GB |

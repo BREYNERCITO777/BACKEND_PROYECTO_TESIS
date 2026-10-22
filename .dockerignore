@@ -7,3 +7,6 @@ app/static/capturas/
 app/static/evidence/
 .git/
 .vscode/
+
+# Credenciales del agente: no deben entrar al contexto de build.
+agente/.env

@@ -1,0 +1,24 @@
+services:
+  sentinel_yolo_agent:
+    # Contexto = raiz del repo, para copiar app/models/best.pt (ver Dockerfile).
+    build:
+      context: ..
+      dockerfile: agente/Dockerfile
+    container_name: sentinel_yolo_agent
+    restart: always
+
+    # Toda la configuracion vive en .env, que no se versiona porque contiene
+    # las credenciales del RTSP y el token del agente.
+    # Plantilla sin secretos: .env.example
+    env_file:
+      - .env
+
+    # Para inferir en GPU (necesaria para mas de una camara por equipo, ver
+    # ESTADO_CORRECCIONES_FRONTIERS.md punto 5), descomentar:
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
