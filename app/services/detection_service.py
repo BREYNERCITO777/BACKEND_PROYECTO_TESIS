@@ -1,3 +1,5 @@
+"""Inferencia YOLO sobre una imagen."""
+
 from __future__ import annotations
 
 import time
@@ -6,7 +8,9 @@ import numpy as np
 
 
 class DetectionService:
+    """Inferencia YOLO sobre imágenes sueltas."""
     def detect(self, model, image_bytes: bytes):
+        """Decodifica la imagen, corre el modelo y devuelve (frame, detecciones, ms de inferencia)."""
         if model is None:
             raise RuntimeError("Modelo no cargado")
 

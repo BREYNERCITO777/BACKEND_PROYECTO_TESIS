@@ -1,3 +1,5 @@
+"""Incidentes: cada detección aceptada, con su evidencia."""
+
 from __future__ import annotations
 
 from datetime import datetime, timezone
@@ -19,11 +21,13 @@ def _serialize(doc: Dict[str, Any]) -> Dict[str, Any]:
 
 
 class IncidentRepository:
+    """Acceso a la colección de incidentes."""
     def __init__(self, db: AsyncIOMotorDatabase):
         self.db = db
         self.col = db[settings.INCIDENTS_COL]
 
     async def ensure_indexes(self) -> None:
+        """Índices para ordenar por fecha y filtrar por cámara."""
         await self.col.create_index("timestamp")
         await self.col.create_index("camera_id")
 
@@ -42,6 +46,7 @@ class IncidentRepository:
         evidence_type: str | None = None,
         camera_registered: bool | None = None,
     ) -> Dict[str, Any]:
+        """Guarda un incidente con su evidencia y lo devuelve."""
         now = datetime.now(timezone.utc).isoformat()
         doc = {
             "weapon_type": weapon_type,
@@ -66,11 +71,13 @@ class IncidentRepository:
         return _serialize(doc)
 
     async def list(self, limit: int = 50) -> List[Dict[str, Any]]:
+        """Incidentes más recientes primero."""
         cursor = self.col.find({}).sort("timestamp", -1).limit(limit)
         docs = await cursor.to_list(length=limit)
         return [_serialize(d) for d in docs]
 
     async def get(self, incident_id: str) -> Optional[Dict[str, Any]]:
+        """Un incidente por id, o None si no existe o el id no es válido."""
         try:
             d = await self.col.find_one({"_id": _oid(incident_id)})
             return _serialize(d) if d else None
@@ -78,6 +85,7 @@ class IncidentRepository:
             return None
 
     async def delete(self, incident_id: str) -> bool:
+        """Borra un incidente; True si existía."""
         try:
             res = await self.col.delete_one({"_id": _oid(incident_id)})
             return res.deleted_count == 1

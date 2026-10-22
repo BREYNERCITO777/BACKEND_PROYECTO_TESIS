@@ -1,3 +1,5 @@
+"""Bandeja de alertas del operador."""
+
 from __future__ import annotations
 
 from typing import Optional
@@ -29,6 +31,7 @@ async def list_alerts(
     db: AsyncIOMotorDatabase = Depends(get_db),
     _user=Depends(require_roles("admin", "operator")),  # ✅ operator puede ver
 ):
+    """Alertas más recientes primero."""
     return await alert_repo.list(db, limit=limit)
 
 
@@ -38,6 +41,7 @@ async def create_alert(
     db: AsyncIOMotorDatabase = Depends(get_db),
     _user=Depends(require_roles("admin")),  # ✅ operator NO crea
 ):
+    """Crea una alerta manual."""
     return await alert_repo.create(
         db,
         title=payload.title,
@@ -57,6 +61,7 @@ async def get_alert(
     db: AsyncIOMotorDatabase = Depends(get_db),
     _user=Depends(require_roles("admin", "operator")),
 ):
+    """Una alerta por id."""
     doc = await alert_repo.get(db, alert_id)
     if not doc:
         raise HTTPException(404, "Alerta no encontrada")
@@ -70,6 +75,7 @@ async def mark_read(
     db: AsyncIOMotorDatabase = Depends(get_db),
     _user=Depends(require_roles("admin", "operator")),  # ✅ operator puede marcar leído si quieres
 ):
+    """Marca una alerta como leída o no leída."""
     doc = await alert_repo.mark_read(db, alert_id, read=read)
     if not doc:
         raise HTTPException(404, "Alerta no encontrada")
@@ -82,6 +88,7 @@ async def delete_alert(
     db: AsyncIOMotorDatabase = Depends(get_db),
     _user=Depends(require_roles("admin")),  # ✅ solo admin borra
 ):
+    """Borra una alerta."""
     ok = await alert_repo.delete(db, alert_id)
     if not ok:
         raise HTTPException(404, "Alerta no encontrada")

@@ -1,3 +1,5 @@
+"""Autenticación JWT y control de acceso por rol."""
+
 from __future__ import annotations
 
 from datetime import datetime, timedelta, timezone
@@ -89,10 +91,12 @@ async def get_current_user(
 
 
 def require_auth(user: Dict[str, Any] = Depends(get_current_user)) -> Dict[str, Any]:
+    """Dependencia: exige una sesión válida y devuelve el usuario."""
     return user
 
 
 def require_admin(user: Dict[str, Any] = Depends(get_current_user)) -> Dict[str, Any]:
+    """Dependencia: exige una sesión de administrador; si no, responde 403."""
     if user.get("role") != "admin":
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Requiere rol admin")
     return user

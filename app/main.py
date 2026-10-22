@@ -1,3 +1,5 @@
+"""Punto de entrada: crea la aplicación FastAPI, CORS, estáticos y routers."""
+
 from __future__ import annotations
 
 import os
@@ -21,6 +23,7 @@ from app.routers.ws import router as ws_router
 
 
 def create_app() -> FastAPI:
+    """Construye la aplicación: CORS, archivos estáticos de evidencia y routers."""
     app = FastAPI(
         title="Sentinel AI Backend",
         version="1.0.0",
@@ -72,6 +75,7 @@ def create_app() -> FastAPI:
 
     @app.get("/", tags=["default"])
     def root():
+        """Comprobación rápida de que la API responde."""
         return {
             "status": "ok",
             "name": "Sentinel AI Backend",

@@ -1,3 +1,5 @@
+"""Imagen de evidencia: cajas dibujadas, archivo en disco y copia base64."""
+
 from __future__ import annotations
 
 import base64
@@ -11,6 +13,7 @@ from app.core.config import settings
 
 
 def draw_boxes(frame, detections):
+    """Dibuja las cajas y etiquetas de las detecciones sobre el frame."""
     for d in detections:
         x1, y1, x2, y2 = d["box"]
         p1 = (int(x1), int(y1))

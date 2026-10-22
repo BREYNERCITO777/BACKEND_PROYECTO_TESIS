@@ -1,3 +1,5 @@
+"""Recepción de detecciones del agente YOLO local: el camino crítico."""
+
 from __future__ import annotations
 
 import base64
@@ -104,6 +106,7 @@ class AgentDetectionIn(BaseModel):
 
 
 def validate_agent_token(authorization: Optional[str]) -> None:
+    """Comprueba el token Bearer del agente; si falta o no coincide, responde 401."""
     expected_token = settings.AGENT_TOKEN.strip()
 
     # Defensa en profundidad: lifecycle.py ya impide arrancar sin AGENT_TOKEN.
@@ -144,6 +147,10 @@ async def receive_detection(
     authorization: Optional[str] = Header(default=None),
     db: AsyncIOMotorDatabase = Depends(get_db),
 ):
+    """Recibe una detección del agente y decide si es un incidente: token, validación,
+    umbral de confianza configurado y espera mínima por cámara. Si pasa, crea el
+    incidente y la alerta y la envía al panel por WebSocket.
+    """
     validate_agent_token(authorization)
 
     # t_recepcion: inicio de la medición de latencia del lado del backend

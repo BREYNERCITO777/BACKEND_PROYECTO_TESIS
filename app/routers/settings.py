@@ -1,3 +1,5 @@
+"""Configuración global del sistema."""
+
 from __future__ import annotations
 
 from typing import Optional
@@ -53,6 +55,7 @@ async def get_settings(
     db: AsyncIOMotorDatabase = Depends(get_db),
     _user=Depends(require_roles("admin", "operator")),
 ):
+    """La configuración global del sistema."""
     doc = await settings_repo.get_or_create(db)
     doc.pop("_id", None)
     return doc
@@ -65,6 +68,7 @@ async def patch_settings(
     db: AsyncIOMotorDatabase = Depends(get_db),
     _user=Depends(require_roles("admin")),
 ):
+    """Actualiza la configuración global; el umbral de confianza rige de inmediato."""
     patch = {k: v for k, v in payload.model_dump().items() if v is not None}
     doc = await settings_repo.patch(db, patch)
     doc.pop("_id", None)

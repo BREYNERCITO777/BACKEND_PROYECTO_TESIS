@@ -1,3 +1,5 @@
+"""Cifrado de las URL RTSP de las cámaras (llevan usuario y contraseña)."""
+
 from __future__ import annotations
 
 import base64

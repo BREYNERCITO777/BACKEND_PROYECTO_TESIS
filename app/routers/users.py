@@ -1,3 +1,5 @@
+"""Gestión de cuentas de usuario (solo administrador)."""
+
 from __future__ import annotations
 
 from typing import Literal, Optional
@@ -19,6 +21,7 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 # Schemas
 # =========================
 class UserCreate(BaseModel):
+    """Datos para crear una cuenta."""
     name: str = Field(..., min_length=2)
     email: EmailStr
     password: str = Field(..., min_length=6)
@@ -27,6 +30,7 @@ class UserCreate(BaseModel):
 
 
 class UserOut(BaseModel):
+    """Cuenta tal como la devuelve la API."""
     # ⚠️ Un campo llamado "_id" NO funciona en Pydantic v2: los nombres que
     # empiezan con guion bajo se tratan como atributos privados y se descartan
     # en silencio. Por eso se declara con otro nombre y alias "_id", que
@@ -43,6 +47,7 @@ class UserOut(BaseModel):
 
 
 class UserUpdate(BaseModel):
+    """Campos editables de una cuenta."""
     name: Optional[str] = Field(default=None, min_length=2)
     email: Optional[EmailStr] = None
     password: Optional[str] = Field(default=None, min_length=6)
@@ -51,6 +56,7 @@ class UserUpdate(BaseModel):
 
 
 class UserEstadoUpdate(BaseModel):
+    """Activar (1) o desactivar (0) una cuenta."""
     estado: Literal[0, 1]
 
 
@@ -80,6 +86,7 @@ async def list_users(
     db: AsyncIOMotorDatabase = Depends(get_db),
     _user=Depends(require_roles("admin")),
 ):
+    """Todas las cuentas."""
     limit = max(1, min(int(limit), 2000))
     docs = await UserRepository(db).list(limit=limit)
     return [_to_user_out(u) for u in docs]
@@ -91,6 +98,7 @@ async def create_user(
     db: AsyncIOMotorDatabase = Depends(get_db),
     _user=Depends(require_roles("admin")),
 ):
+    """Crea una cuenta; 409 si el email ya existe."""
     repo = UserRepository(db)
 
     if await repo.email_exists(payload.email):
@@ -113,6 +121,7 @@ async def set_role(
     db: AsyncIOMotorDatabase = Depends(get_db),
     current_user=Depends(require_roles("admin")),
 ):
+    """Cambia el rol de una cuenta; un administrador no puede quitarse su propio rol."""
     me_id = _str_id(current_user.get("_id", ""))
     if me_id and me_id == user_id and role != "admin":
         raise HTTPException(status_code=400, detail="No puedes quitarte el rol admin a ti mismo")
@@ -130,6 +139,7 @@ async def update_user(
     db: AsyncIOMotorDatabase = Depends(get_db),
     current_user=Depends(require_roles("admin")),
 ):
+    """Actualiza nombre, email o contraseña de una cuenta."""
     repo = UserRepository(db)
 
     existing = await repo.get_by_id(user_id)
@@ -176,6 +186,7 @@ async def set_estado(
     db: AsyncIOMotorDatabase = Depends(get_db),
     current_user=Depends(require_roles("admin")),
 ):
+    """Activa o desactiva una cuenta; nadie puede desactivarse a sí mismo."""
     me_id = _str_id(current_user.get("_id", ""))
     if me_id and me_id == user_id and int(payload.estado) == 0:
         raise HTTPException(status_code=400, detail="No puedes desactivarte a ti mismo")
@@ -192,6 +203,7 @@ async def delete_user(
     db: AsyncIOMotorDatabase = Depends(get_db),
     current_user=Depends(require_roles("admin")),
 ):
+    """Borra una cuenta; nadie puede borrar la propia."""
     me_id = _str_id(current_user.get("_id", ""))
     if me_id and me_id == user_id:
         raise HTTPException(status_code=400, detail="No puedes eliminar tu propio usuario")

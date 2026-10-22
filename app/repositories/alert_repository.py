@@ -1,3 +1,5 @@
+"""Alertas que ve el operador en su bandeja."""
+
 from __future__ import annotations
 
 from datetime import datetime, timezone
@@ -39,7 +41,9 @@ def _serialize(doc: Dict[str, Any]) -> Dict[str, Any]:
 
 
 class AlertRepository:
+    """Acceso a la colección de alertas."""
     def col(self, db: AsyncIOMotorDatabase):
+        """Colección de alertas."""
         return db[settings.ALERTS_COL]
 
     async def create(
@@ -61,6 +65,7 @@ class AlertRepository:
         source: Optional[str] = None,
         timestamp: Optional[str] = None,
     ) -> Dict[str, Any]:
+        """Guarda una alerta nueva, sin leer, y la devuelve."""
         now = datetime.now(timezone.utc).isoformat()
 
         doc = {
@@ -94,6 +99,7 @@ class AlertRepository:
         db: AsyncIOMotorDatabase,
         limit: int = 50,
     ) -> List[Dict[str, Any]]:
+        """Alertas más recientes primero."""
         cursor = self.col(db).find({}).sort("created_at", -1).limit(limit)
         docs = await cursor.to_list(length=limit)
 
@@ -104,6 +110,7 @@ class AlertRepository:
         db: AsyncIOMotorDatabase,
         alert_id: str,
     ) -> Optional[Dict[str, Any]]:
+        """Una alerta por id, o None si no existe."""
         doc = await self.col(db).find_one({"_id": _oid(alert_id)})
 
         return _serialize(doc) if doc else None
@@ -114,6 +121,7 @@ class AlertRepository:
         alert_id: str,
         read: bool = True,
     ) -> Optional[Dict[str, Any]]:
+        """Marca la alerta como leída o no leída y la devuelve actualizada."""
         await self.col(db).update_one(
             {"_id": _oid(alert_id)},
             {"$set": {"read": read}},
@@ -126,6 +134,7 @@ class AlertRepository:
         db: AsyncIOMotorDatabase,
         alert_id: str,
     ) -> bool:
+        """Borra una alerta; True si existía."""
         res = await self.col(db).delete_one({"_id": _oid(alert_id)})
 
         return res.deleted_count == 1
@@ -134,6 +143,7 @@ class AlertRepository:
         self,
         db: AsyncIOMotorDatabase,
     ) -> int:
+        """Borra todas las alertas y devuelve cuántas eran."""
         res = await self.col(db).delete_many({})
 
         return int(res.deleted_count)

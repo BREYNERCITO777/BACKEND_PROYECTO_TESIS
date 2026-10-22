@@ -1,3 +1,11 @@
+"""Entrenamiento ORIGINAL del modelo (v1), conservado como registro histórico.
+
+Con epochs=10 en CPU se interrumpió en la época 7 sin converger; es la
+discrepancia de épocas que señaló la revisión. Los entrenamientos reales
+(v2 a v5) y su protocolo están en experimentos/ y en
+ESTADO_CORRECCIONES_FRONTIERS.md. No usar para reproducir los resultados.
+"""
+
 from ultralytics import YOLO
 import shutil
 import os

@@ -1,3 +1,5 @@
+"""Caducidad de las imágenes de evidencia (EVIDENCE_RETENTION_DAYS)."""
+
 from __future__ import annotations
 
 import asyncio

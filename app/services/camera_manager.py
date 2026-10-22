@@ -1,3 +1,5 @@
+"""Hilos que procesan el video de las cámaras en el propio backend."""
+
 from __future__ import annotations
 
 import asyncio
@@ -13,6 +15,7 @@ OnIncident = Callable[[dict], "asyncio.Future[Any]"]  # callback async
 
 @dataclass
 class CameraWorker:
+    """Estado de un hilo de procesamiento de cámara."""
     camera_id: str
     rtsp_url: str
     fps_target: int
@@ -41,6 +44,7 @@ class CameraManager:
         infer_every_n_frames: int = 5,
         on_incident: Optional[OnIncident] = None,
     ) -> None:
+        """Arranca el hilo de una cámara si no está corriendo."""
         # ya está corriendo
         if camera_id in self._workers:
             return
@@ -67,6 +71,7 @@ class CameraManager:
         )
 
     def stop(self, camera_id: str) -> None:
+        """Detiene el hilo de una cámara."""
         w = self._workers.get(camera_id)
         if not w:
             return
@@ -76,6 +81,7 @@ class CameraManager:
         self._workers.pop(camera_id, None)
 
     def status(self) -> Dict[str, dict]:
+        """Estado de cada hilo activo."""
         return {
             cid: {
                 "running": True,

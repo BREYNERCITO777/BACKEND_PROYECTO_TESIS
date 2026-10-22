@@ -1,3 +1,5 @@
+"""Inicio de sesión y datos de la cuenta actual."""
+
 from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException
@@ -15,10 +17,12 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
 def verify_password(plain: str, hashed: str) -> bool:
+    """True si la contraseña coincide con su hash."""
     return pwd_context.verify(plain, hashed)
 
 
 def allowed_modules_for(role: str) -> list[str]:
+    """Módulos del panel que puede ver cada rol."""
     if role == "admin":
         return [
             "dashboard",
@@ -50,6 +54,7 @@ async def login(
     form: OAuth2PasswordRequestForm = Depends(),
     db: AsyncIOMotorDatabase = Depends(get_db),
 ):
+    """Inicia sesión con email y contraseña (formulario) y devuelve el token."""
     # OAuth2PasswordRequestForm usa: username, password (aunque sea email)
     email = (form.username or "").strip().lower()
 
@@ -83,6 +88,7 @@ async def login(
 
 @router.get("/me")
 async def me(user=Depends(get_current_user)):
+    """La cuenta de la sesión actual y los módulos que puede usar."""
     # ✅ bloquear sesión si quedó inactivo luego
     if _is_inactive(user):
         raise HTTPException(status_code=401, detail="Usuario inactivo")

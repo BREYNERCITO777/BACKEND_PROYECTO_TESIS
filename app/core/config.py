@@ -1,3 +1,5 @@
+"""Configuración leída del entorno o del archivo .env."""
+
 from __future__ import annotations
 
 from typing import List
@@ -5,6 +7,7 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
+    """Valores por defecto de la aplicación; cada uno se sobrescribe con la variable de entorno del mismo nombre."""
     API_PREFIX: str = "/api/v1"
 
     # YOLO

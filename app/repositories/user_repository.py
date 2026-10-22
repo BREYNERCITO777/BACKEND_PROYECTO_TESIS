@@ -1,3 +1,5 @@
+"""Usuarios del panel y sus roles."""
+
 from __future__ import annotations
 
 from datetime import datetime, timezone
@@ -52,6 +54,7 @@ class UserRepository:
         return await self.col.find_one({"email": (email or "").strip().lower()})
 
     async def get_by_id(self, user_id: str) -> Optional[Dict[str, Any]]:
+        """Un usuario por id, o None si no existe o el id no es válido."""
         try:
             doc = await self.col.find_one({"_id": _oid(user_id)})
         except (InvalidId, TypeError):
@@ -66,6 +69,7 @@ class UserRepository:
             return None
 
     async def list(self, limit: int = 100) -> List[Dict[str, Any]]:
+        """Usuarios ordenados por email, sin el hash de la contraseña."""
         cursor = self.col.find({}, {"password_hash": 0}).sort("email", 1).limit(limit)
         docs = await cursor.to_list(length=limit)
         for d in docs:
@@ -101,6 +105,7 @@ class UserRepository:
         name: str = "",
         estado: int = 1,
     ) -> Dict[str, Any]:
+        """Crea un usuario con la contraseña ya hasheada y lo devuelve."""
         doc = {
             "email": (email or "").strip().lower(),
             "password_hash": password_hash,
@@ -140,6 +145,7 @@ class UserRepository:
         return await self.get_by_id(user_id)
 
     async def delete(self, user_id: str) -> bool:
+        """Borra un usuario; True si existía."""
         try:
             res = await self.col.delete_one({"_id": _oid(user_id)})
         except (InvalidId, TypeError):

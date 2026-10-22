@@ -1,3 +1,5 @@
+"""Gestión de cámaras y de su procesamiento en vivo."""
+
 from __future__ import annotations
 
 from typing import Optional
@@ -41,6 +43,7 @@ async def list_cameras(
     db: AsyncIOMotorDatabase = Depends(get_db),
     _user=Depends(require_roles("admin", "operator")),
 ):
+    """Cámaras registradas, con la URL RTSP enmascarada."""
     return await CameraRepository(db).list()
 
 
@@ -51,6 +54,7 @@ async def create_camera(
     db: AsyncIOMotorDatabase = Depends(get_db),
     _user=Depends(require_roles("admin")),
 ):
+    """Registra una cámara; 409 si su URL RTSP ya existe."""
     try:
         return await CameraRepository(db).create(**payload.model_dump())
     except DuplicateKeyError as e:
@@ -77,6 +81,7 @@ async def update_camera(
     db: AsyncIOMotorDatabase = Depends(get_db),
     _user=Depends(require_roles("admin")),
 ):
+    """Actualiza los datos de una cámara."""
     patch = {k: v for k, v in payload.model_dump().items() if v is not None}
     if not patch:
         raise HTTPException(status_code=400, detail="No hay campos para actualizar")
@@ -95,6 +100,7 @@ async def delete_camera(
     db: AsyncIOMotorDatabase = Depends(get_db),
     _user=Depends(require_roles("admin")),
 ):
+    """Borra una cámara."""
     ok = await CameraRepository(db).delete(camera_id)
     if not ok:
         raise HTTPException(status_code=404, detail="Cámara no encontrada")
@@ -122,6 +128,7 @@ async def update_camera_status(
     db: AsyncIOMotorDatabase = Depends(get_db),
     _user=Depends(require_roles("admin")),
 ):
+    """Cambia el estado de la cámara a RUNNING o STOPPED."""
     if status_ not in ["RUNNING", "STOPPED"]:
         raise HTTPException(status_code=400, detail="Estado inválido (RUNNING|STOPPED)")
 
@@ -152,6 +159,7 @@ async def start_camera(
     db: AsyncIOMotorDatabase = Depends(get_db),
     _user=Depends(require_roles("admin")),
 ):
+    """Arranca el procesamiento en vivo de una cámara en el backend."""
     cam = await CameraRepository(db).get(camera_id)
     if not cam:
         raise HTTPException(status_code=404, detail="Cámara no encontrada")
@@ -172,6 +180,7 @@ async def stop_camera(
     db: AsyncIOMotorDatabase = Depends(get_db),
     _user=Depends(require_roles("admin")),
 ):
+    """Detiene el procesamiento en vivo de una cámara."""
     await CameraRepository(db).update(camera_id, {"status": "STOPPED"})
 
     active_streams = getattr(request.app.state, "active_streams", {})
@@ -190,4 +199,5 @@ async def stop_camera(
 async def cameras_status(
     _user=Depends(require_roles("admin", "operator")),
 ):
+    """Estado de los procesamientos en vivo activos."""
     return camera_manager.status()

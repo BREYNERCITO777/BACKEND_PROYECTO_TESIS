@@ -1,3 +1,5 @@
+"""Detección sobre una foto subida y video en vivo con detecciones dibujadas."""
+
 from __future__ import annotations
 
 import os
@@ -160,6 +162,7 @@ async def detectar(
     db: AsyncIOMotorDatabase = Depends(get_db),
     _user: Dict[str, Any] = Depends(require_roles_stream),
 ):
+    """Detecta armas en una foto subida; si encuentra alguna, crea el incidente y la alerta."""
     t0 = time.time()
     try:
         model = getattr(request.app.state, "yolo_model", None)
@@ -298,6 +301,7 @@ async def generar_frames(
     model,
     db: AsyncIOMotorDatabase,
 ):
+    """Genera los frames MJPEG de una cámara con las detecciones dibujadas."""
     cap = cv2.VideoCapture(camera_source)
 
     # reduce lag RTSP (si aplica)
@@ -504,6 +508,7 @@ async def video_stream(
     db: AsyncIOMotorDatabase = Depends(get_db),
     _user: Dict[str, Any] = Depends(require_roles_stream),
 ):
+    """Video en vivo de una cámara con las detecciones dibujadas (MJPEG)."""
     model = getattr(request.app.state, "yolo_model", None)
     if model is None:
         raise HTTPException(status_code=500, detail="Modelo YOLO no cargado")

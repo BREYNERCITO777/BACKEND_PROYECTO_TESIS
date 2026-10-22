@@ -1,3 +1,9 @@
+"""Partición ORIGINAL 70/20/10 del dataset (v1), conservada como registro histórico.
+
+Los modelos actuales usan la partición 80/20 descrita en
+ESTADO_CORRECCIONES_FRONTIERS.md (puntos 7 y 8).
+"""
+
 import os
 import shutil
 import random

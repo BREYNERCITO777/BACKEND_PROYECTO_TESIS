@@ -1,3 +1,5 @@
+"""Cámaras registradas, con la URL RTSP cifrada."""
+
 from __future__ import annotations
 
 from datetime import datetime, timezone
@@ -32,11 +34,13 @@ def _serialize(doc: Dict[str, Any]) -> Dict[str, Any]:
 
 
 class CameraRepository:
+    """Acceso a la colección de cámaras."""
     def __init__(self, db: AsyncIOMotorDatabase):
         self.db = db
         self.col = db[settings.CAMERAS_COL]
 
     async def ensure_indexes(self) -> None:
+        """Crea los índices, entre ellos el único sobre la huella de la URL RTSP."""
         # El índice único va sobre la huella, no sobre la URL: el cifrado no es
         # determinista, asi que dos documentos con la MISMA url producirian
         # textos cifrados distintos y el indice nunca detectaria el duplicado.
@@ -53,11 +57,13 @@ class CameraRepository:
     # Lectura
     # ------------------------------------------------------------------
     async def list(self) -> List[Dict[str, Any]]:
+        """Cámaras más recientes primero, con la URL RTSP enmascarada."""
         cursor = self.col.find({}).sort("created_at", -1)
         docs = await cursor.to_list(length=1000)
         return [_serialize(d) for d in docs]
 
     async def get(self, camera_id: str) -> Optional[Dict[str, Any]]:
+        """Una cámara por id, o None si no existe o el id no es válido."""
         try:
             d = await self.col.find_one({"_id": _oid(camera_id)})
             return _serialize(d) if d else None
@@ -101,6 +107,7 @@ class CameraRepository:
         fps_target: int = 5,
         infer_every_n_frames: int = 5,
     ) -> Dict[str, Any]:
+        """Registra una cámara cifrando su URL RTSP; falla si la URL ya está registrada."""
         # ✅ normalización básica
         name = name.strip()
         rtsp_url = rtsp_url.strip()
@@ -121,6 +128,7 @@ class CameraRepository:
         return _serialize(doc)
 
     async def update(self, camera_id: str, patch: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+        """Actualiza los campos indicados y devuelve la cámara, o None si no existe."""
         try:
             # ✅ normaliza campos si vienen
             if "name" in patch and isinstance(patch["name"], str):
@@ -139,6 +147,7 @@ class CameraRepository:
             return None
 
     async def delete(self, camera_id: str) -> bool:
+        """Borra una cámara; True si existía."""
         try:
             res = await self.col.delete_one({"_id": _oid(camera_id)})
             return res.deleted_count == 1

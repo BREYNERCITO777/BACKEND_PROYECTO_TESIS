@@ -1,3 +1,5 @@
+"""Historial de incidentes."""
+
 from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException
@@ -16,6 +18,7 @@ async def listar_incidentes(
     db: AsyncIOMotorDatabase = Depends(get_db),
     _user=Depends(require_roles("admin", "operator")),
 ):
+    """Incidentes más recientes primero."""
     return await IncidentRepository(db).list(limit=limit)
 
 
@@ -25,6 +28,7 @@ async def borrar_incidente(
     db: AsyncIOMotorDatabase = Depends(get_db),
     _user=Depends(require_roles("admin")),
 ):
+    """Borra un incidente."""
     ok = await IncidentRepository(db).delete(incident_id)
     if not ok:
         raise HTTPException(404, "Incidente no encontrado")

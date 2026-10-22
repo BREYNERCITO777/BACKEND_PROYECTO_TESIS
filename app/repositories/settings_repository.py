@@ -1,3 +1,5 @@
+"""Configuración global editable desde el panel (umbral, avisos)."""
+
 from __future__ import annotations
 
 from datetime import datetime, timezone
@@ -15,6 +17,7 @@ class SettingsRepository:
     """
 
     def col(self, db: AsyncIOMotorDatabase):
+        """Colección de configuración."""
         return db[settings.SETTINGS_COL]  # agrega SETTINGS_COL en config
 
     @staticmethod
@@ -36,6 +39,7 @@ class SettingsRepository:
         }
 
     async def get_or_create(self, db: AsyncIOMotorDatabase) -> Dict[str, Any]:
+        """La configuración global; la crea con los valores por defecto si aún no existe."""
         doc = await self.col(db).find_one({"_id": "global"})
         if doc:
             return doc
@@ -46,6 +50,7 @@ class SettingsRepository:
         return doc
 
     async def patch(self, db: AsyncIOMotorDatabase, patch: Dict[str, Any]) -> Dict[str, Any]:
+        """Actualiza los campos indicados de la configuración y la devuelve."""
         patch = dict(patch)
         patch["updated_at"] = datetime.now(timezone.utc).isoformat()
 

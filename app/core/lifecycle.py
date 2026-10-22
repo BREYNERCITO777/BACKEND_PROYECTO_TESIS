@@ -1,3 +1,5 @@
+"""Arranque y cierre: valida la configuración, prepara Mongo y carga el modelo."""
+
 from __future__ import annotations
 
 import asyncio
@@ -14,6 +16,7 @@ from app.services.retention_service import ciclo_retencion
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    """Valida la configuración, prepara Mongo, carga el modelo y arranca la purga de evidencia si está activa."""
     # Falla temprano y ruidosamente: sin AGENT_TOKEN el endpoint /agent/detections
     # quedaría sin una credencial válida con la cual comparar.
     if not settings.AGENT_TOKEN.strip():

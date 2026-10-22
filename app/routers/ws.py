@@ -1,3 +1,5 @@
+"""Canal WebSocket por el que el panel recibe las alertas."""
+
 from __future__ import annotations
 
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect
@@ -10,6 +12,7 @@ router = APIRouter(prefix="/ws", tags=["websocket"])
 
 @router.websocket("/alerts")
 async def websocket_alerts(websocket: WebSocket):
+    """Mantiene abierto el canal por el que el panel recibe las alertas."""
     await ws_manager.connect(websocket)
 
     try:
