@@ -1,0 +1,102 @@
+{
+  "v3_anterior": {
+    "limpio": {
+      "precision": 0.5583,
+      "recall": 0.3147,
+      "mAP50": 0.3344,
+      "mAP50_95": 0.1616
+    },
+    "elevada": {
+      "precision": 0.4711,
+      "recall": 0.2749,
+      "mAP50": 0.2649,
+      "mAP50_95": 0.1084
+    },
+    "lateral": {
+      "precision": 0.4816,
+      "recall": 0.3068,
+      "mAP50": 0.2881,
+      "mAP50_95": 0.1291
+    }
+  },
+  "yolov8n_coco": {
+    "limpio": {
+      "precision": 0.8298,
+      "recall": 0.7139,
+      "mAP50": 0.7953,
+      "mAP50_95": 0.4596
+    },
+    "elevada": {
+      "precision": 0.7639,
+      "recall": 0.6394,
+      "mAP50": 0.7174,
+      "mAP50_95": 0.3395
+    },
+    "lateral": {
+      "precision": 0.7989,
+      "recall": 0.6528,
+      "mAP50": 0.7392,
+      "mAP50_95": 0.3652
+    }
+  },
+  "yolov8s_coco": {
+    "limpio": {
+      "precision": 0.8854,
+      "recall": 0.7553,
+      "mAP50": 0.854,
+      "mAP50_95": 0.5161
+    },
+    "elevada": {
+      "precision": 0.8264,
+      "recall": 0.6976,
+      "mAP50": 0.7739,
+      "mAP50_95": 0.3862
+    },
+    "lateral": {
+      "precision": 0.8411,
+      "recall": 0.7108,
+      "mAP50": 0.8023,
+      "mAP50_95": 0.4067
+    }
+  },
+  "v4_produccion": {
+    "limpio": {
+      "precision": 0.8538,
+      "recall": 0.7785,
+      "mAP50": 0.8474,
+      "mAP50_95": 0.5313
+    },
+    "elevada": {
+      "precision": 0.7754,
+      "recall": 0.6913,
+      "mAP50": 0.7546,
+      "mAP50_95": 0.3861
+    },
+    "lateral": {
+      "precision": 0.814,
+      "recall": 0.7238,
+      "mAP50": 0.7908,
+      "mAP50_95": 0.4072
+    }
+  },
+  "v5_aumentado": {
+    "limpio": {
+      "precision": 0.8631,
+      "recall": 0.7949,
+      "mAP50": 0.8592,
+      "mAP50_95": 0.5449
+    },
+    "elevada": {
+      "precision": 0.8493,
+      "recall": 0.6694,
+      "mAP50": 0.7765,
+      "mAP50_95": 0.3971
+    },
+    "lateral": {
+      "precision": 0.8664,
+      "recall": 0.7033,
+      "mAP50": 0.7976,
+      "mAP50_95": 0.4184
+    }
+  }
+}

@@ -65,6 +65,28 @@ docker build -t sentinel-backend .
 docker run -p 8000:8000 --env-file .env sentinel-backend
 ```
 
+### Entorno en que se midieron los resultados del artículo
+
+| Componente | Versión |
+|---|---|
+| Equipo | Laptop, Intel Core i7-10750H (6 núcleos / 12 hilos), NVIDIA RTX 2070 8 GB (driver 556.12) |
+| Sistema operativo | Windows 11 Pro 10.0.26200; contenedores Linux en Docker Desktop (Docker Engine 29.5.2, WSL2, kernel 6.6.114.1), VM de 7.6 GB de RAM |
+| Imagen del backend | `sentinel-backend:1.0.0`, desde `Dockerfile` (`python:3.9-slim`) |
+| Imagen del agente | `sentinel-agent:1.0.0`, desde `agente/Dockerfile` (`python:3.10-bookworm`) |
+| Paquetes | Ultralytics 8.3.40, PyTorch 2.8.0 + CUDA 12.8, torchvision 0.23.0, NumPy 2.0.2 (fijados en los `requirements.txt`) |
+| Modelo | `app/models/best.pt` (v5, YOLOv8s), SHA256 `1aec8d3c923cc0a0…` |
+
+Para reconstruir exactamente esas imágenes, usar la etiqueta de git `v1.0.0-revision`:
+
+```bash
+git checkout v1.0.0-revision
+docker build -t sentinel-backend:1.0.0 .
+docker build -f agente/Dockerfile -t sentinel-agent:1.0.0 .
+```
+
+Los experimentos (entrenamiento, evaluación, latencia y carga) se reproducen con los scripts
+de `experimentos/`; ver su `README.md`.
+
 ### Si no arranca
 
 **`AGENT_TOKEN no está configurado`** — es intencionado. El backend se niega a

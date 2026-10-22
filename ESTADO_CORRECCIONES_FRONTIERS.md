@@ -513,6 +513,27 @@ proponer como trabajo futuro incorporar ejemplos con blur/oclusión al entrenami
 (augmentation), ya que hoy el modelo nunca los vio durante el ajuste fino. *(Hecho
 después: es v5, ver punto 3.)*
 
+#### Ángulo de cámara (simulado)
+
+El revisor pide también "varied camera angles". `generar_angulos.py` deforma el test sin
+duplicados con una perspectiva fija: cámara **elevada** (borde superior angostado 20% por
+lado, alto al 80%) y cámara **lateral** (un borde vertical acortado 20% en cada extremo,
+ancho al 80%). Las cajas pasan al rectángulo que contiene sus esquinas proyectadas.
+Ningún entrenamiento usó estas deformaciones (`evaluar_angulos.py`,
+`evaluar_angulos_yolov5.py`; resultados en `docs/evidencia_externa/comparacion/`):
+
+| Modelo | Limpio | Elevada | Lateral |
+|---|---|---|---|
+| v3 | 0.334 | 0.265 | 0.288 |
+| YOLOv8n | 0.795 | 0.717 | 0.739 |
+| YOLOv5s | 0.838 | **0.792** | **0.800** |
+| YOLOv8s | 0.854 | 0.774 | 0.802 |
+| v4 | 0.847 | 0.755 | 0.791 |
+| **v5** | **0.859** | 0.777 | 0.798 |
+
+Todos pierden entre ~4 y 9 puntos; YOLOv5s es el que menos pierde en vista elevada. Es una
+simulación geométrica: ángulos reales quedan como limitación.
+
 #### Puntos de operación a nivel de imagen (v5, test externo sin duplicados)
 
 El revisor pide "operating points for different use cases". La métrica por cajas cuenta
@@ -576,8 +597,10 @@ El total de `arma_fuego` (17 852) cuadra exactamente con `metodologia_particion.
 - **UCF-Crime** tiene licencia restringida a investigación: verificar si sus frames
   pueden redistribuirse o si hay que excluirlos de la declaración de disponibilidad
   (afecta el punto 17).
-- Los 4 objetos `arma_blanca` dentro del prefijo `armas` (pistolas) son candidatos a
-  etiquetas erróneas — sirven como ejemplo de anotación ambigua que pide el punto 8.
+- Los 4 objetos `arma_blanca` dentro del prefijo `armas` (pistolas): **revisados uno por
+  uno, el cuchillo está bien anotado; lo que falta es la caja de la pistola visible**
+  (anotación incompleta). Ver `docs/anotacion/`, que documenta además el protocolo
+  usado y una guía para anotar datos nuevos (punto 8).
 
 ### 8. Anotación y augmentations — ⚠️ Parcial (hallazgo: fuga train/val por aumentos)
 Las reglas de generación de fondos están documentadas (recorte de regiones sin cajas,
