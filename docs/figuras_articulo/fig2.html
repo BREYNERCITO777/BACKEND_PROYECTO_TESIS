@@ -20,13 +20,13 @@
   </div>
 
   <div id="fe" class="caja azul f-azul" style="left:250px;top:140px;width:290px;height:250px">
-    <h3>Operator dashboard</h3><div class="tec">React 18 + TypeScript + Tailwind CSS · Vercel</div><hr>
+    <h3>Operator dashboard</h3><div class="tec">React 18 + TypeScript + Tailwind CSS · served by Nginx</div><hr>
     <ul><li>Live alert window with evidence image</li><li>Cameras, incidents, evidence, alerts</li>
     <li>Users and detection settings (admin)</li><li>JWT session, Admin / Operator roles</li></ul>
   </div>
 
   <div id="be" class="caja verde f-verde" style="left:640px;top:140px;width:350px;height:250px">
-    <h3>API backend</h3><div class="tec">FastAPI (Python 3.9) · Docker on Render</div><hr>
+    <h3>API backend</h3><div class="tec">FastAPI (Python 3.9) · Docker</div><hr>
     <ul><li>28 REST endpoints + 1 WebSocket channel</li>
     <li>Receives agent detections: confidence threshold (0.65) and cooldown of 5 s per camera</li>
     <li>Creates incident + alert, stores evidence</li>
@@ -35,7 +35,7 @@
   </div>
 
   <div id="db" class="caja morado f-morado" style="left:1090px;top:140px;width:376px;height:250px">
-    <h3>Database</h3><div class="tec">MongoDB Atlas</div><hr>
+    <h3>Database</h3><div class="tec">MongoDB 7</div><hr>
     <p>Collections: users, cameras, incidents, alerts, settings</p><hr>
     <p>Incident record: camera, time, weapon class, confidence, evidence image (deleted after the retention period)</p>
   </div>

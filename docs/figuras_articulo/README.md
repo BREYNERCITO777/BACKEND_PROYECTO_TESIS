@@ -12,7 +12,7 @@ sh render.sh fig2 1500 985
 sh render.sh fig4 1500 820
 sh render.sh fig5 1500 850
 sh render.sh fig6 1500 885
-sh render.sh fig7 1500 860
+sh render.sh fig7 1500 745
 ```
 
 `render.sh` usa la ruta de Edge en Windows; en otro sistema, cambiar el ejecutable.

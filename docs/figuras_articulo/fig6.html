@@ -62,7 +62,7 @@
     <h3>Technology</h3><hr>
     <ul><li>React 18 + TypeScript</li><li>Tailwind CSS, shadcn/ui (Radix)</li><li>React Router 7</li><li>axios (REST)</li>
     <li>Native WebSocket (no socket.io)</li><li>sonner (notifications)</li><li>recharts (dashboard charts)</li></ul><hr>
-    <h3 style="font-size:16px">Deployment</h3><p>Static build on Vercel; every route is served by index.html (vercel.json)</p><hr>
+    <h3 style="font-size:16px">Deployment</h3><p>Static build served by Nginx on the municipal server, which also forwards /api and the WebSocket to the backend (prototype: Vercel)</p><hr>
     <h3 style="font-size:16px">Human in the loop</h3><p>The incoming-alert window shows the evidence; the operator decides and marks the alert as read</p>
   </div>
 </div>
