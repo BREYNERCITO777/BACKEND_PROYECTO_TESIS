@@ -267,6 +267,30 @@ Evaluación: `cola_noche/evaluar_todo.py` y `cola_noche/evaluar_yolov5.py`; resu
 `salida_noche/evaluacion_parcial_sin_v5.json`, `evaluacion_yolov5s.json` y
 `benchmark_latencia.json`.
 
+#### Faster R-CNN (detector de dos etapas, también pedido por el revisor)
+
+`experimentos/faster_rcnn/`: torchvision `fasterrcnn_resnet50_fpn_v2` desde pesos COCO,
+mismos datos de entrenamiento, lado mayor 640 px, 20 épocas, semilla 0; aumento solo con
+volteo horizontal (el estándar de este detector). 20 épocas en ~16 h en la RTX 2070,
+retomado tras un corte de luz desde el checkpoint de la época 7. Como torchvision y
+Ultralytics evalúan distinto, se reimplementó el evaluador de Ultralytics y se aplicó a
+todos; reproduce las cifras YOLO con ±0.005 de mAP50 en limpio.
+
+| Modelo (evaluador común) | P | R | mAP50 | mAP50-95 | GPU P50 | CPU P50 |
+|---|---|---|---|---|---|---|
+| **Faster R-CNN** | 0.888 | 0.780 | **0.864** | 0.532 | 71.4 ms | 2 040 ms |
+| v5 (desplegado) | 0.883 | 0.782 | 0.857 | 0.532 | 13.4 ms | 124 ms |
+| YOLOv8s (COCO) | 0.870 | 0.766 | 0.849 | 0.513 | 14.0 ms | 124 ms |
+
+Robustez de Faster R-CNN (mAP50): compresión 0.776, blur 0.541, oclusión 0.365,
+desenfoque 0.657, **baja luz 0.668 (el mejor de todos)**, elevada 0.776, lateral 0.811.
+
+**Lectura:** Faster R-CNN gana menos de 1 punto de mAP50 y es el mejor con poca luz, pero
+es ~5× más lento en GPU y ~16× en CPU: a 71 ms por imagen una GPU analiza ~14 fps en
+total, frente a 16 cámaras × 5.9 fps del agente con YOLOv8s. Confirma la elección de un
+detector de una etapa para tiempo real con varias cámaras. Resultados en
+`docs/evidencia_externa/comparacion/evaluacion_faster_rcnn.json`.
+
 #### Versión anterior de esta comparación (reemplazada)
 Se entrenó YOLOv5s (paquete oficial `yolov5`, no `yolov5u` que en realidad es
 arquitectura YOLOv8) desde pesos COCO preentrenados, mismo dataset combinado y mismo

@@ -1,0 +1,39 @@
+{
+  "yolov8s_coco": {
+    "limpio": {
+      "precision": 0.8696,
+      "recall": 0.7659,
+      "mAP50": 0.8494,
+      "mAP50_95": 0.5129,
+      "recall_por_clase": {
+        "arma_fuego": 0.7925,
+        "arma_blanca": 0.7393
+      },
+      "mAP50_por_clase": {
+        "arma_fuego": 0.8736,
+        "arma_blanca": 0.8252
+      }
+    }
+  },
+  "v5_desplegado": {
+    "limpio": {
+      "precision": 0.8835,
+      "recall": 0.7824,
+      "mAP50": 0.8567,
+      "mAP50_95": 0.5316,
+      "recall_por_clase": {
+        "arma_fuego": 0.8142,
+        "arma_blanca": 0.7506
+      },
+      "mAP50_por_clase": {
+        "arma_fuego": 0.8719,
+        "arma_blanca": 0.8414
+      }
+    }
+  },
+  "_entorno": {
+    "torch": "2.8.0+cu128",
+    "gpu": "NVIDIA GeForce RTX 2070",
+    "hilos_cpu_torch": 6
+  }
+}
