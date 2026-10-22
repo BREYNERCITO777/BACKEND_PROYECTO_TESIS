@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-from contextlib import asynccontextmanager
+import asyncio
+from contextlib import asynccontextmanager, suppress
 from fastapi import FastAPI
 from ultralytics import YOLO
 
@@ -8,6 +9,7 @@ from app.core.database import mongo, connect_db, close_db
 from app.core.config import settings
 from app.repositories.camera_repository import CameraRepository
 from app.repositories.incident_repository import IncidentRepository
+from app.services.retention_service import ciclo_retencion
 
 
 @asynccontextmanager
@@ -39,6 +41,16 @@ async def lifespan(app: FastAPI):
 
     app.state.yolo_model = YOLO(settings.MODEL_PATH)
 
+    retencion = None
+    if mongo.db is not None and settings.EVIDENCE_RETENTION_DAYS > 0:
+        retencion = asyncio.create_task(
+            ciclo_retencion(mongo.db, settings.EVIDENCE_RETENTION_DAYS)
+        )
+
     yield
 
+    if retencion is not None:
+        retencion.cancel()
+        with suppress(asyncio.CancelledError):
+            await retencion
     close_db()

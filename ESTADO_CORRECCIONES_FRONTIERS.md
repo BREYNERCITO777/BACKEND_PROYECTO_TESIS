@@ -249,9 +249,19 @@ P=0.863, R=0.795, mAP50-95=0.545; recall arma_fuego 0.833, arma_blanca 0.757.
 - Baja luz: +5.6 pts sobre v4, pero YOLOv8s-COCO sigue siendo el mejor ahí (0.658).
 - Sin pérdida en limpio (0.859 vs. 0.847).
 
-**v5 es el mejor candidato a producción, pendiente de las pruebas de regresión**
-(lienzos vacíos, mototaxi, bates a umbral 0.65, cámara real de día y de noche).
-SHA256 `1aec8d3c…`.
+**v5 desplegado en producción** (reemplaza a v4), SHA256 `1aec8d3c…`, tras pasar las
+pruebas de regresión:
+
+| Prueba | v4 | v5 |
+|---|---|---|
+| Lienzos blanco/negro/gris/ruido | 0 detecciones | 0 detecciones |
+| Mototaxi de la vía real | 0 detecciones | 0 detecciones |
+| Bates (212 imágenes) a umbral 0.65 | 1 falso positivo (0.5%) | 3 falsos positivos (1.4%) |
+| Cámara real al anochecer | 0 falsos positivos | 0 falsos positivos en 1 711 frames |
+
+El único retroceso es en bates (1.4%), menor frente a la ganancia en blur, oclusión y
+desenfoque. Mismo hash verificado en `app/models/best.pt` y dentro de las imágenes
+`tesis-backend:local` y `sentinel-agent:local`.
 
 Evaluación: `cola_noche/evaluar_todo.py` y `cola_noche/evaluar_yolov5.py`; resultados en
 `salida_noche/evaluacion_parcial_sin_v5.json`, `evaluacion_yolov5s.json` y
@@ -364,7 +374,7 @@ Script: `dataset_externo_zenodo/prueba_carga.sh`. Datos crudos en
 
 La tabla anterior se midió con el agente sin versiones fijas (ultralytics 8.4.183,
 torch 2.14 — cada build instalaba lo último). Se fijaron las versiones del agente
-(`requirements.txt`: ultralytics 8.3.40, torch 2.8.0+cu128, opencv-python 5.0.0, numpy
+(`requirements.txt`: ultralytics 8.3.40, torch 2.8.0+cu128, opencv-python 5.0.0.93, numpy
 2.0.2, Python 3.10) y se repitió todo. Laptop: 6 núcleos físicos / 12 lógicos, RTX 2070
 8 GB, Docker Desktop con VM de 7.6 GB de RAM. Inferencia P50/P95 por frame, descartando
 el primer frame de cada cámara:
@@ -544,8 +554,8 @@ con el driver de la laptop), distinto del backend. Se fijaron en ambos
 `requirements.txt` las versiones con que se midió todo: ultralytics 8.3.40, torch 2.8.0,
 torchvision 0.23.0, numpy 2.0.2.
 
-**Pendiente:** el agente (`sentinel_agent.py`, `requirements.txt`) sigue sin repositorio
-(ver nota al final); y falta una demo mínima con video de ejemplo.
+El agente ya está versionado en `agente/` (ver nota al final). **Pendiente:** una demo
+mínima con video de ejemplo.
 
 ### 10. Código, pruebas y automatización — ✅ Resuelto
 Ya existían `tests/test_autenticacion.py`, `tests/test_agente.py`,
@@ -555,13 +565,20 @@ servicio, arranca el backend real con uvicorn, espera a que responda y corre
 `pytest tests/ -v` en cada push/PR. No se pudo verificar en GitHub Actions desde aquí
 (hay que hacer push); revisar el primer run por si hace falta ajustar timeouts.
 
-### 11. Privacidad y protección operativa — ⚠️ Parcial
+### 11. Privacidad y protección operativa — ⚠️ Parcial (mecanismo listo, falta el plazo)
 Ya implementado en código: credenciales RTSP cifradas con Fernet (`app/core/crypto.py`),
 el sistema nunca actúa solo — crea alertas para que un operador decida (diseño
-human-in-the-loop). **Falta:** política de retención de evidencia (no hay TTL/borrado
-automático en el código — las imágenes de incidentes se guardan indefinidamente),
-documentación formal de minimización de datos y de aprobaciones necesarias para
-despliegue real. Esto requiere una decisión institucional, no solo código.
+human-in-the-loop).
+
+**Retención de evidencia implementada** (`app/services/retention_service.py`): con
+`EVIDENCE_RETENTION_DAYS` > 0, el backend borra cada hora las imágenes con más de esos
+días — en el incidente, en la alerta y los archivos en disco — y **conserva el registro
+del incidente** (fecha, cámara, tipo, confianza) con un sello `evidence_purged_at`. Por
+defecto vale 0 (sin purga) hasta que la institución fije el plazo.
+Prueba: `tests/test_retencion.py`, sobre una base de datos desechable.
+
+**Falta:** el plazo en días (decisión institucional), y la documentación formal de
+minimización de datos y de las aprobaciones necesarias para el despliegue.
 
 ### 12. Matriz de confusión normalizada — ✅ Resuelto (falta trasladar al texto)
 `metodologia_particion.md` ya tiene la tabla de calibración de confianza (92,3 % de
@@ -604,12 +621,13 @@ el ID de la imagen reconstruida).
 
 ## Nota sobre `sentinel-agent`
 
-El código del agente (`sentinel_agent.py`) **no tiene repositorio git propio** — solo
-existe dentro de la carpeta exportada `BACKEND_PROYECTO_TESIS-main/sentinel-agent`, sin
-versionar. Los cambios de instrumentación de latencia (punto 4) se hicieron ahí porque
-es la única copia que existe. Conviene darle su propio repo antes de la entrega, o
-moverlo dentro de `repo-github` como subcarpeta, para que quede trazable igual que el
-backend.
+**Resuelto:** el agente vive ahora en `agente/` dentro de este repositorio, con sus
+versiones fijadas y la instrumentación de latencia. Se construye desde la raíz y copia
+`app/models/best.pt`, así que agente y backend no pueden volver a quedar con modelos
+distintos (el problema encontrado el primer día). Al pasarlo se descubrió que el pin
+`opencv-python==5.0.0` no existía en pip (es `5.0.0.93`): cualquier build desde cero
+fallaba. Corregido. La copia vieja en `BACKEND_PROYECTO_TESIS-main/sentinel-agent` queda
+solo como respaldo.
 
 ## Resumen de prioridad inmediata
 

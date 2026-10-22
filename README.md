@@ -143,6 +143,15 @@ despliegue: los incidentes quedaban apuntando a imágenes que ya no existían.
 personas identificables. El directorio `app/static/` está en `.gitignore` y la
 aplicación lo crea sola al arrancar.
 
+**La evidencia puede caducar.** Con `EVIDENCE_RETENTION_DAYS` mayor que 0, el
+backend borra cada hora las imágenes con más de esos días (en el incidente, en
+la alerta y en disco) y conserva el registro del incidente. Por defecto está en
+0, sin purga: el plazo es una decisión de la institución, no del código.
+
+**El agente se construye con el mismo modelo que el backend.** `agente/` se
+construye desde la raíz del repo y copia `app/models/best.pt`; no hay una
+segunda copia del modelo que pueda quedar desactualizada.
+
 **El interruptor de notificaciones por correo no envía correos.** Está marcado
 como no implementado en la documentación de la API. Se guarda el ajuste, pero
 no existe ninguna línea que mande un email.
@@ -176,6 +185,8 @@ app/
   models/        esquemas Pydantic y los pesos del modelo YOLO
   repositories/  acceso a datos — el único sitio que habla con Mongo
   routers/       endpoints HTTP y WebSocket
-  services/      detección, evidencia, gestión de cámaras
+  services/      detección, evidencia, retención, gestión de cámaras
+agente/          agente YOLO que corre junto a las cámaras (ver agente/Dockerfile)
+experimentos/    scripts que producen las cifras de la revisión de Frontiers
 tests/           pruebas contra el sistema real
 ```

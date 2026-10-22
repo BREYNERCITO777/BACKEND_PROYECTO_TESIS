@@ -52,6 +52,12 @@ class Settings(BaseSettings):
     # documentos de más de 16 MB, así que el límite debe quedar por debajo.
     AGENT_MAX_EVIDENCE_MB: float = 4.0
 
+    # Días que se conservan las imágenes de evidencia (fotogramas reales de la
+    # vía pública con personas identificables). Pasado ese plazo se borra la
+    # imagen y se conserva el registro del incidente. 0 = sin purga: el plazo
+    # es una decisión de la institución, no del código.
+    EVIDENCE_RETENTION_DAYS: int = 0
+
     # Desde qué direcciones puede llamar el navegador. En el .env se escriben
     # separadas por comas:
     #
