@@ -42,7 +42,9 @@ lo que señala el Reviewer 1, punto 1.
 
 Existe un archivo `app/models/best_externo.pt` en el repo desde el primer commit, pero
 no está referenciado en ningún código ni tiene registro de evaluación — es un archivo
-huérfano, no una evaluación hecha.
+huérfano, no una evaluación hecha. **Retirado del repositorio** junto con `yolov8n.pt`
+(pesos COCO genéricos que Ultralytics descarga solo); copia con SHA256 en
+`D:\TESIS BREYNER\respaldo_modelos_repo\` y en el historial de git.
 
 **Resuelto hoy.** Se evaluó el modelo v3 desplegado sobre el dataset público
 ["Dangerous Items" (Zenodo, DOI 10.5281/zenodo.16422779)](https://zenodo.org/records/16422779),
