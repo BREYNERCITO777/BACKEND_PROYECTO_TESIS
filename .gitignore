@@ -21,3 +21,6 @@ __pycache__/
 .pytest_cache/
 venv/
 .venv/
+
+# Credenciales del agente en el despliegue municipal
+agente.env

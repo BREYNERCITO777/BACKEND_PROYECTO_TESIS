@@ -1,0 +1,68 @@
+# Sentinel AI completo en los servidores de la municipalidad: MongoDB, backend,
+# panel (Nginx) y, opcionalmente, el agente de detección. Nada sale a Internet:
+# video, evidencias y base de datos quedan en la red de la institución.
+#
+# Se espera esta estructura de carpetas (ver README.md):
+#
+#   /opt/sentinel/BACKEND_PROYECTO_TESIS   (este repositorio)
+#   /opt/sentinel/FRONTED_PROYECTO_TESIS   (repositorio del panel)
+#
+# Desde esta carpeta:
+#   docker compose up -d --build                    # MongoDB + backend + panel
+#   docker compose --profile agente up -d --build   # ... y el agente en el mismo servidor
+services:
+  mongo:
+    image: mongo:7
+    restart: always
+    volumes:
+      - mongo-datos:/data/db
+    # Sin puertos publicados: solo el backend llega a la base de datos.
+
+  backend:
+    build:
+      context: ..
+    restart: always
+    env_file: .env
+    environment:
+      MONGO_URL: mongodb://mongo:27017
+    # Sin --reload (el Dockerfile lo trae para desarrollo) y con un solo proceso:
+    # el WebSocket de alertas reparte los avisos desde la memoria del proceso.
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--proxy-headers"]
+    volumes:
+      - evidencias:/app/app/static
+    depends_on:
+      - mongo
+
+  panel:
+    build:
+      context: ${RUTA_PANEL:-../../FRONTED_PROYECTO_TESIS}
+      dockerfile: Dockerfile.produccion
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+  agente:
+    profiles: ["agente"]
+    build:
+      context: ..
+      dockerfile: agente/Dockerfile
+    restart: always
+    env_file: agente.env
+    environment:
+      BACKEND_URL: http://backend:8000/api/v1/agent/detections
+    depends_on:
+      - backend
+    # Con GPU NVIDIA (necesaria para más de unas cuatro cámaras), descomentar:
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
+
+volumes:
+  mongo-datos:
+  evidencias:
