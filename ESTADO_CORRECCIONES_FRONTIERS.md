@@ -709,7 +709,13 @@ Vive en el manuscrito, que no está disponible en este entorno.
 ## PRIORIDAD 3 — FINAL (todo vive en el manuscrito)
 
 ### 14. Figuras y tablas — ❌ Pendiente (necesita el manuscrito)
-### 15. Errores del PDF del revisor — ❌ Pendiente (necesita `Review supporting file 1332534`)
+### 15. Errores del PDF del revisor — ✅ Resuelto (salvo referencias, en Mendeley)
+Las 22 marcas del PDF del Reviewer 4: palabras clave (3), espacios tras citas (2), figuras
+sin número o referencia (9), 100 vs. 20 épocas (1), eje de la matriz de confusión (1),
+punto final en la declaración de ética (1, reescrita), contribución de Wilder Marlo
+Rimarachin (1, falta el texto del autor) y referencias (4: quitar "Dr.", títulos en
+mayúsculas, un solo formato; se corrigen en Mendeley). El PDF no se versiona: es parte de
+la revisión confidencial.
 ### 16. Declaraciones éticas AIRA — ❌ Pendiente (necesita el manuscrito/formulario AIRA)
 ### 17. Disponibilidad de datos y materiales — ⚠️ Parcial
 El código está público en GitHub (`BREYNERCITO777/BACKEND_PROYECTO_TESIS`). Falta
