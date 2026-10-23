@@ -595,7 +595,26 @@ Al umbral de producción, por clase: arma de fuego 74.4%, arma blanca 67.5% (v4:
 
 ## PRIORIDAD 2 — ALTA
 
-### 7. Origen, versiones y licencias de datos — ⚠️ Parcial (falta confirmar enlaces)
+### 7. Origen, versiones y licencias de datos — ✅ Resuelto (con declaración transparente)
+
+**Identificado por los nombres de archivo** (coinciden con los ejemplos que muestra
+DatasetNinja) y verificado en el repositorio oficial
+[ari-dasci/OD-WeaponDetection](https://github.com/ari-dasci/OD-WeaponDetection), cuyo
+README dice "Creative Commons Attribution-ShareAlike 4.0 International License":
+
+| Fuente | Prefijos | Fuego | Blanca | Licencia | Cita |
+|---|---|---|---|---|---|
+| Pistol Detection (U. de Granada) | `armas (N)` | 8 939 | 4 | CC BY-SA 4.0 | Olmos, Tabik y Herrera (2018) |
+| Knife Detection (U. de Granada) | `knife_`, `DSC`, `KravMaga` | — | 4 087 | CC BY-SA 4.0 | Castillo et al. (2019) |
+| UCF-Crime | `Robbery`, `Arrest`, `test_UCF` | 47 | — | no verificada (la web no cargó); no se redistribuye | Sultani, Chen y Shah (2018) |
+| Comunitarios Kaggle / Roboflow Universe | `pistol_`, `CAR`, `CA`, `test_`, fechas 2022, `pisau`, `open`, `opencv`, aleatorios | 8 866 | 5 270 | procedencia no reconstruible | — |
+
+No quedan registros de esas descargas (ni en disco, ni en el historial del navegador, que
+empieza en julio de 2026, ni en la web). Por decisión del autor se declara así en la
+Tabla 3, en la declaración de disponibilidad de datos y en las limitaciones: esas imágenes
+no se redistribuyen; se publican solo los pesos, el código y la lista del test externo.
+
+#### Notas anteriores
 `metodologia_particion.md` documenta tamaños, particiones y distribución de clases,
 pero no incluye enlaces/licencias exactas de Kaggle/DatasetNinja.
 
