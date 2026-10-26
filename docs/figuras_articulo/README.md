@@ -1,4 +1,4 @@
-# Diagramas del artículo (figuras 2, 4, 5, 6 y 7)
+# Diagramas del artículo (figuras 2 a 7)
 
 Redibujados para la revisión de Frontiers con los datos verificados en el código:
 agente local entre las cámaras y el backend, YOLOv8s (v5), 28 endpoints HTTP y 1
@@ -9,6 +9,7 @@ Cada figura es un HTML con cajas posicionadas (`base.css`) y flechas dibujadas e
 
 ```bash
 sh render.sh fig2 1500 985
+sh render.sh fig3 1500 660
 sh render.sh fig4 1500 820
 sh render.sh fig5 1500 850
 sh render.sh fig6 1500 885

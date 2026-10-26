@@ -1,0 +1,69 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+  #lienzo { width: 1500px; height: 660px; }
+  .cont { border: 1.5px solid; border-radius: 8px; padding: 8px 11px; background: #fff; font-size: 13px; line-height: 1.38; }
+  .cont b { font-size: 14.5px; }
+  code { font-family: Consolas, monospace; font-size: 12.3px; }
+  .lista { font-size: 12.8px; line-height: 1.45; }
+  .lista div { margin-bottom: 6px; }
+</style></head>
+<body><div id="lienzo">
+  <h1>Sentinel AI: Configuration and Infrastructure</h1>
+  <div class="sub">Containerized environment for development and the end-to-end demonstration (<code>demo/docker-compose.yml</code>)</div>
+
+  <div id="host" class="caja gris f-gris" style="left:34px;top:125px;width:230px;height:220px">
+    <h3>Host machine</h3><div class="tec">Windows, Linux or macOS</div><hr>
+    <ul><li>Docker Engine or Docker Desktop</li><li>Optional NVIDIA GPU (driver + container toolkit)</li>
+    <li>Browser or API client at <code>localhost:8000</code></li></ul>
+  </div>
+
+  <div class="zona" style="left:300px;top:115px;width:840px;height:400px;border-color:#2563c4">
+    <div class="titulo" style="color:#1d4f9c">DOCKER COMPOSE · demo/docker-compose.yml · internal network</div>
+  </div>
+
+  <div id="be" class="caja verde f-verde" style="left:330px;top:150px;width:370px;height:170px">
+    <h3>backend</h3><div class="tec">Image built from <code>Dockerfile</code> (<code>python:3.9-slim</code>)</div>
+    <div class="cont verde" style="margin-top:6px">FastAPI on Uvicorn · port <b>8000</b> published · model <code>app/models/best.pt</code> (v5)<br>
+    Environment: <code>MONGO_URL</code>, <code>AGENT_TOKEN</code>, <code>JWT_SECRET</code><br>Health check: <code>GET /docs</code> before the agent starts</div>
+  </div>
+
+  <div id="mg" class="caja morado f-morado" style="left:760px;top:150px;width:350px;height:170px">
+    <h3>mongo</h3><div class="tec">Official image <code>mongo:7</code></div>
+    <div class="cont morado" style="margin-top:6px">Reached only by the backend at <code>mongodb://mongo:27017</code>; no port published<br>
+    Collections: users, cameras, incidents, alerts, settings</div>
+  </div>
+
+  <div id="ag" class="caja naranja f-naranja" style="left:330px;top:370px;width:780px;height:122px">
+    <h3>agente</h3><div class="tec">Image built from <code>agente/Dockerfile</code> (<code>python:3.10-bookworm</code>, OpenCV, Ultralytics)</div>
+    <div class="cont naranja" style="margin-top:6px">Reads <code>video_demo.mp4</code> (mounted volume) as if it were an RTSP camera, runs the same <code>best.pt</code> and sends
+    detections to <code>http://backend:8000/api/v1/agent/detections</code> with the agent token · threshold 0.65 · cooldown 5 s</div>
+  </div>
+
+  <div class="caja gris f-gris lista" style="left:1170px;top:115px;width:296px;height:400px">
+    <h3>Configuration and key files</h3><hr>
+    <div><code>Dockerfile</code> · <code>agente/Dockerfile</code>: build the two images from the same repository</div>
+    <div><code>requirements.txt</code> (both): pinned versions, Ultralytics 8.3.40, PyTorch 2.8.0, torchvision 0.23.0, NumPy 2.0.2</div>
+    <div><code>.env</code> from <code>.env.example</code> (not versioned): AGENT_TOKEN, JWT_SECRET, RTSP_SECRET_KEY, MONGO_URL, CORS_ORIGINS, EVIDENCE_RETENTION_DAYS</div>
+    <div><code>app/models/best.pt</code>: one model file copied into both images</div>
+    <div><code>.github/workflows/tests.yml</code>: on every commit, MongoDB service + backend + <code>pytest</code></div>
+    <div>Images tagged <code>1.0.0</code>; git tag <code>v1.0.0-revision</code></div>
+  </div>
+
+  <div class="caja gris f-gris" style="left:34px;top:540px;width:1432px;height:92px">
+    <h3 style="font-size:16px">Production</h3>
+    <p><code>despliegue/docker-compose.yml</code> runs the same backend, agent and MongoDB images on the municipal servers and adds the
+    dashboard served by Nginx as the only published port, with persistent volumes for MongoDB and evidence images (Figure 7).</p>
+  </div>
+
+  <div class="nota" style="left:266px;top:213px;width:32px;background:none">HTTP</div>
+  <div class="nota" style="left:704px;top:208px;width:54px;background:none">27017</div>
+  <div class="nota" style="left:496px;top:336px;width:250px;text-align:left;background:none">POST /api/v1/agent/detections</div>
+</div>
+<script src="base.js"></script>
+<script>
+  flecha("host", "e:0.5", "be", "w:0.5", { color: "#2563c4" });
+  flecha("be", "e:0.5", "mg", "w:0.5", { doble: true });
+  flecha("ag", "n:0.2", "be", "s:0.422", { color: "#b35f0d" });
+  ajustarLienzo();
+</script></body></html>
