@@ -1,0 +1,530 @@
+2026-10-29T16:28:45.833392538Z Creating new Ultralytics Settings v0.0.6 file ✅ 
+2026-10-29T16:28:45.833419140Z View Ultralytics Settings with 'yolo settings' or at '/root/.config/Ultralytics/settings.json'
+2026-10-29T16:28:45.833421740Z Update Settings with 'yolo settings key=value', i.e. 'yolo settings runs_dir=path/to/dir'. For help see https://docs.ultralytics.com/quickstart/#ultralytics-settings.
+2026-10-29T16:28:45.870292169Z Iniciando Sentinel AI Local Agent
+2026-10-29T16:28:45.870314170Z Modelo: best.pt
+2026-10-29T16:28:45.870316170Z Backend: http://tesis-backend-loadtest:8000/api/v1/agent/detections
+2026-10-29T16:28:45.870317570Z Camara: cam_sim_1 - Simulada 1 | /video/camara_simulada.mp4
+2026-10-29T16:28:45.870318770Z Confianza minima: 0.65 | Cooldown: 5 s
+2026-10-29T16:28:45.870319971Z Cargando modelo YOLO...
+2026-10-29T16:28:45.947898602Z Modelo YOLO cargado
+2026-10-29T16:28:45.948340634Z [cam_sim_1] Conectando...
+2026-10-29T16:28:45.955379435Z [cam_sim_1] Camara conectada correctamente
+2026-10-29T16:28:48.455319495Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=24.0 inferencia_ms=2306.4 lote=1
+2026-10-29T16:28:48.552607739Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=97.1 lote=1
+2026-10-29T16:28:48.552761250Z [cam_sim_1] Detectado: arma_blanca (0.95)
+2026-10-29T16:28:48.571129661Z [cam_sim_1] DETECCION: arma_blanca (0.95)
+2026-10-29T16:28:48.753764795Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.8 inferencia_ms=97.8 lote=1
+2026-10-29T16:28:48.943492436Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.8 inferencia_ms=87.2 lote=1
+2026-10-29T16:28:48.943528038Z [cam_sim_1] Detectado: arma_fuego (0.91)
+2026-10-29T16:28:49.179916509Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.2 inferencia_ms=123.3 lote=1
+2026-10-29T16:28:49.179943411Z [cam_sim_1] Detectado: arma_fuego (0.82)
+2026-10-29T16:28:49.349082241Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.8 inferencia_ms=93.3 lote=1
+2026-10-29T16:28:49.572634895Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.9 inferencia_ms=116.5 lote=1
+2026-10-29T16:28:49.572663798Z [cam_sim_1] Detectado: arma_fuego (0.75)
+2026-10-29T16:28:49.747866902Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=91.6 lote=1
+2026-10-29T16:28:49.748022213Z [cam_sim_1] Detectado: arma_blanca (0.72)
+2026-10-29T16:28:49.936844289Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.9 inferencia_ms=80.4 lote=1
+2026-10-29T16:28:50.180693392Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.6 inferencia_ms=123.7 lote=1
+2026-10-29T16:28:50.350313597Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=93.1 lote=1
+2026-10-29T16:28:50.350448607Z [cam_sim_1] Detectado: arma_fuego (0.86)
+2026-10-29T16:28:50.552076797Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=94.6 lote=1
+2026-10-29T16:28:50.552160803Z [cam_sim_1] Detectado: arma_blanca (0.90)
+2026-10-29T16:28:50.765602236Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.7 inferencia_ms=107.8 lote=1
+2026-10-29T16:28:51.032066853Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=174.1 lote=1
+2026-10-29T16:28:51.032290769Z [cam_sim_1] Detectado: arma_blanca (0.94)
+2026-10-29T16:28:51.169034528Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=110.9 lote=1
+2026-10-29T16:28:51.169259144Z [cam_sim_1] Detectado: arma_blanca (0.79)
+2026-10-29T16:28:51.382267147Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=123.9 lote=1
+2026-10-29T16:28:51.382595870Z [cam_sim_1] Detectado: arma_blanca (0.96)
+2026-10-29T16:28:51.541493810Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=82.9 lote=1
+2026-10-29T16:28:51.757820249Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=99.2 lote=1
+2026-10-29T16:28:51.758000062Z [cam_sim_1] Detectado: arma_fuego (0.86)
+2026-10-29T16:28:51.951108944Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=92.3 lote=1
+2026-10-29T16:28:51.960945246Z [cam_sim_1] Error enviando alerta: HTTPConnectionPool(host='tesis-backend-loadtest', port=8000): Max retries exceeded with url: /api/v1/agent/detections (Caused by NameResolutionError("HTTPConnection(host='tesis-backend-loadtest', port=8000): Failed to resolve 'tesis-backend-loadtest' ([Errno -2] Name or service not known)"))
+2026-10-29T16:28:52.143720491Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.7 inferencia_ms=84.7 lote=1
+2026-10-29T16:28:52.537950526Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.7 inferencia_ms=78.1 lote=1
+2026-10-29T16:28:52.770325811Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=110.0 lote=1
+2026-10-29T16:28:52.986209318Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=4.1 inferencia_ms=125.6 lote=1
+2026-10-29T16:28:53.154800850Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.3 inferencia_ms=94.0 lote=1
+2026-10-29T16:28:53.154935360Z [cam_sim_1] Detectado: arma_fuego (0.84)
+2026-10-29T16:28:53.389462898Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=128.2 lote=1
+2026-10-29T16:28:53.389606908Z [cam_sim_1] Detectado: arma_blanca (0.81)
+2026-10-29T16:28:53.578423383Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=7.5 inferencia_ms=116.9 lote=1
+2026-10-29T16:28:53.578465286Z [cam_sim_1] Detectado: arma_blanca (0.72)
+2026-10-29T16:28:53.578988524Z [cam_sim_1] DETECCION: arma_blanca (0.72)
+2026-10-29T16:28:53.838781565Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=176.7 lote=1
+2026-10-29T16:28:54.005005828Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.2 inferencia_ms=142.9 lote=1
+2026-10-29T16:28:54.174296310Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.3 inferencia_ms=112.0 lote=1
+2026-10-29T16:28:54.384394505Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=6.0 inferencia_ms=121.7 lote=1
+2026-10-29T16:28:54.587470998Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.3 inferencia_ms=124.5 lote=1
+2026-10-29T16:28:54.772321190Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.0 inferencia_ms=109.0 lote=1
+2026-10-29T16:28:54.772367994Z [cam_sim_1] Detectado: arma_blanca (0.81)
+2026-10-29T16:28:54.988779839Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=125.1 lote=1
+2026-10-29T16:28:54.988890447Z [cam_sim_1] Detectado: arma_fuego (0.86)
+2026-10-29T16:28:55.155531740Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.2 inferencia_ms=91.6 lote=1
+2026-10-29T16:28:55.384102952Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=119.8 lote=1
+2026-10-29T16:28:55.384158856Z [cam_sim_1] Detectado: arma_fuego (0.87)
+2026-10-29T16:28:55.543368219Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.9 inferencia_ms=78.7 lote=1
+2026-10-29T16:28:55.783989792Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=118.9 lote=1
+2026-10-29T16:28:55.974096359Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.2 inferencia_ms=108.4 lote=1
+2026-10-29T16:28:56.116281907Z [cam_sim_1] Error enviando alerta: HTTPConnectionPool(host='tesis-backend-loadtest', port=8000): Max retries exceeded with url: /api/v1/agent/detections (Caused by NameResolutionError("HTTPConnection(host='tesis-backend-loadtest', port=8000): Failed to resolve 'tesis-backend-loadtest' ([Errno -2] Name or service not known)"))
+2026-10-29T16:28:56.165029786Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=99.4 lote=1
+2026-10-29T16:28:56.410441220Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=144.4 lote=1
+2026-10-29T16:28:56.546114524Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=12.2 inferencia_ms=79.8 lote=1
+2026-10-29T16:28:56.546317738Z [cam_sim_1] Detectado: arma_blanca (0.88)
+2026-10-29T16:28:56.786747535Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=119.9 lote=1
+2026-10-29T16:28:56.984752098Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.5 inferencia_ms=117.5 lote=1
+2026-10-29T16:28:57.195421766Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=127.9 lote=1
+2026-10-29T16:28:57.351382122Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.2 inferencia_ms=83.6 lote=1
+2026-10-29T16:28:57.351484929Z [cam_sim_1] Detectado: arma_fuego (0.68)
+2026-10-29T16:28:57.583899053Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=115.7 lote=1
+2026-10-29T16:28:57.784777521Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=116.3 lote=1
+2026-10-29T16:28:57.992464276Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.4 inferencia_ms=123.6 lote=1
+2026-10-29T16:28:58.181770716Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.2 inferencia_ms=112.5 lote=1
+2026-10-29T16:28:58.383000310Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.2 inferencia_ms=113.5 lote=1
+2026-10-29T16:28:58.591881150Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=4.8 inferencia_ms=122.1 lote=1
+2026-10-29T16:28:58.787203221Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.6 inferencia_ms=117.2 lote=1
+2026-10-29T16:28:58.787272926Z [cam_sim_1] Detectado: arma_blanca (0.88)
+2026-10-29T16:28:58.787758861Z [cam_sim_1] DETECCION: arma_blanca (0.88)
+2026-10-29T16:28:58.992075075Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=121.8 lote=1
+2026-10-29T16:28:59.189901124Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=119.2 lote=1
+2026-10-29T16:28:59.190039634Z [cam_sim_1] Detectado: arma_blanca (0.91)
+2026-10-29T16:28:59.363978175Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.7 inferencia_ms=93.2 lote=1
+2026-10-29T16:28:59.364100684Z [cam_sim_1] Detectado: arma_fuego (0.86)
+2026-10-29T16:28:59.595328923Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=124.1 lote=1
+2026-10-29T16:28:59.793444494Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=4.5 inferencia_ms=121.8 lote=1
+2026-10-29T16:28:59.793481296Z [cam_sim_1] Detectado: arma_fuego (0.85)
+2026-10-29T16:28:59.992668543Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=120.8 lote=1
+2026-10-29T16:28:59.992722847Z [cam_sim_1] Detectado: arma_blanca (0.85)
+2026-10-29T16:29:00.172942638Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.1 inferencia_ms=100.9 lote=1
+2026-10-29T16:29:00.172977340Z [cam_sim_1] Detectado: arma_blanca (0.95)
+2026-10-29T16:29:00.362128970Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=89.9 lote=1
+2026-10-29T16:29:00.591187953Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=118.7 lote=1
+2026-10-29T16:29:00.796583445Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=123.7 lote=1
+2026-10-29T16:29:00.796646349Z [cam_sim_1] Detectado: arma_blanca (0.78)
+2026-10-29T16:29:00.999658370Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=126.3 lote=1
+2026-10-29T16:29:00.999691672Z [cam_sim_1] Detectado: arma_fuego (0.92)
+2026-10-29T16:29:01.196301035Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.9 inferencia_ms=122.7 lote=1
+2026-10-29T16:29:01.404700941Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=130.9 lote=1
+2026-10-29T16:29:01.557843495Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=83.7 lote=1
+2026-10-29T16:29:01.558133415Z [cam_sim_1] Detectado: arma_blanca (0.95)
+2026-10-29T16:29:01.759862144Z [cam_sim_1] Error enviando alerta: HTTPConnectionPool(host='tesis-backend-loadtest', port=8000): Max retries exceeded with url: /api/v1/agent/detections (Caused by NameResolutionError("HTTPConnection(host='tesis-backend-loadtest', port=8000): Failed to resolve 'tesis-backend-loadtest' ([Errno -2] Name or service not known)"))
+2026-10-29T16:29:01.791235988Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=116.8 lote=1
+2026-10-29T16:29:01.791374498Z [cam_sim_1] Detectado: arma_blanca (0.89)
+2026-10-29T16:29:01.994922557Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.9 inferencia_ms=120.0 lote=1
+2026-10-29T16:29:01.994959260Z [cam_sim_1] Detectado: arma_fuego (0.87)
+2026-10-29T16:29:02.201428528Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.0 inferencia_ms=126.1 lote=1
+2026-10-29T16:29:02.390343540Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=114.7 lote=1
+2026-10-29T16:29:02.390448248Z [cam_sim_1] Detectado: arma_blanca (0.93)
+2026-10-29T16:29:02.595146189Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=119.3 lote=1
+2026-10-29T16:29:02.595288499Z [cam_sim_1] Detectado: arma_blanca (0.90)
+2026-10-29T16:29:02.796125265Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=120.0 lote=1
+2026-10-29T16:29:02.796268075Z [cam_sim_1] Detectado: arma_fuego (0.91)
+2026-10-29T16:29:02.995791746Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=119.3 lote=1
+2026-10-29T16:29:03.195648741Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.6 inferencia_ms=118.7 lote=1
+2026-10-29T16:29:03.377760767Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=100.6 lote=1
+2026-10-29T16:29:03.570077623Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=92.6 lote=1
+2026-10-29T16:29:03.807573210Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.4 inferencia_ms=129.8 lote=1
+2026-10-29T16:29:03.807603512Z [cam_sim_1] Detectado: arma_fuego (0.75)
+2026-10-29T16:29:03.808209755Z [cam_sim_1] DETECCION: arma_fuego (0.75)
+2026-10-29T16:29:03.996554827Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=118.7 lote=1
+2026-10-29T16:29:03.996710738Z [cam_sim_1] Detectado: arma_blanca (0.88)
+2026-10-29T16:29:04.187509485Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=109.4 lote=1
+2026-10-29T16:29:04.379158998Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.9 inferencia_ms=100.9 lote=1
+2026-10-29T16:29:04.379191600Z [cam_sim_1] Detectado: arma_blanca (0.91)
+2026-10-29T16:29:04.567900810Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.7 inferencia_ms=89.3 lote=1
+2026-10-29T16:29:04.762726557Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.2 inferencia_ms=83.9 lote=1
+2026-10-29T16:29:04.762859167Z [cam_sim_1] Detectado: arma_fuego (0.88)
+2026-10-29T16:29:05.012448435Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=133.3 lote=1
+2026-10-29T16:29:05.012602546Z [cam_sim_1] Detectado: arma_blanca (0.93)
+2026-10-29T16:29:05.172836017Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=93.5 lote=1
+2026-10-29T16:29:05.172874219Z [cam_sim_1] Detectado: arma_blanca (0.80)
+2026-10-29T16:29:05.408822911Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.4 inferencia_ms=129.2 lote=1
+2026-10-29T16:29:05.408897316Z [cam_sim_1] Detectado: arma_fuego (0.82)
+2026-10-29T16:29:05.613395756Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.8 inferencia_ms=133.5 lote=1
+2026-10-29T16:29:05.799667891Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.8 inferencia_ms=119.6 lote=1
+2026-10-29T16:29:05.799701394Z [cam_sim_1] Detectado: arma_fuego (0.82)
+2026-10-29T16:29:06.004205234Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.6 inferencia_ms=123.9 lote=1
+2026-10-29T16:29:06.204144648Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.2 inferencia_ms=123.4 lote=1
+2026-10-29T16:29:06.339887165Z [cam_sim_1] Error enviando alerta: HTTPConnectionPool(host='tesis-backend-loadtest', port=8000): Max retries exceeded with url: /api/v1/agent/detections (Caused by NameResolutionError("HTTPConnection(host='tesis-backend-loadtest', port=8000): Failed to resolve 'tesis-backend-loadtest' ([Errno -2] Name or service not known)"))
+2026-10-29T16:29:06.363391648Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=82.3 lote=1
+2026-10-29T16:29:06.608671908Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=127.3 lote=1
+2026-10-29T16:29:06.803038922Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.7 inferencia_ms=121.3 lote=1
+2026-10-29T16:29:06.803062124Z [cam_sim_1] Detectado: arma_fuego (0.91)
+2026-10-29T16:29:07.003079143Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.4 inferencia_ms=120.8 lote=1
+2026-10-29T16:29:07.202033186Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.2 inferencia_ms=119.3 lote=1
+2026-10-29T16:29:07.202081989Z [cam_sim_1] Detectado: arma_blanca (0.86)
+2026-10-29T16:29:07.424680625Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.8 inferencia_ms=141.7 lote=1
+2026-10-29T16:29:07.424877639Z [cam_sim_1] Detectado: arma_blanca (0.76)
+2026-10-29T16:29:07.575566227Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=92.4 lote=1
+2026-10-29T16:29:07.781546173Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=98.2 lote=1
+2026-10-29T16:29:07.972387235Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=88.8 lote=1
+2026-10-29T16:29:08.206058164Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.9 inferencia_ms=122.1 lote=1
+2026-10-29T16:29:08.372178756Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=87.9 lote=1
+2026-10-29T16:29:08.372205758Z [cam_sim_1] Detectado: arma_fuego (0.76)
+2026-10-29T16:29:08.580545373Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=96.1 lote=1
+2026-10-29T16:29:08.580609578Z [cam_sim_1] Detectado: arma_blanca (0.73)
+2026-10-29T16:29:08.770482770Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=85.8 lote=1
+2026-10-29T16:29:08.968005211Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=82.7 lote=1
+2026-10-29T16:29:08.968080316Z [cam_sim_1] Detectado: arma_fuego (0.70)
+2026-10-29T16:29:08.968551950Z [cam_sim_1] DETECCION: arma_fuego (0.70)
+2026-10-29T16:29:09.210286956Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=124.5 lote=1
+2026-10-29T16:29:09.210349560Z [cam_sim_1] Detectado: arma_fuego (0.88)
+2026-10-29T16:29:09.406629712Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.3 inferencia_ms=120.4 lote=1
+2026-10-29T16:29:09.571879142Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=85.4 lote=1
+2026-10-29T16:29:09.572050654Z [cam_sim_1] Detectado: arma_fuego (0.80)
+2026-10-29T16:29:09.820244922Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.0 inferencia_ms=133.2 lote=1
+2026-10-29T16:29:09.820581747Z [cam_sim_1] Detectado: arma_fuego (0.87)
+2026-10-29T16:29:10.006357546Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.9 inferencia_ms=119.1 lote=1
+2026-10-29T16:29:10.006484955Z [cam_sim_1] Detectado: arma_blanca (0.93)
+2026-10-29T16:29:10.203809982Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.3 inferencia_ms=116.2 lote=1
+2026-10-29T16:29:10.369171020Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=81.3 lote=1
+2026-10-29T16:29:10.616058894Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.5 inferencia_ms=127.9 lote=1
+2026-10-29T16:29:10.811611494Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.8 inferencia_ms=123.3 lote=1
+2026-10-29T16:29:11.009838785Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=121.3 lote=1
+2026-10-29T16:29:11.009888589Z [cam_sim_1] Detectado: arma_blanca (0.95)
+2026-10-29T16:29:11.371936407Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.5 inferencia_ms=82.5 lote=1
+2026-10-29T16:29:11.584070394Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=8.1 inferencia_ms=94.3 lote=1
+2026-10-29T16:29:11.584200303Z [cam_sim_1] Detectado: arma_fuego (0.85)
+2026-10-29T16:29:11.816654344Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.8 inferencia_ms=126.5 lote=1
+2026-10-29T16:29:11.816685647Z [cam_sim_1] Detectado: arma_blanca (0.82)
+2026-10-29T16:29:11.983151264Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.9 inferencia_ms=92.8 lote=1
+2026-10-29T16:29:12.205123355Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=114.4 lote=1
+2026-10-29T16:29:12.376914945Z [cam_sim_1] Error enviando alerta: HTTPConnectionPool(host='tesis-backend-loadtest', port=8000): Max retries exceeded with url: /api/v1/agent/detections (Caused by NameResolutionError("HTTPConnection(host='tesis-backend-loadtest', port=8000): Failed to resolve 'tesis-backend-loadtest' ([Errno -2] Name or service not known)"))
+2026-10-29T16:29:12.389703059Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.4 inferencia_ms=98.6 lote=1
+2026-10-29T16:29:12.591358368Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.6 inferencia_ms=99.9 lote=1
+2026-10-29T16:29:12.779990346Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.2 inferencia_ms=88.3 lote=1
+2026-10-29T16:29:12.978439126Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=86.6 lote=1
+2026-10-29T16:29:13.213003386Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=120.7 lote=1
+2026-10-29T16:29:13.213053889Z [cam_sim_1] Detectado: arma_fuego (0.80)
+2026-10-29T16:29:13.416602333Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=123.9 lote=1
+2026-10-29T16:29:13.584815853Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.4 inferencia_ms=92.0 lote=1
+2026-10-29T16:29:13.792925022Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=99.9 lote=1
+2026-10-29T16:29:13.793139338Z [cam_sim_1] Detectado: arma_blanca (0.89)
+2026-10-29T16:29:14.112335645Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.3 inferencia_ms=219.0 lote=1
+2026-10-29T16:29:14.112801378Z [cam_sim_1] Detectado: arma_blanca (0.70)
+2026-10-29T16:29:14.113202907Z [cam_sim_1] DETECCION: arma_blanca (0.70)
+2026-10-29T16:29:14.235478044Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=4.8 inferencia_ms=122.0 lote=1
+2026-10-29T16:29:14.235629655Z [cam_sim_1] Detectado: arma_blanca (0.95)
+2026-10-29T16:29:14.431362440Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=117.6 lote=1
+2026-10-29T16:29:14.431485349Z [cam_sim_1] Detectado: arma_blanca (0.79)
+2026-10-29T16:29:14.621119399Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.0 inferencia_ms=107.2 lote=1
+2026-10-29T16:29:14.846030269Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.6 inferencia_ms=131.7 lote=1
+2026-10-29T16:29:14.846174379Z [cam_sim_1] Detectado: arma_blanca (0.78)
+2026-10-29T16:29:15.038834545Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.4 inferencia_ms=124.3 lote=1
+2026-10-29T16:29:15.229744986Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=4.2 inferencia_ms=114.9 lote=1
+2026-10-29T16:29:15.229932000Z [cam_sim_1] Detectado: arma_blanca (0.87)
+2026-10-29T16:29:15.397202551Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=82.2 lote=1
+2026-10-29T16:29:15.397258955Z [cam_sim_1] Detectado: arma_fuego (0.85)
+2026-10-29T16:29:15.634854632Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=119.5 lote=1
+2026-10-29T16:29:15.831751401Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=116.2 lote=1
+2026-10-29T16:29:16.056978694Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.7 inferencia_ms=141.0 lote=1
+2026-10-29T16:29:16.057400624Z [cam_sim_1] Detectado: arma_blanca (0.91)
+2026-10-29T16:29:16.221694663Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.7 inferencia_ms=105.6 lote=1
+2026-10-29T16:29:16.221925580Z [cam_sim_1] Detectado: arma_blanca (0.91)
+2026-10-29T16:29:16.435024306Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=118.6 lote=1
+2026-10-29T16:29:16.435109012Z [cam_sim_1] Detectado: arma_blanca (0.73)
+2026-10-29T16:29:16.637593680Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=120.6 lote=1
+2026-10-29T16:29:16.648615467Z [cam_sim_1] Error enviando alerta: HTTPConnectionPool(host='tesis-backend-loadtest', port=8000): Max retries exceeded with url: /api/v1/agent/detections (Caused by NameResolutionError("HTTPConnection(host='tesis-backend-loadtest', port=8000): Failed to resolve 'tesis-backend-loadtest' ([Errno -2] Name or service not known)"))
+2026-10-29T16:29:16.812078247Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.0 inferencia_ms=95.0 lote=1
+2026-10-29T16:29:16.812197256Z [cam_sim_1] Detectado: arma_blanca (0.94)
+2026-10-29T16:29:17.084920742Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.6 inferencia_ms=167.7 lote=1
+2026-10-29T16:29:17.084955945Z [cam_sim_1] Detectado: arma_fuego (0.88)
+2026-10-29T16:29:17.207616409Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=90.3 lote=1
+2026-10-29T16:29:17.207683714Z [cam_sim_1] Detectado: arma_blanca (0.93)
+2026-10-29T16:29:17.439195256Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=121.4 lote=1
+2026-10-29T16:29:17.439226758Z [cam_sim_1] Detectado: arma_blanca (0.90)
+2026-10-29T16:29:17.643033821Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=125.0 lote=1
+2026-10-29T16:29:17.841792222Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=6.1 inferencia_ms=123.4 lote=1
+2026-10-29T16:29:18.032025115Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=113.4 lote=1
+2026-10-29T16:29:18.249772673Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=130.8 lote=1
+2026-10-29T16:29:18.250054194Z [cam_sim_1] Detectado: arma_fuego (0.90)
+2026-10-29T16:29:18.410733274Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=91.5 lote=1
+2026-10-29T16:29:18.614406027Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=95.0 lote=1
+2026-10-29T16:29:18.614472832Z [cam_sim_1] Detectado: arma_blanca (0.82)
+2026-10-29T16:29:18.810396731Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.8 inferencia_ms=90.8 lote=1
+2026-10-29T16:29:18.810541642Z [cam_sim_1] Detectado: arma_blanca (0.87)
+2026-10-29T16:29:19.044350048Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.9 inferencia_ms=124.2 lote=1
+2026-10-29T16:29:19.242936337Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=122.6 lote=1
+2026-10-29T16:29:19.404476890Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=86.3 lote=1
+2026-10-29T16:29:19.404645102Z [cam_sim_1] Detectado: arma_fuego (0.80)
+2026-10-29T16:29:19.405069733Z [cam_sim_1] DETECCION: arma_fuego (0.80)
+2026-10-29T16:29:19.652157287Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=133.5 lote=1
+2026-10-29T16:29:19.838638812Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=119.8 lote=1
+2026-10-29T16:29:19.838673014Z [cam_sim_1] Detectado: arma_blanca (0.86)
+2026-10-29T16:29:20.040293221Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.6 inferencia_ms=121.0 lote=1
+2026-10-29T16:29:20.222201718Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=102.7 lote=1
+2026-10-29T16:29:20.222272323Z [cam_sim_1] Detectado: arma_fuego (0.82)
+2026-10-29T16:29:20.414432680Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=94.8 lote=1
+2026-10-29T16:29:20.642535796Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=122.5 lote=1
+2026-10-29T16:29:20.642588999Z [cam_sim_1] Detectado: arma_blanca (0.75)
+2026-10-29T16:29:20.805359885Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=84.7 lote=1
+2026-10-29T16:29:21.050660892Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=129.7 lote=1
+2026-10-29T16:29:21.050795101Z [cam_sim_1] Detectado: arma_fuego (0.84)
+2026-10-29T16:29:21.050803202Z [cam_sim_1] Detectado: arma_blanca (0.75)
+2026-10-29T16:29:21.220327756Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=99.2 lote=1
+2026-10-29T16:29:21.220445764Z [cam_sim_1] Detectado: arma_fuego (0.89)
+2026-10-29T16:29:21.423590649Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.0 inferencia_ms=102.2 lote=1
+2026-10-29T16:29:21.423704757Z [cam_sim_1] Detectado: arma_fuego (0.72)
+2026-10-29T16:29:21.643469994Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.0 inferencia_ms=121.8 lote=1
+2026-10-29T16:29:21.815265305Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.2 inferencia_ms=93.4 lote=1
+2026-10-29T16:29:21.815564926Z [cam_sim_1] Detectado: arma_blanca (0.88)
+2026-10-29T16:29:22.051539086Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.3 inferencia_ms=129.2 lote=1
+2026-10-29T16:29:22.207503500Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.8 inferencia_ms=84.9 lote=1
+2026-10-29T16:29:22.207664011Z [cam_sim_1] Detectado: arma_fuego (0.83)
+2026-10-29T16:29:22.449744295Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=126.7 lote=1
+2026-10-29T16:29:22.627814242Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.6 inferencia_ms=104.6 lote=1
+2026-10-29T16:29:22.798358566Z [cam_sim_1] Error enviando alerta: HTTPConnectionPool(host='tesis-backend-loadtest', port=8000): Max retries exceeded with url: /api/v1/agent/detections (Caused by NameResolutionError("HTTPConnection(host='tesis-backend-loadtest', port=8000): Failed to resolve 'tesis-backend-loadtest' ([Errno -2] Name or service not known)"))
+2026-10-29T16:29:22.847237955Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=123.5 lote=1
+2026-10-29T16:29:23.042742610Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=118.7 lote=1
+2026-10-29T16:29:23.260626016Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=136.3 lote=1
+2026-10-29T16:29:23.260674820Z [cam_sim_1] Detectado: arma_blanca (0.83)
+2026-10-29T16:29:23.437571585Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=113.1 lote=1
+2026-10-29T16:29:23.638744033Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=114.0 lote=1
+2026-10-29T16:29:23.880584900Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.0 inferencia_ms=155.4 lote=1
+2026-10-29T16:29:23.880606802Z [cam_sim_1] Detectado: arma_fuego (0.92)
+2026-10-29T16:29:24.034309659Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=5.3 inferencia_ms=109.1 lote=1
+2026-10-29T16:29:24.246460768Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=120.9 lote=1
+2026-10-29T16:29:24.415570893Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=4.7 inferencia_ms=89.8 lote=1
+2026-10-29T16:29:24.415727504Z [cam_sim_1] Detectado: arma_fuego (0.79)
+2026-10-29T16:29:24.416034225Z [cam_sim_1] DETECCION: arma_fuego (0.79)
+2026-10-29T16:29:24.613996650Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=88.0 lote=1
+2026-10-29T16:29:24.824731261Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.9 inferencia_ms=98.4 lote=1
+2026-10-29T16:29:25.051959516Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=125.2 lote=1
+2026-10-29T16:29:25.222090311Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.6 inferencia_ms=94.9 lote=1
+2026-10-29T16:29:25.424089817Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.6 inferencia_ms=96.7 lote=1
+2026-10-29T16:29:25.614705633Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.9 inferencia_ms=87.1 lote=1
+2026-10-29T16:29:25.852583426Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.8 inferencia_ms=124.6 lote=1
+2026-10-29T16:29:26.036463275Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=108.2 lote=1
+2026-10-29T16:29:26.036755695Z [cam_sim_1] Detectado: arma_fuego (0.86)
+2026-10-29T16:29:26.231773516Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=103.4 lote=1
+2026-10-29T16:29:26.231890324Z [cam_sim_1] Detectado: arma_blanca (0.94)
+2026-10-29T16:29:26.453454086Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=124.6 lote=1
+2026-10-29T16:29:26.658396795Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=129.2 lote=1
+2026-10-29T16:29:26.846316524Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=116.9 lote=1
+2026-10-29T16:29:26.942259976Z [cam_sim_1] Error enviando alerta: HTTPConnectionPool(host='tesis-backend-loadtest', port=8000): Max retries exceeded with url: /api/v1/agent/detections (Caused by NameResolutionError("HTTPConnection(host='tesis-backend-loadtest', port=8000): Failed to resolve 'tesis-backend-loadtest' ([Errno -2] Name or service not known)"))
+2026-10-29T16:29:27.052396913Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=122.6 lote=1
+2026-10-29T16:29:27.052516021Z [cam_sim_1] Detectado: arma_fuego (0.80)
+2026-10-29T16:29:27.241230905Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=111.2 lote=1
+2026-10-29T16:29:27.241257007Z [cam_sim_1] Detectado: arma_fuego (0.89)
+2026-10-29T16:29:27.467589299Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.9 inferencia_ms=137.2 lote=1
+2026-10-29T16:29:27.467734909Z [cam_sim_1] Detectado: arma_blanca (0.79)
+2026-10-29T16:29:27.655728044Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=125.2 lote=1
+2026-10-29T16:29:27.848686122Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.7 inferencia_ms=117.9 lote=1
+2026-10-29T16:29:27.848869535Z [cam_sim_1] Detectado: arma_fuego (0.85)
+2026-10-29T16:29:27.848878135Z [cam_sim_1] Detectado: arma_fuego (0.83)
+2026-10-29T16:29:28.050800535Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=119.6 lote=1
+2026-10-29T16:29:28.222148815Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.7 inferencia_ms=90.9 lote=1
+2026-10-29T16:29:28.222177817Z [cam_sim_1] Detectado: arma_blanca (0.75)
+2026-10-29T16:29:28.456871145Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.9 inferencia_ms=125.0 lote=1
+2026-10-29T16:29:28.644489285Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.2 inferencia_ms=112.4 lote=1
+2026-10-29T16:29:28.644581892Z [cam_sim_1] Detectado: arma_fuego (0.85)
+2026-10-29T16:29:28.823233390Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.8 inferencia_ms=91.0 lote=1
+2026-10-29T16:29:28.823301895Z [cam_sim_1] Detectado: arma_blanca (0.93)
+2026-10-29T16:29:29.055806551Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.5 inferencia_ms=123.1 lote=1
+2026-10-29T16:29:29.055842154Z [cam_sim_1] Detectado: arma_fuego (0.83)
+2026-10-29T16:29:29.259141618Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=126.1 lote=1
+2026-10-29T16:29:29.259198522Z [cam_sim_1] Detectado: arma_fuego (0.87)
+2026-10-29T16:29:29.422077090Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=88.8 lote=1
+2026-10-29T16:29:29.422146595Z [cam_sim_1] Detectado: arma_blanca (0.79)
+2026-10-29T16:29:29.422652031Z [cam_sim_1] DETECCION: arma_blanca (0.79)
+2026-10-29T16:29:29.632562969Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.2 inferencia_ms=99.1 lote=1
+2026-10-29T16:29:29.632762583Z [cam_sim_1] Detectado: arma_blanca (0.68)
+2026-10-29T16:29:29.822954108Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=89.3 lote=1
+2026-10-29T16:29:29.823031114Z [cam_sim_1] Detectado: arma_fuego (0.73)
+2026-10-29T16:29:30.048356256Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.5 inferencia_ms=114.4 lote=1
+2026-10-29T16:29:30.048541169Z [cam_sim_1] Detectado: arma_blanca (0.79)
+2026-10-29T16:29:30.257973372Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.3 inferencia_ms=123.5 lote=1
+2026-10-29T16:29:30.453882507Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=119.1 lote=1
+2026-10-29T16:29:30.453916809Z [cam_sim_1] Detectado: arma_blanca (0.78)
+2026-10-29T16:29:30.645381225Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.7 inferencia_ms=110.3 lote=1
+2026-10-29T16:29:30.862236160Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.3 inferencia_ms=126.8 lote=1
+2026-10-29T16:29:30.862440075Z [cam_sim_1] Detectado: arma_blanca (0.94)
+2026-10-29T16:29:31.051062488Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.2 inferencia_ms=115.4 lote=1
+2026-10-29T16:29:31.051128492Z [cam_sim_1] Detectado: arma_fuego (0.78)
+2026-10-29T16:29:31.251398439Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.8 inferencia_ms=115.4 lote=1
+2026-10-29T16:29:31.456697246Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.3 inferencia_ms=120.4 lote=1
+2026-10-29T16:29:31.456840757Z [cam_sim_1] Detectado: arma_fuego (0.92)
+2026-10-29T16:29:31.668656231Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.3 inferencia_ms=131.6 lote=1
+2026-10-29T16:29:31.668688233Z [cam_sim_1] Detectado: arma_fuego (0.84)
+2026-10-29T16:29:31.857582565Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.8 inferencia_ms=120.9 lote=1
+2026-10-29T16:29:32.058053526Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.3 inferencia_ms=121.0 lote=1
+2026-10-29T16:29:32.058110430Z [cam_sim_1] Detectado: arma_blanca (0.87)
+2026-10-29T16:29:32.260140603Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.2 inferencia_ms=122.8 lote=1
+2026-10-29T16:29:32.260247811Z [cam_sim_1] Detectado: arma_fuego (0.85)
+2026-10-29T16:29:32.458056582Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.5 inferencia_ms=120.4 lote=1
+2026-10-29T16:29:32.458163089Z [cam_sim_1] Detectado: arma_fuego (0.91)
+2026-10-29T16:29:32.657118642Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.6 inferencia_ms=119.1 lote=1
+2026-10-29T16:29:32.657185247Z [cam_sim_1] Detectado: arma_blanca (0.74)
+2026-10-29T16:29:32.826388968Z [cam_sim_1] Error enviando alerta: HTTPConnectionPool(host='tesis-backend-loadtest', port=8000): Max retries exceeded with url: /api/v1/agent/detections (Caused by NameResolutionError("HTTPConnection(host='tesis-backend-loadtest', port=8000): Failed to resolve 'tesis-backend-loadtest' ([Errno -2] Name or service not known)"))
+2026-10-29T16:29:32.847184358Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.2 inferencia_ms=108.9 lote=1
+2026-10-29T16:29:32.847311367Z [cam_sim_1] Detectado: arma_fuego (0.82)
+2026-10-29T16:29:33.262474109Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=123.3 lote=1
+2026-10-29T16:29:33.262561015Z [cam_sim_1] Detectado: arma_blanca (0.87)
+2026-10-29T16:29:33.512159996Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.9 inferencia_ms=172.6 lote=1
+2026-10-29T16:29:33.649038701Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=5.2 inferencia_ms=109.4 lote=1
+2026-10-29T16:29:33.649072004Z [cam_sim_1] Detectado: arma_blanca (0.88)
+2026-10-29T16:29:33.857701050Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.8 inferencia_ms=117.8 lote=1
+2026-10-29T16:29:33.857842960Z [cam_sim_1] Detectado: arma_fuego (0.75)
+2026-10-29T16:29:34.062355711Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=122.2 lote=1
+2026-10-29T16:29:34.260969339Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.7 inferencia_ms=120.7 lote=1
+2026-10-29T16:29:34.261026543Z [cam_sim_1] Detectado: arma_blanca (0.74)
+2026-10-29T16:29:34.463201726Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.3 inferencia_ms=122.6 lote=1
+2026-10-29T16:29:34.663711391Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.5 inferencia_ms=122.7 lote=1
+2026-10-29T16:29:34.859876443Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.3 inferencia_ms=118.5 lote=1
+2026-10-29T16:29:35.118160646Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.0 inferencia_ms=176.4 lote=1
+2026-10-29T16:29:35.118353560Z [cam_sim_1] Detectado: arma_blanca (0.92)
+2026-10-29T16:29:35.118746088Z [cam_sim_1] DETECCION: arma_blanca (0.92)
+2026-10-29T16:29:35.239220919Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.1 inferencia_ms=97.3 lote=1
+2026-10-29T16:29:35.239423533Z [cam_sim_1] Detectado: arma_fuego (0.84)
+2026-10-29T16:29:35.424956925Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=82.6 lote=1
+2026-10-29T16:29:35.667417994Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=124.7 lote=1
+2026-10-29T16:29:35.881643341Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.3 inferencia_ms=138.6 lote=1
+2026-10-29T16:29:35.881829154Z [cam_sim_1] Detectado: arma_blanca (0.86)
+2026-10-29T16:29:36.064121313Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.3 inferencia_ms=120.8 lote=1
+2026-10-29T16:29:36.064358030Z [cam_sim_1] Detectado: arma_fuego (0.78)
+2026-10-29T16:29:36.064371331Z [cam_sim_1] Detectado: arma_blanca (0.70)
+2026-10-29T16:29:36.270474296Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=4.7 inferencia_ms=126.8 lote=1
+2026-10-29T16:29:36.270681711Z [cam_sim_1] Detectado: arma_blanca (0.69)
+2026-10-29T16:29:36.438155145Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=94.3 lote=1
+2026-10-29T16:29:36.438211850Z [cam_sim_1] Detectado: arma_blanca (0.91)
+2026-10-29T16:29:36.634996340Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=90.9 lote=1
+2026-10-29T16:29:36.635167152Z [cam_sim_1] Detectado: arma_fuego (0.79)
+2026-10-29T16:29:36.838326803Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.0 inferencia_ms=93.9 lote=1
+2026-10-29T16:29:36.838666627Z [cam_sim_1] Detectado: arma_fuego (0.91)
+2026-10-29T16:29:37.068060269Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.2 inferencia_ms=123.3 lote=1
+2026-10-29T16:29:37.068087671Z [cam_sim_1] Detectado: arma_fuego (0.69)
+2026-10-29T16:29:37.236726032Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=5.5 inferencia_ms=91.9 lote=1
+2026-10-29T16:29:37.236792837Z [cam_sim_1] Detectado: arma_fuego (0.91)
+2026-10-29T16:29:37.441443295Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.2 inferencia_ms=96.3 lote=1
+2026-10-29T16:29:37.669892769Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.0 inferencia_ms=124.3 lote=1
+2026-10-29T16:29:37.680445329Z [cam_sim_1] Error enviando alerta: HTTPConnectionPool(host='tesis-backend-loadtest', port=8000): Max retries exceeded with url: /api/v1/agent/detections (Caused by NameResolutionError("HTTPConnection(host='tesis-backend-loadtest', port=8000): Failed to resolve 'tesis-backend-loadtest' ([Errno -2] Name or service not known)"))
+2026-10-29T16:29:37.872017344Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=126.2 lote=1
+2026-10-29T16:29:38.043996846Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.7 inferencia_ms=97.9 lote=1
+2026-10-29T16:29:38.044091953Z [cam_sim_1] Detectado: arma_fuego (0.83)
+2026-10-29T16:29:38.236908357Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=90.6 lote=1
+2026-10-29T16:29:38.236966561Z [cam_sim_1] Detectado: arma_blanca (0.73)
+2026-10-29T16:29:38.471351463Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=124.6 lote=1
+2026-10-29T16:29:38.471463871Z [cam_sim_1] Detectado: arma_fuego (0.81)
+2026-10-29T16:29:38.640109133Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.1 inferencia_ms=93.1 lote=1
+2026-10-29T16:29:38.871124592Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.9 inferencia_ms=123.8 lote=1
+2026-10-29T16:29:38.871309805Z [cam_sim_1] Detectado: arma_blanca (0.84)
+2026-10-29T16:29:39.078520547Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=4.6 inferencia_ms=130.9 lote=1
+2026-10-29T16:29:39.284369392Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.6 inferencia_ms=136.4 lote=1
+2026-10-29T16:29:39.457940108Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=109.8 lote=1
+2026-10-29T16:29:39.458141423Z [cam_sim_1] Detectado: arma_blanca (0.84)
+2026-10-29T16:29:39.458148823Z [cam_sim_1] Detectado: arma_fuego (0.65)
+2026-10-29T16:29:39.642707732Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.2 inferencia_ms=94.1 lote=1
+2026-10-29T16:29:39.831238627Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.6 inferencia_ms=82.1 lote=1
+2026-10-29T16:29:39.831295432Z [cam_sim_1] Detectado: arma_fuego (0.77)
+2026-10-29T16:29:40.045417772Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=95.9 lote=1
+2026-10-29T16:29:40.046474148Z [cam_sim_1] Detectado: arma_blanca (0.95)
+2026-10-29T16:29:40.280640035Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=130.8 lote=1
+2026-10-29T16:29:40.449237193Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=98.9 lote=1
+2026-10-29T16:29:40.449277595Z [cam_sim_1] Detectado: arma_blanca (0.76)
+2026-10-29T16:29:40.449950544Z [cam_sim_1] DETECCION: arma_blanca (0.76)
+2026-10-29T16:29:40.685384722Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.2 inferencia_ms=134.6 lote=1
+2026-10-29T16:29:40.841297165Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=90.4 lote=1
+2026-10-29T16:29:41.037393306Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=86.2 lote=1
+2026-10-29T16:29:41.037489713Z [cam_sim_1] Detectado: arma_blanca (0.77)
+2026-10-29T16:29:41.276212927Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=124.7 lote=1
+2026-10-29T16:29:41.447414473Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=95.7 lote=1
+2026-10-29T16:29:41.643611521Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=91.7 lote=1
+2026-10-29T16:29:41.892036936Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=140.0 lote=1
+2026-10-29T16:29:41.892197647Z [cam_sim_1] Detectado: arma_blanca (0.85)
+2026-10-29T16:29:42.039049837Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.5 inferencia_ms=86.8 lote=1
+2026-10-29T16:29:42.250542188Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.8 inferencia_ms=98.1 lote=1
+2026-10-29T16:29:42.250639995Z [cam_sim_1] Detectado: arma_blanca (0.75)
+2026-10-29T16:29:42.445725963Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.7 inferencia_ms=93.1 lote=1
+2026-10-29T16:29:42.677795698Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.7 inferencia_ms=124.9 lote=1
+2026-10-29T16:29:42.944062099Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=190.8 lote=1
+2026-10-29T16:29:42.944243712Z [cam_sim_1] Detectado: arma_fuego (0.93)
+2026-10-29T16:29:43.048499430Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=10.1 inferencia_ms=95.1 lote=1
+2026-10-29T16:29:43.273294541Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.8 inferencia_ms=119.5 lote=1
+2026-10-29T16:29:43.502998105Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=148.8 lote=1
+2026-10-29T16:29:43.659409184Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=105.0 lote=1
+2026-10-29T16:29:43.828512079Z [cam_sim_1] Error enviando alerta: HTTPConnectionPool(host='tesis-backend-loadtest', port=8000): Max retries exceeded with url: /api/v1/agent/detections (Caused by NameResolutionError("HTTPConnection(host='tesis-backend-loadtest', port=8000): Failed to resolve 'tesis-backend-loadtest' ([Errno -2] Name or service not known)"))
+2026-10-29T16:29:43.935467491Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=180.8 lote=1
+2026-10-29T16:29:43.935771713Z [cam_sim_1] Detectado: arma_fuego (0.87)
+2026-10-29T16:29:43.935781714Z [cam_sim_1] Detectado: arma_fuego (0.85)
+2026-10-29T16:29:44.093323275Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.1 inferencia_ms=137.6 lote=1
+2026-10-29T16:29:44.305486974Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=149.7 lote=1
+2026-10-29T16:29:44.305653486Z [cam_sim_1] Detectado: arma_blanca (0.84)
+2026-10-29T16:29:44.481513841Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=125.1 lote=1
+2026-10-29T16:29:44.481545343Z [cam_sim_1] Detectado: arma_fuego (0.76)
+2026-10-29T16:29:44.655251367Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=98.9 lote=1
+2026-10-29T16:29:44.655391376Z [cam_sim_1] Detectado: arma_blanca (0.81)
+2026-10-29T16:29:44.841233361Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=84.7 lote=1
+2026-10-29T16:29:45.094737646Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=137.8 lote=1
+2026-10-29T16:29:45.094813652Z [cam_sim_1] Detectado: arma_fuego (0.66)
+2026-10-29T16:29:45.272173935Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=115.0 lote=1
+2026-10-29T16:29:45.446786323Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=89.4 lote=1
+2026-10-29T16:29:45.656855226Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.5 inferencia_ms=99.3 lote=1
+2026-10-29T16:29:45.656895229Z [cam_sim_1] Detectado: arma_fuego (0.89)
+2026-10-29T16:29:45.657462770Z [cam_sim_1] DETECCION: arma_fuego (0.89)
+2026-10-29T16:29:45.882513536Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.9 inferencia_ms=124.7 lote=1
+2026-10-29T16:29:45.882547038Z [cam_sim_1] Detectado: arma_fuego (0.93)
+2026-10-29T16:29:46.056199558Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=98.1 lote=1
+2026-10-29T16:29:46.056470178Z [cam_sim_1] Detectado: arma_fuego (0.80)
+2026-10-29T16:29:46.280404065Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=122.0 lote=1
+2026-10-29T16:29:46.280527274Z [cam_sim_1] Detectado: arma_fuego (0.93)
+2026-10-29T16:29:46.472189071Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=113.6 lote=1
+2026-10-29T16:29:46.659228041Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=100.5 lote=1
+2026-10-29T16:29:46.659342149Z [cam_sim_1] Detectado: arma_fuego (0.79)
+2026-10-29T16:29:46.889279462Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.2 inferencia_ms=130.2 lote=1
+2026-10-29T16:29:46.889375269Z [cam_sim_1] Detectado: arma_blanca (0.91)
+2026-10-29T16:29:47.082169347Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.3 inferencia_ms=122.7 lote=1
+2026-10-29T16:29:47.283109503Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.9 inferencia_ms=123.3 lote=1
+2026-10-29T16:29:47.440977603Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=80.9 lote=1
+2026-10-29T16:29:47.675338130Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=114.8 lote=1
+2026-10-29T16:29:47.675481640Z [cam_sim_1] Detectado: arma_blanca (0.75)
+2026-10-29T16:29:47.878225224Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.8 inferencia_ms=117.4 lote=1
+2026-10-29T16:29:48.089420208Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=128.2 lote=1
+2026-10-29T16:29:48.089536616Z [cam_sim_1] Detectado: arma_blanca (0.95)
+2026-10-29T16:29:48.180232950Z [cam_sim_1] Error enviando alerta: HTTPConnectionPool(host='tesis-backend-loadtest', port=8000): Max retries exceeded with url: /api/v1/agent/detections (Caused by NameResolutionError("HTTPConnection(host='tesis-backend-loadtest', port=8000): Failed to resolve 'tesis-backend-loadtest' ([Errno -2] Name or service not known)"))
+2026-10-29T16:29:48.284145623Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.2 inferencia_ms=122.6 lote=1
+2026-10-29T16:29:48.511394645Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=149.6 lote=1
+2026-10-29T16:29:48.511552956Z [cam_sim_1] Detectado: arma_fuego (0.89)
+2026-10-29T16:29:48.511562757Z [cam_sim_1] Detectado: arma_fuego (0.75)
+2026-10-29T16:29:48.689910710Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.6 inferencia_ms=127.9 lote=1
+2026-10-29T16:29:48.866405632Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=104.3 lote=1
+2026-10-29T16:29:49.085904604Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.4 inferencia_ms=123.5 lote=1
+2026-10-29T16:29:49.285190032Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=124.6 lote=1
+2026-10-29T16:29:49.285337843Z [cam_sim_1] Detectado: arma_fuego (0.79)
+2026-10-29T16:29:49.480684902Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.3 inferencia_ms=119.9 lote=1
+2026-10-29T16:29:49.682319607Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.4 inferencia_ms=121.2 lote=1
+2026-10-29T16:29:49.682359910Z [cam_sim_1] Detectado: arma_fuego (0.83)
+2026-10-29T16:29:49.858598413Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.8 inferencia_ms=97.3 lote=1
+2026-10-29T16:29:49.858647917Z [cam_sim_1] Detectado: arma_blanca (0.95)
+2026-10-29T16:29:50.054125285Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=92.6 lote=1
+2026-10-29T16:29:50.280366336Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.7 inferencia_ms=118.6 lote=1
+2026-10-29T16:29:50.462581064Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=100.6 lote=1
+2026-10-29T16:29:50.462811980Z [cam_sim_1] Detectado: arma_blanca (0.73)
+2026-10-29T16:29:50.661756794Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=99.7 lote=1
+2026-10-29T16:29:50.661998611Z [cam_sim_1] Detectado: arma_blanca (0.83)
+2026-10-29T16:29:50.662270031Z [cam_sim_1] DETECCION: arma_blanca (0.83)
+2026-10-29T16:29:50.861147140Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=98.9 lote=1
+2026-10-29T16:29:51.091472381Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.9 inferencia_ms=128.8 lote=1
+2026-10-29T16:29:51.255910347Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=93.0 lote=1
+2026-10-29T16:29:51.481425447Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.9 inferencia_ms=118.3 lote=1
+2026-10-29T16:29:51.885620623Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.8 inferencia_ms=121.7 lote=1
+2026-10-29T16:29:51.885875241Z [cam_sim_1] Detectado: arma_fuego (0.83)
+2026-10-29T16:29:52.087600352Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.5 inferencia_ms=123.4 lote=1
+2026-10-29T16:29:52.292361479Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=9.1 inferencia_ms=127.8 lote=1
+2026-10-29T16:29:52.292468887Z [cam_sim_1] Detectado: arma_fuego (0.93)
+2026-10-29T16:29:52.483046398Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=6.5 inferencia_ms=118.2 lote=1
+2026-10-29T16:29:52.483156106Z [cam_sim_1] Detectado: arma_blanca (0.94)
+2026-10-29T16:29:52.700845628Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.3 inferencia_ms=135.6 lote=1
+2026-10-29T16:29:52.701106646Z [cam_sim_1] Detectado: arma_fuego (0.85)
+2026-10-29T16:29:52.890510665Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=4.9 inferencia_ms=125.1 lote=1
+2026-10-29T16:29:52.890725180Z [cam_sim_1] Detectado: arma_blanca (0.85)
+2026-10-29T16:29:53.090601240Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.2 inferencia_ms=124.8 lote=1
+2026-10-29T16:29:53.090743550Z [cam_sim_1] Detectado: arma_blanca (0.78)
+2026-10-29T16:29:53.285755366Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=119.6 lote=1
+2026-10-29T16:29:53.472922526Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.5 inferencia_ms=106.5 lote=1
+2026-10-29T16:29:53.472980830Z [cam_sim_1] Detectado: arma_fuego (0.79)
+2026-10-29T16:29:53.651377869Z [cam_sim_1] Error enviando alerta: HTTPConnectionPool(host='tesis-backend-loadtest', port=8000): Max retries exceeded with url: /api/v1/agent/detections (Caused by NameResolutionError("HTTPConnection(host='tesis-backend-loadtest', port=8000): Failed to resolve 'tesis-backend-loadtest' ([Errno -2] Name or service not known)"))
+2026-10-29T16:29:53.692713097Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=125.9 lote=1
+2026-10-29T16:29:53.692762001Z [cam_sim_1] Detectado: arma_blanca (0.69)
+2026-10-29T16:29:53.926497360Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=5.2 inferencia_ms=159.5 lote=1

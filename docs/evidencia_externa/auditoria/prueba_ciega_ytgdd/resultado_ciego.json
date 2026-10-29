@@ -1,0 +1,14 @@
+{
+  "arma_fuego": {
+    "precision": 0.7942535558566675,
+    "recall": 0.4699177416210899,
+    "AP50": 0.5839963821087801,
+    "AP50_95": 0.38699989786588607
+  },
+  "nivel_imagen_umbral_065": {
+    "imagenes_con_arma": 497,
+    "con_alerta": 252,
+    "tasa_alerta": 0.5070422535211268,
+    "alerta_solo_como_arma_blanca": 10
+  }
+}

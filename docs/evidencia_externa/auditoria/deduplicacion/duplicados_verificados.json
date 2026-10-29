@@ -1,0 +1,2846 @@
+{
+  "55216134-1515.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "1d865773-2941.jpg",
+    "distancia": 1,
+    "mad": 9.79
+  },
+  "a7ee02a1-1472.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "5402625c-2470.jpg",
+    "distancia": 3,
+    "mad": 11.39
+  },
+  "c3b74970-0462.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "b8d7e125-1621.jpg",
+    "distancia": 0,
+    "mad": 0.3
+  },
+  "8e0477d8-3905.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "e5fa6bf5-3011.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "a453ff9a-0370.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "2ab54fc2-1345.jpg",
+    "distancia": 0,
+    "mad": 0.35
+  },
+  "f5c298c9-3923.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "824051b5-0608.jpg",
+    "distancia": 6,
+    "mad": 13.22
+  },
+  "ba24db96-0497.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "814c4c3d-3116.jpg",
+    "distancia": 6,
+    "mad": 12.56
+  },
+  "991abcad-2407.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "95111357-0902.jpg",
+    "distancia": 0,
+    "mad": 12.25
+  },
+  "cea68fa3-1966.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "2f257e56-1109.jpg",
+    "distancia": 4,
+    "mad": 13.15
+  },
+  "f1188b9e-3687.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "2e518723-0295.jpg",
+    "distancia": 0,
+    "mad": 0.38
+  },
+  "6ace0897-3008.jpg": {
+    "conjunto": "propio_train",
+    "archivo": "20221014_003414_jpg.rf.5c4db1e8d9746f3fbdb25f281b97b293.jpg",
+    "distancia": 6,
+    "mad": 44.57
+  },
+  "31ef8933-1959.jpg": {
+    "conjunto": "propio_train",
+    "archivo": "63UYGR1DWNTM_jpg.rf.4c268cf402a49dca5613e06f5f6ced04.jpg",
+    "distancia": 4,
+    "mad": 22.13
+  },
+  "d63282ad-1476.jpg": {
+    "conjunto": "propio_train",
+    "archivo": "63UYGR1DWNTM_jpg.rf.4c268cf402a49dca5613e06f5f6ced04.jpg",
+    "distancia": 6,
+    "mad": 20.21
+  },
+  "edd56f0a-2452.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "a80196ba-0239.jpg",
+    "distancia": 4,
+    "mad": 18.78
+  },
+  "33da69e8-0346.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "c8db883f-0397.jpg",
+    "distancia": 2,
+    "mad": 13.22
+  },
+  "e22e568f-2236.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "ed0408a3-0788.jpg",
+    "distancia": 6,
+    "mad": 11.6
+  },
+  "e5cdbab9-2232.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "a6346694-1567.jpg",
+    "distancia": 4,
+    "mad": 22.34
+  },
+  "9d4ff5c8-2552.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "f733f3d1-2098.jpg",
+    "distancia": 5,
+    "mad": 7.92
+  },
+  "A14_ef31c181-0624.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_2c89441d-0673.jpg",
+    "distancia": 1,
+    "mad": 10.52
+  },
+  "2ff64056-2930.jpg": {
+    "conjunto": "propio_train",
+    "archivo": "QLV5IQUIAT0I_jpg.rf.2f3d4496e6ef95f7015d68cb7933c19b.jpg",
+    "distancia": 6,
+    "mad": 22.19
+  },
+  "64d8d658-3725.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "e91634f2-1750.jpg",
+    "distancia": 4,
+    "mad": 30.4
+  },
+  "8fd58b3c-1782.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "42ef766f-1860.jpg",
+    "distancia": 5,
+    "mad": 28.22
+  },
+  "3938d573-0223.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "ec624b06-3976.jpg",
+    "distancia": 6,
+    "mad": 55.43
+  },
+  "0749b3d2-1011.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "53e8a875-2871.jpg",
+    "distancia": 4,
+    "mad": 10.03
+  },
+  "0e60be75-3304.jpg": {
+    "conjunto": "propio_train",
+    "archivo": "pisau008_jpeg.rf.b86d40775b04eba950311b5bd1cd577b.jpg",
+    "distancia": 5,
+    "mad": 22.98
+  },
+  "07ce6a89-1208.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "34a0ac19-2280.jpg",
+    "distancia": 6,
+    "mad": 8.78
+  },
+  "0afedfeb-0327.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_0afedfeb-0327.jpg",
+    "distancia": 0,
+    "mad": 0.25
+  },
+  "A14_7bdc325a-0242.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_87ed7eb0-0667.jpg",
+    "distancia": 3,
+    "mad": 9.49
+  },
+  "654b461a-1383.jpg": {
+    "conjunto": "propio_val",
+    "archivo": "XBO8GICR26BY_jpg.rf.e542d5f793a3f2a390434d7c8f7e0b4b.jpg",
+    "distancia": 6,
+    "mad": 34.89
+  },
+  "3bfd575d-3791.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "5e5abbec-1401.jpg",
+    "distancia": 5,
+    "mad": 17.34
+  },
+  "bd32a14e-1712.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "b65de294-0968.jpg",
+    "distancia": 6,
+    "mad": 12.09
+  },
+  "eb67ba42-0285.jpg": {
+    "conjunto": "propio_val",
+    "archivo": "fondo_pistol_2816_jpg.rf.bde8006ec3960696fdcdad188d955556_372.jpg",
+    "distancia": 6,
+    "mad": 67.38
+  },
+  "210b5d49-0248.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "005628c8-0245.jpg",
+    "distancia": 2,
+    "mad": 18.84
+  },
+  "0507048c-0423.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_0507048c-0423.jpg",
+    "distancia": 0,
+    "mad": 0.25
+  },
+  "2c4907f1-0136.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_2c4907f1-0136.jpg",
+    "distancia": 0,
+    "mad": 0.55
+  },
+  "7e205630-0116.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_7e205630-0116.jpg",
+    "distancia": 0,
+    "mad": 0.24
+  },
+  "93fa945c-0348.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_93fa945c-0348.jpg",
+    "distancia": 0,
+    "mad": 0.91
+  },
+  "A14_1054832d-0354.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_277b6146-0210.jpg",
+    "distancia": 4,
+    "mad": 7.6
+  },
+  "A14_12554fe3-0003.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_b4a2469c-0422.jpg",
+    "distancia": 4,
+    "mad": 8.32
+  },
+  "A14_168a931e-0607.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A14_2e823715-0671.jpg",
+    "distancia": 3,
+    "mad": 6.08
+  },
+  "A14_2c4907f1-0136.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_7f193bd8-0128.jpg",
+    "distancia": 3,
+    "mad": 7.23
+  },
+  "A14_457a969e-0542.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_bc5ef7ab-0537.jpg",
+    "distancia": 2,
+    "mad": 5.71
+  },
+  "A14_66995f90-0256.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_df28d2ab-0254.jpg",
+    "distancia": 2,
+    "mad": 7.13
+  },
+  "A14_7e205630-0116.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_92261016-0114.jpg",
+    "distancia": 5,
+    "mad": 9.49
+  },
+  "A14_d23ebbb4-0164.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_536f0b64-0013.jpg",
+    "distancia": 2,
+    "mad": 6.49
+  },
+  "A14_d47a06e0-0646.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_b459382e-0350.jpg",
+    "distancia": 3,
+    "mad": 8.26
+  },
+  "A16_12554fe3-0003.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "12554fe3-0003.jpg",
+    "distancia": 0,
+    "mad": 0.58
+  },
+  "A16_7d23ebd9-0120.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "7d23ebd9-0120.jpg",
+    "distancia": 0,
+    "mad": 0.57
+  },
+  "A16_9b090244-0303.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "9b090244-0303.jpg",
+    "distancia": 0,
+    "mad": 0.93
+  },
+  "A16_9b70ede1-0334.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "9b70ede1-0334.jpg",
+    "distancia": 0,
+    "mad": 0.9
+  },
+  "A16_e0c6d92d-0401.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "e0c6d92d-0401.jpg",
+    "distancia": 0,
+    "mad": 0.58
+  },
+  "A16_eabc9076-0513.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "eabc9076-0513.jpg",
+    "distancia": 0,
+    "mad": 0.93
+  },
+  "A16_f892c731-0356.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A16_66995f90-0256.jpg",
+    "distancia": 4,
+    "mad": 9.8
+  },
+  "d23ebbb4-0164.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_d23ebbb4-0164.jpg",
+    "distancia": 0,
+    "mad": 0.97
+  },
+  "f892c731-0356.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A16_66995f90-0256.jpg",
+    "distancia": 4,
+    "mad": 9.82
+  },
+  "a08c72e4-0453.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_a08c72e4-0453.jpg",
+    "distancia": 0,
+    "mad": 0.93
+  },
+  "d8f08885-0319.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_d8f08885-0319.jpg",
+    "distancia": 0,
+    "mad": 0.57
+  },
+  "70e69101-2934.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "00f67939-3553.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "5c82de6a-0505.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_5c82de6a-0505.jpg",
+    "distancia": 0,
+    "mad": 0.25
+  },
+  "A14_7f11ad8c-0638.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A14_4e71f7da-0631.jpg",
+    "distancia": 1,
+    "mad": 8.39
+  },
+  "A14_8d735d52-0146.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_2e6a9758-0436.jpg",
+    "distancia": 4,
+    "mad": 9.72
+  },
+  "A16_75c252d5-0424.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "75c252d5-0424.jpg",
+    "distancia": 0,
+    "mad": 0.55
+  },
+  "A16_fcfb0080-0636.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "fcfb0080-0636.jpg",
+    "distancia": 0,
+    "mad": 0.93
+  },
+  "01357083-0615.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_01357083-0615.jpg",
+    "distancia": 0,
+    "mad": 0.99
+  },
+  "0593dd76-0147.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "3da80c74-0523.jpg",
+    "distancia": 1,
+    "mad": 6.63
+  },
+  "05f1ae34-0048.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_05f1ae34-0048.jpg",
+    "distancia": 1,
+    "mad": 0.57
+  },
+  "1c41f9cf-0613.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_1c41f9cf-0613.jpg",
+    "distancia": 0,
+    "mad": 0.99
+  },
+  "3aa1639d-0519.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_3aa1639d-0519.jpg",
+    "distancia": 0,
+    "mad": 0.61
+  },
+  "3fdcdcbb-0072.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_3fdcdcbb-0072.jpg",
+    "distancia": 0,
+    "mad": 0.86
+  },
+  "48e6f173-0558.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_48e6f173-0558.jpg",
+    "distancia": 0,
+    "mad": 0.24
+  },
+  "54b55d3f-0158.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_54b55d3f-0158.jpg",
+    "distancia": 0,
+    "mad": 0.57
+  },
+  "5882b19d-0140.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_5882b19d-0140.jpg",
+    "distancia": 0,
+    "mad": 0.24
+  },
+  "69cbf3c4-0053.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_69cbf3c4-0053.jpg",
+    "distancia": 0,
+    "mad": 0.57
+  },
+  "8568c6a8-0525.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_8568c6a8-0525.jpg",
+    "distancia": 1,
+    "mad": 0.59
+  },
+  "95105a91-0565.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A16_95105a91-0565.jpg",
+    "distancia": 0,
+    "mad": 0.25
+  },
+  "959352dd-0173.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_959352dd-0173.jpg",
+    "distancia": 0,
+    "mad": 0.24
+  },
+  "A14_0593dd76-0147.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_3da80c74-0523.jpg",
+    "distancia": 2,
+    "mad": 6.96
+  },
+  "A14_05f1ae34-0048.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_34b76f6b-0018.jpg",
+    "distancia": 3,
+    "mad": 9.21
+  },
+  "A14_54b55d3f-0158.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_a1fb8cd2-0425.jpg",
+    "distancia": 2,
+    "mad": 7.44
+  },
+  "A14_69cbf3c4-0053.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_60d01328-0577.jpg",
+    "distancia": 3,
+    "mad": 8.26
+  },
+  "A14_a91ed04f-0023.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_959352dd-0173.jpg",
+    "distancia": 6,
+    "mad": 8.82
+  },
+  "A14_c932db57-0129.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_cb4b6f52-0446.jpg",
+    "distancia": 5,
+    "mad": 10.6
+  },
+  "A14_e94eef2a-0412.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_63747e85-0410.jpg",
+    "distancia": 6,
+    "mad": 8.18
+  },
+  "A16_0141184a-0419.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "0141184a-0419.jpg",
+    "distancia": 0,
+    "mad": 0.9
+  },
+  "A16_03057337-0014.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "03057337-0014.jpg",
+    "distancia": 0,
+    "mad": 0.59
+  },
+  "A16_0593dd76-0147.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A16_3da80c74-0523.jpg",
+    "distancia": 1,
+    "mad": 6.57
+  },
+  "A16_4aa699e9-0530.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "4aa699e9-0530.jpg",
+    "distancia": 0,
+    "mad": 0.58
+  },
+  "A16_60d01328-0577.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "60d01328-0577.jpg",
+    "distancia": 0,
+    "mad": 0.96
+  },
+  "A16_6ad370d1-0022.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "6ad370d1-0022.jpg",
+    "distancia": 1,
+    "mad": 0.94
+  },
+  "A16_87a4a7bc-0060.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "87a4a7bc-0060.jpg",
+    "distancia": 0,
+    "mad": 0.9
+  },
+  "A16_a90ede36-0418.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "0141184a-0419.jpg",
+    "distancia": 3,
+    "mad": 7.68
+  },
+  "A16_a91ed04f-0023.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_a0437dc7-0020.jpg",
+    "distancia": 3,
+    "mad": 6.54
+  },
+  "A16_ca3b6446-0371.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "ca3b6446-0371.jpg",
+    "distancia": 0,
+    "mad": 0.56
+  },
+  "A16_cd97514c-0445.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "cd97514c-0445.jpg",
+    "distancia": 0,
+    "mad": 0.91
+  },
+  "A16_d51d5912-0660.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_4e0c4b90-0148.jpg",
+    "distancia": 5,
+    "mad": 14.99
+  },
+  "a1fb8cd2-0425.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_a1fb8cd2-0425.jpg",
+    "distancia": 0,
+    "mad": 0.59
+  },
+  "a90ede36-0418.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "0141184a-0419.jpg",
+    "distancia": 3,
+    "mad": 7.64
+  },
+  "a91ed04f-0023.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "a0437dc7-0020.jpg",
+    "distancia": 3,
+    "mad": 6.61
+  },
+  "b689d905-0541.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_b689d905-0541.jpg",
+    "distancia": 0,
+    "mad": 0.9
+  },
+  "c16626a0-0622.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_c16626a0-0622.jpg",
+    "distancia": 0,
+    "mad": 0.59
+  },
+  "c3ae3d04-0214.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "5a36d04b-0244.jpg",
+    "distancia": 5,
+    "mad": 8.88
+  },
+  "d51d5912-0660.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_4e0c4b90-0148.jpg",
+    "distancia": 5,
+    "mad": 14.99
+  },
+  "db222320-0553.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_db222320-0553.jpg",
+    "distancia": 0,
+    "mad": 0.89
+  },
+  "dee4aa48-0141.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_dee4aa48-0141.jpg",
+    "distancia": 0,
+    "mad": 0.92
+  },
+  "fbd040bc-0360.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_fbd040bc-0360.jpg",
+    "distancia": 0,
+    "mad": 0.25
+  },
+  "0e412be4-0332.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "e86b9ba7-0087.jpg",
+    "distancia": 5,
+    "mad": 16.04
+  },
+  "0ac773fc-0247.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A16_0ac773fc-0247.jpg",
+    "distancia": 0,
+    "mad": 0.57
+  },
+  "29b0b8db-0649.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "2e823715-0671.jpg",
+    "distancia": 3,
+    "mad": 7.55
+  },
+  "3be37858-0443.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_3be37858-0443.jpg",
+    "distancia": 0,
+    "mad": 0.56
+  },
+  "664cce9f-0165.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_664cce9f-0165.jpg",
+    "distancia": 0,
+    "mad": 0.56
+  },
+  "7bf01748-0238.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_7bf01748-0238.jpg",
+    "distancia": 0,
+    "mad": 0.56
+  },
+  "7f24fec0-0236.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_7f24fec0-0236.jpg",
+    "distancia": 0,
+    "mad": 0.55
+  },
+  "A14_4397f8f9-0666.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A14_5308bb4d-0674.jpg",
+    "distancia": 3,
+    "mad": 6.67
+  },
+  "A16_2356c9c7-0428.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "2356c9c7-0428.jpg",
+    "distancia": 1,
+    "mad": 0.95
+  },
+  "A16_29b0b8db-0649.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A16_2e823715-0671.jpg",
+    "distancia": 3,
+    "mad": 7.46
+  },
+  "A16_3c35ca93-0571.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "3c35ca93-0571.jpg",
+    "distancia": 0,
+    "mad": 0.25
+  },
+  "A16_60c2930c-0628.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "60c2930c-0628.jpg",
+    "distancia": 0,
+    "mad": 0.56
+  },
+  "A16_755e79f4-0442.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "755e79f4-0442.jpg",
+    "distancia": 0,
+    "mad": 0.24
+  },
+  "A16_76ff1300-0672.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "76ff1300-0672.jpg",
+    "distancia": 0,
+    "mad": 0.56
+  },
+  "d37d85de-0551.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A16_d37d85de-0551.jpg",
+    "distancia": 0,
+    "mad": 0.55
+  },
+  "A14_92af5f4c-0122.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_ed41c304-0059.jpg",
+    "distancia": 5,
+    "mad": 11.65
+  },
+  "A16_027535e9-0455.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "027535e9-0455.jpg",
+    "distancia": 0,
+    "mad": 0.25
+  },
+  "A16_0cf8de24-0259.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "0cf8de24-0259.jpg",
+    "distancia": 0,
+    "mad": 0.9
+  },
+  "A16_6e970d46-0245.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "6e970d46-0245.jpg",
+    "distancia": 0,
+    "mad": 0.91
+  },
+  "63747e85-0410.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_63747e85-0410.jpg",
+    "distancia": 0,
+    "mad": 0.91
+  },
+  "A8_bdb3e381-0661.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_03916021-0251.jpg",
+    "distancia": 5,
+    "mad": 29.3
+  },
+  "2109d7fa-1847.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "043ac35f-1481.jpg",
+    "distancia": 0,
+    "mad": 0.33
+  },
+  "3765f83f-3819.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "043ac35f-1481.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "24a80e41-0126.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "0b837023-0125.jpg",
+    "distancia": 2,
+    "mad": 5.15
+  },
+  "4e71f7da-0631.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A16_4e71f7da-0631.jpg",
+    "distancia": 1,
+    "mad": 0.25
+  },
+  "A14_045a155a-0066.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_9e6a8f2c-0069.jpg",
+    "distancia": 2,
+    "mad": 6.86
+  },
+  "A14_5882b19d-0140.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_5aff8b33-0067.jpg",
+    "distancia": 0,
+    "mad": 8.7
+  },
+  "A14_7b063e59-0002.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_d2f67f57-0421.jpg",
+    "distancia": 6,
+    "mad": 9.24
+  },
+  "A14_c1d41fdc-0070.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_9e6a8f2c-0069.jpg",
+    "distancia": 0,
+    "mad": 2.68
+  },
+  "A14_cb669741-0073.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A14_1a559f53-0559.jpg",
+    "distancia": 3,
+    "mad": 10.71
+  },
+  "A16_5d4a2e78-0156.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "5d4a2e78-0156.jpg",
+    "distancia": 0,
+    "mad": 0.9
+  },
+  "A16_7f11ad8c-0638.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "7f11ad8c-0638.jpg",
+    "distancia": 0,
+    "mad": 0.57
+  },
+  "A16_84e35dc8-0461.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "84e35dc8-0461.jpg",
+    "distancia": 0,
+    "mad": 0.58
+  },
+  "A16_c86970c2-0016.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "c86970c2-0016.jpg",
+    "distancia": 0,
+    "mad": 0.86
+  },
+  "A16_f350958b-0603.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "f350958b-0603.jpg",
+    "distancia": 0,
+    "mad": 0.58
+  },
+  "A16_ff2a61eb-0552.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "ff2a61eb-0552.jpg",
+    "distancia": 0,
+    "mad": 0.57
+  },
+  "A8_63b19b08-0076.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_63b19b08-0076.jpg",
+    "distancia": 4,
+    "mad": 20.58
+  },
+  "a4547f34-0563.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_a4547f34-0563.jpg",
+    "distancia": 0,
+    "mad": 0.57
+  },
+  "b242fd16-0372.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A16_b242fd16-0372.jpg",
+    "distancia": 0,
+    "mad": 0.58
+  },
+  "d47a06e0-0646.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_d47a06e0-0646.jpg",
+    "distancia": 0,
+    "mad": 0.58
+  },
+  "dc060b7a-0015.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_dc060b7a-0015.jpg",
+    "distancia": 0,
+    "mad": 0.55
+  },
+  "018ec14b-0021.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_018ec14b-0021.jpg",
+    "distancia": 0,
+    "mad": 0.89
+  },
+  "0755688e-0101.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A16_0755688e-0101.jpg",
+    "distancia": 0,
+    "mad": 0.91
+  },
+  "7781f47e-0602.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_7781f47e-0602.jpg",
+    "distancia": 0,
+    "mad": 0.25
+  },
+  "A14_1c3ae7bd-0009.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_f3e0ed44-0633.jpg",
+    "distancia": 2,
+    "mad": 8.49
+  },
+  "A14_a08c72e4-0453.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_9aa3d143-0459.jpg",
+    "distancia": 4,
+    "mad": 9.61
+  },
+  "A14_d41fb33f-0454.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_623cd238-0409.jpg",
+    "distancia": 1,
+    "mad": 9.97
+  },
+  "A14_f10bd2d9-0645.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A14_2d133556-0634.jpg",
+    "distancia": 3,
+    "mad": 8.55
+  },
+  "A16_0b8f7a5a-0653.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "0b8f7a5a-0653.jpg",
+    "distancia": 0,
+    "mad": 0.58
+  },
+  "A16_58b31d93-0473.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "58b31d93-0473.jpg",
+    "distancia": 0,
+    "mad": 0.95
+  },
+  "A16_647aa214-0359.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "647aa214-0359.jpg",
+    "distancia": 0,
+    "mad": 0.56
+  },
+  "A16_d143f1d8-0267.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "d143f1d8-0267.jpg",
+    "distancia": 0,
+    "mad": 0.94
+  },
+  "A16_f3bc7f32-0207.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "f3bc7f32-0207.jpg",
+    "distancia": 0,
+    "mad": 0.23
+  },
+  "A16_ff3c072d-0364.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "ff3c072d-0364.jpg",
+    "distancia": 0,
+    "mad": 0.92
+  },
+  "ce7381cd-0232.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_ce7381cd-0232.jpg",
+    "distancia": 0,
+    "mad": 0.95
+  },
+  "f4ba0cd8-0369.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_f4ba0cd8-0369.jpg",
+    "distancia": 0,
+    "mad": 0.91
+  },
+  "491f9bbe-0652.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "06cd75f3-0668.jpg",
+    "distancia": 5,
+    "mad": 6.72
+  },
+  "A14_06cd75f3-0668.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_630ae8d1-0052.jpg",
+    "distancia": 6,
+    "mad": 9.31
+  },
+  "A16_491f9bbe-0652.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_06cd75f3-0668.jpg",
+    "distancia": 6,
+    "mad": 6.68
+  },
+  "A16_7a83d6e8-0527.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "7a83d6e8-0527.jpg",
+    "distancia": 0,
+    "mad": 0.25
+  },
+  "f97d2746-0611.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_f97d2746-0611.jpg",
+    "distancia": 0,
+    "mad": 0.56
+  },
+  "292fa005-0447.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "7912f98b-3841.jpg",
+    "distancia": 4,
+    "mad": 10.43
+  },
+  "9ed2d2f6-1946.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "487da21f-3575.jpg",
+    "distancia": 4,
+    "mad": 7.76
+  },
+  "e4dddfdf-1171.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "4be9db09-0967.jpg",
+    "distancia": 4,
+    "mad": 10.98
+  },
+  "23063200-0222.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "d298362f-0359.jpg",
+    "distancia": 4,
+    "mad": 14.55
+  },
+  "6cd1f4a2-0220.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "8a8a6672-0260.jpg",
+    "distancia": 6,
+    "mad": 7.44
+  },
+  "A14_711daf1d-0448.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_9d14c8a8-0137.jpg",
+    "distancia": 1,
+    "mad": 9.44
+  },
+  "A14_9e25417e-0264.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_b3480366-0625.jpg",
+    "distancia": 5,
+    "mad": 9.44
+  },
+  "A16_50149149-0339.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "50149149-0339.jpg",
+    "distancia": 0,
+    "mad": 0.55
+  },
+  "A16_6cd1f4a2-0220.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A16_8a8a6672-0260.jpg",
+    "distancia": 6,
+    "mad": 7.33
+  },
+  "A16_76283b73-0431.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "76283b73-0431.jpg",
+    "distancia": 0,
+    "mad": 0.89
+  },
+  "A16_8eecc5f7-0170.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "8eecc5f7-0170.jpg",
+    "distancia": 0,
+    "mad": 0.52
+  },
+  "A16_c3634794-0472.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "c3634794-0472.jpg",
+    "distancia": 0,
+    "mad": 0.55
+  },
+  "A16_ef31c181-0624.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "ef31c181-0624.jpg",
+    "distancia": 0,
+    "mad": 0.91
+  },
+  "A16_fbf2505d-0662.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "fbf2505d-0662.jpg",
+    "distancia": 0,
+    "mad": 0.24
+  },
+  "A7_cd312b62-0517.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_cd312b62-0517.jpg",
+    "distancia": 4,
+    "mad": 9.87
+  },
+  "cbaa10a8-0437.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_cbaa10a8-0437.jpg",
+    "distancia": 0,
+    "mad": 0.91
+  },
+  "d2aaf7f8-0566.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_d2aaf7f8-0566.jpg",
+    "distancia": 0,
+    "mad": 0.26
+  },
+  "71ac8b0f-2025.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "095e6f4a-3302.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "2c182ab1-3330.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "0a24ac95-0949.jpg",
+    "distancia": 6,
+    "mad": 42.53
+  },
+  "A14_84b939d4-0152.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_cd2c42f1-0121.jpg",
+    "distancia": 3,
+    "mad": 6.96
+  },
+  "A16_399f872c-0620.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "399f872c-0620.jpg",
+    "distancia": 0,
+    "mad": 0.96
+  },
+  "A14_8a6ec460-0042.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_1ee23490-0575.jpg",
+    "distancia": 6,
+    "mad": 10.59
+  },
+  "A16_96ae2b97-0055.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "96ae2b97-0055.jpg",
+    "distancia": 0,
+    "mad": 0.24
+  },
+  "e06c64eb-0237.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_e06c64eb-0237.jpg",
+    "distancia": 0,
+    "mad": 0.57
+  },
+  "fc6897ea-0208.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_fc6897ea-0208.jpg",
+    "distancia": 0,
+    "mad": 0.93
+  },
+  "1cf8811d-0304.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "db65b497-0326.jpg",
+    "distancia": 2,
+    "mad": 5.6
+  },
+  "A14_169a5714-0133.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_cdb012ef-0132.jpg",
+    "distancia": 2,
+    "mad": 4.71
+  },
+  "86a966ce-3651.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "0d0ee184-3959.jpg",
+    "distancia": 0,
+    "mad": 0.38
+  },
+  "572968af-0616.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_572968af-0616.jpg",
+    "distancia": 1,
+    "mad": 0.99
+  },
+  "dc18ad7d-0502.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A16_dc18ad7d-0502.jpg",
+    "distancia": 0,
+    "mad": 0.57
+  },
+  "9a3a9218-0605.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_9a3a9218-0605.jpg",
+    "distancia": 0,
+    "mad": 0.25
+  },
+  "cdd1a27e-0050.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_cdd1a27e-0050.jpg",
+    "distancia": 0,
+    "mad": 0.56
+  },
+  "8b87da34-3015.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "3636ca2d-2979.jpg",
+    "distancia": 4,
+    "mad": 12.82
+  },
+  "4890f740-2137.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "108ded3b-3541.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "c3145ef8-0363.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_c3145ef8-0363.jpg",
+    "distancia": 1,
+    "mad": 0.58
+  },
+  "8c022e8a-0035.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "1112b423-1278.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "66a7620b-3951.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "113e5165-3940.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "6be6c399-0458.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "76283b73-0431.jpg",
+    "distancia": 4,
+    "mad": 8.61
+  },
+  "6dd8b6b2-0345.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A16_6dd8b6b2-0345.jpg",
+    "distancia": 0,
+    "mad": 0.91
+  },
+  "A14_50149149-0339.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A14_69b4ee4a-0230.jpg",
+    "distancia": 2,
+    "mad": 7.89
+  },
+  "A14_6dd8b6b2-0345.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A14_b3c53e5e-0246.jpg",
+    "distancia": 1,
+    "mad": 8.65
+  },
+  "A14_7bcecc08-0034.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_eabc9076-0513.jpg",
+    "distancia": 3,
+    "mad": 10.82
+  },
+  "A14_8fd9c54b-0105.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A14_e77b2b04-0102.jpg",
+    "distancia": 3,
+    "mad": 9.84
+  },
+  "A14_cbaa10a8-0437.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_9dec77ea-0065.jpg",
+    "distancia": 2,
+    "mad": 10.29
+  },
+  "A16_1184fce4-0328.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "1184fce4-0328.jpg",
+    "distancia": 0,
+    "mad": 0.57
+  },
+  "A16_178fae36-0309.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "178fae36-0309.jpg",
+    "distancia": 0,
+    "mad": 0.93
+  },
+  "A16_6be6c399-0458.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "76283b73-0431.jpg",
+    "distancia": 4,
+    "mad": 8.74
+  },
+  "A16_8d3f7e08-0106.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "8d3f7e08-0106.jpg",
+    "distancia": 0,
+    "mad": 0.24
+  },
+  "A14_38f9e545-0035.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_a8b223d9-0007.jpg",
+    "distancia": 3,
+    "mad": 6.54
+  },
+  "4205c911-0271.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_4205c911-0271.jpg",
+    "distancia": 0,
+    "mad": 0.25
+  },
+  "6a285bfa-0235.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_6a285bfa-0235.jpg",
+    "distancia": 0,
+    "mad": 0.55
+  },
+  "70c3be60-0234.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_70c3be60-0234.jpg",
+    "distancia": 0,
+    "mad": 0.54
+  },
+  "A14_141c375d-0261.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_9ac3ac1d-0221.jpg",
+    "distancia": 4,
+    "mad": 7.12
+  },
+  "A14_70c3be60-0234.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_6a285bfa-0235.jpg",
+    "distancia": 0,
+    "mad": 4.28
+  },
+  "A14_7bf01748-0238.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_39d8eba1-0340.jpg",
+    "distancia": 4,
+    "mad": 6.64
+  },
+  "501ff29f-0521.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_501ff29f-0521.jpg",
+    "distancia": 0,
+    "mad": 0.93
+  },
+  "5a2fb4b3-0413.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_5a2fb4b3-0413.jpg",
+    "distancia": 0,
+    "mad": 0.56
+  },
+  "A14_ef4c1fa4-0430.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_5a2fb4b3-0413.jpg",
+    "distancia": 4,
+    "mad": 8.74
+  },
+  "A16_58641dd3-0107.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "58641dd3-0107.jpg",
+    "distancia": 0,
+    "mad": 0.94
+  },
+  "A16_d587ecc9-0578.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "d587ecc9-0578.jpg",
+    "distancia": 0,
+    "mad": 0.91
+  },
+  "3f65e26f-2624.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "16e4a00b-3375.jpg",
+    "distancia": 5,
+    "mad": 35.39
+  },
+  "A14_f71410a4-0408.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_9ebedad8-0357.jpg",
+    "distancia": 6,
+    "mad": 9.15
+  },
+  "41326b53-0489.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "6d479f40-0493.jpg",
+    "distancia": 2,
+    "mad": 9.82
+  },
+  "6565e3fd-0250.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "e491115f-0239.jpg",
+    "distancia": 4,
+    "mad": 13.22
+  },
+  "a734ae44-0257.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "f2d532d7-0231.jpg",
+    "distancia": 3,
+    "mad": 12.81
+  },
+  "f4fe0c15-0381.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "c583a164-0382.jpg",
+    "distancia": 2,
+    "mad": 13.7
+  },
+  "a06fd6d0-3239.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "1a240f28-0126.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "1d3f138d-3626.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "98d6b9f3-1007.jpg",
+    "distancia": 6,
+    "mad": 23.43
+  },
+  "85080054-2570.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "1aa0f9f0-3653.jpg",
+    "distancia": 4,
+    "mad": 21.4
+  },
+  "1f15640d-2449.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "01e92181-0045.jpg",
+    "distancia": 0,
+    "mad": 0.31
+  },
+  "05064e1f-3315.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "1f312d92-2381.jpg",
+    "distancia": 1,
+    "mad": 1.35
+  },
+  "f45dc3f6-0199.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "3f4bf0d2-0351.jpg",
+    "distancia": 3,
+    "mad": 10.1
+  },
+  "A14_4df852ab-0168.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_9d14c8a8-0137.jpg",
+    "distancia": 6,
+    "mad": 9.54
+  },
+  "648066a6-2143.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "f456f55c-2352.jpg",
+    "distancia": 6,
+    "mad": 50.15
+  },
+  "A14_96ae2b97-0055.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A14_d2aaf7f8-0566.jpg",
+    "distancia": 6,
+    "mad": 11.95
+  },
+  "A14_d587ecc9-0578.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_21daae81-0623.jpg",
+    "distancia": 4,
+    "mad": 7.91
+  },
+  "6239bc81-0424.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "f7ef3e69-0457.jpg",
+    "distancia": 5,
+    "mad": 15.76
+  },
+  "d197449c-1408.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "246d1b77-1661.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "A14_25445ba7-0071.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_3fdcdcbb-0072.jpg",
+    "distancia": 1,
+    "mad": 7.39
+  },
+  "9522d1c6-3894.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "272f290b-3733.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "8fd9c54b-0105.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_8fd9c54b-0105.jpg",
+    "distancia": 0,
+    "mad": 0.57
+  },
+  "A14_3f60cea5-0062.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_63747e85-0410.jpg",
+    "distancia": 5,
+    "mad": 8.65
+  },
+  "4810ecbd-2879.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "2b879f31-2254.jpg",
+    "distancia": 0,
+    "mad": 0.32
+  },
+  "84a0127e-1807.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "2b879f31-2254.jpg",
+    "distancia": 0,
+    "mad": 0.32
+  },
+  "6545d26e-1147.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "feb88c20-1290.jpg",
+    "distancia": 5,
+    "mad": 19.74
+  },
+  "A16_ae09234b-0041.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "ae09234b-0041.jpg",
+    "distancia": 0,
+    "mad": 0.25
+  },
+  "A14_aa937d7f-0143.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_4240dcb6-0403.jpg",
+    "distancia": 4,
+    "mad": 4.89
+  },
+  "14a9f0bb-0626.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "34a0ac19-2280.jpg",
+    "distancia": 6,
+    "mad": 11.87
+  },
+  "5b5b8d4e-1927.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "e2765751-2296.jpg",
+    "distancia": 4,
+    "mad": 10.43
+  },
+  "A14_2f6fa813-0546.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_ae09234b-0041.jpg",
+    "distancia": 5,
+    "mad": 10.85
+  },
+  "26c376c9-3026.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "34674df3-1816.jpg",
+    "distancia": 0,
+    "mad": 3.48
+  },
+  "2c2ded2e-0877.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "487da21f-3575.jpg",
+    "distancia": 2,
+    "mad": 3.65
+  },
+  "A14_a02e34ea-0226.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_36a54a6f-0224.jpg",
+    "distancia": 5,
+    "mad": 7.03
+  },
+  "a595258b-3452.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "3766e9e5-3227.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "779cecb6-2186.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "376ee1b7-2567.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "4ee7baa8-3572.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "37d0fab7-3498.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "d2dfe94d-2209.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "393d19d2-1717.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "dd835c9f-0228.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "39722807-1778.jpg",
+    "distancia": 3,
+    "mad": 1.72
+  },
+  "A14_6557d253-0004.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_afce3172-0449.jpg",
+    "distancia": 6,
+    "mad": 8.01
+  },
+  "A14_ad57a466-0119.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_63747e85-0410.jpg",
+    "distancia": 4,
+    "mad": 6.7
+  },
+  "A14_0f801f83-0366.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_5dc800be-0338.jpg",
+    "distancia": 3,
+    "mad": 6.86
+  },
+  "2e15bb80-0894.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "40c772e7-2256.jpg",
+    "distancia": 5,
+    "mad": 9.65
+  },
+  "4811299b-0005.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "4119a3cc-0849.jpg",
+    "distancia": 4,
+    "mad": 31.36
+  },
+  "d13a6d86-1462.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "4119a3cc-0849.jpg",
+    "distancia": 4,
+    "mad": 31.36
+  },
+  "1986ada1-1507.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "429bac93-1850.jpg",
+    "distancia": 5,
+    "mad": 31.15
+  },
+  "A14_6e970d46-0245.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_442e4357-0212.jpg",
+    "distancia": 2,
+    "mad": 6.27
+  },
+  "25944b54-3027.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "44c80bcf-0195.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "ff0f2c1b-3944.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "46c7eca0-1482.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "0cd4cdc7-3598.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "472d3d7b-3205.jpg",
+    "distancia": 4,
+    "mad": 25.82
+  },
+  "73cac4c7-0631.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "47e5a4d2-3886.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "d0c33ef2-1327.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "4a682db0-0076.jpg",
+    "distancia": 6,
+    "mad": 32.44
+  },
+  "143e6b37-3835.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "4a90ecd0-0042.jpg",
+    "distancia": 5,
+    "mad": 17.98
+  },
+  "73d87292-2741.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "4a90ecd0-0042.jpg",
+    "distancia": 6,
+    "mad": 8.57
+  },
+  "0905169f-2451.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "4d3541c8-0981.jpg",
+    "distancia": 6,
+    "mad": 18.52
+  },
+  "4c9b7268-0686.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "4f1f18b5-1026.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "21b0236e-0749.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "5178d900-3659.jpg",
+    "distancia": 6,
+    "mad": 16.19
+  },
+  "A14_e095f8fa-0351.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_f97d2746-0611.jpg",
+    "distancia": 0,
+    "mad": 5.91
+  },
+  "A14_dc060b7a-0015.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_d3245f01-0564.jpg",
+    "distancia": 6,
+    "mad": 9.85
+  },
+  "A8_5c82de6a-0505.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_569e1b4f-0315.jpg",
+    "distancia": 6,
+    "mad": 37.69
+  },
+  "A7_56c8094b-2952.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "56c8094b-2952.jpg",
+    "distancia": 4,
+    "mad": 19.41
+  },
+  "A14_7d4a6e03-0503.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_bbaf33b4-0144.jpg",
+    "distancia": 6,
+    "mad": 11.55
+  },
+  "a93c2c15-0535.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_a93c2c15-0535.jpg",
+    "distancia": 0,
+    "mad": 0.92
+  },
+  "2a9076e2-1200.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "5ae976d2-3954.jpg",
+    "distancia": 6,
+    "mad": 29.25
+  },
+  "845cacbc-3114.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "a995d392-2457.jpg",
+    "distancia": 6,
+    "mad": 27.2
+  },
+  "76871399-2360.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "5b6a5018-2172.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "c8569887-1713.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "b0834e59-3472.jpg",
+    "distancia": 5,
+    "mad": 21.95
+  },
+  "f480c441-2627.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "5e2e67a6-3047.jpg",
+    "distancia": 0,
+    "mad": 0.36
+  },
+  "7ec144c5-0452.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "94a07784-0456.jpg",
+    "distancia": 6,
+    "mad": 9.97
+  },
+  "1a2a7e2a-2959.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "9d800666-1528.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "793a094f-0329.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "dbfd85e1-0340.jpg",
+    "distancia": 3,
+    "mad": 18.02
+  },
+  "1a96e10c-3928.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "66288bdf-3947.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "40ae9d14-3952.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "6ab8c703-3942.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "5d429d1c-2354.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "6e1044b6-2345.jpg",
+    "distancia": 5,
+    "mad": 34.2
+  },
+  "18e2b803-2230.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "edad5370-1793.jpg",
+    "distancia": 0,
+    "mad": 0.28
+  },
+  "8ef4e9b6-3880.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "7414a2aa-2348.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "acf33297-3234.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "74920560-3964.jpg",
+    "distancia": 6,
+    "mad": 32.56
+  },
+  "A4_60ea9e53-0454.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "75a6bc7b-3962.jpg",
+    "distancia": 6,
+    "mad": 88.66
+  },
+  "0ba7e138-0255.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "7b3bce66-0826.jpg",
+    "distancia": 4,
+    "mad": 12.53
+  },
+  "20f7a8f4-2107.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "7cfa36aa-1041.jpg",
+    "distancia": 6,
+    "mad": 13.25
+  },
+  "19138809-3590.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "7f089bcf-2002.jpg",
+    "distancia": 5,
+    "mad": 12.27
+  },
+  "b6cc12cd-1827.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "f6844749-0589.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "b5730c99-0472.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "dbfd85e1-0340.jpg",
+    "distancia": 6,
+    "mad": 11.41
+  },
+  "A8_849ab401-0018.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "849ab401-0018.jpg",
+    "distancia": 6,
+    "mad": 17.89
+  },
+  "e653f318-1617.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "e601fe62-1246.jpg",
+    "distancia": 3,
+    "mad": 4.8
+  },
+  "39090f8a-0816.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "8b20f707-0052.jpg",
+    "distancia": 1,
+    "mad": 0.82
+  },
+  "e3ffdb26-0122.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "8d4f71bd-0207.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "A8_d587ecc9-0578.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A8_6be6c399-0458.jpg",
+    "distancia": 3,
+    "mad": 34.88
+  },
+  "a063ff62-0071.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "8df09457-0070.jpg",
+    "distancia": 4,
+    "mad": 10.32
+  },
+  "b4d561db-0225.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "8e3fecee-1548.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "791d17f6-3252.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "8e74e849-2129.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "eda0588c-3112.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "8f1c96f6-3868.jpg",
+    "distancia": 4,
+    "mad": 1.18
+  },
+  "2c794188-0144.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "93a05039-0187.jpg",
+    "distancia": 5,
+    "mad": 42.7
+  },
+  "11234993-3269.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "947c13d6-0516.jpg",
+    "distancia": 5,
+    "mad": 28.58
+  },
+  "39f203cb-2097.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "947c13d6-0516.jpg",
+    "distancia": 6,
+    "mad": 32.3
+  },
+  "3fb348cd-3766.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "f8e9159d-0206.jpg",
+    "distancia": 0,
+    "mad": 10.79
+  },
+  "36168f77-0841.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "949a04af-2943.jpg",
+    "distancia": 0,
+    "mad": 1.77
+  },
+  "A14_9e548752-0033.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A14_6b9dd66e-0526.jpg",
+    "distancia": 6,
+    "mad": 13.34
+  },
+  "A10_25445ba7-0071.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A10_6af6005c-0307.jpg",
+    "distancia": 6,
+    "mad": 39.2
+  },
+  "A10_f3f2b7a0-0601.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A10_156294d6-0123.jpg",
+    "distancia": 6,
+    "mad": 35.43
+  },
+  "A10_6be6c399-0458.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A10_2402d313-0308.jpg",
+    "distancia": 4,
+    "mad": 34.76
+  },
+  "A10_6b9dd66e-0526.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A10_2d133556-0634.jpg",
+    "distancia": 4,
+    "mad": 34.38
+  },
+  "A10_7bf01748-0238.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A10_38f9e545-0035.jpg",
+    "distancia": 6,
+    "mad": 31.53
+  },
+  "A8_16bb69c0-0467.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A10_711daf1d-0448.jpg",
+    "distancia": 6,
+    "mad": 34.88
+  },
+  "A14_c8df2da8-0109.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A14_8eaf8f1a-0030.jpg",
+    "distancia": 4,
+    "mad": 10.12
+  },
+  "A16_c4445258-0266.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "c4445258-0266.jpg",
+    "distancia": 0,
+    "mad": 0.56
+  },
+  "b4eeaa41-0658.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A16_b4eeaa41-0658.jpg",
+    "distancia": 0,
+    "mad": 0.24
+  },
+  "19d9aae7-2131.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A4_1e77732a-0356.jpg",
+    "distancia": 6,
+    "mad": 49.11
+  },
+  "A4_c392f1c6-0217.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A4_255abae4-0227.jpg",
+    "distancia": 1,
+    "mad": 11.54
+  },
+  "5ea687c4-0110.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A4_8bf1dfa4-0498.jpg",
+    "distancia": 3,
+    "mad": 32.82
+  },
+  "A4_26a6605a-0342.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A4_a52e5b67-0453.jpg",
+    "distancia": 6,
+    "mad": 10.37
+  },
+  "867a8b56-1873.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A4_b02aab57-0089.jpg",
+    "distancia": 6,
+    "mad": 87.76
+  },
+  "A6_a5f9405e-0536.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A6_5bac7b4f-0203.jpg",
+    "distancia": 4,
+    "mad": 23.33
+  },
+  "A6_1184fce4-0328.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A6_470fdce1-0032.jpg",
+    "distancia": 4,
+    "mad": 16.91
+  },
+  "A6_f3f2b7a0-0601.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A6_9cb3cfb6-0068.jpg",
+    "distancia": 6,
+    "mad": 18.84
+  },
+  "A6_cd312b62-0517.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A6_9d14c8a8-0137.jpg",
+    "distancia": 1,
+    "mad": 8.1
+  },
+  "A6_358c10f2-0370.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A6_39d8eba1-0340.jpg",
+    "distancia": 6,
+    "mad": 19.89
+  },
+  "A6_3c478d9a-0427.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A6_3c35ca93-0571.jpg",
+    "distancia": 3,
+    "mad": 5.92
+  },
+  "A6_df28d2ab-0254.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A6_3dd633a9-3640.jpg",
+    "distancia": 6,
+    "mad": 23.86
+  },
+  "A6_6c686b0b-0669.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A6_55d96347-0161.jpg",
+    "distancia": 4,
+    "mad": 20.01
+  },
+  "A6_104bbc90-0642.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A6_69cbf3c4-0053.jpg",
+    "distancia": 5,
+    "mad": 19.44
+  },
+  "A6_3e371528-0460.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A6_c14a673f-0150.jpg",
+    "distancia": 5,
+    "mad": 22.33
+  },
+  "A6_450ade80-0457.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A6_fbd040bc-0360.jpg",
+    "distancia": 5,
+    "mad": 17.8
+  },
+  "A6_9ac3ac1d-0221.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A6_92e7eef0-0573.jpg",
+    "distancia": 6,
+    "mad": 28.17
+  },
+  "A6_24e3c77f-0456.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A6_a721c20c-0347.jpg",
+    "distancia": 5,
+    "mad": 27.14
+  },
+  "A6_f3bc7f32-0207.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A6_c657b4d8-0213.jpg",
+    "distancia": 6,
+    "mad": 15.58
+  },
+  "A6_fcfb0080-0636.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A6_cdb012ef-0132.jpg",
+    "distancia": 6,
+    "mad": 20.7
+  },
+  "A6_95105a91-0565.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A6_cb4b6f52-0446.jpg",
+    "distancia": 3,
+    "mad": 20.65
+  },
+  "A6_49aa4e84-0452.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A6_d47a06e0-0646.jpg",
+    "distancia": 4,
+    "mad": 19.39
+  },
+  "A6_4aa699e9-0530.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A6_dc060b7a-0015.jpg",
+    "distancia": 6,
+    "mad": 27.4
+  },
+  "A7_93fa945c-0348.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_00986522-0159.jpg",
+    "distancia": 4,
+    "mad": 16.93
+  },
+  "A7_640ece61-0574.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_0fd7fada-0570.jpg",
+    "distancia": 6,
+    "mad": 13.51
+  },
+  "A7_7ef29b02-0545.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_027535e9-0455.jpg",
+    "distancia": 5,
+    "mad": 25.21
+  },
+  "A7_be82c500-0438.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_0507048c-0423.jpg",
+    "distancia": 3,
+    "mad": 14.1
+  },
+  "A7_5fd664f4-0657.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_d87017c8-0274.jpg",
+    "distancia": 5,
+    "mad": 17.76
+  },
+  "A7_b242fd16-0372.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_bbb1fdb7-0027.jpg",
+    "distancia": 5,
+    "mad": 16.73
+  },
+  "A7_7318c215-0314.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A7_d2f67f57-0421.jpg",
+    "distancia": 1,
+    "mad": 15.93
+  },
+  "A7_1c1fef92-0305.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_b0fe4c81-0550.jpg",
+    "distancia": 5,
+    "mad": 22.86
+  },
+  "A8_42bcacb7-0025.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_169a5714-0133.jpg",
+    "distancia": 6,
+    "mad": 33.34
+  },
+  "A7_1848ba89-0656.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_1c41f9cf-0613.jpg",
+    "distancia": 5,
+    "mad": 15.52
+  },
+  "A7_6dd8b6b2-0345.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_2402d313-0308.jpg",
+    "distancia": 5,
+    "mad": 8.97
+  },
+  "A7_ffef07ad-0621.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_337554e1-0361.jpg",
+    "distancia": 5,
+    "mad": 19.95
+  },
+  "A8_e69d5ab6-0160.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_358c10f2-0370.jpg",
+    "distancia": 5,
+    "mad": 23.65
+  },
+  "A7_27aacd5f-0054.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_92c15e93-0045.jpg",
+    "distancia": 5,
+    "mad": 21.79
+  },
+  "A7_664cce9f-0165.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_450ade80-0457.jpg",
+    "distancia": 6,
+    "mad": 23.06
+  },
+  "A7_d47a06e0-0646.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_f73e06f2-0227.jpg",
+    "distancia": 4,
+    "mad": 16.83
+  },
+  "A7_4c2df2ab-0310.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_4abae0c9-0104.jpg",
+    "distancia": 5,
+    "mad": 17.08
+  },
+  "A7_10bb9666-0560.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_d7c12be0-0028.jpg",
+    "distancia": 5,
+    "mad": 17.97
+  },
+  "A7_6031c71a-0405.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_4df852ab-0168.jpg",
+    "distancia": 5,
+    "mad": 31.42
+  },
+  "A7_bfee8ef7-0501.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A7_6d2b6acb-0216.jpg",
+    "distancia": 5,
+    "mad": 8.96
+  },
+  "A7_acda43b9-0024.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_5882b19d-0140.jpg",
+    "distancia": 5,
+    "mad": 13.28
+  },
+  "A7_d2aaf7f8-0566.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_6393d585-0440.jpg",
+    "distancia": 4,
+    "mad": 14.65
+  },
+  "A7_7c64cfd2-0265.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_66096aba-0352.jpg",
+    "distancia": 4,
+    "mad": 19.14
+  },
+  "A7_510b5ee3-0113.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A8_1a559f53-0559.jpg",
+    "distancia": 6,
+    "mad": 22.54
+  },
+  "A7_959352dd-0173.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_70c8deac-0051.jpg",
+    "distancia": 4,
+    "mad": 13.44
+  },
+  "A7_01357083-0615.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_77044aa3-0651.jpg",
+    "distancia": 4,
+    "mad": 17.44
+  },
+  "A7_1a559f53-0559.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A7_25445ba7-0071.jpg",
+    "distancia": 6,
+    "mad": 17.57
+  },
+  "A7_7bdc325a-0242.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_77044aa3-0651.jpg",
+    "distancia": 5,
+    "mad": 16.01
+  },
+  "A7_7d23ebd9-0120.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_7bf01748-0238.jpg",
+    "distancia": 6,
+    "mad": 25.4
+  },
+  "A7_3f60cea5-0062.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_8568c6a8-0525.jpg",
+    "distancia": 6,
+    "mad": 13.18
+  },
+  "A7_a07def32-0509.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_ae35ab33-0609.jpg",
+    "distancia": 6,
+    "mad": 14.59
+  },
+  "A7_26ed77bb-0650.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_b3480366-0625.jpg",
+    "distancia": 6,
+    "mad": 11.25
+  },
+  "A7_aa954026-0604.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_d3245f01-0564.jpg",
+    "distancia": 4,
+    "mad": 14.01
+  },
+  "A7_26b16634-0268.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A7_a5f9405e-0536.jpg",
+    "distancia": 4,
+    "mad": 16.29
+  },
+  "A7_9e25417e-0264.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_fbf2505d-0662.jpg",
+    "distancia": 3,
+    "mad": 17.21
+  },
+  "A7_665ee374-0543.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_cdd1a27e-0050.jpg",
+    "distancia": 6,
+    "mad": 12.52
+  },
+  "A7_f595424f-0217.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_dee4aa48-0141.jpg",
+    "distancia": 3,
+    "mad": 18.18
+  },
+  "A7_ff3c072d-0364.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_ef31c181-0624.jpg",
+    "distancia": 4,
+    "mad": 24.6
+  },
+  "A7_21713ea2-0522.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_f1eb6683-0420.jpg",
+    "distancia": 6,
+    "mad": 22.76
+  },
+  "A7_58b31d93-0473.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A7_f4ba0cd8-0369.jpg",
+    "distancia": 6,
+    "mad": 22.03
+  },
+  "A8_1c41f9cf-0613.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A8_01357083-0615.jpg",
+    "distancia": 6,
+    "mad": 22.6
+  },
+  "A8_7d23ebd9-0120.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A8_0507048c-0423.jpg",
+    "distancia": 6,
+    "mad": 37.04
+  },
+  "A8_92c15e93-0045.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A8_156294d6-0123.jpg",
+    "distancia": 6,
+    "mad": 28.17
+  },
+  "A8_7d4a6e03-0503.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A8_d2f67f57-0421.jpg",
+    "distancia": 4,
+    "mad": 27.3
+  },
+  "A8_c1c065f9-0464.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A8_35fb1499-0112.jpg",
+    "distancia": 4,
+    "mad": 25.44
+  },
+  "A8_bfee8ef7-0501.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A8_491f9bbe-0652.jpg",
+    "distancia": 4,
+    "mad": 38.1
+  },
+  "A8_fdef8964-0250.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A8_4e71f7da-0631.jpg",
+    "distancia": 5,
+    "mad": 28.13
+  },
+  "A7_76ff1300-0672.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A8_5308bb4d-0674.jpg",
+    "distancia": 5,
+    "mad": 30.81
+  },
+  "A8_75c252d5-0424.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A8_8339f10a-0253.jpg",
+    "distancia": 5,
+    "mad": 28.25
+  },
+  "A8_045a155a-0066.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A8_569e1b4f-0315.jpg",
+    "distancia": 3,
+    "mad": 27.02
+  },
+  "A8_cdb012ef-0132.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A8_a4547f34-0563.jpg",
+    "distancia": 5,
+    "mad": 18.46
+  },
+  "A8_6b604274-0463.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A8_bac7b16e-0441.jpg",
+    "distancia": 5,
+    "mad": 23.22
+  },
+  "A7_a24ed13f-0469.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A8_c16626a0-0622.jpg",
+    "distancia": 5,
+    "mad": 35.14
+  },
+  "A8_ca3b6446-0371.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A8_cb4b6f52-0446.jpg",
+    "distancia": 5,
+    "mad": 28.6
+  },
+  "A8_9cb3cfb6-0068.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "A8_d87017c8-0274.jpg",
+    "distancia": 6,
+    "mad": 25.14
+  },
+  "0ce361d3-2466.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "a48482bd-3259.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "e533cbef-1358.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "a59d1fd6-0049.jpg",
+    "distancia": 6,
+    "mad": 15.44
+  },
+  "d599916d-2023.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "b4b11acd-3061.jpg",
+    "distancia": 5,
+    "mad": 9.22
+  },
+  "cabdf5c9-1108.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "a65f1802-3906.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "f02ff077-2116.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "a7b28c89-1931.jpg",
+    "distancia": 1,
+    "mad": 0.51
+  },
+  "70fbc5d0-3604.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "a9f36bb1-1665.jpg",
+    "distancia": 0,
+    "mad": 1.0
+  },
+  "baa2d641-1591.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "ab61cdfa-0112.jpg",
+    "distancia": 0,
+    "mad": 6.62
+  },
+  "410af634-3547.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "ad2cc506-3299.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "c63737fc-3036.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "b6f83b45-0532.jpg",
+    "distancia": 5,
+    "mad": 23.93
+  },
+  "A7_596862c1-1598.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "bb82812a-3177.jpg",
+    "distancia": 6,
+    "mad": 81.08
+  },
+  "d0662828-1038.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "b934e67f-2550.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "3b960b2c-2086.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "be6bc6b8-1247.jpg",
+    "distancia": 3,
+    "mad": 4.05
+  },
+  "52d79722-2205.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "c130b9a0-1672.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "ebcd3d6f-0878.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "c2ba6327-0113.jpg",
+    "distancia": 5,
+    "mad": 33.57
+  },
+  "9ab8a295-0275.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "d2dc32ad-3781.jpg",
+    "distancia": 0,
+    "mad": 0.38
+  },
+  "c26fdd1b-0272.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "c6c54436-0275.jpg",
+    "distancia": 5,
+    "mad": 15.76
+  },
+  "7bb5b124-2177.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "ca3c8b2f-1759.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "235a032a-3445.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "cd97d608-1280.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "1da9db55-2328.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "cdfd4551-0562.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "9c756ac3-0526.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "d29bc236-1263.jpg",
+    "distancia": 6,
+    "mad": 15.67
+  },
+  "25b2e731-3307.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "78de3dd1-2680.jpg",
+    "distancia": 0,
+    "mad": 0.56
+  },
+  "c81db9b2-0470.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "d817edb2-0437.jpg",
+    "distancia": 4,
+    "mad": 14.27
+  },
+  "83486263-2139.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "d8b39f8e-3582.jpg",
+    "distancia": 1,
+    "mad": 11.99
+  },
+  "11d26b08-0612.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "db08ee51-2855.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "cce1b4d4-0256.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "db08ee51-2855.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "d1549865-0544.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "de363d80-3836.jpg",
+    "distancia": 6,
+    "mad": 41.15
+  },
+  "e3152e5b-0153.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "e7a518c2-2651.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "75ff70ae-1366.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "e878179c-3108.jpg",
+    "distancia": 6,
+    "mad": 185.1
+  },
+  "4c1e1695-0466.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "42ef766f-1860.jpg",
+    "distancia": 4,
+    "mad": 20.19
+  },
+  "67f5b35d-2802.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "ea6b95a5-3912.jpg",
+    "distancia": 1,
+    "mad": 13.04
+  },
+  "fbab0128-1006.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "ecad0f16-2670.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "73fd959a-3599.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "ef7d32fa-1236.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "f52d87db-3377.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "ef7d32fa-1236.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "a22b19b1-2648.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "ef7d922b-1150.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "98b2656e-0429.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "a52e5b67-0453.jpg",
+    "distancia": 3,
+    "mad": 10.99
+  },
+  "accd848f-0906.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "f94eb01e-2622.jpg",
+    "distancia": 6,
+    "mad": 62.46
+  },
+  "6e534393-3608.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "fa5dad5e-3362.jpg",
+    "distancia": 0,
+    "mad": 0.34
+  },
+  "df684584-0828.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "fd4150d2-2824.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "17561f29-1318.jpg": {
+    "conjunto": "zenodo_train",
+    "archivo": "fd4cb2a3-2421.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "0485aeee-3523.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "0daa4394-2993.jpg",
+    "distancia": 6,
+    "mad": 36.55
+  },
+  "13b50d17-2840.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "3598f74d-3310.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "52339723-1996.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "3b625135-3525.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "7901728d-3384.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "58818104-0069.jpg",
+    "distancia": 0,
+    "mad": 0.69
+  },
+  "75ec78f0-2479.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "6db93c96-1346.jpg",
+    "distancia": 6,
+    "mad": 28.84
+  },
+  "8ad54ae8-0400.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "73885ec5-0390.jpg",
+    "distancia": 6,
+    "mad": 16.98
+  },
+  "7059b340-1992.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "7dbbc9ce-2533.jpg",
+    "distancia": 5,
+    "mad": 12.08
+  },
+  "9b9abd8c-0943.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "7ff00769-3680.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "af995c55-2720.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "93258f7f-3638.jpg",
+    "distancia": 1,
+    "mad": 0.69
+  },
+  "A6_70c3be60-0234.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A6_19a5b9ef-0317.jpg",
+    "distancia": 5,
+    "mad": 12.18
+  },
+  "A6_2d133556-0634.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A6_ae838acb-0320.jpg",
+    "distancia": 6,
+    "mad": 33.65
+  },
+  "A6_e816327d-0466.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A6_ae838acb-0320.jpg",
+    "distancia": 6,
+    "mad": 24.61
+  },
+  "A6_6031c71a-0405.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A6_be82c500-0438.jpg",
+    "distancia": 5,
+    "mad": 25.49
+  },
+  "A7_2e53c371-0166.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A7_c86970c2-0016.jpg",
+    "distancia": 5,
+    "mad": 20.7
+  },
+  "A7_925423b2-0346.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A7_cdb012ef-0132.jpg",
+    "distancia": 6,
+    "mad": 30.03
+  },
+  "A8_21daae81-0623.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "A8_6be6c399-0458.jpg",
+    "distancia": 4,
+    "mad": 32.66
+  },
+  "452366ef-3693.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "b2fe267f-3159.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "037313c6-1733.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "bad9ffbc-3727.jpg",
+    "distancia": 6,
+    "mad": 34.58
+  },
+  "014f655d-1942.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "c12b9ca4-1766.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "4d5bb5fb-2810.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "c12b9ca4-1766.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "b3ef21e7-3494.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "c53438e0-3157.jpg",
+    "distancia": 0,
+    "mad": 0.37
+  },
+  "896150e4-3293.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "cfcb10bc-1374.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  },
+  "0b0621a7-2635.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "e0658fb8-2331.jpg",
+    "distancia": 2,
+    "mad": 2.14
+  },
+  "42f1a32a-0683.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "ea275415-2992.jpg",
+    "distancia": 6,
+    "mad": 28.66
+  },
+  "62dbcea7-3729.jpg": {
+    "conjunto": "zenodo_val",
+    "archivo": "f2f6b92c-2033.jpg",
+    "distancia": 0,
+    "mad": 0.0
+  }
+}

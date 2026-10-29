@@ -1,0 +1,85 @@
+{
+ "QgFxgTvmE0w_30_60_000154.jpg": [
+  {
+   "fuente": "propio_train",
+   "archivo": "armas_1851_jpg.rf.d0ac59d5c73b22fb8732c2e6aa38e241.jpg",
+   "hamming": 5,
+   "mad": 46.7,
+   "duplicado": false
+  },
+  {
+   "fuente": "propio_train",
+   "archivo": "armas_2623_jpg.rf.d96e80880bbb5332d825a64755ff096d.jpg",
+   "hamming": 5,
+   "mad": 58.49,
+   "duplicado": false
+  },
+  {
+   "fuente": "propio_val",
+   "archivo": "armas_2623_jpg.rf.7d1c52ee01f4276cec004e46c41cec91.jpg",
+   "hamming": 5,
+   "mad": 46.64,
+   "duplicado": false
+  },
+  {
+   "fuente": "copias_aumentadas_v5",
+   "archivo": "aug_propio_armas_1851_jpg.rf.d0ac59d5c73b22fb8732c2e6aa38e241.jpg",
+   "hamming": 6,
+   "mad": 46.34,
+   "duplicado": false
+  }
+ ],
+ "pAoYi_eeVO4_30_60_000092.jpg": [
+  {
+   "fuente": "propio_train",
+   "archivo": "test_armas_245_jpg.rf.300ed9b9edcf809481893af764518c37.jpg",
+   "hamming": 6,
+   "mad": 29.8,
+   "duplicado": false
+  },
+  {
+   "fuente": "propio_val",
+   "archivo": "armas_1351_jpg.rf.a0dc9be0f8e3c4a4613d00fc120923f3.jpg",
+   "hamming": 4,
+   "mad": 25.96,
+   "duplicado": false
+  },
+  {
+   "fuente": "zenodo_train",
+   "archivo": "525e7d5e-1907.jpg",
+   "hamming": 6,
+   "mad": 40.63,
+   "duplicado": false
+  },
+  {
+   "fuente": "zenodo_train",
+   "archivo": "5ae976d2-3954.jpg",
+   "hamming": 5,
+   "mad": 32.99,
+   "duplicado": false
+  },
+  {
+   "fuente": "zenodo_train",
+   "archivo": "a995d392-2457.jpg",
+   "hamming": 5,
+   "mad": 30.67,
+   "duplicado": false
+  }
+ ],
+ "PNWsflgn8JU_30_60_000124.jpg": [
+  {
+   "fuente": "zenodo_train",
+   "archivo": "0472da3c-0318.jpg",
+   "hamming": 6,
+   "mad": 114.92,
+   "duplicado": false
+  },
+  {
+   "fuente": "copias_aumentadas_v5",
+   "archivo": "aug_zenodo_0472da3c-0318.jpg",
+   "hamming": 6,
+   "mad": 114.87,
+   "duplicado": false
+  }
+ ]
+}

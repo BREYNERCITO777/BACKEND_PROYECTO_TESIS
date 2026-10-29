@@ -1,0 +1,733 @@
+2026-10-29T20:15:42.159191117Z Creating new Ultralytics Settings v0.0.6 file ✅ 
+2026-10-29T20:15:42.159255022Z View Ultralytics Settings with 'yolo settings' or at '/root/.config/Ultralytics/settings.json'
+2026-10-29T20:15:42.159259122Z Update Settings with 'yolo settings key=value', i.e. 'yolo settings runs_dir=path/to/dir'. For help see https://docs.ultralytics.com/quickstart/#ultralytics-settings.
+2026-10-29T20:15:42.202225526Z Iniciando Sentinel AI Local Agent
+2026-10-29T20:15:42.202245927Z Modelo: best.pt
+2026-10-29T20:15:42.202247728Z Backend: http://e2e_backend:8000/api/v1/agent/detections
+2026-10-29T20:15:42.202249028Z Camara: cam_sim_1 - Simulada 1 | /video/camara_simulada.mp4
+2026-10-29T20:15:42.202250128Z Confianza minima: 0.65 | Cooldown: 5 s
+2026-10-29T20:15:42.202251228Z Cargando modelo YOLO...
+2026-10-29T20:15:42.284599368Z Modelo YOLO cargado
+2026-10-29T20:15:42.284863188Z [cam_sim_1] Conectando...
+2026-10-29T20:15:42.289854360Z [cam_sim_1] Camara conectada correctamente
+2026-10-29T20:15:45.227985877Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=23.7 inferencia_ms=2742.4 lote=1
+2026-10-29T20:15:45.434493371Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=206.2 lote=1
+2026-10-29T20:15:45.449046536Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.3 inferencia_ms=14.2 lote=1
+2026-10-29T20:15:45.449280351Z [cam_sim_1] Detectado: arma_blanca (0.95)
+2026-10-29T20:15:45.474597230Z [cam_sim_1] DETECCION: arma_blanca (0.95)
+2026-10-29T20:15:45.537172080Z LATENCIA cam=cam_sim_1 inferencia_ms=14.2 preproc_ms=5.8 red_ms=56.3 total_agente_ms=76.3
+2026-10-29T20:15:45.537187381Z [cam_sim_1] ALERTA ENVIADA - incidente 6ae3a971a240aa6d49014c5e
+2026-10-29T20:15:45.537189481Z AVISO: la camara 'cam_sim_1' no esta registrada en el sistema. Registrala con el nombre exacto 'Simulada 1' para vincularla.
+2026-10-29T20:15:45.649179407Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=14.0 lote=1
+2026-10-29T20:15:45.853275641Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=17.7 lote=1
+2026-10-29T20:15:45.853581561Z [cam_sim_1] Detectado: arma_fuego (0.91)
+2026-10-29T20:15:46.049957883Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=14.2 lote=1
+2026-10-29T20:15:46.050400813Z [cam_sim_1] Detectado: arma_fuego (0.82)
+2026-10-29T20:15:46.247341372Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.7 inferencia_ms=11.1 lote=1
+2026-10-29T20:15:46.449489577Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=13.0 lote=1
+2026-10-29T20:15:46.449833000Z [cam_sim_1] Detectado: arma_fuego (0.75)
+2026-10-29T20:15:46.652897965Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=15.6 lote=1
+2026-10-29T20:15:46.653253189Z [cam_sim_1] Detectado: arma_blanca (0.72)
+2026-10-29T20:15:46.850426264Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=12.8 lote=1
+2026-10-29T20:15:47.051079869Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=13.2 lote=1
+2026-10-29T20:15:47.257673369Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.7 inferencia_ms=19.1 lote=1
+2026-10-29T20:15:47.258002891Z [cam_sim_1] Detectado: arma_fuego (0.86)
+2026-10-29T20:15:47.450578861Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=11.8 lote=1
+2026-10-29T20:15:47.450906582Z [cam_sim_1] Detectado: arma_blanca (0.90)
+2026-10-29T20:15:47.654973114Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.9 inferencia_ms=15.6 lote=1
+2026-10-29T20:15:47.852006080Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=12.2 lote=1
+2026-10-29T20:15:47.852208393Z [cam_sim_1] Detectado: arma_blanca (0.94)
+2026-10-29T20:15:48.053405335Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=13.2 lote=1
+2026-10-29T20:15:48.053713255Z [cam_sim_1] Detectado: arma_blanca (0.79)
+2026-10-29T20:15:48.255163414Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.5 inferencia_ms=14.6 lote=1
+2026-10-29T20:15:48.255316024Z [cam_sim_1] Detectado: arma_blanca (0.96)
+2026-10-29T20:15:48.452072371Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=11.1 lote=1
+2026-10-29T20:15:48.655234243Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=13.8 lote=1
+2026-10-29T20:15:48.655696474Z [cam_sim_1] Detectado: arma_fuego (0.86)
+2026-10-29T20:15:48.855967354Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=14.3 lote=1
+2026-10-29T20:15:49.056664563Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.6 inferencia_ms=14.4 lote=1
+2026-10-29T20:15:49.255832970Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=13.4 lote=1
+2026-10-29T20:15:49.455372102Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=12.6 lote=1
+2026-10-29T20:15:49.672775518Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=29.8 lote=1
+2026-10-29T20:15:49.877826375Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.9 inferencia_ms=37.3 lote=1
+2026-10-29T20:15:49.878220501Z [cam_sim_1] Detectado: arma_fuego (0.84)
+2026-10-29T20:15:50.084042350Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.4 inferencia_ms=43.2 lote=1
+2026-10-29T20:15:50.084453277Z [cam_sim_1] Detectado: arma_blanca (0.81)
+2026-10-29T20:15:50.284793362Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=43.4 lote=1
+2026-10-29T20:15:50.285197288Z [cam_sim_1] Detectado: arma_blanca (0.72)
+2026-10-29T20:15:50.485247354Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.6 inferencia_ms=43.3 lote=1
+2026-10-29T20:15:50.681100241Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=38.9 lote=1
+2026-10-29T20:15:50.885066767Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.7 inferencia_ms=42.1 lote=1
+2026-10-29T20:15:51.082280844Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=39.1 lote=1
+2026-10-29T20:15:51.288003086Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.8 inferencia_ms=44.6 lote=1
+2026-10-29T20:15:51.684056071Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.1 inferencia_ms=39.8 lote=1
+2026-10-29T20:15:51.684374194Z [cam_sim_1] Detectado: arma_blanca (0.81)
+2026-10-29T20:15:51.685043543Z [cam_sim_1] DETECCION: arma_blanca (0.81)
+2026-10-29T20:15:51.698083797Z LATENCIA cam=cam_sim_1 inferencia_ms=39.8 preproc_ms=2.1 red_ms=10.7 total_agente_ms=52.7
+2026-10-29T20:15:51.698095498Z [cam_sim_1] ALERTA ENVIADA - incidente 6ae3a977a240aa6d49014c60
+2026-10-29T20:15:51.698097498Z AVISO: la camara 'cam_sim_1' no esta registrada en el sistema. Registrala con el nombre exacto 'Simulada 1' para vincularla.
+2026-10-29T20:15:51.885614822Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=41.0 lote=1
+2026-10-29T20:15:51.885835938Z [cam_sim_1] Detectado: arma_fuego (0.86)
+2026-10-29T20:15:52.087644808Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=42.7 lote=1
+2026-10-29T20:15:52.291125201Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.5 inferencia_ms=45.6 lote=1
+2026-10-29T20:15:52.291493228Z [cam_sim_1] Detectado: arma_fuego (0.87)
+2026-10-29T20:15:52.491729082Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.7 inferencia_ms=45.7 lote=1
+2026-10-29T20:15:52.690035596Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.4 inferencia_ms=43.6 lote=1
+2026-10-29T20:15:52.885639812Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=38.7 lote=1
+2026-10-29T20:15:53.089920963Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=42.5 lote=1
+2026-10-29T20:15:53.292465486Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=44.9 lote=1
+2026-10-29T20:15:53.491011617Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=43.1 lote=1
+2026-10-29T20:15:53.491397746Z [cam_sim_1] Detectado: arma_blanca (0.88)
+2026-10-29T20:15:53.687616707Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=39.3 lote=1
+2026-10-29T20:15:53.888055276Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=39.2 lote=1
+2026-10-29T20:15:54.088765466Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=39.3 lote=1
+2026-10-29T20:15:54.289584463Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=39.7 lote=1
+2026-10-29T20:15:54.289891186Z [cam_sim_1] Detectado: arma_fuego (0.68)
+2026-10-29T20:15:54.493880515Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=43.7 lote=1
+2026-10-29T20:15:54.689609040Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=39.2 lote=1
+2026-10-29T20:15:54.894929367Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=43.9 lote=1
+2026-10-29T20:15:55.091516555Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=39.9 lote=1
+2026-10-29T20:15:55.296798279Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=44.8 lote=1
+2026-10-29T20:15:55.491311415Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=39.1 lote=1
+2026-10-29T20:15:55.695476857Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=42.7 lote=1
+2026-10-29T20:15:55.695896488Z [cam_sim_1] Detectado: arma_blanca (0.88)
+2026-10-29T20:15:55.892695891Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=39.4 lote=1
+2026-10-29T20:15:56.096604815Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=42.9 lote=1
+2026-10-29T20:15:56.096936939Z [cam_sim_1] Detectado: arma_blanca (0.91)
+2026-10-29T20:15:56.298657702Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.6 inferencia_ms=44.5 lote=1
+2026-10-29T20:15:56.299050831Z [cam_sim_1] Detectado: arma_fuego (0.86)
+2026-10-29T20:15:56.496861909Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.8 inferencia_ms=42.3 lote=1
+2026-10-29T20:15:56.697889521Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=42.7 lote=1
+2026-10-29T20:15:56.698356555Z [cam_sim_1] Detectado: arma_fuego (0.85)
+2026-10-29T20:15:56.699163315Z [cam_sim_1] DETECCION: arma_fuego (0.85)
+2026-10-29T20:15:56.710976279Z LATENCIA cam=cam_sim_1 inferencia_ms=42.7 preproc_ms=2.0 red_ms=9.5 total_agente_ms=54.2
+2026-10-29T20:15:56.711006881Z [cam_sim_1] ALERTA ENVIADA - incidente 6ae3a97ca240aa6d49014c62
+2026-10-29T20:15:56.711008781Z AVISO: la camara 'cam_sim_1' no esta registrada en el sistema. Registrala con el nombre exacto 'Simulada 1' para vincularla.
+2026-10-29T20:15:56.896369148Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=40.3 lote=1
+2026-10-29T20:15:56.896661469Z [cam_sim_1] Detectado: arma_blanca (0.85)
+2026-10-29T20:15:57.103554811Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=46.8 lote=1
+2026-10-29T20:15:57.104158655Z [cam_sim_1] Detectado: arma_blanca (0.95)
+2026-10-29T20:15:57.301228778Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=44.0 lote=1
+2026-10-29T20:15:57.500296448Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=42.9 lote=1
+2026-10-29T20:15:57.705718582Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=47.9 lote=1
+2026-10-29T20:15:57.706276123Z [cam_sim_1] Detectado: arma_blanca (0.78)
+2026-10-29T20:15:57.904666442Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=46.4 lote=1
+2026-10-29T20:15:57.905304389Z [cam_sim_1] Detectado: arma_fuego (0.92)
+2026-10-29T20:15:58.098404722Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=39.9 lote=1
+2026-10-29T20:15:58.301989622Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=42.9 lote=1
+2026-10-29T20:15:58.506887718Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=47.2 lote=1
+2026-10-29T20:15:58.507545966Z [cam_sim_1] Detectado: arma_blanca (0.95)
+2026-10-29T20:15:58.704398173Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=44.3 lote=1
+2026-10-29T20:15:58.704798802Z [cam_sim_1] Detectado: arma_blanca (0.89)
+2026-10-29T20:15:58.905385083Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=44.8 lote=1
+2026-10-29T20:15:58.905828615Z [cam_sim_1] Detectado: arma_fuego (0.87)
+2026-10-29T20:15:59.100666375Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=39.8 lote=1
+2026-10-29T20:15:59.305984702Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=44.8 lote=1
+2026-10-29T20:15:59.306364429Z [cam_sim_1] Detectado: arma_blanca (0.93)
+2026-10-29T20:15:59.504925262Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=43.4 lote=1
+2026-10-29T20:15:59.505368494Z [cam_sim_1] Detectado: arma_blanca (0.90)
+2026-10-29T20:15:59.707613678Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=45.5 lote=1
+2026-10-29T20:15:59.707979406Z [cam_sim_1] Detectado: arma_fuego (0.91)
+2026-10-29T20:15:59.905847779Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=43.2 lote=1
+2026-10-29T20:16:00.103059703Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=40.0 lote=1
+2026-10-29T20:16:00.304032410Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=40.5 lote=1
+2026-10-29T20:16:00.506597436Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=42.8 lote=1
+2026-10-29T20:16:00.707281321Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=43.0 lote=1
+2026-10-29T20:16:00.707772358Z [cam_sim_1] Detectado: arma_fuego (0.75)
+2026-10-29T20:16:00.910394488Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=45.5 lote=1
+2026-10-29T20:16:00.910898126Z [cam_sim_1] Detectado: arma_blanca (0.88)
+2026-10-29T20:16:01.105120125Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=39.7 lote=1
+2026-10-29T20:16:01.312842339Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.8 inferencia_ms=47.2 lote=1
+2026-10-29T20:16:01.313235869Z [cam_sim_1] Detectado: arma_blanca (0.91)
+2026-10-29T20:16:01.506327183Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=40.3 lote=1
+2026-10-29T20:16:01.708640090Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=42.2 lote=1
+2026-10-29T20:16:01.709108726Z [cam_sim_1] Detectado: arma_fuego (0.88)
+2026-10-29T20:16:01.710517531Z [cam_sim_1] DETECCION: arma_fuego (0.88)
+2026-10-29T20:16:01.726479631Z LATENCIA cam=cam_sim_1 inferencia_ms=42.2 preproc_ms=2.7 red_ms=13.0 total_agente_ms=57.9
+2026-10-29T20:16:01.726498933Z [cam_sim_1] ALERTA ENVIADA - incidente 6ae3a981a240aa6d49014c64
+2026-10-29T20:16:01.726502833Z AVISO: la camara 'cam_sim_1' no esta registrada en el sistema. Registrala con el nombre exacto 'Simulada 1' para vincularla.
+2026-10-29T20:16:01.908089282Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.8 inferencia_ms=41.0 lote=1
+2026-10-29T20:16:01.908563218Z [cam_sim_1] Detectado: arma_blanca (0.93)
+2026-10-29T20:16:02.110095167Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=42.6 lote=1
+2026-10-29T20:16:02.110652409Z [cam_sim_1] Detectado: arma_blanca (0.80)
+2026-10-29T20:16:02.315157281Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=47.2 lote=1
+2026-10-29T20:16:02.315534409Z [cam_sim_1] Detectado: arma_fuego (0.82)
+2026-10-29T20:16:02.507398131Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=39.1 lote=1
+2026-10-29T20:16:02.716954983Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=48.3 lote=1
+2026-10-29T20:16:02.717435919Z [cam_sim_1] Detectado: arma_fuego (0.82)
+2026-10-29T20:16:02.908540884Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.0 inferencia_ms=39.7 lote=1
+2026-10-29T20:16:03.110690079Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=41.2 lote=1
+2026-10-29T20:16:03.309800446Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.8 inferencia_ms=40.3 lote=1
+2026-10-29T20:16:03.509132629Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=39.3 lote=1
+2026-10-29T20:16:03.712450512Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=42.3 lote=1
+2026-10-29T20:16:03.712895845Z [cam_sim_1] Detectado: arma_fuego (0.91)
+2026-10-29T20:16:03.913119296Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=42.6 lote=1
+2026-10-29T20:16:04.111689822Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=40.9 lote=1
+2026-10-29T20:16:04.112143156Z [cam_sim_1] Detectado: arma_blanca (0.86)
+2026-10-29T20:16:04.315573447Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=44.6 lote=1
+2026-10-29T20:16:04.316202294Z [cam_sim_1] Detectado: arma_blanca (0.76)
+2026-10-29T20:16:04.515187151Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=43.7 lote=1
+2026-10-29T20:16:04.713979894Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.7 inferencia_ms=42.1 lote=1
+2026-10-29T20:16:04.912067984Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=39.5 lote=1
+2026-10-29T20:16:05.113152599Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=40.0 lote=1
+2026-10-29T20:16:05.316166459Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=42.6 lote=1
+2026-10-29T20:16:05.316517185Z [cam_sim_1] Detectado: arma_fuego (0.76)
+2026-10-29T20:16:05.513137265Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=39.3 lote=1
+2026-10-29T20:16:05.513383583Z [cam_sim_1] Detectado: arma_blanca (0.73)
+2026-10-29T20:16:05.715126848Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=41.0 lote=1
+2026-10-29T20:16:05.916530687Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=41.9 lote=1
+2026-10-29T20:16:05.916910915Z [cam_sim_1] Detectado: arma_fuego (0.70)
+2026-10-29T20:16:06.118335756Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.4 inferencia_ms=43.2 lote=1
+2026-10-29T20:16:06.118778089Z [cam_sim_1] Detectado: arma_fuego (0.88)
+2026-10-29T20:16:06.315484075Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=40.1 lote=1
+2026-10-29T20:16:06.524458983Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=48.3 lote=1
+2026-10-29T20:16:06.524989423Z [cam_sim_1] Detectado: arma_fuego (0.80)
+2026-10-29T20:16:06.718613177Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.7 inferencia_ms=42.3 lote=1
+2026-10-29T20:16:06.718970504Z [cam_sim_1] Detectado: arma_fuego (0.87)
+2026-10-29T20:16:06.720669932Z [cam_sim_1] DETECCION: arma_fuego (0.87)
+2026-10-29T20:16:06.733576502Z LATENCIA cam=cam_sim_1 inferencia_ms=42.3 preproc_ms=2.1 red_ms=10.1 total_agente_ms=54.5
+2026-10-29T20:16:06.733615605Z [cam_sim_1] ALERTA ENVIADA - incidente 6ae3a986a240aa6d49014c66
+2026-10-29T20:16:06.733617605Z AVISO: la camara 'cam_sim_1' no esta registrada en el sistema. Registrala con el nombre exacto 'Simulada 1' para vincularla.
+2026-10-29T20:16:06.916383343Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=39.7 lote=1
+2026-10-29T20:16:06.916479651Z [cam_sim_1] Detectado: arma_blanca (0.93)
+2026-10-29T20:16:07.118272219Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.2 inferencia_ms=41.3 lote=1
+2026-10-29T20:16:07.321290879Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=43.8 lote=1
+2026-10-29T20:16:07.520085722Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=42.2 lote=1
+2026-10-29T20:16:07.724501230Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.7 inferencia_ms=46.2 lote=1
+2026-10-29T20:16:07.921258678Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.6 inferencia_ms=42.5 lote=1
+2026-10-29T20:16:07.921734114Z [cam_sim_1] Detectado: arma_blanca (0.95)
+2026-10-29T20:16:08.118079330Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.2 inferencia_ms=39.1 lote=1
+2026-10-29T20:16:08.323355921Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=44.1 lote=1
+2026-10-29T20:16:08.323854158Z [cam_sim_1] Detectado: arma_fuego (0.85)
+2026-10-29T20:16:08.527512727Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=47.7 lote=1
+2026-10-29T20:16:08.527901356Z [cam_sim_1] Detectado: arma_blanca (0.82)
+2026-10-29T20:16:08.721440861Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=41.4 lote=1
+2026-10-29T20:16:08.919727424Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=39.5 lote=1
+2026-10-29T20:16:09.124216255Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=43.4 lote=1
+2026-10-29T20:16:09.321297427Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=40.1 lote=1
+2026-10-29T20:16:09.527907918Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.7 inferencia_ms=46.1 lote=1
+2026-10-29T20:16:09.722855029Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=40.6 lote=1
+2026-10-29T20:16:09.923647581Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=41.2 lote=1
+2026-10-29T20:16:09.923968206Z [cam_sim_1] Detectado: arma_fuego (0.80)
+2026-10-29T20:16:10.122589494Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.6 inferencia_ms=39.8 lote=1
+2026-10-29T20:16:10.325551610Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.7 inferencia_ms=42.4 lote=1
+2026-10-29T20:16:10.526056240Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=4.0 inferencia_ms=42.6 lote=1
+2026-10-29T20:16:10.526467171Z [cam_sim_1] Detectado: arma_blanca (0.89)
+2026-10-29T20:16:10.728645228Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.6 inferencia_ms=45.0 lote=1
+2026-10-29T20:16:10.729415186Z [cam_sim_1] Detectado: arma_blanca (0.70)
+2026-10-29T20:16:10.926962193Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=42.7 lote=1
+2026-10-29T20:16:10.927514835Z [cam_sim_1] Detectado: arma_blanca (0.95)
+2026-10-29T20:16:11.125144948Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.6 inferencia_ms=40.1 lote=1
+2026-10-29T20:16:11.125468073Z [cam_sim_1] Detectado: arma_blanca (0.79)
+2026-10-29T20:16:11.326931176Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.5 inferencia_ms=41.4 lote=1
+2026-10-29T20:16:11.533537967Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.3 inferencia_ms=47.4 lote=1
+2026-10-29T20:16:11.534169414Z [cam_sim_1] Detectado: arma_blanca (0.78)
+2026-10-29T20:16:11.729779575Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=43.4 lote=1
+2026-10-29T20:16:11.935711215Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.0 inferencia_ms=48.6 lote=1
+2026-10-29T20:16:11.936128647Z [cam_sim_1] Detectado: arma_blanca (0.87)
+2026-10-29T20:16:11.936958409Z [cam_sim_1] DETECCION: arma_blanca (0.87)
+2026-10-29T20:16:11.950317317Z LATENCIA cam=cam_sim_1 inferencia_ms=48.6 preproc_ms=3.1 red_ms=10.1 total_agente_ms=61.8
+2026-10-29T20:16:11.950331618Z [cam_sim_1] ALERTA ENVIADA - incidente 6ae3a98ba240aa6d49014c68
+2026-10-29T20:16:11.950333719Z AVISO: la camara 'cam_sim_1' no esta registrada en el sistema. Registrala con el nombre exacto 'Simulada 1' para vincularla.
+2026-10-29T20:16:12.130054981Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=42.8 lote=1
+2026-10-29T20:16:12.130658426Z [cam_sim_1] Detectado: arma_fuego (0.85)
+2026-10-29T20:16:12.327701295Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.7 inferencia_ms=39.9 lote=1
+2026-10-29T20:16:12.535317663Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.5 inferencia_ms=47.0 lote=1
+2026-10-29T20:16:12.736052310Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=47.1 lote=1
+2026-10-29T20:16:12.736736462Z [cam_sim_1] Detectado: arma_blanca (0.91)
+2026-10-29T20:16:12.929010771Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.7 inferencia_ms=39.9 lote=1
+2026-10-29T20:16:12.929210486Z [cam_sim_1] Detectado: arma_blanca (0.91)
+2026-10-29T20:16:13.137499704Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=47.7 lote=1
+2026-10-29T20:16:13.138019443Z [cam_sim_1] Detectado: arma_blanca (0.73)
+2026-10-29T20:16:13.329940526Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=40.0 lote=1
+2026-10-29T20:16:13.533060154Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=42.6 lote=1
+2026-10-29T20:16:13.533294472Z [cam_sim_1] Detectado: arma_blanca (0.94)
+2026-10-29T20:16:13.731184405Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.6 inferencia_ms=40.4 lote=1
+2026-10-29T20:16:13.731615337Z [cam_sim_1] Detectado: arma_fuego (0.88)
+2026-10-29T20:16:13.934753966Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.8 inferencia_ms=43.3 lote=1
+2026-10-29T20:16:13.934976783Z [cam_sim_1] Detectado: arma_blanca (0.93)
+2026-10-29T20:16:14.131021877Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=39.4 lote=1
+2026-10-29T20:16:14.131308999Z [cam_sim_1] Detectado: arma_blanca (0.90)
+2026-10-29T20:16:14.334128904Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.5 inferencia_ms=42.1 lote=1
+2026-10-29T20:16:14.533905979Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.0 inferencia_ms=41.4 lote=1
+2026-10-29T20:16:14.731171865Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=38.2 lote=1
+2026-10-29T20:16:14.936453056Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.5 inferencia_ms=42.6 lote=1
+2026-10-29T20:16:14.936741878Z [cam_sim_1] Detectado: arma_fuego (0.90)
+2026-10-29T20:16:15.132265133Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.2 inferencia_ms=38.0 lote=1
+2026-10-29T20:16:15.335664882Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.3 inferencia_ms=41.2 lote=1
+2026-10-29T20:16:15.335937002Z [cam_sim_1] Detectado: arma_blanca (0.82)
+2026-10-29T20:16:15.534047852Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=39.3 lote=1
+2026-10-29T20:16:15.534325773Z [cam_sim_1] Detectado: arma_blanca (0.87)
+2026-10-29T20:16:15.736917260Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=41.6 lote=1
+2026-10-29T20:16:15.933807178Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.5 inferencia_ms=38.1 lote=1
+2026-10-29T20:16:16.137756424Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=41.6 lote=1
+2026-10-29T20:16:16.138147954Z [cam_sim_1] Detectado: arma_fuego (0.80)
+2026-10-29T20:16:16.337654667Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=41.1 lote=1
+2026-10-29T20:16:16.540767851Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.8 inferencia_ms=43.6 lote=1
+2026-10-29T20:16:16.541160880Z [cam_sim_1] Detectado: arma_blanca (0.86)
+2026-10-29T20:16:16.736129155Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=38.8 lote=1
+2026-10-29T20:16:16.941352696Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.6 inferencia_ms=43.5 lote=1
+2026-10-29T20:16:16.941660219Z [cam_sim_1] Detectado: arma_fuego (0.82)
+2026-10-29T20:16:16.942267764Z [cam_sim_1] DETECCION: arma_fuego (0.82)
+2026-10-29T20:16:16.955618762Z LATENCIA cam=cam_sim_1 inferencia_ms=43.5 preproc_ms=2.2 red_ms=10.9 total_agente_ms=56.6
+2026-10-29T20:16:16.955630163Z [cam_sim_1] ALERTA ENVIADA - incidente 6ae3a990a240aa6d49014c6a
+2026-10-29T20:16:16.955632063Z AVISO: la camara 'cam_sim_1' no esta registrada en el sistema. Registrala con el nombre exacto 'Simulada 1' para vincularla.
+2026-10-29T20:16:17.138634143Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=40.4 lote=1
+2026-10-29T20:16:17.339106729Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=40.5 lote=1
+2026-10-29T20:16:17.339406751Z [cam_sim_1] Detectado: arma_blanca (0.75)
+2026-10-29T20:16:17.540818008Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.6 inferencia_ms=41.8 lote=1
+2026-10-29T20:16:17.739796982Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=40.3 lote=1
+2026-10-29T20:16:17.740123506Z [cam_sim_1] Detectado: arma_fuego (0.84)
+2026-10-29T20:16:17.740144908Z [cam_sim_1] Detectado: arma_blanca (0.75)
+2026-10-29T20:16:17.939988647Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=40.2 lote=1
+2026-10-29T20:16:17.940324872Z [cam_sim_1] Detectado: arma_fuego (0.89)
+2026-10-29T20:16:18.141320397Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=41.0 lote=1
+2026-10-29T20:16:18.141498110Z [cam_sim_1] Detectado: arma_fuego (0.72)
+2026-10-29T20:16:18.339365002Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=39.0 lote=1
+2026-10-29T20:16:18.544357525Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.5 inferencia_ms=43.6 lote=1
+2026-10-29T20:16:18.544751655Z [cam_sim_1] Detectado: arma_blanca (0.88)
+2026-10-29T20:16:18.741226342Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=40.3 lote=1
+2026-10-29T20:16:19.143630423Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.0 inferencia_ms=41.9 lote=1
+2026-10-29T20:16:19.144045654Z [cam_sim_1] Detectado: arma_fuego (0.83)
+2026-10-29T20:16:19.344401131Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=42.4 lote=1
+2026-10-29T20:16:19.543639025Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=41.2 lote=1
+2026-10-29T20:16:19.746412783Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.6 inferencia_ms=43.5 lote=1
+2026-10-29T20:16:19.941222328Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.6 inferencia_ms=39.4 lote=1
+2026-10-29T20:16:20.143611157Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=41.4 lote=1
+2026-10-29T20:16:20.144034289Z [cam_sim_1] Detectado: arma_blanca (0.83)
+2026-10-29T20:16:20.341933583Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=39.5 lote=1
+2026-10-29T20:16:20.542814799Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=39.9 lote=1
+2026-10-29T20:16:20.746931357Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=43.7 lote=1
+2026-10-29T20:16:20.747341288Z [cam_sim_1] Detectado: arma_fuego (0.92)
+2026-10-29T20:16:20.945117773Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.8 inferencia_ms=41.6 lote=1
+2026-10-29T20:16:21.144873905Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=40.8 lote=1
+2026-10-29T20:16:21.349903932Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=45.6 lote=1
+2026-10-29T20:16:21.350336764Z [cam_sim_1] Detectado: arma_fuego (0.79)
+2026-10-29T20:16:21.549190329Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=44.1 lote=1
+2026-10-29T20:16:21.751472250Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=45.9 lote=1
+2026-10-29T20:16:21.945505755Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=39.3 lote=1
+2026-10-29T20:16:22.146757499Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=40.4 lote=1
+2026-10-29T20:16:22.346214009Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=39.3 lote=1
+2026-10-29T20:16:22.546486280Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=39.4 lote=1
+2026-10-29T20:16:22.747681320Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.8 inferencia_ms=40.3 lote=1
+2026-10-29T20:16:22.947801980Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=40.2 lote=1
+2026-10-29T20:16:22.948083401Z [cam_sim_1] Detectado: arma_fuego (0.86)
+2026-10-29T20:16:22.949498706Z [cam_sim_1] DETECCION: arma_fuego (0.86)
+2026-10-29T20:16:22.965600410Z LATENCIA cam=cam_sim_1 inferencia_ms=40.2 preproc_ms=2.9 red_ms=12.9 total_agente_ms=56.0
+2026-10-29T20:16:22.965614111Z [cam_sim_1] ALERTA ENVIADA - incidente 6ae3a996a240aa6d49014c6c
+2026-10-29T20:16:22.965616211Z AVISO: la camara 'cam_sim_1' no esta registrada en el sistema. Registrala con el nombre exacto 'Simulada 1' para vincularla.
+2026-10-29T20:16:23.155731723Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=47.5 lote=1
+2026-10-29T20:16:23.156184957Z [cam_sim_1] Detectado: arma_blanca (0.94)
+2026-10-29T20:16:23.348759452Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=40.4 lote=1
+2026-10-29T20:16:23.548894313Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=39.9 lote=1
+2026-10-29T20:16:23.747880598Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=38.5 lote=1
+2026-10-29T20:16:23.950664272Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=41.0 lote=1
+2026-10-29T20:16:23.950828784Z [cam_sim_1] Detectado: arma_fuego (0.80)
+2026-10-29T20:16:24.149439546Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=39.2 lote=1
+2026-10-29T20:16:24.149731567Z [cam_sim_1] Detectado: arma_fuego (0.89)
+2026-10-29T20:16:24.350092460Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=39.8 lote=1
+2026-10-29T20:16:24.350422985Z [cam_sim_1] Detectado: arma_blanca (0.79)
+2026-10-29T20:16:24.548813930Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=38.2 lote=1
+2026-10-29T20:16:24.754063788Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=43.1 lote=1
+2026-10-29T20:16:24.754597628Z [cam_sim_1] Detectado: arma_fuego (0.85)
+2026-10-29T20:16:24.754608329Z [cam_sim_1] Detectado: arma_fuego (0.83)
+2026-10-29T20:16:24.953372102Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=41.9 lote=1
+2026-10-29T20:16:25.151588434Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.0 inferencia_ms=39.8 lote=1
+2026-10-29T20:16:25.151897057Z [cam_sim_1] Detectado: arma_blanca (0.75)
+2026-10-29T20:16:25.354107988Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=42.1 lote=1
+2026-10-29T20:16:25.552050499Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=39.7 lote=1
+2026-10-29T20:16:25.552260415Z [cam_sim_1] Detectado: arma_fuego (0.85)
+2026-10-29T20:16:25.755153197Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=42.4 lote=1
+2026-10-29T20:16:25.755435918Z [cam_sim_1] Detectado: arma_blanca (0.93)
+2026-10-29T20:16:25.957370228Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=44.0 lote=1
+2026-10-29T20:16:25.957842863Z [cam_sim_1] Detectado: arma_fuego (0.83)
+2026-10-29T20:16:26.153999141Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=40.2 lote=1
+2026-10-29T20:16:26.154346667Z [cam_sim_1] Detectado: arma_fuego (0.87)
+2026-10-29T20:16:26.354034909Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=39.9 lote=1
+2026-10-29T20:16:26.354381435Z [cam_sim_1] Detectado: arma_blanca (0.79)
+2026-10-29T20:16:26.554491909Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.8 inferencia_ms=40.2 lote=1
+2026-10-29T20:16:26.554863137Z [cam_sim_1] Detectado: arma_blanca (0.68)
+2026-10-29T20:16:26.753973135Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=39.2 lote=1
+2026-10-29T20:16:26.754237355Z [cam_sim_1] Detectado: arma_fuego (0.73)
+2026-10-29T20:16:26.955704130Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=40.5 lote=1
+2026-10-29T20:16:26.955960050Z [cam_sim_1] Detectado: arma_blanca (0.79)
+2026-10-29T20:16:27.155929413Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=40.2 lote=1
+2026-10-29T20:16:27.355512847Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.8 inferencia_ms=39.2 lote=1
+2026-10-29T20:16:27.355821870Z [cam_sim_1] Detectado: arma_blanca (0.78)
+2026-10-29T20:16:27.554744255Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.6 inferencia_ms=38.1 lote=1
+2026-10-29T20:16:27.760505351Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=43.1 lote=1
+2026-10-29T20:16:27.760833676Z [cam_sim_1] Detectado: arma_blanca (0.94)
+2026-10-29T20:16:27.959542245Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=41.5 lote=1
+2026-10-29T20:16:27.959809265Z [cam_sim_1] Detectado: arma_fuego (0.78)
+2026-10-29T20:16:27.960396009Z [cam_sim_1] DETECCION: arma_fuego (0.78)
+2026-10-29T20:16:27.972725431Z LATENCIA cam=cam_sim_1 inferencia_ms=41.5 preproc_ms=2.0 red_ms=10.1 total_agente_ms=53.6
+2026-10-29T20:16:27.972773635Z [cam_sim_1] ALERTA ENVIADA - incidente 6ae3a99ba240aa6d49014c6e
+2026-10-29T20:16:27.972777435Z AVISO: la camara 'cam_sim_1' no esta registrada en el sistema. Registrala con el nombre exacto 'Simulada 1' para vincularla.
+2026-10-29T20:16:28.161688371Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.8 inferencia_ms=42.9 lote=1
+2026-10-29T20:16:28.363165547Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=43.8 lote=1
+2026-10-29T20:16:28.363375262Z [cam_sim_1] Detectado: arma_fuego (0.92)
+2026-10-29T20:16:28.560215191Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=40.4 lote=1
+2026-10-29T20:16:28.560504313Z [cam_sim_1] Detectado: arma_fuego (0.84)
+2026-10-29T20:16:28.759176579Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=39.1 lote=1
+2026-10-29T20:16:28.960319830Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.0 inferencia_ms=39.7 lote=1
+2026-10-29T20:16:28.960611752Z [cam_sim_1] Detectado: arma_blanca (0.87)
+2026-10-29T20:16:29.159799157Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.2 inferencia_ms=38.9 lote=1
+2026-10-29T20:16:29.160039975Z [cam_sim_1] Detectado: arma_fuego (0.85)
+2026-10-29T20:16:29.360071542Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=39.1 lote=1
+2026-10-29T20:16:29.360351863Z [cam_sim_1] Detectado: arma_fuego (0.91)
+2026-10-29T20:16:29.562992826Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=41.6 lote=1
+2026-10-29T20:16:29.563285448Z [cam_sim_1] Detectado: arma_blanca (0.74)
+2026-10-29T20:16:29.764034470Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.8 inferencia_ms=42.4 lote=1
+2026-10-29T20:16:29.764446901Z [cam_sim_1] Detectado: arma_fuego (0.82)
+2026-10-29T20:16:29.964122442Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=41.9 lote=1
+2026-10-29T20:16:29.964396362Z [cam_sim_1] Detectado: arma_blanca (0.87)
+2026-10-29T20:16:30.165317297Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=42.5 lote=1
+2026-10-29T20:16:30.366192828Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.0 inferencia_ms=42.9 lote=1
+2026-10-29T20:16:30.366448747Z [cam_sim_1] Detectado: arma_blanca (0.88)
+2026-10-29T20:16:30.563558796Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=39.7 lote=1
+2026-10-29T20:16:30.563914823Z [cam_sim_1] Detectado: arma_fuego (0.75)
+2026-10-29T20:16:30.763519458Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=39.5 lote=1
+2026-10-29T20:16:30.967601229Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.5 inferencia_ms=43.0 lote=1
+2026-10-29T20:16:30.967774842Z [cam_sim_1] Detectado: arma_blanca (0.74)
+2026-10-29T20:16:31.163243369Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=38.3 lote=1
+2026-10-29T20:16:31.365763323Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=40.2 lote=1
+2026-10-29T20:16:31.565799691Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.9 inferencia_ms=39.7 lote=1
+2026-10-29T20:16:31.767696764Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=41.3 lote=1
+2026-10-29T20:16:31.767998786Z [cam_sim_1] Detectado: arma_blanca (0.92)
+2026-10-29T20:16:31.977063827Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=49.8 lote=1
+2026-10-29T20:16:31.977396352Z [cam_sim_1] Detectado: arma_fuego (0.84)
+2026-10-29T20:16:32.165474013Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=38.0 lote=1
+2026-10-29T20:16:32.369641085Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=41.8 lote=1
+2026-10-29T20:16:32.572079627Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=43.4 lote=1
+2026-10-29T20:16:32.572290743Z [cam_sim_1] Detectado: arma_blanca (0.86)
+2026-10-29T20:16:32.769393083Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=40.4 lote=1
+2026-10-29T20:16:32.769878619Z [cam_sim_1] Detectado: arma_fuego (0.78)
+2026-10-29T20:16:32.769896620Z [cam_sim_1] Detectado: arma_blanca (0.70)
+2026-10-29T20:16:32.968669486Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=39.4 lote=1
+2026-10-29T20:16:32.968937406Z [cam_sim_1] Detectado: arma_blanca (0.69)
+2026-10-29T20:16:32.969507349Z [cam_sim_1] DETECCION: arma_blanca (0.69)
+2026-10-29T20:16:32.980595284Z LATENCIA cam=cam_sim_1 inferencia_ms=39.4 preproc_ms=2.1 red_ms=8.7 total_agente_ms=50.3
+2026-10-29T20:16:32.980608385Z [cam_sim_1] ALERTA ENVIADA - incidente 6ae3a9a0a240aa6d49014c70
+2026-10-29T20:16:32.980610385Z AVISO: la camara 'cam_sim_1' no esta registrada en el sistema. Registrala con el nombre exacto 'Simulada 1' para vincularla.
+2026-10-29T20:16:33.173646019Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=43.9 lote=1
+2026-10-29T20:16:33.173876937Z [cam_sim_1] Detectado: arma_blanca (0.91)
+2026-10-29T20:16:33.371873044Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=42.0 lote=1
+2026-10-29T20:16:33.372343179Z [cam_sim_1] Detectado: arma_fuego (0.79)
+2026-10-29T20:16:33.573109995Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.8 inferencia_ms=42.6 lote=1
+2026-10-29T20:16:33.573434820Z [cam_sim_1] Detectado: arma_fuego (0.91)
+2026-10-29T20:16:33.770775778Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=40.0 lote=1
+2026-10-29T20:16:33.771061999Z [cam_sim_1] Detectado: arma_fuego (0.69)
+2026-10-29T20:16:33.977607550Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=46.5 lote=1
+2026-10-29T20:16:33.977895272Z [cam_sim_1] Detectado: arma_fuego (0.91)
+2026-10-29T20:16:34.172002186Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.2 inferencia_ms=40.5 lote=1
+2026-10-29T20:16:34.375138381Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.7 inferencia_ms=43.1 lote=1
+2026-10-29T20:16:34.573990553Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=41.5 lote=1
+2026-10-29T20:16:34.771926455Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=39.2 lote=1
+2026-10-29T20:16:34.772165573Z [cam_sim_1] Detectado: arma_fuego (0.83)
+2026-10-29T20:16:34.976916789Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=43.7 lote=1
+2026-10-29T20:16:34.977179009Z [cam_sim_1] Detectado: arma_blanca (0.73)
+2026-10-29T20:16:35.175338629Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=41.7 lote=1
+2026-10-29T20:16:35.175677554Z [cam_sim_1] Detectado: arma_fuego (0.81)
+2026-10-29T20:16:35.372058740Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.5 inferencia_ms=38.2 lote=1
+2026-10-29T20:16:35.573954741Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=39.8 lote=1
+2026-10-29T20:16:35.574483681Z [cam_sim_1] Detectado: arma_blanca (0.84)
+2026-10-29T20:16:35.776546194Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.5 inferencia_ms=42.1 lote=1
+2026-10-29T20:16:35.979579881Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=44.7 lote=1
+2026-10-29T20:16:36.176850934Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=41.3 lote=1
+2026-10-29T20:16:36.177250664Z [cam_sim_1] Detectado: arma_blanca (0.84)
+2026-10-29T20:16:36.177257164Z [cam_sim_1] Detectado: arma_fuego (0.65)
+2026-10-29T20:16:36.375856117Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=39.8 lote=1
+2026-10-29T20:16:36.576298409Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=39.9 lote=1
+2026-10-29T20:16:36.576630734Z [cam_sim_1] Detectado: arma_fuego (0.77)
+2026-10-29T20:16:36.780137756Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=43.3 lote=1
+2026-10-29T20:16:36.780379474Z [cam_sim_1] Detectado: arma_blanca (0.95)
+2026-10-29T20:16:36.976048306Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=39.0 lote=1
+2026-10-29T20:16:37.180893129Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=43.2 lote=1
+2026-10-29T20:16:37.181266957Z [cam_sim_1] Detectado: arma_blanca (0.76)
+2026-10-29T20:16:37.379936615Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.7 inferencia_ms=41.8 lote=1
+2026-10-29T20:16:37.580156190Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.8 inferencia_ms=41.4 lote=1
+2026-10-29T20:16:37.779145872Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.6 inferencia_ms=40.0 lote=1
+2026-10-29T20:16:37.779397191Z [cam_sim_1] Detectado: arma_blanca (0.77)
+2026-10-29T20:16:37.977997444Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=38.7 lote=1
+2026-10-29T20:16:38.183007479Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.6 inferencia_ms=43.1 lote=1
+2026-10-29T20:16:38.378565403Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=38.1 lote=1
+2026-10-29T20:16:38.584765528Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.0 inferencia_ms=43.5 lote=1
+2026-10-29T20:16:38.585014247Z [cam_sim_1] Detectado: arma_blanca (0.85)
+2026-10-29T20:16:38.585668496Z [cam_sim_1] DETECCION: arma_blanca (0.85)
+2026-10-29T20:16:38.598099932Z LATENCIA cam=cam_sim_1 inferencia_ms=43.5 preproc_ms=2.1 red_ms=10.2 total_agente_ms=55.9
+2026-10-29T20:16:38.598113633Z [cam_sim_1] ALERTA ENVIADA - incidente 6ae3a9a6a240aa6d49014c72
+2026-10-29T20:16:38.598115633Z AVISO: la camara 'cam_sim_1' no esta registrada en el sistema. Registrala con el nombre exacto 'Simulada 1' para vincularla.
+2026-10-29T20:16:38.780265548Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.2 inferencia_ms=38.7 lote=1
+2026-10-29T20:16:38.981740017Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.6 inferencia_ms=39.8 lote=1
+2026-10-29T20:16:38.981955833Z [cam_sim_1] Detectado: arma_blanca (0.75)
+2026-10-29T20:16:39.183297892Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=40.9 lote=1
+2026-10-29T20:16:39.386018055Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=43.1 lote=1
+2026-10-29T20:16:39.582897679Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.9 inferencia_ms=39.7 lote=1
+2026-10-29T20:16:39.583087393Z [cam_sim_1] Detectado: arma_fuego (0.93)
+2026-10-29T20:16:39.781909192Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.9 inferencia_ms=38.5 lote=1
+2026-10-29T20:16:39.982242030Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.9 inferencia_ms=38.5 lote=1
+2026-10-29T20:16:40.183338924Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.6 inferencia_ms=39.3 lote=1
+2026-10-29T20:16:40.382614783Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.7 inferencia_ms=38.3 lote=1
+2026-10-29T20:16:40.585834135Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=41.0 lote=1
+2026-10-29T20:16:40.586328271Z [cam_sim_1] Detectado: arma_fuego (0.87)
+2026-10-29T20:16:40.586335372Z [cam_sim_1] Detectado: arma_fuego (0.85)
+2026-10-29T20:16:40.785087593Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.8 inferencia_ms=39.9 lote=1
+2026-10-29T20:16:40.990672219Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=44.9 lote=1
+2026-10-29T20:16:40.990929938Z [cam_sim_1] Detectado: arma_blanca (0.84)
+2026-10-29T20:16:41.185645660Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=39.5 lote=1
+2026-10-29T20:16:41.185979185Z [cam_sim_1] Detectado: arma_fuego (0.76)
+2026-10-29T20:16:41.389649069Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=43.0 lote=1
+2026-10-29T20:16:41.389972193Z [cam_sim_1] Detectado: arma_blanca (0.81)
+2026-10-29T20:16:41.586238730Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.7 inferencia_ms=39.2 lote=1
+2026-10-29T20:16:41.791757152Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.5 inferencia_ms=44.0 lote=1
+2026-10-29T20:16:41.792301392Z [cam_sim_1] Detectado: arma_fuego (0.66)
+2026-10-29T20:16:41.986988111Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=38.9 lote=1
+2026-10-29T20:16:42.188916567Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=40.4 lote=1
+2026-10-29T20:16:42.392363436Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=43.5 lote=1
+2026-10-29T20:16:42.392795568Z [cam_sim_1] Detectado: arma_fuego (0.89)
+2026-10-29T20:16:42.589641547Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=40.1 lote=1
+2026-10-29T20:16:42.589922268Z [cam_sim_1] Detectado: arma_fuego (0.93)
+2026-10-29T20:16:42.790911254Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.4 inferencia_ms=41.1 lote=1
+2026-10-29T20:16:42.791127470Z [cam_sim_1] Detectado: arma_fuego (0.80)
+2026-10-29T20:16:42.989699177Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.6 inferencia_ms=39.7 lote=1
+2026-10-29T20:16:42.989954496Z [cam_sim_1] Detectado: arma_fuego (0.93)
+2026-10-29T20:16:43.189641286Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=39.4 lote=1
+2026-10-29T20:16:43.391055104Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=40.7 lote=1
+2026-10-29T20:16:43.391421231Z [cam_sim_1] Detectado: arma_fuego (0.79)
+2026-10-29T20:16:43.592541327Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=41.6 lote=1
+2026-10-29T20:16:43.592697438Z [cam_sim_1] Detectado: arma_blanca (0.91)
+2026-10-29T20:16:43.593353087Z [cam_sim_1] DETECCION: arma_blanca (0.91)
+2026-10-29T20:16:43.606739278Z LATENCIA cam=cam_sim_1 inferencia_ms=41.6 preproc_ms=2.2 red_ms=11.1 total_agente_ms=54.9
+2026-10-29T20:16:43.606749579Z [cam_sim_1] ALERTA ENVIADA - incidente 6ae3a9aba240aa6d49014c74
+2026-10-29T20:16:43.606751379Z AVISO: la camara 'cam_sim_1' no esta registrada en el sistema. Registrala con el nombre exacto 'Simulada 1' para vincularla.
+2026-10-29T20:16:43.790116160Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.8 inferencia_ms=38.9 lote=1
+2026-10-29T20:16:43.992139323Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.3 inferencia_ms=40.5 lote=1
+2026-10-29T20:16:44.189682954Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=38.0 lote=1
+2026-10-29T20:16:44.394592031Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.4 inferencia_ms=42.3 lote=1
+2026-10-29T20:16:44.394830648Z [cam_sim_1] Detectado: arma_blanca (0.75)
+2026-10-29T20:16:44.592346778Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.9 inferencia_ms=39.5 lote=1
+2026-10-29T20:16:44.797848098Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.6 inferencia_ms=44.5 lote=1
+2026-10-29T20:16:44.798256628Z [cam_sim_1] Detectado: arma_blanca (0.95)
+2026-10-29T20:16:44.992525217Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=38.7 lote=1
+2026-10-29T20:16:45.194328663Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=40.2 lote=1
+2026-10-29T20:16:45.194724793Z [cam_sim_1] Detectado: arma_fuego (0.89)
+2026-10-29T20:16:45.194767596Z [cam_sim_1] Detectado: arma_fuego (0.75)
+2026-10-29T20:16:45.398024750Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.8 inferencia_ms=43.6 lote=1
+2026-10-29T20:16:45.593227708Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=38.5 lote=1
+2026-10-29T20:16:45.793262223Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=38.3 lote=1
+2026-10-29T20:16:46.196764509Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.3 inferencia_ms=41.2 lote=1
+2026-10-29T20:16:46.197214342Z [cam_sim_1] Detectado: arma_fuego (0.79)
+2026-10-29T20:16:46.397898406Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=41.9 lote=1
+2026-10-29T20:16:46.599876465Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.3 inferencia_ms=43.5 lote=1
+2026-10-29T20:16:46.600122684Z [cam_sim_1] Detectado: arma_fuego (0.83)
+2026-10-29T20:16:46.796825152Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=39.9 lote=1
+2026-10-29T20:16:46.797142576Z [cam_sim_1] Detectado: arma_blanca (0.95)
+2026-10-29T20:16:47.003073228Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.7 inferencia_ms=45.6 lote=1
+2026-10-29T20:16:47.196028219Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=38.4 lote=1
+2026-10-29T20:16:47.396911098Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.8 inferencia_ms=39.1 lote=1
+2026-10-29T20:16:47.397327029Z [cam_sim_1] Detectado: arma_blanca (0.73)
+2026-10-29T20:16:47.598317315Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=40.2 lote=1
+2026-10-29T20:16:47.598859355Z [cam_sim_1] Detectado: arma_blanca (0.83)
+2026-10-29T20:16:47.798748718Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.9 inferencia_ms=40.1 lote=1
+2026-10-29T20:16:48.002375291Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=43.3 lote=1
+2026-10-29T20:16:48.200548400Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=41.0 lote=1
+2026-10-29T20:16:48.403434024Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=43.2 lote=1
+2026-10-29T20:16:48.603464857Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=42.8 lote=1
+2026-10-29T20:16:48.603772478Z [cam_sim_1] Detectado: arma_fuego (0.83)
+2026-10-29T20:16:48.604467424Z [cam_sim_1] DETECCION: arma_fuego (0.83)
+2026-10-29T20:16:48.617360584Z LATENCIA cam=cam_sim_1 inferencia_ms=42.8 preproc_ms=2.1 red_ms=10.6 total_agente_ms=55.6
+2026-10-29T20:16:48.617372384Z [cam_sim_1] ALERTA ENVIADA - incidente 6ae3a9b0a240aa6d49014c76
+2026-10-29T20:16:48.617402786Z AVISO: la camara 'cam_sim_1' no esta registrada en el sistema. Registrala con el nombre exacto 'Simulada 1' para vincularla.
+2026-10-29T20:16:48.804152934Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=43.0 lote=1
+2026-10-29T20:16:49.005119530Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.6 inferencia_ms=43.7 lote=1
+2026-10-29T20:16:49.005613563Z [cam_sim_1] Detectado: arma_fuego (0.93)
+2026-10-29T20:16:49.201817341Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=40.1 lote=1
+2026-10-29T20:16:49.202007454Z [cam_sim_1] Detectado: arma_blanca (0.94)
+2026-10-29T20:16:49.401130526Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=39.2 lote=1
+2026-10-29T20:16:49.401439247Z [cam_sim_1] Detectado: arma_fuego (0.85)
+2026-10-29T20:16:49.604794002Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=42.4 lote=1
+2026-10-29T20:16:49.605179628Z [cam_sim_1] Detectado: arma_blanca (0.85)
+2026-10-29T20:16:49.807596920Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=44.8 lote=1
+2026-10-29T20:16:49.807856237Z [cam_sim_1] Detectado: arma_blanca (0.78)
+2026-10-29T20:16:49.998754457Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=37.9 lote=1
+2026-10-29T20:16:50.202867662Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=41.4 lote=1
+2026-10-29T20:16:50.203126279Z [cam_sim_1] Detectado: arma_fuego (0.79)
+2026-10-29T20:16:50.401842325Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=39.8 lote=1
+2026-10-29T20:16:50.402071540Z [cam_sim_1] Detectado: arma_blanca (0.69)
+2026-10-29T20:16:50.601007300Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=38.8 lote=1
+2026-10-29T20:16:50.804382957Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=41.5 lote=1
+2026-10-29T20:16:51.006406923Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=43.0 lote=1
+2026-10-29T20:16:51.006683941Z [cam_sim_1] Detectado: arma_blanca (0.86)
+2026-10-29T20:16:51.205423088Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=41.6 lote=1
+2026-10-29T20:16:51.405904252Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.0 inferencia_ms=41.5 lote=1
+2026-10-29T20:16:51.607293075Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.8 inferencia_ms=42.5 lote=1
+2026-10-29T20:16:51.607697802Z [cam_sim_1] Detectado: arma_fuego (0.75)
+2026-10-29T20:16:51.808470785Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=43.0 lote=1
+2026-10-29T20:16:51.808938116Z [cam_sim_1] Detectado: arma_blanca (0.69)
+2026-10-29T20:16:52.005634827Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=40.0 lote=1
+2026-10-29T20:16:52.005947148Z [cam_sim_1] Detectado: arma_fuego (0.70)
+2026-10-29T20:16:52.209294602Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=42.8 lote=1
+2026-10-29T20:16:52.209442312Z [cam_sim_1] Detectado: arma_fuego (0.92)
+2026-10-29T20:16:52.406684460Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.6 inferencia_ms=40.1 lote=1
+2026-10-29T20:16:52.407038883Z [cam_sim_1] Detectado: arma_fuego (0.77)
+2026-10-29T20:16:52.612283164Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=45.3 lote=1
+2026-10-29T20:16:52.807611084Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.8 inferencia_ms=40.3 lote=1
+2026-10-29T20:16:52.807874801Z [cam_sim_1] Detectado: arma_fuego (0.77)
+2026-10-29T20:16:53.012017309Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=44.0 lote=1
+2026-10-29T20:16:53.012461938Z [cam_sim_1] Detectado: arma_fuego (0.76)
+2026-10-29T20:16:53.211201285Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=42.7 lote=1
+2026-10-29T20:16:53.407407964Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=38.7 lote=1
+2026-10-29T20:16:53.607726316Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=38.8 lote=1
+2026-10-29T20:16:53.811380291Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=41.9 lote=1
+2026-10-29T20:16:54.009945627Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.8 inferencia_ms=39.9 lote=1
+2026-10-29T20:16:54.010239746Z [cam_sim_1] Detectado: arma_blanca (0.94)
+2026-10-29T20:16:54.010919091Z [cam_sim_1] DETECCION: arma_blanca (0.94)
+2026-10-29T20:16:54.021894523Z LATENCIA cam=cam_sim_1 inferencia_ms=39.9 preproc_ms=1.9 red_ms=9.0 total_agente_ms=50.7
+2026-10-29T20:16:54.021906724Z [cam_sim_1] ALERTA ENVIADA - incidente 6ae3a9b6a240aa6d49014c78
+2026-10-29T20:16:54.021908624Z AVISO: la camara 'cam_sim_1' no esta registrada en el sistema. Registrala con el nombre exacto 'Simulada 1' para vincularla.
+2026-10-29T20:16:54.210379687Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=40.0 lote=1
+2026-10-29T20:16:54.210699908Z [cam_sim_1] Detectado: arma_fuego (0.86)
+2026-10-29T20:16:54.412044329Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.8 inferencia_ms=41.2 lote=1
+2026-10-29T20:16:54.412310847Z [cam_sim_1] Detectado: arma_fuego (0.92)
+2026-10-29T20:16:54.613831079Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=42.6 lote=1
+2026-10-29T20:16:54.810953418Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=39.5 lote=1
+2026-10-29T20:16:55.011404880Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=39.7 lote=1
+2026-10-29T20:16:55.012174231Z [cam_sim_1] Detectado: arma_fuego (0.65)
+2026-10-29T20:16:55.215705198Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=43.2 lote=1
+2026-10-29T20:16:55.215992117Z [cam_sim_1] Detectado: arma_fuego (0.80)
+2026-10-29T20:16:55.415965446Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=43.1 lote=1
+2026-10-29T20:16:55.416371173Z [cam_sim_1] Detectado: arma_blanca (0.96)
+2026-10-29T20:16:55.613591119Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=40.4 lote=1
+2026-10-29T20:16:55.613893739Z [cam_sim_1] Detectado: arma_fuego (0.88)
+2026-10-29T20:16:55.817224221Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=43.5 lote=1
+2026-10-29T20:16:55.817530043Z [cam_sim_1] Detectado: arma_blanca (0.80)
+2026-10-29T20:16:56.012065871Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=37.9 lote=1
+2026-10-29T20:16:56.222255745Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=47.8 lote=1
+2026-10-29T20:16:56.222886791Z [cam_sim_1] Detectado: arma_fuego (0.69)
+2026-10-29T20:16:56.418025363Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=42.9 lote=1
+2026-10-29T20:16:56.418270781Z [cam_sim_1] Detectado: arma_fuego (0.85)
+2026-10-29T20:16:56.618295811Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=42.4 lote=1
+2026-10-29T20:16:56.618704941Z [cam_sim_1] Detectado: arma_fuego (0.85)
+2026-10-29T20:16:56.819048794Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.7 inferencia_ms=42.5 lote=1
+2026-10-29T20:16:57.016278320Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.9 inferencia_ms=39.5 lote=1
+2026-10-29T20:16:57.016564941Z [cam_sim_1] Detectado: arma_fuego (0.67)
+2026-10-29T20:16:57.217458534Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=40.2 lote=1
+2026-10-29T20:16:57.217719453Z [cam_sim_1] Detectado: arma_fuego (0.91)
+2026-10-29T20:16:57.420809107Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=43.1 lote=1
+2026-10-29T20:16:57.421085328Z [cam_sim_1] Detectado: arma_fuego (0.80)
+2026-10-29T20:16:57.620028178Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=41.8 lote=1
+2026-10-29T20:16:57.620310299Z [cam_sim_1] Detectado: arma_fuego (0.85)
+2026-10-29T20:16:57.820265724Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=41.6 lote=1
+2026-10-29T20:16:57.820475039Z [cam_sim_1] Detectado: arma_fuego (0.65)
+2026-10-29T20:16:58.023279672Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=43.9 lote=1
+2026-10-29T20:16:58.023546992Z [cam_sim_1] Detectado: arma_blanca (0.94)
+2026-10-29T20:16:58.221439866Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=41.8 lote=1
+2026-10-29T20:16:58.423718761Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=43.5 lote=1
+2026-10-29T20:16:58.424234898Z [cam_sim_1] Detectado: arma_blanca (0.80)
+2026-10-29T20:16:58.620072022Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=39.5 lote=1
+2026-10-29T20:16:58.620252235Z [cam_sim_1] Detectado: arma_fuego (0.73)
+2026-10-29T20:16:58.824664586Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.5 inferencia_ms=43.8 lote=1
+2026-10-29T20:16:59.019500236Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.2 inferencia_ms=38.1 lote=1
+2026-10-29T20:16:59.224432625Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.3 inferencia_ms=42.6 lote=1
+2026-10-29T20:16:59.426658316Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=44.5 lote=1
+2026-10-29T20:16:59.427155352Z [cam_sim_1] Detectado: arma_blanca (0.83)
+2026-10-29T20:16:59.427164953Z [cam_sim_1] Detectado: arma_blanca (0.70)
+2026-10-29T20:16:59.428416344Z [cam_sim_1] DETECCION: arma_blanca (0.83)
+2026-10-29T20:16:59.442004938Z LATENCIA cam=cam_sim_1 inferencia_ms=44.5 preproc_ms=3.0 red_ms=10.3 total_agente_ms=57.8
+2026-10-29T20:16:59.442017439Z [cam_sim_1] ALERTA ENVIADA - incidente 6ae3a9bba240aa6d49014c7a
+2026-10-29T20:16:59.442019539Z AVISO: la camara 'cam_sim_1' no esta registrada en el sistema. Registrala con el nombre exacto 'Simulada 1' para vincularla.
+2026-10-29T20:16:59.622369630Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.2 inferencia_ms=39.5 lote=1
+2026-10-29T20:16:59.622493839Z [cam_sim_1] Detectado: arma_blanca (0.94)
+2026-10-29T20:16:59.823081610Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.2 inferencia_ms=40.2 lote=1
+2026-10-29T20:16:59.823324428Z [cam_sim_1] Detectado: arma_fuego (0.83)
+2026-10-29T20:17:00.027199140Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.1 inferencia_ms=43.6 lote=1
+2026-10-29T20:17:00.027465559Z [cam_sim_1] Detectado: arma_blanca (0.76)
+2026-10-29T20:17:00.222704639Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=38.9 lote=1
+2026-10-29T20:17:00.423972660Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=39.6 lote=1
+2026-10-29T20:17:00.424265081Z [cam_sim_1] Detectado: arma_fuego (0.87)
+2026-10-29T20:17:00.624056794Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=39.3 lote=1
+2026-10-29T20:17:00.624432822Z [cam_sim_1] Detectado: arma_fuego (0.90)
+2026-10-29T20:17:00.829569825Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=44.2 lote=1
+2026-10-29T20:17:00.829970155Z [cam_sim_1] Detectado: arma_fuego (0.78)
+2026-10-29T20:17:01.026997565Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=41.2 lote=1
+2026-10-29T20:17:01.027244683Z [cam_sim_1] Detectado: arma_fuego (0.71)
+2026-10-29T20:17:01.229877004Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=43.6 lote=1
+2026-10-29T20:17:01.230569355Z [cam_sim_1] Detectado: arma_blanca (0.89)
+2026-10-29T20:17:01.427138132Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=40.4 lote=1
+2026-10-29T20:17:01.427598065Z [cam_sim_1] Detectado: arma_blanca (0.87)
+2026-10-29T20:17:01.631111150Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.8 inferencia_ms=43.7 lote=1
+2026-10-29T20:17:01.631325066Z [cam_sim_1] Detectado: arma_blanca (0.88)
+2026-10-29T20:17:01.829833585Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=42.2 lote=1
+2026-10-29T20:17:02.026081539Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.6 inferencia_ms=38.0 lote=1
+2026-10-29T20:17:02.228567348Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=40.3 lote=1
+2026-10-29T20:17:02.228819667Z [cam_sim_1] Detectado: arma_fuego (0.84)
+2026-10-29T20:17:02.428837596Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=40.0 lote=1
+2026-10-29T20:17:02.429714260Z [cam_sim_1] Detectado: arma_fuego (0.90)
+2026-10-29T20:17:02.429720161Z [cam_sim_1] Detectado: arma_fuego (0.88)
+2026-10-29T20:17:02.429721761Z [cam_sim_1] Detectado: arma_fuego (0.85)
+2026-10-29T20:17:02.429722861Z [cam_sim_1] Detectado: arma_fuego (0.75)
+2026-10-29T20:17:02.632352981Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=43.1 lote=1
+2026-10-29T20:17:02.632689106Z [cam_sim_1] Detectado: arma_fuego (0.91)
+2026-10-29T20:17:02.829461398Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=39.8 lote=1
+2026-10-29T20:17:02.829615109Z [cam_sim_1] Detectado: arma_fuego (0.92)
+2026-10-29T20:17:03.032069117Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=42.0 lote=1
+2026-10-29T20:17:03.229880685Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=39.5 lote=1
+2026-10-29T20:17:03.230200508Z [cam_sim_1] Detectado: arma_fuego (0.92)
+2026-10-29T20:17:03.429901214Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=39.4 lote=1
+2026-10-29T20:17:03.430742176Z [cam_sim_1] Detectado: arma_fuego (0.80)
+2026-10-29T20:17:03.634287163Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.7 inferencia_ms=43.2 lote=1
+2026-10-29T20:17:03.634623288Z [cam_sim_1] Detectado: arma_fuego (0.72)
+2026-10-29T20:17:03.831942073Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.3 inferencia_ms=40.5 lote=1
+2026-10-29T20:17:03.832141288Z [cam_sim_1] Detectado: arma_fuego (0.91)
+2026-10-29T20:17:04.029903264Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=38.1 lote=1
+2026-10-29T20:17:04.234351837Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.0 inferencia_ms=42.2 lote=1
+2026-10-29T20:17:04.431346457Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=39.1 lote=1
+2026-10-29T20:17:04.633950593Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.4 inferencia_ms=41.2 lote=1
+2026-10-29T20:17:04.831081623Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=38.2 lote=1
+2026-10-29T20:17:05.036223647Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=42.8 lote=1
+2026-10-29T20:17:05.036839793Z [cam_sim_1] Detectado: arma_fuego (0.66)
+2026-10-29T20:17:05.037428637Z [cam_sim_1] DETECCION: arma_fuego (0.66)
+2026-10-29T20:17:05.048306444Z LATENCIA cam=cam_sim_1 inferencia_ms=42.8 preproc_ms=2.1 red_ms=8.6 total_agente_ms=53.5
+2026-10-29T20:17:05.048339747Z [cam_sim_1] ALERTA ENVIADA - incidente 6ae3a9c1a240aa6d49014c7c
+2026-10-29T20:17:05.048341747Z AVISO: la camara 'cam_sim_1' no esta registrada en el sistema. Registrala con el nombre exacto 'Simulada 1' para vincularla.
+2026-10-29T20:17:05.232318800Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=38.6 lote=1
+2026-10-29T20:17:05.434178681Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.7 inferencia_ms=40.2 lote=1
+2026-10-29T20:17:05.434446301Z [cam_sim_1] Detectado: arma_fuego (0.89)
+2026-10-29T20:17:05.634054915Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=39.6 lote=1
+2026-10-29T20:17:05.835479363Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.0 inferencia_ms=40.7 lote=1
+2026-10-29T20:17:05.835694879Z [cam_sim_1] Detectado: arma_blanca (0.96)
+2026-10-29T20:17:06.034682447Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.7 inferencia_ms=39.7 lote=1
+2026-10-29T20:17:06.034985470Z [cam_sim_1] Detectado: arma_blanca (0.66)
+2026-10-29T20:17:06.238759393Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.8 inferencia_ms=43.2 lote=1
+2026-10-29T20:17:06.239071016Z [cam_sim_1] Detectado: arma_blanca (0.72)
+2026-10-29T20:17:06.436493767Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.6 inferencia_ms=40.7 lote=1
+2026-10-29T20:17:06.638381950Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=41.9 lote=1
+2026-10-29T20:17:06.835499579Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.0 inferencia_ms=38.7 lote=1
+2026-10-29T20:17:07.037071039Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=39.7 lote=1
+2026-10-29T20:17:07.037183947Z [cam_sim_1] Detectado: arma_blanca (0.76)
+2026-10-29T20:17:07.241614619Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.7 inferencia_ms=43.7 lote=1
+2026-10-29T20:17:07.441534855Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.5 inferencia_ms=43.1 lote=1
+2026-10-29T20:17:07.441899583Z [cam_sim_1] Detectado: arma_blanca (0.80)
+2026-10-29T20:17:07.441923984Z [cam_sim_1] Detectado: arma_blanca (0.79)
+2026-10-29T20:17:07.637434394Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.6 inferencia_ms=38.4 lote=1
+2026-10-29T20:17:07.843276470Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=43.6 lote=1
+2026-10-29T20:17:07.843452783Z [cam_sim_1] Detectado: arma_blanca (0.93)
+2026-10-29T20:17:08.040187884Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.5 inferencia_ms=40.1 lote=1
+2026-10-29T20:17:08.242581204Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.1 inferencia_ms=42.0 lote=1
+2026-10-29T20:17:08.443475114Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=3.4 inferencia_ms=42.3 lote=1
+2026-10-29T20:17:08.639709377Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=0.9 inferencia_ms=38.2 lote=1
+2026-10-29T20:17:08.840395571Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=38.5 lote=1
+2026-10-29T20:17:09.041745514Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=39.7 lote=1
+2026-10-29T20:17:09.042001233Z [cam_sim_1] Detectado: arma_fuego (0.91)
+2026-10-29T20:17:09.242869040Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.2 inferencia_ms=40.6 lote=1
+2026-10-29T20:17:09.446460549Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.3 inferencia_ms=43.4 lote=1
+2026-10-29T20:17:09.446620761Z [cam_sim_1] Detectado: arma_fuego (0.86)
+2026-10-29T20:17:09.645753540Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.4 inferencia_ms=42.4 lote=1
+2026-10-29T20:17:09.646009959Z [cam_sim_1] Detectado: arma_fuego (0.86)
+2026-10-29T20:17:09.842942674Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=1.0 inferencia_ms=39.1 lote=1
+2026-10-29T20:17:10.044777953Z LATENCIA_FRAME cam=cam_sim_1 lectura_ms=2.6 inferencia_ms=40.7 lote=1
+2026-10-29T20:17:10.045222686Z [cam_sim_1] Detectado: arma_blanca (0.90)
+2026-10-29T20:17:10.046088950Z [cam_sim_1] DETECCION: arma_blanca (0.90)
+2026-10-29T20:17:10.063603250Z LATENCIA cam=cam_sim_1 inferencia_ms=40.7 preproc_ms=2.7 red_ms=14.7 total_agente_ms=58.0
+2026-10-29T20:17:10.063623251Z [cam_sim_1] ALERTA ENVIADA - incidente 6ae3a9c6a240aa6d49014c7e
+2026-10-29T20:17:10.063627352Z AVISO: la camara 'cam_sim_1' no esta registrada en el sistema. Registrala con el nombre exacto 'Simulada 1' para vincularla.

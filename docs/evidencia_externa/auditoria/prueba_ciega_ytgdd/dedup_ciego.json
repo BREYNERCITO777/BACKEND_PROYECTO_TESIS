@@ -1,0 +1,75 @@
+{
+ "umbral": 6,
+ "test": 500,
+ "fuentes": {
+  "propio_train": 21534,
+  "propio_val": 5386,
+  "fondos": 900,
+  "zenodo_train": 5934,
+  "zenodo_val": 1272,
+  "copias_aumentadas_v5": 8240
+ },
+ "candidatos": {
+  "QgFxgTvmE0w_30_60_000154.jpg": [
+   [
+    "propio_train",
+    "armas_1851_jpg.rf.d0ac59d5c73b22fb8732c2e6aa38e241.jpg",
+    5
+   ],
+   [
+    "propio_train",
+    "armas_2623_jpg.rf.d96e80880bbb5332d825a64755ff096d.jpg",
+    5
+   ],
+   [
+    "propio_val",
+    "armas_2623_jpg.rf.7d1c52ee01f4276cec004e46c41cec91.jpg",
+    5
+   ],
+   [
+    "copias_aumentadas_v5",
+    "aug_propio_armas_1851_jpg.rf.d0ac59d5c73b22fb8732c2e6aa38e241.jpg",
+    6
+   ]
+  ],
+  "pAoYi_eeVO4_30_60_000092.jpg": [
+   [
+    "propio_train",
+    "test_armas_245_jpg.rf.300ed9b9edcf809481893af764518c37.jpg",
+    6
+   ],
+   [
+    "propio_val",
+    "armas_1351_jpg.rf.a0dc9be0f8e3c4a4613d00fc120923f3.jpg",
+    4
+   ],
+   [
+    "zenodo_train",
+    "525e7d5e-1907.jpg",
+    6
+   ],
+   [
+    "zenodo_train",
+    "5ae976d2-3954.jpg",
+    5
+   ],
+   [
+    "zenodo_train",
+    "a995d392-2457.jpg",
+    5
+   ]
+  ],
+  "PNWsflgn8JU_30_60_000124.jpg": [
+   [
+    "zenodo_train",
+    "0472da3c-0318.jpg",
+    6
+   ],
+   [
+    "copias_aumentadas_v5",
+    "aug_zenodo_0472da3c-0318.jpg",
+    6
+   ]
+  ]
+ }
+}

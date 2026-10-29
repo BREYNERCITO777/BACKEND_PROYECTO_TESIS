@@ -1,0 +1,34 @@
+{
+  "1": {
+    "alertas": 17,
+    "calentamiento_descartadas": 0,
+    "captura_a_cliente_P50": 54.8,
+    "captura_a_cliente_P95": 61.1,
+    "envio_a_cliente_P50": 9.8,
+    "envio_a_cliente_P95": 13.9
+  },
+  "4": {
+    "alertas": 65,
+    "calentamiento_descartadas": 0,
+    "captura_a_cliente_P50": 110.7,
+    "captura_a_cliente_P95": 127.6,
+    "envio_a_cliente_P50": 23.7,
+    "envio_a_cliente_P95": 34.0
+  },
+  "8": {
+    "alertas": 131,
+    "calentamiento_descartadas": 0,
+    "captura_a_cliente_P50": 129.5,
+    "captura_a_cliente_P95": 147.8,
+    "envio_a_cliente_P50": 24.8,
+    "envio_a_cliente_P95": 35.8
+  },
+  "16": {
+    "alertas": 227,
+    "calentamiento_descartadas": 0,
+    "captura_a_cliente_P50": 158.7,
+    "captura_a_cliente_P95": 193.0,
+    "envio_a_cliente_P50": 25.3,
+    "envio_a_cliente_P95": 43.2
+  }
+}
