@@ -213,3 +213,12 @@ demo/            demo de punta a punta con un video de ejemplo (ver demo/README.
 experimentos/    scripts que producen las cifras de la revisión de Frontiers
 tests/           pruebas contra el sistema real
 ```
+
+## Licencia
+
+El código de este repositorio se publica bajo la licencia MIT (`LICENSE`). El detector
+depende de la biblioteca [Ultralytics](https://github.com/ultralytics/ultralytics), que se
+distribuye bajo AGPL-3.0: sus términos se aplican a esa biblioteca y a cualquier
+distribución que la incluya. La licencia MIT no cubre los datasets de entrenamiento (cada
+uno conserva la suya; ver el artículo) ni otorga derechos de redistribución sobre pesos
+entrenados en parte con datos de procedencia no recuperada.
