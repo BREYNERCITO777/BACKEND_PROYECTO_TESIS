@@ -1,0 +1,40 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+  .g3 { display: grid; grid-template-columns: 1fr 40px 1fr 40px 1fr; align-items: start; }
+  .g3 .flecha { min-width: 0; align-self: center; }
+  .etapa { border: 2px solid; border-radius: 10px; padding: 8px; }
+  .etapa > .etiqueta-capa { text-align: center; color: #fff; border-radius: 6px; padding: 3px; margin-bottom: 8px; }
+  .item { border: 1.5px solid #3e4c59; border-radius: 7px; padding: 6px 8px; background: #fff; margin-bottom: 7px; }
+  .item b { display: block; }
+  .abajo { text-align: center; font-size: 22px; line-height: 1; margin: -3px 0 4px; color: #2f8f4e; }
+</style></head>
+<body><div id="lienzo">
+  <div class="g3">
+    <div class="etapa azul f-azul"><div class="etiqueta-capa b-azul">1. DATA</div>
+      <div class="item"><b>Public weapon datasets</b>17,852 firearm and 9,361 bladed-weapon boxes</div>
+      <div class="item"><b>Images without weapons</b>2,091, incl. 404 deployment-camera frames</div>
+      <div class="item"><b>Two classes, 80/20 split</b>21,534 / 5,386; augmented copies on both sides</div>
+      <div class="item"><b>Dangerous Items (CC BY 4.0)</b>7,206 added to training; test split held out, 1,054 after deduplication</div>
+    </div>
+    <div class="flecha"><span class="g">&#8594;</span></div>
+    <div class="etapa verde f-verde"><div class="etiqueta-capa b-verde">2. TRAINING (YOLOv8s)</div>
+      <div class="item"><b>v2: from COCO, 60 epochs</b>Own corpus</div><div class="abajo">&#8595;</div>
+      <div class="item"><b>v3: +20 epochs</b>+404 deployment-camera frames</div><div class="abajo">&#8595;</div>
+      <div class="item"><b>v4: +20 epochs</b>+Dangerous Items train/val</div><div class="abajo">&#8595;</div>
+      <div class="item" style="border-width:3px"><b>v5: +20 epochs, deployed</b>+8,240 blur/occlusion copies</div>
+      <div class="nota">RTX 2070, 640 px, batch 16, seed 0</div>
+    </div>
+    <div class="flecha"><span class="g">&#8594;</span></div>
+    <div class="etapa morado f-morado"><div class="etiqueta-capa b-morado">3. EVALUATION</div>
+      <div class="item"><b>Deduplicated test (1,054)</b>Global and per-class metrics; confusion matrix</div>
+      <div class="item"><b>Blind test (YouTube-GDD)</b>500 frames, firearms only, run once</div>
+      <div class="item"><b>Comparison</b>YOLOv8n, YOLOv8s, YOLOv5s and Faster R-CNN, 20 epochs from COCO</div>
+      <div class="item"><b>Robustness and operating points</b>Degradations, viewpoints, thresholds</div>
+    </div>
+  </div>
+  <div class="caja naranja f-naranja" style="margin-top:12px">
+    <h3>Deployed model: v5 (YOLOv8s), <code>best.pt</code></h3>
+    Same weights in the backend and the agent, verified by SHA-256; alert threshold 0.65
+  </div>
+</div></body></html>

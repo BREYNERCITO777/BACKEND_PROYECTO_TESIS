@@ -1,0 +1,40 @@
+{
+ "0.25": {
+  "fp": 119,
+  "tp": 696,
+  "fn": 173,
+  "tipos": {
+   "desplazada": 38,
+   "sin_arma_cerca": 66,
+   "otra_clase": 13,
+   "duplicada": 2
+  }
+ },
+ "0.65": {
+  "fp": 32,
+  "tp": 550,
+  "fn": 319,
+  "tipos": {
+   "desplazada": 17,
+   "sin_arma_cerca": 10,
+   "otra_clase": 5
+  }
+ },
+ "matriz_confusion_ultralytics": [
+  [
+   358.0,
+   9.0,
+   27.0
+  ],
+  [
+   1.0,
+   343.0,
+   41.0
+  ],
+  [
+   65.0,
+   93.0,
+   0.0
+  ]
+ ]
+}

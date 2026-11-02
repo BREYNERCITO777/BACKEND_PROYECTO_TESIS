@@ -1,0 +1,63 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+  .pasos { margin-top: 14px; border: 1.5px solid #cbd2d9; border-radius: 9px; padding: 10px 12px; }
+  .pasos h4 { font-size: 18px; color: #1d4f9c; margin-bottom: 6px; }
+  .pasos div { display: flex; gap: 8px; margin: 5px 0; }
+  .capas { display: flex; font-weight: 700; letter-spacing: .3px; margin-bottom: 4px; }
+</style></head>
+<body><div id="lienzo">
+  <div class="capas">
+    <div style="width:150px"></div><div style="width:64px"></div>
+    <div style="width:220px;color:#1d4f9c">PRESENTATION</div><div style="width:74px"></div>
+    <div style="width:250px;color:#23703c">APPLICATION</div><div style="width:64px"></div>
+    <div style="color:#5a35a8">PERSISTENCE</div>
+  </div>
+  <div class="fila">
+    <div class="caja gris f-gris" style="width:150px">
+      <h3><span class="paso b-azul">6</span> Operator</h3>
+      Reviews each alert and decides on any action
+    </div>
+    <div class="flecha" style="width:64px"><span class="g">&#8594;</span>HTTP(S)</div>
+    <div class="caja azul f-azul" style="width:220px">
+      <h3>Dashboard</h3><div class="tec">React, served by Nginx</div>
+      Live alert window with evidence image; JWT roles
+    </div>
+    <div class="flecha" style="width:74px"><span class="g">&#8594;</span>REST<span class="g">&#8592;</span><span><span class="paso b-azul">5</span> WS</span></div>
+    <div class="caja verde f-verde" style="width:250px">
+      <h3><span class="paso b-verde">3</span> Backend</h3><div class="tec">FastAPI, Python 3.9</div>
+      Checks token, threshold and cooldown; stores the incident and the alert; broadcasts it
+    </div>
+    <div class="flecha" style="width:64px"><span class="g">&#8596;</span><span><span class="paso b-morado">4</span></span></div>
+    <div class="caja morado f-morado" style="flex:1">
+      <h3>MongoDB 7</h3>Incidents, alerts, cameras, users, settings
+    </div>
+  </div>
+  <div class="flecha-v" style="margin-left:480px;justify-content:flex-start">
+    <span class="g">&#8593;</span><span>HTTP(S) POST: class, confidence, evidence image</span>
+  </div>
+  <div class="zona">
+    <div class="titulo">MUNICIPAL NETWORK (ON PREMISES) &middot; video never leaves it</div>
+    <div class="fila">
+      <div class="caja rojo f-rojo" style="width:230px">
+        <h3>IP cameras</h3>RTSP streams (1 to 16 per agent tested)
+      </div>
+      <div class="flecha" style="width:74px"><span class="g">&#8594;</span><span><span class="paso b-rojo">1</span> RTSP</span></div>
+      <div class="caja naranja f-naranja" style="flex:1">
+        <h3><span class="paso b-naranja">2</span> Detection agent</h3>
+        <div class="tec">Python 3.10, OpenCV, Ultralytics, YOLOv8s (v5); CPU or GPU</div>
+        One process for all cameras; shared model with batched inference, about 5 analysed frames/s per camera
+      </div>
+    </div>
+  </div>
+  <div class="pasos">
+    <h4>Alert flow</h4>
+    <div><span class="paso b-rojo">1</span>The agent reads each RTSP stream in its own thread and keeps only the latest frame.</div>
+    <div><span class="paso b-naranja">2</span>YOLOv8s analyses the new frames of all cameras in one batch; a detection at or above the threshold (0.65) is sent with one evidence image, at most once per camera every 5 s.</div>
+    <div><span class="paso b-verde">3</span>The backend checks the agent token, the threshold and the cooldown, then stores the incident and the alert.</div>
+    <div><span class="paso b-morado">4</span>MongoDB keeps the incident record and the evidence image.</div>
+    <div><span class="paso b-azul">5</span>The alert is broadcast over WebSocket to every connected dashboard.</div>
+    <div><span class="paso b-azul">6</span>The operator reviews the evidence image and decides; the system never acts on its own.</div>
+    <div class="nota">HTTP(S): HTTP on port 80 inside the municipal network in production (Figure 7); HTTPS in the cloud prototype evaluated in this study.</div>
+  </div>
+</div></body></html>

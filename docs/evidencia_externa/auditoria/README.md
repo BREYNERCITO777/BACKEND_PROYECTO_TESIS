@@ -102,3 +102,9 @@ cámara y marca de tiempo: captura→cliente P50/P95 = 55/61, 111/128, 130/148 y
   (`EVIDENCE_RETENTION_DAYS`) se agregó al código el 21 oct 2026, después de la
   evaluación, y vale 0 (desactivada) por defecto. Las imágenes de evidencia de la
   evaluación siguen en MongoDB Atlas hasta que se borren a mano.
+
+## Nota sobre el total de imagenes comparadas (43,266)
+La carpeta `fondos` (900 imagenes sin armas) contiene los mismos archivos que ya estan en
+`dataset_80_20` (720 en train y 180 en val), asi que el protocolo de la prueba ciega los
+conto dos veces. Las imagenes distintas que vio v5 son 42,366, como en la Tabla 2. La
+deduplicacion no cambia: se comparo contra un superconjunto.

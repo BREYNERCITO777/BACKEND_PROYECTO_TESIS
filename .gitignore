@@ -24,3 +24,4 @@ venv/
 
 # Credenciales del agente en el despliegue municipal
 agente.env
+ESTADO_CORRECCIONES_FRONTIERS.md

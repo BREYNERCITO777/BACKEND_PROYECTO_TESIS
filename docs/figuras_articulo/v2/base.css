@@ -1,0 +1,38 @@
+/* Diagramas del articulo, version final: lienzo de 1000 px y texto de al menos
+   16 px, que a 180 mm de ancho impreso equivale a 8 pt o mas. Sin titulo
+   interno: el pie de figura del manuscrito lo da. */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #fff; font-family: "Segoe UI", Arial, sans-serif; color: #1f2933; font-size: 16px;
+       line-height: 1.3; }
+#lienzo { width: 1000px; padding: 14px; }
+code, .mono { font-family: Consolas, "Courier New", monospace; font-size: 16px; }
+.caja { border: 2px solid; border-radius: 9px; padding: 9px 11px; background: #fff; }
+.caja h3 { font-size: 19px; font-weight: 700; margin-bottom: 3px; }
+.caja .tec { color: #3e4c59; margin-bottom: 4px; }
+.caja ul { padding-left: 18px; }
+.caja hr { border: 0; border-top: 1px solid currentColor; opacity: .3; margin: 6px 0; }
+.fila { display: flex; gap: 0; align-items: stretch; }
+.col { display: flex; flex-direction: column; gap: 10px; }
+.flecha { display: flex; align-items: center; justify-content: center; flex-direction: column;
+          min-width: 64px; font-size: 16px; color: #3e4c59; text-align: center; }
+.flecha .g { font-size: 30px; line-height: 1; color: #3e4c59; }
+.flecha-v { display: flex; align-items: center; justify-content: center; gap: 8px; height: 46px;
+            color: #3e4c59; }
+.flecha-v .g { font-size: 30px; line-height: 1; }
+.zona { border: 2px dashed #7b8794; border-radius: 12px; padding: 22px 12px 12px; position: relative; }
+.zona > .titulo { position: absolute; top: -12px; left: 14px; background: #fff; padding: 0 6px;
+                  font-weight: 700; color: #3e4c59; }
+.paso { display: inline-flex; width: 24px; height: 24px; border-radius: 50%; color: #fff; font-size: 16px;
+        font-weight: 700; align-items: center; justify-content: center; flex: none; }
+.etiqueta-capa { font-weight: 700; letter-spacing: .3px; margin-bottom: 4px; }
+.nota { color: #3e4c59; font-style: italic; }
+
+.azul    { border-color: #2563c4; } .azul h3    { color: #1d4f9c; } .f-azul    { background: #eef4fc; }
+.verde   { border-color: #2f8f4e; } .verde h3   { color: #23703c; } .f-verde   { background: #edf7f0; }
+.naranja { border-color: #e07b1a; } .naranja h3 { color: #a3540a; } .f-naranja { background: #fdf3e8; }
+.morado  { border-color: #7048c4; } .morado h3  { color: #5a35a8; } .f-morado  { background: #f3effb; }
+.rojo    { border-color: #c8393b; } .rojo h3    { color: #a12a2c; } .f-rojo    { background: #fcefef; }
+.gris    { border-color: #7b8794; } .gris h3    { color: #2f3a45; } .f-gris    { background: #f5f7fa; }
+.negro   { border-color: #3e4c59; }
+.b-azul { background: #2563c4; } .b-verde { background: #2f8f4e; } .b-naranja { background: #c76a12; }
+.b-morado { background: #7048c4; } .b-rojo { background: #c8393b; } .b-gris { background: #52606d; }

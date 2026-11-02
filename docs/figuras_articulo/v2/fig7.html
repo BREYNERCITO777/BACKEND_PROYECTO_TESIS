@@ -1,0 +1,31 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style> .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; } </style>
+</head><body><div id="lienzo">
+  <div class="zona" style="border-color:#c76a12">
+    <div class="titulo" style="color:#a3540a">MUNICIPAL NETWORK &middot; production installation</div>
+    <div class="fila">
+      <div class="caja azul f-azul" style="width:200px;align-self:center"><h3>Operators</h3>Web browser at <code>http://&lt;server&gt;</code></div>
+      <div class="flecha" style="width:80px"><span class="g">&#8594;</span>HTTP, port 80</div>
+      <div class="caja verde f-verde" style="flex:1">
+        <h3>Application server (Docker Compose)</h3>
+        <div class="g2">
+          <div class="caja negro"><b>panel</b> (Nginx): dashboard; forwards <code>/api</code> and WebSocket; only published port</div>
+          <div class="caja negro"><b>backend</b> (FastAPI): <code>best.pt</code> (v5); evidence volume</div>
+          <div class="caja negro"><b>.env</b> (not versioned): tokens, keys, retention days</div>
+          <div class="caja negro"><b>mongo</b> (MongoDB 7): data volume, daily backup</div>
+        </div>
+      </div>
+    </div>
+    <div class="flecha-v" style="margin-left:470px;justify-content:flex-start"><span class="g">&#8593;</span>POST detections</div>
+    <div class="fila">
+      <div class="caja rojo f-rojo" style="width:200px"><h3>IP cameras</h3>RTSP; video read only by the agent</div>
+      <div class="flecha" style="width:80px"><span class="g">&#8594;</span>RTSP</div>
+      <div class="caja naranja f-naranja" style="flex:1"><h3>Detection agent</h3>Same server or a machine next to the cameras; a CPU keeps 5 frames/s for one camera, more cameras need a GPU</div>
+    </div>
+  </div>
+  <div class="g2" style="margin-top:12px">
+    <div class="caja gris f-gris"><h3>Prototype evaluated here</h3>Backend on Render, MongoDB Atlas, dashboard on Vercel; agent on the municipal network, sending detections over HTTPS. Latency was measured with a local backend.</div>
+    <div class="caja gris f-gris"><h3>Access and code</h3>HTTPS is required for access from outside the internal network. Code: GitHub, MIT license (Ultralytics library: AGPL-3.0).</div>
+  </div>
+</div></body></html>

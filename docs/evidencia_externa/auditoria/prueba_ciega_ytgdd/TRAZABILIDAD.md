@@ -24,7 +24,7 @@ docker run --rm --gpus all --shm-size=2g \
   nivel de imagen con `conf=0.65`.
 - Resultado: P 0.7943, R 0.4699, AP50 0.5840, AP50-95 0.3870; 497 imágenes con arma: 252 con
   alguna alerta, de ellas 10 solo como arma blanca, es decir 242 (48.7 %) con alerta como arma de fuego.
-- Deduplicación previa: `dedup_ciego.json` (dHash, Hamming <= 6, contra 43,266 imágenes) y
+- Deduplicación previa: `dedup_ciego.json` (dHash, Hamming <= 6, contra las 42,366 imágenes distintas que vio v5; 43,266 contando dos veces las 900 de `fondos`, que ya están en `dataset_80_20`) y
   `candidatos_verificados.json` (3 candidatos, MAD 26–115 frente al umbral 4: ninguno es copia).
 - No hubo ninguna inferencia previa sobre este conjunto ni ajuste posterior: el modelo, los
   umbrales y el conjunto no cambiaron después de ver el resultado.

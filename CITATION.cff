@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using these metadata."
+title: "Sentinel AI: weapon detection with immediate alerts for urban video surveillance"
+type: software
+authors:
+  - family-names: "Hernández Cruz"
+    given-names: "Breyner Martín"
+    affiliation: "Universidad Peruana Unión"
+  - family-names: "Pezo Castro"
+    given-names: "Enoc Stip Ostin"
+    affiliation: "Universidad Peruana Unión"
+  - family-names: "Marlo Rimarachin"
+    given-names: "Wilder"
+    affiliation: "Universidad Peruana Unión"
+version: "1.1.0-revision"
+date-released: "2026-11-02"
+license: MIT
+repository-code: "https://github.com/BREYNERCITO777/BACKEND_PROYECTO_TESIS"
+keywords:
+  - YOLOv8
+  - weapon detection
+  - software architecture
+  - video surveillance
+notes: >-
+  Accompanies the manuscript "Software architecture using YOLOv8 for the automatic
+  detection and classification of weapons with immediate alerts in urban video
+  surveillance" (Frontiers in Computer Science, manuscript 1919959, under review).
+  The Ultralytics library used by the detector is distributed under AGPL-3.0.

@@ -1,0 +1,42 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+  .g3 { display: grid; grid-template-columns: 1fr 44px 1fr 44px 1fr; align-items: stretch; }
+  .g3 .flecha { min-width: 0; }
+  .caja h3 { display: flex; gap: 6px; align-items: center; }
+  .epicas { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  .epicas .caja { padding: 7px 8px; }
+  .epicas b { display: block; }
+</style></head>
+<body><div id="lienzo">
+  <div class="g3">
+    <div class="caja azul f-azul"><h3><span class="paso b-azul">1</span>Requirements</h3>User stories, acceptance criteria, priorities</div>
+    <div class="flecha"><span class="g">&#8594;</span></div>
+    <div class="caja verde f-verde"><h3><span class="paso b-verde">2</span>Product backlog</h3>Five epics (below), estimated and ordered by value</div>
+    <div class="flecha"><span class="g">&#8594;</span></div>
+    <div class="caja naranja f-naranja"><h3><span class="paso b-naranja">3</span>Sprint planning</h3>Two-week goal, selected items, task breakdown</div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 44px 1fr 44px 1fr"><div></div><div></div><div></div><div></div>
+    <div class="flecha-v"><span class="g">&#8595;</span></div></div>
+  <div class="g3">
+    <div class="caja rojo f-rojo"><h3><span class="paso b-rojo">6</span>Review and retrospective</h3>Inspect the increment; adapt the process</div>
+    <div class="flecha"><span class="g">&#8592;</span></div>
+    <div class="caja morado f-morado"><h3><span class="paso b-morado">5</span>Functional increment</h3>Working, demonstrable software</div>
+    <div class="flecha"><span class="g">&#8592;</span></div>
+    <div class="caja azul"><h3><span class="paso b-azul">4</span>Sprint cycle</h3>Develop, integrate, test (pytest on every commit, GitHub Actions)</div>
+  </div>
+  <div class="flecha-v" style="justify-content:flex-start;margin-left:40px">
+    <span class="g">&#8634;</span><span>Next sprint: feedback updates the backlog (step 2) and the way the sprint is run</span>
+  </div>
+  <div class="zona" style="margin-top:6px">
+    <div class="titulo">PRODUCT BACKLOG EPICS (TABLE 1)</div>
+    <div class="epicas">
+      <div class="caja gris"><b>1 &middot; Infrastructure</b>Docker images and Compose, MongoDB</div>
+      <div class="caja gris"><b>2 &middot; Ingestion and model</b>Datasets, YOLOv8 training and evaluation</div>
+      <div class="caja gris"><b>3 &middot; Backend</b>FastAPI: auth, alerts, incidents, cameras</div>
+      <div class="caja gris"><b>4 &middot; Frontend</b>React dashboard: live alerts, evidence</div>
+      <div class="caja gris"><b>5 &middot; Deployment</b>Municipal servers; cloud prototype</div>
+    </div>
+  </div>
+  <div class="nota" style="margin-top:8px">Two-week sprints managed in Azure DevOps.</div>
+</div></body></html>

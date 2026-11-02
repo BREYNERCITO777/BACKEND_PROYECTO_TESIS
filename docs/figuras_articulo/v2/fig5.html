@@ -1,0 +1,49 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>
+  .mods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+  .mod { border: 1.5px solid #3e4c59; border-radius: 7px; padding: 5px 7px; background: #fff; }
+  .mod b { display: block; }
+  .lado { display: flex; flex-direction: column; justify-content: space-around; gap: 14px; }
+  .linea { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; margin-top: 7px; }
+</style></head>
+<body><div id="lienzo">
+  <div class="fila">
+    <div class="lado" style="width:150px">
+      <div class="caja azul f-azul"><h3>Dashboard</h3>React; REST with a JWT</div>
+      <div class="caja naranja f-naranja"><h3>Agent</h3>On premises; agent token</div>
+    </div>
+    <div class="lado" style="width:56px">
+      <div class="flecha" style="min-width:0"><span class="g">&#8644;</span>REST, WS</div>
+      <div class="flecha" style="min-width:0"><span class="g">&#8594;</span>POST</div>
+    </div>
+    <div class="caja verde f-verde" style="flex:1">
+      <h3>FastAPI backend, <code>/api/v1</code>: 28 HTTP endpoints + 1 WebSocket</h3>
+      <div class="mods">
+        <div class="mod"><b>Auth (2)</b>Login, session</div>
+        <div class="mod"><b>Users (6), admin</b>Accounts, roles</div>
+        <div class="mod"><b>Settings (2)</b>Threshold, options</div>
+        <div class="mod"><b>Cameras (8)</b>RTSP, start, stop</div>
+        <div class="mod"><b>Incidents (2)</b>Detection records</div>
+        <div class="mod"><b>Alerts (5)</b>List, mark as read</div>
+        <div class="mod" style="border-width:3px"><b>Agent (1)</b>Token, threshold, 5 s cooldown; incident + alert</div>
+        <div class="mod"><b>Inference (2)</b>Image upload, live view</div>
+        <div class="mod"><b>WebSocket (1)</b>Pushes each new alert</div>
+      </div>
+      <div class="linea">
+        <div class="mod"><b>security</b>JWT, roles</div>
+        <div class="mod"><b>crypto</b>Encrypted RTSP credentials</div>
+        <div class="mod"><b>retention</b>Hourly purge of old evidence</div>
+        <div class="mod"><b>evidence</b>Boxes drawn, JPEG saved</div>
+      </div>
+    </div>
+    <div class="lado" style="width:56px">
+      <div class="flecha" style="min-width:0"><span class="g">&#8596;</span>Motor</div>
+      <div class="flecha" style="min-width:0"><span class="g">&#8596;</span>disk</div>
+    </div>
+    <div class="lado" style="width:150px">
+      <div class="caja morado f-morado"><h3>MongoDB</h3>Users, cameras, incidents, alerts, settings</div>
+      <div class="caja gris f-gris"><h3>Evidence</h3>JPEG files; purged after the retention period</div>
+    </div>
+  </div>
+</div></body></html>

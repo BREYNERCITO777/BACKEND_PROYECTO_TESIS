@@ -214,6 +214,15 @@ experimentos/    scripts que producen las cifras de la revisión de Frontiers
 tests/           pruebas contra el sistema real
 ```
 
+## Versión del artículo
+
+La versión descrita en el manuscrito de Frontiers (1919959) es la etiqueta
+`v1.1.0-revision`. Las figuras finales del artículo (180 mm, 300 dpi) están en
+`docs/figuras_articulo/final/` y se regeneran con `experimentos/figuras_finales.py`
+(Figuras 8, 9, 11 y 12), `experimentos/figuras_ejemplos.py` (Figuras 10 y 13) y
+`docs/figuras_articulo/v2/render.py` (diagramas 1 a 7). Para citar el software, ver
+`CITATION.cff`.
+
 ## Licencia
 
 El código de este repositorio se publica bajo la licencia MIT (`LICENSE`). El detector
