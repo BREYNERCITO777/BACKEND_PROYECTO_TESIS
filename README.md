@@ -217,11 +217,26 @@ tests/           pruebas contra el sistema real
 ## Versión del artículo
 
 La versión descrita en el manuscrito de Frontiers (1919959) es la etiqueta
-`v1.1.0-revision`. Las figuras finales del artículo (180 mm, 300 dpi) están en
-`docs/figuras_articulo/final/` y se regeneran con `experimentos/figuras_finales.py`
-(Figuras 8, 9, 11 y 12), `experimentos/figuras_ejemplos.py` (Figuras 10 y 13) y
-`docs/figuras_articulo/v2/render.py` (diagramas 1 a 7). Para citar el software, ver
-`CITATION.cff`.
+`v1.1.0-revision`. Relación entre las dos etiquetas:
+
+| Etiqueta | Qué contiene |
+|---|---|
+| `v1.0.0-revision` | Código con el que se construyeron las imágenes `sentinel-backend:1.0.0` y `sentinel-agent:1.0.0` usadas en todas las mediciones |
+| `v1.1.0-revision` | El mismo backend, el mismo agente y el mismo modelo (`app/models/best.pt`, SHA256 `1aec8d3c…`), más los archivos de despliegue en los servidores municipales (`despliegue/`), `app/scripts/crear_admin.py`, `CITATION.cff` y los scripts de las figuras |
+
+Las figuras finales del artículo (180 mm, 300 dpi) están en `docs/figuras_articulo/final/`
+(con la numeración de los archivos, no la del artículo) y se regeneran con
+`experimentos/figuras_finales.py`, `experimentos/figuras_ejemplos.py` y
+`docs/figuras_articulo/v2/render.py`. Correspondencia con el artículo:
+
+| Archivo | Artículo |
+|---|---|
+| `Figura_01`, `Figura_02` | Figuras 1 y 2 |
+| `Figura_04` | Figura 3 |
+| `Figura_08` a `Figura_13` | Figuras 4 a 9 |
+| `Figura_03`, `Figura_05`, `Figura_06`, `Figura_07` | Figuras suplementarias S1 a S4 |
+
+Para citar el software, ver `CITATION.cff`.
 
 ## Licencia
 
