@@ -15,7 +15,9 @@
       <div class="item"><b>Public weapon datasets</b>17,852 firearm and 9,361 bladed-weapon boxes</div>
       <div class="item"><b>Images without weapons</b>2,091, incl. 404 deployment-camera frames</div>
       <div class="item"><b>Two classes, 80/20 split</b>21,534 / 5,386; augmented copies on both sides</div>
-      <div class="item"><b>Dangerous Items (CC BY 4.0)</b>7,206 added to training; test split held out, 1,054 after deduplication</div>
+      <div class="item"><b>Dangerous Items (CC BY 4.0)</b>Train/val splits: 7,206 images added to training</div>
+      <div class="item"><b>Its test split, held out</b>1,272 images<br>&minus; 194 copies of its own train/val images<br>&minus; 24 .JPG files not read by the hash script*<br>= <b style="display:inline">1,054</b> test images
+        <div class="nota">*Checked later: none is a duplicate</div></div>
     </div>
     <div class="flecha"><span class="g">&#8594;</span></div>
     <div class="etapa verde f-verde"><div class="etiqueta-capa b-verde">2. TRAINING (YOLOv8s)</div>
